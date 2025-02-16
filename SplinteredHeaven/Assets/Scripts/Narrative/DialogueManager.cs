@@ -13,6 +13,7 @@ public class DialogueManager : MonoBehaviour
     [Header("Load Globals JSON")]
     [SerializeField] private TextAsset loadGlobalsJSON;
 
+    /*
     [Header("Dialogue UI")]
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private GameObject continueIcon;
@@ -25,7 +26,6 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject[] choices;
     private TextMeshProUGUI[] choicesText;
 
-    /*
     [Header("Audio")]
     [SerializeField] private DialogueAudioInfoSO defaultAudioInfo;
     [SerializeField] private DialogueAudioInfoSO[] audioInfos;
@@ -53,7 +53,7 @@ public class DialogueManager : MonoBehaviour
     //Handle Singleton
     private static DialogueManager instance;
 
-    /*
+    
 
     private void Awake()
     {
@@ -95,30 +95,6 @@ public class DialogueManager : MonoBehaviour
         InitializeAudioInfoDictionary();
     }
 
-    private void InitializeAudioInfoDictionary()
-    {
-        audioInfoDictionary = new Dictionary<string, DialogueAudioInfoSO>();
-        audioInfoDictionary.Add(defaultAudioInfo.id, defaultAudioInfo);
-        foreach (DialogueAudioInfoSO audioInfo in audioInfos)
-        {
-            audioInfoDictionary.Add(audioInfo.id, audioInfo);
-        }
-    }
-
-    private void SetCurrentAudioInfo(string id)
-    {
-        DialogueAudioInfoSO audioInfo = null;
-        audioInfoDictionary.TryGetValue(id, out audioInfo);
-        if (audioInfo != null)
-        {
-            this.currentAudioInfo = audioInfo;
-        }
-        else
-        {
-            Debug.LogWarning("Failed to find audio info for id: " + id);
-        }
-    }
-
     private void Update()
     {
         // return right away if dialogue isn't playing
@@ -153,6 +129,33 @@ public class DialogueManager : MonoBehaviour
 
         ContinueStory();
     }
+
+    /*
+    private void InitializeAudioInfoDictionary()
+    {
+        audioInfoDictionary = new Dictionary<string, DialogueAudioInfoSO>();
+        audioInfoDictionary.Add(defaultAudioInfo.id, defaultAudioInfo);
+        foreach (DialogueAudioInfoSO audioInfo in audioInfos)
+        {
+            audioInfoDictionary.Add(audioInfo.id, audioInfo);
+        }
+    }
+
+    private void SetCurrentAudioInfo(string id)
+    {
+        DialogueAudioInfoSO audioInfo = null;
+        audioInfoDictionary.TryGetValue(id, out audioInfo);
+        if (audioInfo != null)
+        {
+            this.currentAudioInfo = audioInfo;
+        }
+        else
+        {
+            Debug.LogWarning("Failed to find audio info for id: " + id);
+        }
+    }
+
+    
 
     private IEnumerator ExitDialogueMode()
     {
