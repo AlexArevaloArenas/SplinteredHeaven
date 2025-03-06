@@ -15,7 +15,8 @@ public class EventManager : MonoBehaviour
     public event Action<Vector2> LookEvent;
 
     //First person events
-    public event Action FPDialogueEvent;
+    public event Action<TextAsset> FPDialogueEvent;
+    public event Action EndFPDialogueEvent;
     public event Action<bool,string> FPChangeInteractionSymbolEvent;
 
     private void Awake()
@@ -52,9 +53,14 @@ public class EventManager : MonoBehaviour
     }
 
         //Dialogue Events
-    public void StartFirstPersonDialogue()
+    public void StartFirstPersonDialogue(TextAsset json)
     {
-        FPDialogueEvent?.Invoke();
+        FPDialogueEvent?.Invoke(json);
+    }
+
+    public void ExitFirstPersonDialogue()
+    {
+        EndFPDialogueEvent?.Invoke();
     }
 
     public void StartChangeInteractionSymbol(bool show,string text)

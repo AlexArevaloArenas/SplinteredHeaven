@@ -3,6 +3,7 @@ using UnityEngine;
 public class NPC : MonoBehaviour, IInteractable
 {
     [SerializeField] string interactionText;
+    [SerializeField] TextAsset inkJSON;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,7 +19,7 @@ public class NPC : MonoBehaviour, IInteractable
 
     public void Interact(GameObject interactor)
     {
-        EventManager.Instance.StartFirstPersonDialogue();
+        EventManager.Instance.StartFirstPersonDialogue(inkJSON);
     }
 
     public string GetInteractionText()

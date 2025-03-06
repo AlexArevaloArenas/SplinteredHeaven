@@ -42,6 +42,9 @@ public class PlayerFirstPersonMovement : MonoBehaviour
         EventManager.Instance.JumpEvent += JumpInput;
         EventManager.Instance.MoveEvent += MoveInputEvent;
         EventManager.Instance.LookEvent += LookInputEvent;
+        EventManager.Instance.FPDialogueEvent += EnterDialogueMode;
+        EventManager.Instance.EndFPDialogueEvent += ExitDialogueMode;
+        
     }
 
     // Update is called once per frame
@@ -119,6 +122,22 @@ public class PlayerFirstPersonMovement : MonoBehaviour
         EventManager.Instance.JumpEvent -= JumpInput;
         EventManager.Instance.MoveEvent -= MoveInputEvent;
         EventManager.Instance.LookEvent -= LookInputEvent;
+    }
+
+    private void EnterDialogueMode(TextAsset json)
+    {
+        // Lock cursor
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        canMove = false;
+    }
+
+    private void ExitDialogueMode()
+    {
+        canMove = true;
+        // Lock cursor
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
 }
