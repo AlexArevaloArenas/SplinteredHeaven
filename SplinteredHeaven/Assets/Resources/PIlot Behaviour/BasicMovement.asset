@@ -1,0 +1,715 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9035935599083062911
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dd922ae02c94c87a66e46a10a7319b9, type: 3}
+  m_Name: BasicMovement Blackboard
+  m_EditorClassIdentifier: 
+  AssetID:
+    m_Value0: 6093838060255698313
+    m_Value1: 13731865006134792344
+  m_Variables:
+  - rid: 2714005391759376576
+  - rid: 2714005391759376591
+  - rid: 2714005391759376914
+  m_VersionTimestamp: 638815590378185576
+  m_CommandBuffer:
+    m_Commands: []
+  m_RuntimeBlackboardAsset: {fileID: 1814682015459668068}
+  references:
+    version: 2
+    RefIds:
+    - rid: 2714005391759376576
+      type: {class: 'TypedVariableModel`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 1
+          m_Value1: 0
+        Name: Self
+        IsExposed: 1
+        m_IsShared: 0
+        m_Value: {fileID: 0}
+    - rid: 2714005391759376591
+      type: {class: 'TypedVariableModel`1[[Pathfinding.AIDestinationSetter, AstarPathfindingProject]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 1031718269137476340
+          m_Value1: 7817933355899506303
+        Name: DestinationSetter
+        IsExposed: 1
+        m_IsShared: 0
+        m_Value: {fileID: 0}
+    - rid: 2714005391759376914
+      type: {class: 'TypedVariableModel`1[[UnityEngine.Vector3, UnityEngine.CoreModule]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 13265757960394959871
+          m_Value1: 17385574385386153950
+        Name: Position
+        IsExposed: 1
+        m_IsShared: 0
+        m_Value: {x: 0, y: 0, z: 0}
+--- !u!114 &-7015667721856649493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db920e62f70f420bb33c771449926fa4, type: 3}
+  m_Name: BasicMovement
+  m_EditorClassIdentifier: 
+  Graphs:
+  - rid: 2714005490367201356
+  - rid: 2714005490367201357
+  RootGraph:
+    rid: 2714005490367201356
+  m_DebugInfo: {fileID: -3561744978171100252}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 2714005490367201356
+      type: {class: BehaviorGraphModule, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        AuthoringAssetID:
+          m_Value0: 6093838060255698313
+          m_Value1: 13731865006134792344
+        m_DebugInfo: {fileID: 0}
+        Root:
+          rid: 2714005490367201358
+        BlackboardReference:
+          rid: 2714005490367201359
+        BlackboardGroupReferences: []
+        m_ActiveNodes: []
+        m_NodesToTick: []
+        m_NodesToEnd:
+          rid: 2714005490367201360
+        m_EndedNodes:
+          rid: 2714005490367201361
+        m_VersionTimestamp: 638815590492189952
+    - rid: 2714005490367201357
+      type: {class: BehaviorGraphModule, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        AuthoringAssetID:
+          m_Value0: 1467394684668341566
+          m_Value1: 11504978522019516872
+        m_DebugInfo: {fileID: 0}
+        Root:
+          rid: 2714005490367201362
+        BlackboardReference:
+          rid: 2714005490367201363
+        BlackboardGroupReferences: []
+        m_ActiveNodes: []
+        m_NodesToTick: []
+        m_NodesToEnd:
+          rid: 2714005490367201364
+        m_EndedNodes:
+          rid: 2714005490367201365
+        m_VersionTimestamp: 638811878775945250
+    - rid: 2714005490367201358
+      type: {class: Start, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        ID:
+          m_Value0: 15972537675840561900
+          m_Value1: 6787380790463957389
+        Graph:
+          rid: 2714005490367201356
+        m_Parent:
+          rid: -2
+        m_Child:
+          rid: 2714005490367201366
+        Repeat: 1
+        AllowMultipleRepeatsPerTick: 0
+    - rid: 2714005490367201359
+      type: {class: BlackboardReference, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        m_Blackboard:
+          rid: 2714005490367201367
+        m_Source: {fileID: 1814682015459668068}
+    - rid: 2714005490367201360
+      type: {class: 'Stack`1[[Unity.Behavior.Node, Unity.Behavior]]', ns: System.Collections.Generic, asm: mscorlib}
+      data: 
+    - rid: 2714005490367201361
+      type: {class: 'HashSet`1[[Unity.Behavior.Node, Unity.Behavior]]', ns: System.Collections.Generic, asm: System.Core}
+      data: 
+    - rid: 2714005490367201362
+      type: {class: Start, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        ID:
+          m_Value0: 15972537675840561900
+          m_Value1: 6787380790463957389
+        Graph:
+          rid: 2714005490367201357
+        m_Parent:
+          rid: -2
+        m_Child:
+          rid: -2
+        Repeat: 1
+        AllowMultipleRepeatsPerTick: 0
+    - rid: 2714005490367201363
+      type: {class: BlackboardReference, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        m_Blackboard:
+          rid: 2714005490367201368
+        m_Source: {fileID: 1814682015459668068, guid: 3eedf3ecb03b5d14c8d1788102e5a99f, type: 2}
+    - rid: 2714005490367201364
+      type: {class: 'Stack`1[[Unity.Behavior.Node, Unity.Behavior]]', ns: System.Collections.Generic, asm: mscorlib}
+      data: 
+    - rid: 2714005490367201365
+      type: {class: 'HashSet`1[[Unity.Behavior.Node, Unity.Behavior]]', ns: System.Collections.Generic, asm: System.Core}
+      data: 
+    - rid: 2714005490367201366
+      type: {class: SelectorComposite, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        ID:
+          m_Value0: 9538603203535180265
+          m_Value1: 14009118571004833987
+        Graph:
+          rid: 2714005490367201356
+        m_Parent:
+          rid: 2714005490367201358
+        m_Children:
+        - rid: 2714005490367201369
+        - rid: 2714005490367201370
+    - rid: 2714005490367201367
+      type: {class: Blackboard, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        m_Variables:
+        - rid: 2714005490367201371
+        - rid: 2714005490367201372
+        - rid: 2714005490367201373
+    - rid: 2714005490367201368
+      type: {class: Blackboard, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        m_Variables:
+        - rid: 2714005490367201374
+    - rid: 2714005490367201369
+      type: {class: MoveToAction, ns: , asm: Assembly-CSharp}
+      data:
+        ID:
+          m_Value0: 9514395560316558024
+          m_Value1: 10206641703686571220
+        Graph:
+          rid: 2714005490367201356
+        m_Parent:
+          rid: 2714005490367201366
+        Position:
+          rid: 2714005490367201373
+        Destination:
+          rid: 2714005490367201372
+    - rid: 2714005490367201370
+      type: {class: RunSubgraph, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        ID:
+          m_Value0: 8923340310581168489
+          m_Value1: 4398026681163309618
+        Graph:
+          rid: 2714005490367201356
+        m_Parent:
+          rid: 2714005490367201366
+        Subgraph:
+          rid: 2714005490367201357
+    - rid: 2714005490367201371
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 1
+          m_Value1: 0
+        Name: Self
+        m_Value: {fileID: 0}
+    - rid: 2714005490367201372
+      type: {class: 'BlackboardVariable`1[[Pathfinding.AIDestinationSetter, AstarPathfindingProject]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 1031718269137476340
+          m_Value1: 7817933355899506303
+        Name: DestinationSetter
+        m_Value: {fileID: 0}
+    - rid: 2714005490367201373
+      type: {class: 'BlackboardVariable`1[[UnityEngine.Vector3, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 13265757960394959871
+          m_Value1: 17385574385386153950
+        Name: Position
+        m_Value: {x: 0, y: 0, z: 0}
+    - rid: 2714005490367201374
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 11007808721848153061
+          m_Value1: 9056504738785021283
+        Name: Self
+        m_Value: {fileID: 0}
+--- !u!114 &-3561744978171100252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b27bb6d9a2c8d540a10dff10acc543e, type: 3}
+  m_Name: BasicMovement Debug Info
+  m_EditorClassIdentifier: 
+  m_CodeBreakPointsList: []
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bad8f2220607dac4db5082ff333fafb8, type: 3}
+  m_Name: BasicMovement
+  m_EditorClassIdentifier: 
+  Blackboard: {fileID: -9035935599083062911}
+  m_Description: 
+  m_Nodes:
+  - rid: 2714005391759376577
+  - rid: 2714005391759376820
+  - rid: 2714005391759376823
+  - rid: 2714005391759377012
+  m_VersionTimestamp: 638815590492189952
+  m_DebugInfo: {fileID: -3561744978171100252}
+  m_RuntimeGraph: {fileID: -7015667721856649493}
+  AssetID:
+    m_Value0: 6093838060255698313
+    m_Value1: 13731865006134792344
+  Story:
+    Story: 
+    StoryVariableNames: []
+    Variables: []
+  m_NodeModelsInfo:
+  - Name: On Start
+    Story: 
+    RuntimeTypeID:
+      m_Value0: 3335272451348827663
+      m_Value1: 11549843281177505721
+    Variables: []
+    NamedChildren: []
+  - Name: Try In Order
+    Story: 
+    RuntimeTypeID:
+      m_Value0: 11477120919463386923
+      m_Value1: 7730102824742023565
+    Variables: []
+    NamedChildren: []
+  - Name: Run Subgraph
+    Story: 
+    RuntimeTypeID:
+      m_Value0: 9965463903622711961
+      m_Value1: 5344335246744595133
+    Variables: []
+    NamedChildren: []
+  - Name: MoveToAction
+    Story: 'Move Agent To [Position] Using [Destination]'
+    RuntimeTypeID:
+      m_Value0: 3089533442494491837
+      m_Value1: 11659979476511958633
+    Variables:
+    - Name: Position
+      Type:
+        m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      Tooltip: 
+    - Name: Destination
+      Type:
+        m_SerializableType: Pathfinding.AIDestinationSetter, AstarPathfindingProject,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      Tooltip: 
+    NamedChildren: []
+  - Name: MoveToTarget
+    Story: '[Agent] moves to [target] using [Destination] Setter'
+    RuntimeTypeID:
+      m_Value0: 3818117684308344741
+      m_Value1: 4494687417609256802
+    Variables:
+    - Name: Agent
+      Type:
+        m_SerializableType: CharacterManager, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+      Tooltip: 
+    - Name: Target
+      Type:
+        m_SerializableType: UnityEngine.Transform, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      Tooltip: 
+    - Name: Destination
+      Type:
+        m_SerializableType: Pathfinding.AIDestinationSetter, AstarPathfindingProject,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      Tooltip: 
+    NamedChildren: []
+  - Name: Sequence
+    Story: 
+    RuntimeTypeID:
+      m_Value0: 10181448252506100447
+      m_Value1: 8737116843063128493
+    Variables: []
+    NamedChildren: []
+  - Name: Conditional Branch
+    Story: 
+    RuntimeTypeID:
+      m_Value0: 12334964803190848789
+      m_Value1: 14608808926743427008
+    Variables: []
+    NamedChildren:
+    - True
+    - False
+  m_Blackboards: []
+  m_MainBlackboardAuthoringAsset: {fileID: -9035935599083062911}
+  m_CommandBuffer:
+    m_Commands: []
+  m_SubgraphsInfo:
+  - AssetID:
+      m_Value0: 1467394684668341566
+      m_Value1: 11504978522019516872
+    Timestamp: 638811878775945250
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 2714005391759376577
+      type: {class: StartNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        Position: {x: 0, y: 0}
+        ID:
+          m_Value0: 15972537675840561900
+          m_Value1: 6787380790463957389
+        Parents: []
+        PortModels:
+        - rid: 2714005391759376578
+        NodeType:
+          m_SerializableType: Unity.Behavior.Start, Unity.Behavior, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        NodeTypeID:
+          m_Value0: 3335272451348827663
+          m_Value1: 11549843281177505721
+        m_FieldValues: []
+        Repeat: 1
+        AllowMultipleRepeatsPerTick: 0
+    - rid: 2714005391759376578
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: OutputPort
+        m_PortDataFlowType: 1
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 2714005391759376577
+        m_Connections:
+        - rid: 2714005391759376821
+    - rid: 2714005391759376820
+      type: {class: CompositeNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        Position: {x: -1.0398424, y: 98.74961}
+        ID:
+          m_Value0: 9538603203535180265
+          m_Value1: 14009118571004833987
+        Parents: []
+        PortModels:
+        - rid: 2714005391759376821
+        - rid: 2714005391759376822
+        NodeType:
+          m_SerializableType: Unity.Behavior.SelectorComposite, Unity.Behavior, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        NodeTypeID:
+          m_Value0: 11477120919463386923
+          m_Value1: 7730102824742023565
+        m_FieldValues: []
+    - rid: 2714005391759376821
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: InputPort
+        m_PortDataFlowType: 0
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 2714005391759376820
+        m_Connections:
+        - rid: 2714005391759376578
+    - rid: 2714005391759376822
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: OutputPort
+        m_PortDataFlowType: 1
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 2714005391759376820
+        m_Connections:
+        - rid: 2714005391759376824
+        - rid: 2714005391759377013
+    - rid: 2714005391759376823
+      type: {class: SubgraphNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        Position: {x: 88.080086, y: 220.6696}
+        ID:
+          m_Value0: 8923340310581168489
+          m_Value1: 4398026681163309618
+        Parents: []
+        PortModels:
+        - rid: 2714005391759376824
+        - rid: 2714005391759376825
+        NodeType:
+          m_SerializableType: Unity.Behavior.RunSubgraph, Unity.Behavior, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        NodeTypeID:
+          m_Value0: 9965463903622711961
+          m_Value1: 5344335246744595133
+        m_FieldValues:
+        - rid: 2714005391759376886
+        - rid: 2714005391759376887
+        - rid: 2714005391759376891
+        m_OveriddenblackboardVariableGuids: []
+        m_SubgraphAssetId:
+          m_Value0: 1467394684668341566
+          m_Value1: 11504978522019516872
+        m_IsDynamic: 0
+        m_ShowStaticSubgraphRepresentation: 0
+        m_StoryFields: []
+    - rid: 2714005391759376824
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: InputPort
+        m_PortDataFlowType: 0
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 2714005391759376823
+        m_Connections:
+        - rid: 2714005391759376822
+    - rid: 2714005391759376825
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: OutputPort
+        m_PortDataFlowType: 1
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 2714005391759376823
+        m_Connections: []
+    - rid: 2714005391759376886
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: Subgraph
+        Type:
+          m_SerializableType: Unity.Behavior.BehaviorGraph, Unity.Behavior, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        LocalValue:
+          rid: 2714005391759376888
+        LinkedVariable:
+          rid: 2714005391759376890
+    - rid: 2714005391759376887
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: Blackboard
+        Type:
+          m_SerializableType: Unity.Behavior.BehaviorBlackboardAuthoringAsset, Unity.Behavior.Authoring,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        LocalValue:
+          rid: 2714005391759376889
+        LinkedVariable:
+          rid: -2
+    - rid: 2714005391759376888
+      type: {class: 'BlackboardVariable`1[[Unity.Behavior.BehaviorGraph, Unity.Behavior]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: {fileID: 0}
+    - rid: 2714005391759376889
+      type: {class: 'BlackboardVariable`1[[Unity.Behavior.BehaviorBlackboardAuthoringAsset, Unity.Behavior.Authoring]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: {fileID: 0}
+    - rid: 2714005391759376890
+      type: {class: 'TypedVariableModel`1[[Unity.Behavior.BehaviorGraph, Unity.Behavior]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 15734216320636645793
+          m_Value1: 9457982479376551855
+        Name: Iddle
+        IsExposed: 1
+        m_IsShared: 0
+        m_Value: {fileID: -7015667721856649493, guid: 3eedf3ecb03b5d14c8d1788102e5a99f, type: 2}
+    - rid: 2714005391759376891
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: Self
+        Type:
+          m_SerializableType: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        LocalValue:
+          rid: 2714005391759376892
+        LinkedVariable:
+          rid: -2
+    - rid: 2714005391759376892
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 11007808721848153061
+          m_Value1: 9056504738785021283
+        Name: Self
+        m_Value: {fileID: 0}
+    - rid: 2714005391759377012
+      type: {class: ActionNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        Position: {x: -182.07994, y: 218.73486}
+        ID:
+          m_Value0: 9514395560316558024
+          m_Value1: 10206641703686571220
+        Parents: []
+        PortModels:
+        - rid: 2714005391759377013
+        - rid: 2714005391759377014
+        NodeType:
+          m_SerializableType: MoveToAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+        NodeTypeID:
+          m_Value0: 3089533442494491837
+          m_Value1: 11659979476511958633
+        m_FieldValues:
+        - rid: 2714005391759377015
+        - rid: 2714005391759377016
+    - rid: 2714005391759377013
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: InputPort
+        m_PortDataFlowType: 0
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 2714005391759377012
+        m_Connections:
+        - rid: 2714005391759376822
+    - rid: 2714005391759377014
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: OutputPort
+        m_PortDataFlowType: 1
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 2714005391759377012
+        m_Connections: []
+    - rid: 2714005391759377015
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: Position
+        Type:
+          m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        LocalValue:
+          rid: 2714005391759377017
+        LinkedVariable:
+          rid: 2714005391759377019
+    - rid: 2714005391759377016
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: Destination
+        Type:
+          m_SerializableType: Pathfinding.AIDestinationSetter, AstarPathfindingProject,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        LocalValue:
+          rid: 2714005391759377018
+        LinkedVariable:
+          rid: 2714005391759377020
+    - rid: 2714005391759377017
+      type: {class: 'BlackboardVariable`1[[UnityEngine.Vector3, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: {x: 0, y: 0, z: 0}
+    - rid: 2714005391759377018
+      type: {class: 'BlackboardVariable`1[[Pathfinding.AIDestinationSetter, AstarPathfindingProject]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: {fileID: 0}
+    - rid: 2714005391759377019
+      type: {class: 'TypedVariableModel`1[[UnityEngine.Vector3, UnityEngine.CoreModule]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 13265757960394959871
+          m_Value1: 17385574385386153950
+        Name: Position
+        IsExposed: 1
+        m_IsShared: 0
+        m_Value: {x: 0, y: 0, z: 0}
+    - rid: 2714005391759377020
+      type: {class: 'TypedVariableModel`1[[Pathfinding.AIDestinationSetter, AstarPathfindingProject]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 1031718269137476340
+          m_Value1: 7817933355899506303
+        Name: DestinationSetter
+        IsExposed: 1
+        m_IsShared: 0
+        m_Value: {fileID: 0}
+--- !u!114 &1814682015459668068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c02bb70996b49eba31d0c206e28da24, type: 3}
+  m_Name: BasicMovement Blackboard
+  m_EditorClassIdentifier: 
+  VersionTimestamp: 638815590378185576
+  AssetID:
+    m_Value0: 6093838060255698313
+    m_Value1: 13731865006134792344
+  m_Blackboard:
+    m_Variables:
+    - rid: 2714005391759376590
+    - rid: 2714005391759376603
+    - rid: 2714005391759376936
+  m_SharedBlackboardVariableGuids: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 2714005391759376590
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 1
+          m_Value1: 0
+        Name: Self
+        m_Value: {fileID: 0}
+    - rid: 2714005391759376603
+      type: {class: 'BlackboardVariable`1[[Pathfinding.AIDestinationSetter, AstarPathfindingProject]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 1031718269137476340
+          m_Value1: 7817933355899506303
+        Name: DestinationSetter
+        m_Value: {fileID: 0}
+    - rid: 2714005391759376936
+      type: {class: 'BlackboardVariable`1[[UnityEngine.Vector3, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 13265757960394959871
+          m_Value1: 17385574385386153950
+        Name: Position
+        m_Value: {x: 0, y: 0, z: 0}

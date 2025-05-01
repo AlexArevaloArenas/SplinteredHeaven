@@ -1,4 +1,5 @@
-﻿using System;
+﻿/*
+using System;
 using Ink.Runtime;
 using UnityEngine;
 using UnityEngine.UI;
@@ -108,3 +109,4 @@ public class BasicInkExample : MonoBehaviour {
 	[SerializeField]
 	private Button buttonPrefab = null;
 }
+*/

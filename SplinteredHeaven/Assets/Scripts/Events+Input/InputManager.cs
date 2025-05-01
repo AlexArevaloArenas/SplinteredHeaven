@@ -11,10 +11,6 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(PlayerInput))]
 public class InputManager : MonoBehaviour
 {
-    private Vector2 moveDirection = Vector2.zero;
-    private bool jumpPressed = false;
-    private bool interactPressed = false;
-    private bool submitPressed = false;
 
     private static InputManager instance;
 
@@ -37,12 +33,6 @@ public class InputManager : MonoBehaviour
         EventManager.Instance.StartMoveEvent(_value.Get<Vector2>());
     }
 
-    public void OnLeftMouse(InputValue _value)
-    {
-        //Debug.Log("Left Mouse Down");
-        EventManager.Instance.StartLeftMouseEvent();
-    }
-
     public void OnJump()
     {
         EventManager.Instance.StartJumpEvent();
@@ -51,6 +41,68 @@ public class InputManager : MonoBehaviour
     public void OnLook(InputValue _value) {
         EventManager.Instance.StartLookEvent(_value.Get<Vector2>());
     }
+
+    public void OnLeftMouse(InputValue _value)
+    {
+        if (_value.isPressed) //Press
+        {
+            //Debug.Log("Left Mouse Press");
+            EventManager.Instance.StartLeftMouseDownEvent();
+        }
+        if (_value.isPressed == false) //Release
+        {
+            //Debug.Log("Left Mouse Release");
+            EventManager.Instance.StartLeftMouseUpEvent();
+        }
+    }
+
+    public void OnLeftMouseHeld(InputValue _value)
+    {
+        //Debug.Log("Right Mouse Held");
+        EventManager.Instance.StartLeftMouseHeldEvent();
+
+
+    }
+
+
+    public void OnRightMouse(InputValue _value)
+    {
+        
+        if (_value.isPressed) //Press
+        {
+            //Debug.Log("Right Mouse Press");
+            EventManager.Instance.StartRightMouseDownEvent();
+        }
+        if (_value.isPressed==false) //Release
+        {
+            //Debug.Log("Right Mouse Release");
+            EventManager.Instance.StartRightMouseUpEvent();
+        }
+
+       
+    }
+
+    public void OnRightMouseHeld(InputValue _value)
+    {
+        //Debug.Log("Right Mouse Held");
+        EventManager.Instance.StartRightMouseHeldEvent(); 
+
+
+    }
+
+
+    /*
+    public void OnRightMouseDown(InputValue _value)
+    {
+        Debug.Log("Right Mouse Down");
+        EventManager.Instance.StartLeftMouseEvent();
+    }
+    public void OnRightMouseUp(InputValue _value)
+    {
+        Debug.Log("Right Mouse Up");
+        EventManager.Instance.StartLeftMouseEvent();
+    }
+    */
 
     /*
     public void MovePressed(InputAction.CallbackContext context)

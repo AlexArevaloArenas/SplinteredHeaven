@@ -25,20 +25,38 @@
                 },
                 {
                     "name": "LeftMouse",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "6c2ab1b8-8984-453a-af3d-a3c78ae1679a",
-                    "expectedControlType": "",
+                    "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press(behavior=2)",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LeftMouseHeld",
+                    "type": "PassThrough",
+                    "id": "f1aa12f5-a124-4a12-9615-ddd1785a452d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold(duration=0.001,pressPoint=1.401298E-45)",
                     "initialStateCheck": false
                 },
                 {
                     "name": "RightMouse",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "68e33319-4b2d-40e5-bd6b-c9ebe5dcf8a1",
-                    "expectedControlType": "",
+                    "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press(behavior=2)",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RightMouseHeld",
+                    "type": "PassThrough",
+                    "id": "40e9e38f-07f2-4536-aa50-14db091307cb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold",
                     "initialStateCheck": false
                 },
                 {
@@ -312,6 +330,28 @@
                 },
                 {
                     "name": "",
+                    "id": "0ba7c012-d32e-47d4-bc75-0a495f160b4a",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "LeftMouseHeld",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c9d5d307-80f7-4140-b5a1-f086d535d543",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "LeftMouseHeld",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "1e686ac8-d5c2-4979-ac3d-df4229156b9c",
                     "path": "<Gamepad>/buttonEast",
                     "interactions": "",
@@ -329,6 +369,28 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "RightMouse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "486c6b03-966b-471f-91ca-28b67213b1bb",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "RightMouseHeld",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fe82d14f-dee9-4047-ade2-da0f6d0fae7c",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "RightMouseHeld",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

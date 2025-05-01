@@ -140,4 +140,17 @@ public class PlayerFirstPersonMovement : MonoBehaviour
         Cursor.visible = false;
     }
 
+    private void OnDestroy()
+    {
+        EventManager.Instance.JumpEvent -= JumpInput;
+        EventManager.Instance.MoveEvent -= MoveInputEvent;
+        EventManager.Instance.LookEvent -= LookInputEvent;
+        EventManager.Instance.FPDialogueEvent -= EnterDialogueMode;
+        EventManager.Instance.EndFPDialogueEvent -= ExitDialogueMode;
+
+        // Lock cursor
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
 }

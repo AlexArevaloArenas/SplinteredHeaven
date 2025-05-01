@@ -8,7 +8,7 @@ public class FirstPersonInteraction : MonoBehaviour
 
     private void Start()
     {
-        EventManager.Instance.LeftMouseEvent += LeftMouseInput;
+        EventManager.Instance.LeftMouseDownEvent += LeftMouseInput;
     }
 
     private void Update()
