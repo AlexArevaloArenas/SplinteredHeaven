@@ -5,15 +5,31 @@ using Action = Unity.Behavior.Action;
 using Unity.Properties;
 
 [Serializable, GeneratePropertyBag]
-[NodeDescription(name: "AttackAction", story: "[SelfCharacter] attacks with all each available weapons to the [TargetCharacter]", category: "Action", id: "4f2500ff2faad088227e29957730d0d6")]
+[NodeDescription(name: "AttackAction", story: "We assign unit [TargetTracker] the [target] unit and part", category: "Action", id: "76063be58901d8463c0683720567408a")]
 public partial class AttackAction : Action
 {
-    [SerializeReference] public BlackboardVariable<CharacterManager> SelfCharacter;
-    [SerializeReference] public BlackboardVariable<UnitManager> TargetCharacter;
+    [SerializeReference] public BlackboardVariable<TargetTracker> TargetTracker;
+    [SerializeReference] public BlackboardVariable<UnitManager> Target;
 
     protected override Status OnStart()
     {
-        return Status.Running;
+        if (TargetTracker == null)
+        {
+            Debug.LogError("TargetTracker is null");
+            return Status.Failure;
+        }
+        else if (Target == null)
+        {
+            Debug.LogError("Target is null");
+            return Status.Failure;
+        }
+        else
+        {
+            TargetTracker.Value.SetTarget(Target.Value, null);
+            //Debug.Log($"Target set to {Target.Value.name}");
+
+        }
+            return Status.Running;
     }
 
     protected override Status OnUpdate()

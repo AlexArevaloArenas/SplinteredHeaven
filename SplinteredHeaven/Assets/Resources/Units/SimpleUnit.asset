@@ -13,15 +13,10 @@ MonoBehaviour:
   m_Name: SimpleUnit
   m_EditorClassIdentifier: 
   code: 
-  unitName: 
+  UnitName: 
   description: 
-  health: 5
   prefab: {fileID: 0}
-  sprite: {fileID: 0}
-  cost: []
-  canProduce: 
-  fieldOfView: 0
-  attackRange: 0
-  attackDamage: 0
-  attackRate: 0
-  onSelectSound: {fileID: 0}
+  Image: {fileID: 0}
+  modules: []
+  _partData:
+  - {fileID: 11400000, guid: 509832e692ff335449c86a967056c5a6, type: 2}

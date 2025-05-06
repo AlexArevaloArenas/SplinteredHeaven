@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 //[RequireComponent(typeof(SelectableUnit))]
 //[RequireComponent(typeof(Agent))]
-public abstract class UnitManager : MonoBehaviour //Unit Stores the Actions of the Unit
+public class UnitManager : MonoBehaviour //Unit Stores the Actions of the Unit
 {
     public UnitData unitData;
     public Unit unit;
@@ -19,23 +19,29 @@ public abstract class UnitManager : MonoBehaviour //Unit Stores the Actions of t
     [SerializeField] private GameObject hpBarPrefab;
     [SerializeField] public Image hpBar;
 
-    
-
-    protected virtual void Start()
+    private void Awake()
+    {
+        unit = new Unit(unitData,gameObject);
+    }
+    protected void Start()
     {
         hpBar = Instantiate(hpBarPrefab, GameObject.FindWithTag("Canvas").transform).GetComponent<Image>();
         hpBar.GetComponent<HealthBarVisual>().unidad = this;
-        Initialize();
+        unit.InitHealthBar(hpBar);
+
         selector.SetActive(false);
-        Debug.Log("Add unit");
-        //gridAgent = GetComponent<Agent>();
         UnitSelections.Instance.unitList.Add(this.gameObject);
     }
 
-    public virtual void Initialize()
+    private void Update()
     {
-        unit = new Unit(unitData, hpBar);   
+        float dt = Time.deltaTime;
+        foreach (var part in unit.Parts)
+        {
+            part.TickModules(dt);
+        }
     }
+
 
     public virtual void SelectedActions()
     {
@@ -50,13 +56,12 @@ public abstract class UnitManager : MonoBehaviour //Unit Stores the Actions of t
 
     private void _Die()
     {
-        if (selected)
-            Selected(false);
         Destroy(gameObject);
     }
 
     void OnDestroy()
     {
+        if (selected) Selected(false);
         UnitSelections.Instance.unitList.Remove(this.gameObject);
     }
 

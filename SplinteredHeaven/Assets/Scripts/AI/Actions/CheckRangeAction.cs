@@ -8,7 +8,7 @@ using Unity.Properties;
 [NodeDescription(name: "CheckRange", story: "[SelfCharacter] checks if [TargetCharacter] is in Range", category: "Action", id: "c821cc74cea9d752b6d2469129b0ad46")]
 public partial class CheckRangeAction : Action
 {
-    [SerializeReference] public BlackboardVariable<CharacterManager> SelfCharacter;
+    [SerializeReference] public BlackboardVariable<UnitManager> SelfCharacter;
     [SerializeReference] public BlackboardVariable<UnitManager> TargetCharacter;
     protected override Status OnStart()
     {
@@ -17,6 +17,8 @@ public partial class CheckRangeAction : Action
 
     protected override Status OnUpdate()
     {
+        // Check if the target is in range
+
         return Status.Success;
     }
 

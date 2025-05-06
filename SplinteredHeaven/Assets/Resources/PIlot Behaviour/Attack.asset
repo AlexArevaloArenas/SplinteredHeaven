@@ -1,0 +1,441 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9035935599083062911
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dd922ae02c94c87a66e46a10a7319b9, type: 3}
+  m_Name: Attack Blackboard
+  m_EditorClassIdentifier: 
+  AssetID:
+    m_Value0: 6075989721677951861
+    m_Value1: 2183418530398474601
+  m_Variables:
+  - rid: 2714005391759376576
+  - rid: 2714005391759377074
+  - rid: 422154291218743365
+  m_VersionTimestamp: 638820394814221587
+  m_CommandBuffer:
+    m_Commands: []
+  m_RuntimeBlackboardAsset: {fileID: 1814682015459668068}
+  references:
+    version: 2
+    RefIds:
+    - rid: 422154291218743365
+      type: {class: 'TypedVariableModel`1[[TargetTracker, Assembly-CSharp]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 107319104417486766
+          m_Value1: 7049191739931117259
+        Name: TargetTracker
+        IsExposed: 1
+        m_IsShared: 0
+        m_Value: {fileID: 0}
+    - rid: 2714005391759376576
+      type: {class: 'TypedVariableModel`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 1
+          m_Value1: 0
+        Name: Self
+        IsExposed: 1
+        m_IsShared: 0
+        m_Value: {fileID: 0}
+    - rid: 2714005391759377074
+      type: {class: 'TypedVariableModel`1[[UnitManager, Assembly-CSharp]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 12808639827673890349
+          m_Value1: 17158186389676968763
+        Name: TargetCharacter
+        IsExposed: 1
+        m_IsShared: 0
+        m_Value: {fileID: 0}
+--- !u!114 &-7015667721856649493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db920e62f70f420bb33c771449926fa4, type: 3}
+  m_Name: Attack
+  m_EditorClassIdentifier: 
+  Graphs:
+  - rid: 422154291218743379
+  RootGraph:
+    rid: 422154291218743379
+  m_DebugInfo: {fileID: -3561744978171100252}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 422154291218743379
+      type: {class: BehaviorGraphModule, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        AuthoringAssetID:
+          m_Value0: 6075989721677951861
+          m_Value1: 2183418530398474601
+        m_DebugInfo: {fileID: -3561744978171100252}
+        Root:
+          rid: 422154291218743380
+        BlackboardReference:
+          rid: 422154291218743381
+        BlackboardGroupReferences: []
+        m_ActiveNodes: []
+        m_NodesToTick: []
+        m_NodesToEnd:
+          rid: 422154291218743382
+        m_EndedNodes:
+          rid: 422154291218743383
+        m_VersionTimestamp: 638820394814236619
+    - rid: 422154291218743380
+      type: {class: Start, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        ID:
+          m_Value0: 15972537675840561900
+          m_Value1: 6787380790463957389
+        Graph:
+          rid: 422154291218743379
+        m_Parent:
+          rid: -2
+        m_Child:
+          rid: 422154291218743384
+        Repeat: 1
+        AllowMultipleRepeatsPerTick: 0
+    - rid: 422154291218743381
+      type: {class: BlackboardReference, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        m_Blackboard:
+          rid: 422154291218743385
+        m_Source: {fileID: 1814682015459668068}
+    - rid: 422154291218743382
+      type: {class: 'Stack`1[[Unity.Behavior.Node, Unity.Behavior]]', ns: System.Collections.Generic, asm: mscorlib}
+      data: 
+    - rid: 422154291218743383
+      type: {class: 'HashSet`1[[Unity.Behavior.Node, Unity.Behavior]]', ns: System.Collections.Generic, asm: System.Core}
+      data: 
+    - rid: 422154291218743384
+      type: {class: AttackAction, ns: , asm: Assembly-CSharp}
+      data:
+        ID:
+          m_Value0: 8432649123109685485
+          m_Value1: 15913424588778117267
+        Graph:
+          rid: 422154291218743379
+        m_Parent:
+          rid: 422154291218743380
+        TargetTracker:
+          rid: 422154291218743386
+        Target:
+          rid: 422154291218743387
+    - rid: 422154291218743385
+      type: {class: Blackboard, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        m_Variables:
+        - rid: 422154291218743388
+        - rid: 422154291218743387
+        - rid: 422154291218743386
+    - rid: 422154291218743386
+      type: {class: 'BlackboardVariable`1[[TargetTracker, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 107319104417486766
+          m_Value1: 7049191739931117259
+        Name: TargetTracker
+        m_Value: {fileID: 0}
+    - rid: 422154291218743387
+      type: {class: 'BlackboardVariable`1[[UnitManager, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 12808639827673890349
+          m_Value1: 17158186389676968763
+        Name: TargetCharacter
+        m_Value: {fileID: 0}
+    - rid: 422154291218743388
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 1
+          m_Value1: 0
+        Name: Self
+        m_Value: {fileID: 0}
+--- !u!114 &-3561744978171100252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b27bb6d9a2c8d540a10dff10acc543e, type: 3}
+  m_Name: Attack Debug Info
+  m_EditorClassIdentifier: 
+  m_CodeBreakPointsList: []
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bad8f2220607dac4db5082ff333fafb8, type: 3}
+  m_Name: Attack
+  m_EditorClassIdentifier: 
+  Blackboard: {fileID: -9035935599083062911}
+  m_Description: 
+  m_Nodes:
+  - rid: 2714005391759376577
+  - rid: 422154268622192805
+  m_VersionTimestamp: 638820394814236619
+  m_DebugInfo: {fileID: -3561744978171100252}
+  m_RuntimeGraph: {fileID: -7015667721856649493}
+  AssetID:
+    m_Value0: 6075989721677951861
+    m_Value1: 2183418530398474601
+  Story:
+    Story: 
+    StoryVariableNames: []
+    Variables: []
+  m_NodeModelsInfo:
+  - Name: On Start
+    Story: 
+    RuntimeTypeID:
+      m_Value0: 3335272451348827663
+      m_Value1: 11549843281177505721
+    Variables: []
+    NamedChildren: []
+  - Name: AttackAction
+    Story: We assign unit [TargetTracker] the [target] unit and part
+    RuntimeTypeID:
+      m_Value0: 5104831869392455286
+      m_Value1: 9962075648837223996
+    Variables:
+    - Name: TargetTracker
+      Type:
+        m_SerializableType: TargetTracker, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+      Tooltip: 
+    - Name: Target
+      Type:
+        m_SerializableType: UnitManager, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+      Tooltip: 
+    NamedChildren: []
+  - Name: Sequence
+    Story: 
+    RuntimeTypeID:
+      m_Value0: 10181448252506100447
+      m_Value1: 8737116843063128493
+    Variables: []
+    NamedChildren: []
+  - Name: CheckRange
+    Story: '[SelfCharacter] checks if [TargetCharacter] is in Range'
+    RuntimeTypeID:
+      m_Value0: 5969426535290773960
+      m_Value1: 5092920446203384502
+    Variables:
+    - Name: SelfCharacter
+      Type:
+        m_SerializableType: CharacterManager, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+      Tooltip: 
+    - Name: TargetCharacter
+      Type:
+        m_SerializableType: UnitManager, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+      Tooltip: 
+    NamedChildren: []
+  - Name: AttackAction
+    Story: '[SelfCharacter] attacks with all each available weapons to the [TargetCharacter]'
+    RuntimeTypeID:
+      m_Value0: 9858566707432400207
+      m_Value1: 15478925209434160674
+    Variables:
+    - Name: SelfCharacter
+      Type:
+        m_SerializableType: CharacterManager, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+      Tooltip: 
+    - Name: TargetCharacter
+      Type:
+        m_SerializableType: UnitManager, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+      Tooltip: 
+    NamedChildren: []
+  m_Blackboards: []
+  m_MainBlackboardAuthoringAsset: {fileID: -9035935599083062911}
+  m_CommandBuffer:
+    m_Commands: []
+  m_SubgraphsInfo: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 422154268622192805
+      type: {class: ActionNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        Position: {x: -32.47995, y: 156.81927}
+        ID:
+          m_Value0: 8432649123109685485
+          m_Value1: 15913424588778117267
+        Parents: []
+        PortModels:
+        - rid: 422154268622192806
+        - rid: 422154268622192807
+        NodeType:
+          m_SerializableType: AttackAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+        NodeTypeID:
+          m_Value0: 5104831869392455286
+          m_Value1: 9962075648837223996
+        m_FieldValues:
+        - rid: 422154268622192808
+        - rid: 422154268622192809
+    - rid: 422154268622192806
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: InputPort
+        m_PortDataFlowType: 0
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 422154268622192805
+        m_Connections:
+        - rid: 2714005391759376578
+    - rid: 422154268622192807
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: OutputPort
+        m_PortDataFlowType: 1
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 422154268622192805
+        m_Connections: []
+    - rid: 422154268622192808
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: TargetTracker
+        Type:
+          m_SerializableType: TargetTracker, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+        LocalValue:
+          rid: 422154268622192810
+        LinkedVariable:
+          rid: 422154291218743378
+    - rid: 422154268622192809
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: Target
+        Type:
+          m_SerializableType: UnitManager, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+        LocalValue:
+          rid: 422154268622192811
+        LinkedVariable:
+          rid: 422154291218743364
+    - rid: 422154268622192810
+      type: {class: 'BlackboardVariable`1[[TargetTracker, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: {fileID: 0}
+    - rid: 422154268622192811
+      type: {class: 'BlackboardVariable`1[[UnitManager, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: {fileID: 0}
+    - rid: 422154291218743364
+      type: {class: 'TypedVariableModel`1[[UnitManager, Assembly-CSharp]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 12808639827673890349
+          m_Value1: 17158186389676968763
+        Name: TargetCharacter
+        IsExposed: 1
+        m_IsShared: 0
+        m_Value: {fileID: 0}
+    - rid: 422154291218743378
+      type: {class: 'TypedVariableModel`1[[TargetTracker, Assembly-CSharp]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 107319104417486766
+          m_Value1: 7049191739931117259
+        Name: TargetTracker
+        IsExposed: 1
+        m_IsShared: 0
+        m_Value: {fileID: 0}
+    - rid: 2714005391759376577
+      type: {class: StartNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        Position: {x: -32.639988, y: 9.599999}
+        ID:
+          m_Value0: 15972537675840561900
+          m_Value1: 6787380790463957389
+        Parents: []
+        PortModels:
+        - rid: 2714005391759376578
+        NodeType:
+          m_SerializableType: Unity.Behavior.Start, Unity.Behavior, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        NodeTypeID:
+          m_Value0: 3335272451348827663
+          m_Value1: 11549843281177505721
+        m_FieldValues: []
+        Repeat: 1
+        AllowMultipleRepeatsPerTick: 0
+    - rid: 2714005391759376578
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: OutputPort
+        m_PortDataFlowType: 1
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 2714005391759376577
+        m_Connections:
+        - rid: 422154268622192806
+--- !u!114 &1814682015459668068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c02bb70996b49eba31d0c206e28da24, type: 3}
+  m_Name: Attack Blackboard
+  m_EditorClassIdentifier: 
+  VersionTimestamp: 638819774813209367
+  AssetID:
+    m_Value0: 6075989721677951861
+    m_Value1: 2183418530398474601
+  m_Blackboard:
+    m_Variables:
+    - rid: 2714005391759376590
+  m_SharedBlackboardVariableGuids: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 2714005391759376590
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 1
+          m_Value1: 0
+        Name: Self
+        m_Value: {fileID: 0}

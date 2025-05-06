@@ -9,11 +9,11 @@ public static class BattleRules
         return false;
     }
 
-    public static void Attack(Unit attacker, Unit target, float distance, Weapon weapon)
+    public static void Attack(Unit attacker, Unit target, float distance, WeaponData weapon)
     {
         //Check hit
         float checkHit = Random.Range(1, 100);
-        if(checkHit > attacker.ArmorClass)
+        if(checkHit > attacker.armorClass)
         {
             //Miss
             return;
@@ -33,11 +33,11 @@ public static class BattleRules
         }
 
         //Check damage
-        float damage = weapon.GetAttackDamage * (10/distance);
+        //float damage = weapon.GetAttackDamage * (10/distance);
 
         //Apply damage
-        hitPart.TakeDamage(damage);
-        hitPart.unit.RefreshPartDamage();
+        //hitPart.TakeDamage(damage);
+        //hitPart.unit.RefreshPartDamage();
     }
 
 }

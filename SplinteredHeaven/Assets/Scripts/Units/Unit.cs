@@ -3,64 +3,85 @@ using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class Unit
 {
-    protected GameObject _object;
-    protected string _name;
-    protected string _description;
-    protected float _health;
-    protected float _maxHealth;
-    protected int _armorClass;
-    protected UnitPart[] _parts;
-    protected ModuleData[] _modules;
-    
-    public GameObject Object => _object;
-    public string Name => _name;
-    public string Description => _description;
-    public float Health => _health;
-    public float MaxHealth => _maxHealth;
-    public ModuleData[] Modules => _modules;
-    public int ArmorClass => _armorClass;
-    public UnitPart[] Parts => _parts;
+    public List<UnitPart> Parts;
+    public float Health => Parts.Sum(p => p.currentHealth);
+
+    public GameObject obj;
+    public string name;
+    public string description;
+    public float currentHealth;
+    public float maxHealth;
+    public int armorClass;
+    public ModuleData[] modules;
 
     //Private variables
     protected Image _hpBar;
 
-    public Unit(UnitData unitData, Image hpBar)
+    public Unit(UnitData unitData, GameObject _obj)
     {
+        obj = _obj;
         List<UnitPart> partsList = new List<UnitPart>();
 
-        _modules = unitData.modules;
+        modules = unitData.modules;
 
         foreach (var part in unitData._partData)
         {
-            _maxHealth += part.maxHealth;
-            partsList.Add(new UnitPart(part, this));
+            maxHealth += part.maxHealth;
+            UnitPart unitPart = new UnitPart(part, this);
+            unitPart.OnHealthChanged += HandlePartHealthChanged;
+            partsList.Add(unitPart);
         }
-        _parts = partsList.ToArray();
+        Parts = partsList;
 
-        _health = _maxHealth;
+        currentHealth = maxHealth;
+        //currentHealth => Parts.Sum(p => p.currentHealth);
+
     }
 
     public virtual void RefreshPartDamage()
     {
-        _health = 0;
-        foreach (var part in _parts)
+        /*
+        foreach (var part in Parts)
         {
             _health += part.currentHealth;
         }
-        _hpBar.fillAmount = _health / _maxHealth;
+        */
+        _hpBar.fillAmount = Health / maxHealth;
     }
+
+    void HandlePartHealthChanged(UnitPart part)
+    {
+        foreach (UnitPart p in Parts)
+        {
+            currentHealth += p.currentHealth;
+        }
+        _hpBar.fillAmount = currentHealth / maxHealth;
+    }
+
+    public List<WeaponModuleInstance> GetAvailableWeapons() =>
+        Parts.SelectMany(p => p.Modules)
+             .OfType<WeaponModuleInstance>()
+             .Where(w => w.IsAvailable())
+             .ToList();
 
     protected void Die()
     {
         // Handle unit death
-        Debug.Log($"{_name} has died.");
+        Debug.Log($"{name} has died.");
         // Destroy the unit object
-        if (_object != null)
+        if (obj != null)
         {
-            UnityEngine.Object.Destroy(_object);
+            UnityEngine.Object.Destroy(obj);
         }
+    }
+
+    public void InitHealthBar(Image hpBar)
+    {
+        _hpBar = hpBar;
+        _hpBar.fillAmount = currentHealth / maxHealth;
     }
 }
