@@ -13,6 +13,8 @@ public class UnitPart
     public List<ModuleInstance> Modules;
     public Unit owner;
     public event Action<UnitPart> OnHealthChanged;
+    public event Action<float> OnDamageTaken;
+    public event Action OnDestroyed;
 
     //Unit Part Constructor
     public UnitPart(UnitPartData partData, Unit owner)
@@ -46,6 +48,7 @@ public class UnitPart
 
     public void TakeDamage(float dmg)
     {
+        OnDamageTaken?.Invoke(dmg);
         currentHealth = Mathf.Max(0, currentHealth - dmg);
         if (currentHealth == 0)
         {
@@ -54,5 +57,10 @@ public class UnitPart
         }
         
         OnHealthChanged?.Invoke(this);
+    }
+
+    public void OnDestroy()
+    {
+        
     }
 }
