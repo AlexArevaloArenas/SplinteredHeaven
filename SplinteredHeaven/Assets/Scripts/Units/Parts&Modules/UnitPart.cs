@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class UnitPart
@@ -9,8 +10,8 @@ public class UnitPart
     public float maxHealth;
     public float currentHealth;
     public Transform transform;
-    public List<ModuleInstance> Modules = new();
-
+    public List<ModuleInstance> Modules;
+    public Unit owner;
     public event Action<UnitPart> OnHealthChanged;
 
     //Unit Part Constructor
@@ -21,11 +22,14 @@ public class UnitPart
         maxHealth = partData.maxHealth;
         currentHealth = maxHealth;
         transform = owner.obj.transform;
+
+        Modules = new List<ModuleInstance>();
         foreach (ModuleData moduleData in partData.modules)
         {
+            Modules.Add(moduleData.CreateInstance(owner, this));
             //ModuleInstance module = ModuleFactory.CreateModule(moduleData);
-            ModuleInstance module = new ModuleInstance(moduleData,owner,this);
-            Modules.Add(module);
+            //ModuleInstance module = new ModuleInstance(moduleData,owner,this);
+            //Modules.Add(module);
         }
     }
 
@@ -48,7 +52,7 @@ public class UnitPart
             Modules.ForEach(m => m.Disable());
 
         }
-            
+        
         OnHealthChanged?.Invoke(this);
     }
 }

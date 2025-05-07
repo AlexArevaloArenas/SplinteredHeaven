@@ -16,14 +16,18 @@ public class UnitCombat : MonoBehaviour
         targetTracker = GetComponent<TargetTracker>();
 
         // Gather all WeaponModules from UnitParts
-        foreach (var part in unitM.unit.Parts)
+        foreach (UnitPart part in unitM.unit.Parts)
         {
-            foreach (var module in part.Modules)
+            //Debug.Log($"Part: {part.name}");
+            foreach (ModuleInstance module in part.Modules)
             {
-                
+                //Debug.Log($"Module: {module.Data.name}");
                 if (module is WeaponModuleInstance weapon)
-                    Debug.Log($"Module: {module.Data.name}");
+                {
+                    //Debug.Log($"Module: {weapon.Data.name}");
                     weapons.Add(weapon);
+                }
+                    
             }
         }
     }

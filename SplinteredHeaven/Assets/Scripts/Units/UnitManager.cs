@@ -54,15 +54,11 @@ public class UnitManager : MonoBehaviour //Unit Stores the Actions of the Unit
         selector.SetActive(false);
     }
 
-    private void _Die()
-    {
-        Destroy(gameObject);
-    }
-
     void OnDestroy()
     {
         if (selected) Selected(false);
         UnitSelections.Instance.unitList.Remove(this.gameObject);
+        Destroy(hpBar.gameObject);
     }
 
     public void Selected(bool s)

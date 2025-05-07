@@ -1,8 +1,10 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewModule", menuName = "Module/Module Data")]
-public class ModuleData : ScriptableObject
+public abstract class ModuleData : ScriptableObject
 {
+    public virtual ModuleInstance CreateInstance(Unit owner, UnitPart part) => new ModuleInstance(this, owner, part);
+
     public string moduleName;
     public GameObject visualPrefab;
     public float cooldown;

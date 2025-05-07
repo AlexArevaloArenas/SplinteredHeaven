@@ -55,11 +55,18 @@ public class Unit
 
     void HandlePartHealthChanged(UnitPart part)
     {
+        Debug.Log("Health changed");
+        currentHealth = 0;
         foreach (UnitPart p in Parts)
         {
             currentHealth += p.currentHealth;
         }
         _hpBar.fillAmount = currentHealth / maxHealth;
+
+        if(currentHealth <= 0)
+        {
+            Die();
+        }
     }
 
     public List<WeaponModuleInstance> GetAvailableWeapons() =>
@@ -71,7 +78,7 @@ public class Unit
     protected void Die()
     {
         // Handle unit death
-        Debug.Log($"{name} has died.");
+
         // Destroy the unit object
         if (obj != null)
         {

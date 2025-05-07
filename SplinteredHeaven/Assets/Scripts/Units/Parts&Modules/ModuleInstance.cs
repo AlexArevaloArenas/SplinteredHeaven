@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ModuleInstance
 {
-    public ModuleData Data { get; protected set; }
+    public virtual ModuleData Data { get; protected set; }
     public Unit Owner { get; protected set; }
     public UnitPart AttachedPart { get; protected set; }
 

@@ -30,12 +30,6 @@ public class EventManager : MonoBehaviour
     public event Action EndFPDialogueEvent;
     public event Action<bool,string> FPChangeInteractionSymbolEvent;
 
-    //Unit Orders Events
-    //public event Action OpenRadialMenu;
-    public event Action MoveOrderEvent;
-    public event Action<GameObject> AttackOrderEvent;
-    public event Action ModuleOrderEvent;
-
     private void Awake()
     {
         if (Instance == null)

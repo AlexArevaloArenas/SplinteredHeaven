@@ -34,8 +34,15 @@ public class UnitMovement : MonoBehaviour
 
     private void OnDisable()
     {
-        target = null; // Set the target to null when the object is disabled
         Destroy(target);
+    }
+
+    private void OnDestroy()
+    {
+        if (target != null)
+        {
+            Destroy(target);
+        }
     }
 
 }
