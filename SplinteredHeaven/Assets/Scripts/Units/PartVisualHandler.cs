@@ -5,14 +5,16 @@ public class PartVisualHandler : MonoBehaviour
 {
     public PartType partType; // Manually set in prefab or via script
     private Dictionary<PartType, Transform> partHolders;
-    private UnitPart linkedPart;
+    public UnitPart linkedPart;
     private Dictionary<int, Transform> moduleSlots;
     public string partId; // e.g., "LeftArm"
+
+    public Animator animator;
 
     public List<Transform> moduleHolders;
     void Awake()
     {
-        
+        animator = GetComponent<Animator>();
     }
 
 
@@ -45,7 +47,10 @@ public class PartVisualHandler : MonoBehaviour
 
     private void Update()
     {
-        GetComponent<Animator>().SetFloat("Speed", linkedPart.owner.obj.GetComponent<CharacterController>().velocity.magnitude);
+        if (partType == PartType.Legs)
+        {
+
+        }
     }
     void ShowDamageFeedback(float damage)
     {

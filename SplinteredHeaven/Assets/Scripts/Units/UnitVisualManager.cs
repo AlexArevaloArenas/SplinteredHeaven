@@ -28,11 +28,22 @@ public class UnitVisualManager : MonoBehaviour
 
     public void ClearParts()
     {
-        foreach (var part in spawnedParts)
+        if(spawnedParts.Count > 0)
         {
-            if (part != null) DestroyImmediate(part);
+            foreach (var part in spawnedParts)
+            {
+                if (part != null) DestroyImmediate(part);
+            }
+            spawnedParts.Clear();
         }
-        spawnedParts.Clear();
+        else
+        {
+            foreach (Transform child in root)
+            {
+                DestroyImmediate(child.gameObject);
+            }
+        }
+            
     }
     /*
     public void LoadPartsFromData(Unit unit)

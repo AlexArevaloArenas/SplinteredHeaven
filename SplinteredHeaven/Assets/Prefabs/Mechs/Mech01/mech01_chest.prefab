@@ -2635,6 +2635,7 @@ GameObject:
   - component: {fileID: 5235956954370751960}
   - component: {fileID: 8961884011625195469}
   - component: {fileID: -5348470831795927738}
+  - component: {fileID: 475345463285771677}
   m_Layer: 0
   m_Name: mech01_chest
   m_TagString: Untagged
@@ -2694,6 +2695,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partType: 1
   partId: 
+  animator: {fileID: 0}
   moduleHolders:
   - {fileID: 844056143590217339}
   - {fileID: 6568400408605808026}
@@ -2733,3 +2735,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &475345463285771677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8656391092955187432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 486bd1ea6c4466b45b752ce398e3d23c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

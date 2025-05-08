@@ -378,6 +378,7 @@ GameObject:
   - component: {fileID: 2328143422209330245}
   - component: {fileID: 1335741628150970214}
   - component: {fileID: -2999413346057291721}
+  - component: {fileID: 8870070949073037482}
   m_Layer: 0
   m_Name: mech01_rightArm
   m_TagString: Untagged
@@ -451,6 +452,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partType: 2
   partId: 
+  animator: {fileID: 0}
   moduleHolders:
   - {fileID: 2508934572336022315}
 --- !u!95 &-2999413346057291721
@@ -475,6 +477,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8870070949073037482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883905144244762177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 486bd1ea6c4466b45b752ce398e3d23c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1224901006093091651
 GameObject:
   m_ObjectHideFlags: 0

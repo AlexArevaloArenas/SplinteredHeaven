@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 using UnityEditor;
+using Unity.AppUI.UI;
 
 //[RequireComponent(typeof(SelectableUnit))]
 //[RequireComponent(typeof(Agent))]
@@ -28,7 +29,8 @@ public class UnitManager : MonoBehaviour //Unit Stores the Actions of the Unit
         if (unit == null)
         {
             //unit = new Unit(unitData, gameObject);
-
+            Debug.Log("Unit is null, creating new instance.");
+            UpdateVisual();
         }
         if (unitData == null) unitData = GetComponent<UnitVisualManager>().UnitData;
     }
@@ -90,6 +92,19 @@ public class UnitManager : MonoBehaviour //Unit Stores the Actions of the Unit
     public void UpdateVisual()
     {
         GetComponent<UnitVisualManager>().UnitData = unitData;
+    }
+
+    private void OnDrawGizmos()
+    {
+        // Set the color with custom alpha.
+        Gizmos.color = new Color(1f, 0f, 0f, 1); // Red with custom alpha
+
+        // Draw the sphere.
+        Gizmos.DrawSphere(transform.position, 1f);
+
+        // Draw wire sphere outline.
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireSphere(transform.position, 1f);
     }
 
 }

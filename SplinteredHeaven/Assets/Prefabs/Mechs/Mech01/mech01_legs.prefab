@@ -1332,6 +1332,7 @@ GameObject:
   - component: {fileID: 5414917405359611086}
   - component: {fileID: 1424744013969435004}
   - component: {fileID: 6706362243408049901}
+  - component: {fileID: 4433533018080187447}
   m_Layer: 0
   m_Name: mech01_legs
   m_TagString: Untagged
@@ -1379,6 +1380,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partType: 4
   partId: 
+  animator: {fileID: 6706362243408049901}
   moduleHolders: []
 --- !u!114 &1424744013969435004
 MonoBehaviour:
@@ -1414,6 +1416,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4433533018080187447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6679965446713029333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 486bd1ea6c4466b45b752ce398e3d23c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6971237423764877727
 GameObject:
   m_ObjectHideFlags: 0
