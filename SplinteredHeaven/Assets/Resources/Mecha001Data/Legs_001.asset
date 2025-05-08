@@ -9,13 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 359f57a771ada1549b9fd1abfcdc7c86, type: 3}
-  m_Name: Weapon
+  m_Script: {fileID: 11500000, guid: b8b703ba294e6f14197aec74cc57fc0f, type: 3}
+  m_Name: Legs_001
   m_EditorClassIdentifier: 
-  moduleName: Simple Weapon
-  visualPrefab: {fileID: 0}
-  cooldown: 0.1
-  damage: 2
-  range: 20
-  damageType: 0
-  weaponType: 1
+  size: 0
+  maxHealth: 0
+  partType: 4
+  visualPrefab: {fileID: 6679965446713029333, guid: 66a67fd9bc499ac40b0a16b447ed5447, type: 3}
+  modules: []

@@ -1329,6 +1329,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3584139376548927801}
+  - component: {fileID: 5414917405359611086}
+  - component: {fileID: 1424744013969435004}
+  - component: {fileID: 6706362243408049901}
   m_Layer: 0
   m_Name: mech01_legs
   m_TagString: Untagged
@@ -1362,6 +1365,55 @@ Transform:
   - {fileID: 2671343698246208596}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5414917405359611086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6679965446713029333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e27a97c790ea43841967038dd1c01d68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  partType: 4
+  partId: 
+  moduleHolders: []
+--- !u!114 &1424744013969435004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6679965446713029333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf132d830ed40824dae6713f45e8f859, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &6706362243408049901
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6679965446713029333}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: abf88ce15b703014388e392312a2c00b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6971237423764877727
 GameObject:
   m_ObjectHideFlags: 0

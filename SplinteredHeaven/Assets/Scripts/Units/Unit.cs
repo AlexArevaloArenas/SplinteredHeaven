@@ -26,7 +26,7 @@ public class Unit
         obj = _obj;
         List<UnitPart> partsList = new List<UnitPart>();
 
-        modules = unitData.modules;
+        //modules = unitData.modules;
 
         foreach (var part in unitData._partData)
         {

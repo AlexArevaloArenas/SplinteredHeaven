@@ -6,6 +6,7 @@ using UnityEngine;
 public class UnitPart
 {
     public string name;
+    public UnitPartData data;
     public int size;
     public float maxHealth;
     public float currentHealth;
@@ -19,6 +20,8 @@ public class UnitPart
     //Unit Part Constructor
     public UnitPart(UnitPartData partData, Unit owner)
     {
+        this.owner = owner;
+        data = partData;
         name = partData.name;
         size = partData.size;
         maxHealth = partData.maxHealth;

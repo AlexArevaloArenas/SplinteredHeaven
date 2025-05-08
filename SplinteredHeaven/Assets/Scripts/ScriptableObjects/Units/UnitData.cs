@@ -8,8 +8,8 @@ public class UnitData : ScriptableObject
     public string code;
     public string UnitName;
     public string description;
-    public GameObject prefab;
+    //public GameObject prefab;
     public Sprite Image;
-    public ModuleData[] modules;
+    //public ModuleData[] modules;
     public List<UnitPartData> _partData;
 }

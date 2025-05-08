@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using UnityEditor;
 
 //[RequireComponent(typeof(SelectableUnit))]
 //[RequireComponent(typeof(Agent))]
+[RequireComponent(typeof(UnitVisualManager))]
 public class UnitManager : MonoBehaviour //Unit Stores the Actions of the Unit
 {
+    [SerializeField]
+    [OnChangedCall("UpdateVisual")]
     public UnitData unitData;
-    public Unit unit;
+    [SerializeField] public Unit unit;
 
     [Header("Selection Info")]
     public bool selected = false;
@@ -21,7 +25,12 @@ public class UnitManager : MonoBehaviour //Unit Stores the Actions of the Unit
 
     private void Awake()
     {
-        unit = new Unit(unitData,gameObject);
+        if (unit == null)
+        {
+            //unit = new Unit(unitData, gameObject);
+
+        }
+        if (unitData == null) unitData = GetComponent<UnitVisualManager>().UnitData;
     }
     protected void Start()
     {
@@ -58,7 +67,7 @@ public class UnitManager : MonoBehaviour //Unit Stores the Actions of the Unit
     {
         if (selected) Selected(false);
         UnitSelections.Instance.unitList.Remove(this.gameObject);
-        Destroy(hpBar.gameObject);
+        //Destroy(hpBar.gameObject);
     }
 
     public void Selected(bool s)
@@ -76,6 +85,11 @@ public class UnitManager : MonoBehaviour //Unit Stores the Actions of the Unit
     public bool GetSelected()
     {
         return selected;
+    }
+
+    public void UpdateVisual()
+    {
+        GetComponent<UnitVisualManager>().UnitData = unitData;
     }
 
 }
