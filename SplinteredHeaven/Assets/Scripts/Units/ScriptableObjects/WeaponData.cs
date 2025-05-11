@@ -4,13 +4,12 @@ using UnityEngine;
 public class WeaponData : ModuleData
 {
     public override ModuleInstance CreateInstance(Unit owner, UnitPart part) => new WeaponModuleInstance(this, owner, part);
-
     public float damage;
     public float range;
     public DamageType damageType;
     public WeaponType weaponType;
 
-    public override void ApplyEffects(UnitManager user, UnitManager target, UnitPart part)
+    public override void ApplyEffects(UnitManager user, UnitManager target, UnitPart part, Transform attackPoint)
     {
         if (part == null || part.currentHealth <= 0){
             foreach(var p in target.unit.Parts)

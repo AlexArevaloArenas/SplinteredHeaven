@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: ArmRight_001
   m_EditorClassIdentifier: 
   size: 0
-  maxHealth: 0
+  maxHealth: 10
   partType: 2
   visualPrefab: {fileID: 4557822069751828174, guid: e3f7e651325d8f04282e54a025cc130e, type: 3}
-  modules: []
+  modules:
+  - {fileID: 11400000, guid: 95aba23001b08be4ba019321085d6773, type: 2}

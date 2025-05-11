@@ -7,9 +7,19 @@ public class HealthBarVisual : MonoBehaviour
     [SerializeField] Vector3 margen = new Vector2(0, 0);
     Vector3 nuevaPos;
     public Transform myCam;
+    private Transform heigh;
+
     private void Start()
     {
         myCam = Camera.main.transform;
+        foreach(var part in unidad.unit.Parts)
+        {
+            if(part.data.partType==PartType.Head)
+            {
+                heigh = part.transform;
+                break;
+            }
+        }
     }
     void Update()
     {
@@ -20,7 +30,7 @@ public class HealthBarVisual : MonoBehaviour
             return;
         }
         transform.LookAt(myCam);
-        nuevaPos = new Vector3(unidad.transform.position.x + margen.x, unidad.transform.position.y + margen.y, unidad.transform.position.z + margen.z);
+        nuevaPos = new Vector3(unidad.transform.position.x + margen.x, heigh.position.y + margen.y, unidad.transform.position.z + margen.z);
         transform.position = nuevaPos;
     }
 }

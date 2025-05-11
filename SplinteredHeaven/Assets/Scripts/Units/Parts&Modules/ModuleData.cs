@@ -9,10 +9,16 @@ public abstract class ModuleData : ScriptableObject
     public GameObject visualPrefab;
     public float cooldown;
 
+    public ModulePositionType positionType;
+    public ModuleWeightType weightType;
+
     // Generalized effect interface — override in subclass
-    public virtual void ApplyEffects(UnitManager user, UnitManager target, UnitPart targetPart)
+    public virtual void ApplyEffects(UnitManager user, UnitManager target, UnitPart targetPart, Transform origin)
     {
         // Default: no-op (or log for debug)
         Debug.Log($"Module {moduleName} activated but has no effect.");
     }
 }
+
+public enum ModulePositionType { Basic, Hand }
+public enum ModuleWeightType { Light, Heavy }

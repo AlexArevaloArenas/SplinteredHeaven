@@ -85,6 +85,7 @@ public class UnitVisualManager : MonoBehaviour
             return;
         }
 
+        legsHandler.SetUpHolders();
         Transform bodyHolder = legsHandler.GetHolderForPart(PartType.Body);
         GameObject bodyGO = SpawnPart(body, bodyHolder);
         PartVisualHandler bodyHandler = bodyGO.GetComponent<PartVisualHandler>();
@@ -95,6 +96,7 @@ public class UnitVisualManager : MonoBehaviour
             if (!partsByType.TryGetValue(type, out UnitPart part))
                 continue;
 
+            bodyHandler.SetUpHolders();
             Transform holder = bodyHandler.GetHolderForPart(type);
             if (holder == null)
             {

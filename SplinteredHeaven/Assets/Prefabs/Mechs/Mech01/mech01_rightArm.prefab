@@ -104,6 +104,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 4987be67b0aae514c975937fd024ec4d, type: 2}
+    - target: {fileID: -3028589859235356164, guid: 073c9cabe756db34585ff6666420464d, type: 3}
+      propertyPath: m_Name
+      value: moduleholder_hand_light_2
+      objectReference: {fileID: 0}
     - target: {fileID: -2978318196057630311, guid: 073c9cabe756db34585ff6666420464d, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -122,7 +126,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: ae650ce5f3d915f429b3a0d9509bb9fb, type: 2}
     - target: {fileID: 919132149155446097, guid: 073c9cabe756db34585ff6666420464d, type: 3}
       propertyPath: m_Name
-      value: mech01_rightArm 1
+      value: mech01_rightArm
       objectReference: {fileID: 0}
     - target: {fileID: 933119869505618003, guid: 073c9cabe756db34585ff6666420464d, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -200,9 +204,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partType: 2
   partId: 
-  animator: {fileID: 0}
   moduleHolders:
   - {fileID: 2508934572336022315, guid: 423c9ffdce9126b4fafb4019918e0351, type: 3}
+  animator: {fileID: 0}
 --- !u!95 &6417304258071723416
 Animator:
   serializedVersion: 7

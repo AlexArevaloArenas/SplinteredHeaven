@@ -5,7 +5,8 @@ public class ModuleInstance
     public virtual ModuleData Data { get; protected set; }
     public Unit Owner { get; protected set; }
     public UnitPart AttachedPart { get; protected set; }
-
+    public int slot;
+    public Transform origin;
     protected float cooldownRemaining =0;
     public bool disabled = false;
 
@@ -18,6 +19,7 @@ public class ModuleInstance
         Data = data;
         Owner = owner;
         AttachedPart = part;
+        origin = part.transform;
     }
 
     public virtual void Tick(float deltaTime)
@@ -37,7 +39,7 @@ public class ModuleInstance
     {
         if (!IsAvailable()) return;
 
-        Data.ApplyEffects(owner, target, targetPart);
+        Data.ApplyEffects(owner, target, targetPart, origin);
         cooldownRemaining = Data.cooldown;
     }
 }

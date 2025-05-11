@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Head_001
   m_EditorClassIdentifier: 
   size: 0
-  maxHealth: 0
+  maxHealth: 10
   partType: 0
   visualPrefab: {fileID: 8523028546092255322, guid: 1ea0818e810aff64dbf8edacd2bbf560, type: 3}
   modules: []

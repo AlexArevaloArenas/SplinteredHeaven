@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7737611478304787375, guid: 95679dfa91cc04b4c8c295698928fd4f, type: 3}
+      propertyPath: m_Name
+      value: moduleholder_hand_light_2
+      objectReference: {fileID: 0}
     - target: {fileID: -6378230255821045569, guid: 95679dfa91cc04b4c8c295698928fd4f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -200,9 +204,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partType: 3
   partId: 
-  animator: {fileID: 0}
   moduleHolders:
   - {fileID: 2508934572336022315, guid: 423c9ffdce9126b4fafb4019918e0351, type: 3}
+  animator: {fileID: 0}
 --- !u!95 &-1848550900273107809
 Animator:
   serializedVersion: 7
