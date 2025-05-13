@@ -7,7 +7,7 @@ public class NarrativeEvent : ScriptableObject
     public string eventName;
     public List<NarrativeEventAction> actions;
 
-    public void Execute(NarrativeContext context)
+    public virtual void Execute(NarrativeContext context)
     {
         foreach (var action in actions)
         {

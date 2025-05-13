@@ -57,8 +57,13 @@ public class UnitCombat : MonoBehaviour
             Debug.Log($"Checking weapon: {weapon.Data.name}");
             if (weapon.IsInRange(transform.position, targetPart.transform.position))
             {
-                Debug.Log("Attacking...");
+                //Debug.Log("Attacking...");
                 weapon.Activate(unitM, targetUnit, targetPart);
+                if (TryGetComponent<PartAnimationManager>(out PartAnimationManager animationManager))
+                {
+                    animationManager.SetAnimationTrigger("Shoot");
+                    Debug.Log("Triggering shoot animation");
+                }
             }
         }
     }

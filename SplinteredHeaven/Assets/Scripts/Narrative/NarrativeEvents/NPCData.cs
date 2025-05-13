@@ -8,6 +8,7 @@ public class NPCData : ScriptableObject
     public string displayName;
     public Sprite portrait;
     public string description;
+    public NPC npcEnum;
 
     public int baseTrust;
     public int baseHealth;

@@ -9,6 +9,8 @@ public class NarrativeEventManager : MonoBehaviour
     private NarrativeContext context;
     public List<NarrativeEventTrigger> triggers;
 
+    public List<NPCInstance> npcInstances;
+
     private void Awake()
     {
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
@@ -20,6 +22,26 @@ public class NarrativeEventManager : MonoBehaviour
             dialogueManager = DialogueManager.instance,
             narrativeEventManager = this
         };
+
+        npcInstances = new List<NPCInstance>();
+    }
+
+    private void Start()
+    {
+        // Initialize NPC instances
+        // Initialize triggers
+        foreach (var trigger in triggers)
+        {
+            trigger.SetUp();
+        }
+    }
+
+    private void OnDisable()
+    {
+        foreach (var trigger in triggers)
+        {
+            trigger.Close();
+        }
     }
 
     public void TriggerEvent(NarrativeEvent narrativeEvent)

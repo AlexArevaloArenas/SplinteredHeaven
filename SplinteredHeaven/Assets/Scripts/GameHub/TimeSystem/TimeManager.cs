@@ -18,6 +18,7 @@ public class TimeManager : MonoBehaviour
     public int currentWeek = 0; // Default week
 
     public DayMoments currentMoment = DayMoments.Morning; // Default moment of the day
+    public DayMoments previousMoment = DayMoments.Morning;
 
     private float totalTime; // Total time in seconds
     private float dayTime; // Time of the day in seconds
@@ -31,12 +32,17 @@ public class TimeManager : MonoBehaviour
     public RectTransform clockHand;
     public float secondsPerCycle = 60f; // Full rotation per 60 seconds (like a clock)
 
-    public TimeManager instance;
+    public static TimeManager Instance;
+
+    //Day time Events
+    public event Action<DayMoments> OnDayTimeChanged;
+
+
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
             //DontDestroyOnLoad(gameObject);
         }
         else
@@ -81,7 +87,6 @@ public class TimeManager : MonoBehaviour
             }
             dayText.text = week[currentWeekDay].ToString();
         }
-        Debug.Log(currentTime);
         FindDayMoment();
         momentText.text = currentMoment.ToString();
     }
@@ -112,22 +117,57 @@ public class TimeManager : MonoBehaviour
 
     private void FindDayMoment()
     {
-        if (GetHour() > 18)
+        if (GetHour() > 21)
+        {
+            currentMoment = DayMoments.Night;
+            if (previousMoment != DayMoments.Night)
+            {
+                OnDayTimeChanged?.Invoke(currentMoment);
+                Debug.Log(currentMoment.ToString());
+                previousMoment = currentMoment;
+            }
+        }
+        else if (GetHour() > 18)
         {
             currentMoment = DayMoments.Evening;
+            if (previousMoment != DayMoments.Evening)
+            {
+                OnDayTimeChanged?.Invoke(currentMoment);
+                Debug.Log(currentMoment.ToString());
+                previousMoment = currentMoment;
+            }
         }
         else if (GetHour() > 12)
         {
             currentMoment = DayMoments.Afternoon;
+            if (previousMoment != DayMoments.Afternoon)
+            {
+                OnDayTimeChanged?.Invoke(currentMoment);
+                Debug.Log(currentMoment.ToString());
+                previousMoment = currentMoment;
+            }
         }
         else if (GetHour() > 6)
         {
             currentMoment = DayMoments.Morning;
+            if (previousMoment != DayMoments.Morning)
+            {
+                OnDayTimeChanged?.Invoke(currentMoment);
+                Debug.Log(currentMoment.ToString());
+                previousMoment = currentMoment;
+            }
         }
         else
         {
             currentMoment = DayMoments.Midnight;
+            if (previousMoment != DayMoments.Midnight)
+            {
+                OnDayTimeChanged?.Invoke(currentMoment);
+                Debug.Log(currentMoment.ToString());
+                previousMoment = currentMoment;
+            }
         }
+        
     }
 
 }
@@ -148,5 +188,6 @@ public enum DayMoments
     Morning,
     Afternoon,
     Evening,
+    Night,
     Midnight,
 }

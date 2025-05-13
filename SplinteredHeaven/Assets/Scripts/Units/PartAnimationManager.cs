@@ -13,8 +13,7 @@ public class PartAnimationManager : MonoBehaviour
 
     private void Update()
     {
-        SetAnimationFloat("Speed", partVisualHandler.linkedPart.owner.obj.GetComponent<CharacterController>().velocity.magnitude); // Example: Set speed to 1.0
-
+        SetAnimationFloat("Speed", partVisualHandler.linkedPart.owner.obj.GetComponent<CharacterController>().velocity.magnitude);
     }
 
     public void SetAnimationFloat(string variable, float f)
@@ -29,6 +28,43 @@ public class PartAnimationManager : MonoBehaviour
         }
 
     }
+
+    public void SetAnimationBool(string variable, bool b)
+    {
+        if (animator != null)
+        {
+            animator.SetBool(variable, b);
+        }
+        else
+        {
+            Debug.LogWarning("Animator not found on " + gameObject.name);
+        }
+    }
+
+    public void SetAnimationInt(string variable, int i)
+    {
+        if (animator != null)
+        {
+            animator.SetInteger(variable, i);
+        }
+        else
+        {
+            Debug.LogWarning("Animator not found on " + gameObject.name);
+        }
+    }
+
+    public void SetAnimationTrigger(string variable)
+    {
+        if (animator != null)
+        {
+            animator.SetTrigger(variable);
+        }
+        else
+        {
+            Debug.LogWarning("Animator not found on " + gameObject.name);
+        }
+    }
+
     public void PlayAnimation(string animationName)
     {
         if (animator != null)

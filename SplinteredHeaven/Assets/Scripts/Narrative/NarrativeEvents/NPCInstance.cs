@@ -4,6 +4,7 @@ using UnityEngine;
 public class NPCInstance
 {
     public NPCData NPCData { get; private set; }
+    public NPCManager npcManager { get; private set; } // Reference to the NPCManager
 
     // Dynamic values
     public Location currentLocation;
@@ -13,11 +14,17 @@ public class NPCInstance
     public Dictionary<string, bool> flags = new();
 
 
-    public NPCInstance(NPCData npcData)
+    public NPCInstance(NPCData npcData, NPCManager _npcManager)
     {
         NPCData = npcData;
         currentTrust = npcData.baseTrust;
         currentHealth = npcData.baseHealth;
+        npcManager = _npcManager;
+    }
+
+    public void MoveToLocation(Vector3 location)
+    {
+        npcManager.transform.position = location;
     }
 
     public void SetFlag(string flagName, bool value)

@@ -8,12 +8,13 @@ public class NPCManager : MonoBehaviour
     private void Awake()
     {
         // Initialize the NPC instance
-        NPCInstance = new NPCInstance(npcData);
+        NPCInstance = new NPCInstance(npcData,this);
+        
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        NarrativeEventManager.Instance.npcInstances.Add(NPCInstance);
     }
 
     // Update is called once per frame
@@ -21,4 +22,14 @@ public class NPCManager : MonoBehaviour
     {
         
     }
+}
+
+public enum NPC
+{
+    Commander,
+    Scientist,
+    Pilot1,
+    Pilot2,
+    Pilot3,
+    // Add more characters as needed
 }
