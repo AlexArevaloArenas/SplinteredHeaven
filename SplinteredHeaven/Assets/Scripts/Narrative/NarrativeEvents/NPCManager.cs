@@ -14,7 +14,7 @@ public class NPCManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        NarrativeEventManager.Instance.npcInstances.Add(NPCInstance);
+        NarrativeManager.Instance.npcInstances.Add(NPCInstance);
     }
 
     // Update is called once per frame

@@ -25,7 +25,7 @@ public class EventManager : MonoBehaviour
     public event Action RightMouseDownEvent;
     public event Action RightMouseUpEvent;
 
-    public event Action<float> mouseWheel;
+    //public event Action<float> mouseWheel;
 
     //First person events
     public event Action<TextAsset> FPDialogueEvent;

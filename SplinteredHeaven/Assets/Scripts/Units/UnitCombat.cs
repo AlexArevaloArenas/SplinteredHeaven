@@ -59,11 +59,17 @@ public class UnitCombat : MonoBehaviour
             {
                 //Debug.Log("Attacking...");
                 weapon.Activate(unitM, targetUnit, targetPart);
-                if (TryGetComponent<PartAnimationManager>(out PartAnimationManager animationManager))
+                weapon.AttachedPart.transform.GetComponent<PartAnimationManager>().SetAnimationBool("Aim",true);
+                weapon.AttachedPart.transform.GetComponent<PartAnimationManager>().SetAnimationTrigger("Shoot");
+                Debug.Log(weapon.AttachedPart.transform);
+                /*
+                if (weapon.AttachedPart.transform.TryGetComponent<PartAnimationManager>(out PartAnimationManager animationManager))
                 {
                     animationManager.SetAnimationTrigger("Shoot");
-                    Debug.Log("Triggering shoot animation");
+                    //Debug.Log("Triggering shoot animation");
                 }
+                */
+
             }
         }
     }

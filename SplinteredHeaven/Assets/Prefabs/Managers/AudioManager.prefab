@@ -63,18 +63,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <ambience>k__BackingField:
     Guid:
-      Data1: 1014470198
-      Data2: 1207615610
-      Data3: 255262655
-      Data4: -721475793
-    Path: event:/UIAccept
+      Data1: 1736727845
+      Data2: 1074307852
+      Data3: 1397551788
+      Data4: -735304861
+    Path: event:/Empty
   <music>k__BackingField:
     Guid:
-      Data1: 1014470198
-      Data2: 1207615610
-      Data3: 255262655
-      Data4: -721475793
-    Path: event:/UIAccept
+      Data1: 1736727845
+      Data2: 1074307852
+      Data3: 1397551788
+      Data4: -735304861
+    Path: event:/Empty
   <playerFootsteps>k__BackingField:
     Guid:
       Data1: 1014470198

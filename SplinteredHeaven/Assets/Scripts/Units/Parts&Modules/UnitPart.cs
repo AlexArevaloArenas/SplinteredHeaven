@@ -11,6 +11,7 @@ public class UnitPart
     public float maxHealth;
     public float currentHealth;
     public Transform transform;
+    public GameObject partObject;
     public List<ModuleInstance> Modules;
     public Unit owner;
     public event Action<UnitPart> OnHealthChanged;
@@ -26,7 +27,7 @@ public class UnitPart
         size = partData.size;
         maxHealth = partData.maxHealth;
         currentHealth = maxHealth;
-        transform = owner.obj.transform;
+        //transform = owner.obj.transform;
 
         Modules = new List<ModuleInstance>();
         foreach (ModuleData moduleData in partData.modules)
@@ -64,6 +65,6 @@ public class UnitPart
 
     public void OnDestroy()
     {
-        
+        OnDestroyed?.Invoke();
     }
 }

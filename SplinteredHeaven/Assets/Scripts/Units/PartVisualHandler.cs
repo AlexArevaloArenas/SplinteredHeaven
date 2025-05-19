@@ -25,6 +25,8 @@ public class PartVisualHandler : MonoBehaviour
         linkedPart = part;
         linkedPart.OnDamageTaken += ShowDamageFeedback;
         linkedPart.OnDestroyed += HandleDestruction;
+        linkedPart.transform = transform;
+        linkedPart.partObject = gameObject;
         LocateModuleHolders();
         CreateModules();
     }
