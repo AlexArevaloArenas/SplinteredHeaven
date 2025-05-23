@@ -64,6 +64,12 @@ public class InputManager : MonoBehaviour
 
     }
 
+    public void OnMouseWheel(InputValue _value)
+    {
+        //Debug.Log("Mouse Wheel");
+        EventManager.Instance.StartMouseWheelEvent(_value.Get<float>());
+        //Debug.Log(_value.Get<float>());
+    }
 
     public void OnRightMouse(InputValue _value)
     {

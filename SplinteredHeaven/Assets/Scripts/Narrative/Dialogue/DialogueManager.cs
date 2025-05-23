@@ -387,7 +387,11 @@ public class DialogueManager :  UIManager<IDialogueUI>
     // Depending on your game, you may want to save variable state in other places.
     public void OnApplicationQuit()
     {
-        dialogueVariables.SaveVariables();
+        if (dialogueVariables != null)
+        {
+            dialogueVariables.SaveVariables();
+        }
+        
     }
 
     /*

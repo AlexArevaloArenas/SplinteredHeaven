@@ -13,7 +13,11 @@ public class PartAnimationManager : MonoBehaviour
 
     private void Update()
     {
-        SetAnimationFloat("Speed", partVisualHandler.linkedPart.owner.obj.GetComponent<CharacterController>().velocity.magnitude);
+        if(GetComponent<CharacterController>() != null)
+        {
+            SetAnimationFloat("Speed", partVisualHandler.linkedPart.owner.obj.GetComponent<CharacterController>().velocity.magnitude);
+
+        }
     }
 
     public void SetAnimationFloat(string variable, float f)

@@ -4,8 +4,9 @@ using UnityEngine;
 public abstract class ModuleData : ScriptableObject
 {
     public virtual ModuleInstance CreateInstance(Unit owner, UnitPart part) => new ModuleInstance(this, owner, part);
+    public virtual ModuleInstance CreateInstanceFromRuntime(Unit owner, UnitPart part, RuntimeModuleData runtimeModule) => new ModuleInstance(this, owner, part, runtimeModule);
 
-    public string moduleName;
+    public string id;
     public GameObject visualPrefab;
     public float cooldown;
 
@@ -16,7 +17,7 @@ public abstract class ModuleData : ScriptableObject
     public virtual void ApplyEffects(UnitManager user, UnitManager target, UnitPart targetPart, Transform origin)
     {
         // Default: no-op (or log for debug)
-        Debug.Log($"Module {moduleName} activated but has no effect.");
+        Debug.Log($"Module {id} activated but has no effect.");
     }
 }
 

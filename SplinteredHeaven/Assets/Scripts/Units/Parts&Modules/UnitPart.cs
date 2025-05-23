@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -13,6 +14,7 @@ public class UnitPart
     public Transform transform;
     public GameObject partObject;
     public List<ModuleInstance> Modules;
+    public List<ModuleSlot> slots;
     public Unit owner;
     public event Action<UnitPart> OnHealthChanged;
     public event Action<float> OnDamageTaken;
@@ -28,7 +30,7 @@ public class UnitPart
         maxHealth = partData.maxHealth;
         currentHealth = maxHealth;
         //transform = owner.obj.transform;
-
+        slots = new List<ModuleSlot>();
         Modules = new List<ModuleInstance>();
         foreach (ModuleData moduleData in partData.modules)
         {
@@ -37,6 +39,37 @@ public class UnitPart
             //ModuleInstance module = new ModuleInstance(moduleData,owner,this);
             //Modules.Add(module);
         }
+    }
+
+    public UnitPart(PartRuntimeData runtimeData, UnitPartData staticData, Unit owner, RuntimeAssetRegistry registry)
+    {
+        this.owner = owner;
+        data = staticData;
+        name = staticData.name;
+        size = staticData.size;
+        maxHealth = staticData.maxHealth;
+        currentHealth = maxHealth;
+        slots = new List<ModuleSlot>();
+
+        List<ModuleInstance> modules = new List<ModuleInstance>();
+        foreach(var module in runtimeData.modules)
+        {
+            ModuleData moduleData = registry.GetModule(module.moduleID);
+            if (moduleData == null)
+            {
+                Debug.LogWarning($"Missing module data: {module.moduleID}");
+                continue;
+            }
+            var moduleInstance = moduleData.CreateInstanceFromRuntime(owner, this, module);
+            modules.Add(moduleInstance);
+        }
+        Modules = modules;
+        /*
+        Modules = runtimeData.moduleIDs
+            .Select(id => registry.GetModule(id))
+            .Where(m => m != null)
+            .Select(m => m.CreateInstance(owner, this))
+            .ToList();    */
     }
 
     public void AddModule(ModuleInstance module)

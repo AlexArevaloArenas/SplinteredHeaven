@@ -5,7 +5,7 @@ public class StartBattle : MonoBehaviour, IInteractable
 {
 
     [SerializeField] string interactionText;
-    [SerializeField] SceneAsset newScene;
+    [SerializeField] SceneEnum newScene;
 
     public string GetInteractionText()
     {
@@ -14,7 +14,7 @@ public class StartBattle : MonoBehaviour, IInteractable
 
     public void Interact(GameObject interactor)
     {
-        EventManager.Instance.StartChangeSceneEvent(newScene.name);
+        EventManager.Instance.StartChangeSceneEvent(newScene);
     }
 
 }

@@ -5,8 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class UnitData : ScriptableObject
 {
-    public string code;
-    public string UnitName;
+    public string id;
     public string description;
     //public GameObject prefab;
     public Sprite Image;

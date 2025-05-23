@@ -39,10 +39,10 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("HubScene",LoadSceneMode.Additive);
     }
 
-    private void ChangeScene(string scene)
+    public void ChangeScene(SceneEnum scene)
     {
         SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().name);
-        SceneManager.LoadScene(scene, LoadSceneMode.Additive);
+        SceneManager.LoadScene(scene.ToString(), LoadSceneMode.Additive);
     }
 
     // Update is called once per frame
@@ -56,6 +56,17 @@ public enum State
 {
     Menu,
     FPHub,
+    EditorHub,
+    ResearchHub,
+    Battle,
+    Pause,
+    Options,
+}
+
+public enum SceneEnum
+{
+    MainMenu,
+    HubScene,
     EditorHub,
     ResearchHub,
     Battle,

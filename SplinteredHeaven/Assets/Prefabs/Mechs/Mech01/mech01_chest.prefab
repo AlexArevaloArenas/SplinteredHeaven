@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6050906104033203369}
   - component: {fileID: 4371038558405986995}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,8 +105,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6568400408605808026}
-  m_Layer: 0
-  m_Name: holder_module_2
+  - component: {fileID: 1175889113064960921}
+  m_Layer: 11
+  m_Name: moduleholder_basic_light_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -128,6 +129,22 @@ Transform:
   - {fileID: 6970354942990246763}
   m_Father: {fileID: 8471028392684874212}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1175889113064960921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 305858954975021923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6aed3c945dc1494592cb79979c9a985, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slot: 1
+  isOccupied: 0
+  modulePositionType: 0
+  moduleWeightType: 0
 --- !u!1 &316154731840417937
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,7 +154,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8137588434806534618}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: holder_rightArm_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +186,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2552102012093682723}
   - component: {fileID: 2829800132263825352}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: cinturon lateral trasero izquierdo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,7 +282,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9074859503124850790}
   - component: {fileID: 6065753261398763152}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: tapa nucleo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -361,7 +378,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3912605156122044998}
   - component: {fileID: 8177614809683597731}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Respiradero
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -457,7 +474,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3506279167200700345}
   - component: {fileID: 2647236856894130175}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: paleta ventilacion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -552,7 +569,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6970354942990246763}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: holder_module_2_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -583,7 +600,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4868568903609357760}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: holder_head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -615,7 +632,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7004503197851350976}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: holder_module_4_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -646,7 +663,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3751685394700013059}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: holder_leftArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -678,8 +695,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1672147474861640178}
-  m_Layer: 0
-  m_Name: holder_module_3
+  - component: {fileID: 191241388947034117}
+  m_Layer: 11
+  m_Name: moduleholder_basic_light_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -701,6 +719,22 @@ Transform:
   - {fileID: 7532640799413135967}
   m_Father: {fileID: 8471028392684874212}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &191241388947034117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3145136499970135113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6aed3c945dc1494592cb79979c9a985, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slot: 2
+  isOccupied: 0
+  modulePositionType: 0
+  moduleWeightType: 0
 --- !u!1 &3204658804365152719
 GameObject:
   m_ObjectHideFlags: 0
@@ -711,7 +745,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6512794919484304949}
   - component: {fileID: 8334377612443030228}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: cinturon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -806,7 +840,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1148795812160781791}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: holder_leftArm_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -838,7 +872,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5857799742307042961}
   - component: {fileID: 1639081612239760490}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: tubo nucleo horizontal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -934,7 +968,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5104800746486885548}
   - component: {fileID: 8067651312687278693}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: paleta ventilacion 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1030,7 +1064,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8845520604841683730}
   - component: {fileID: 236156374193735368}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: cinturon lateral frontal izquierda
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1126,7 +1160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3258462366318775217}
   - component: {fileID: 3336522632727245766}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: paleta ventilacion 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1222,7 +1256,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7399183766353911227}
   - component: {fileID: 8375123759663905687}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: paleta ventilacion 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1318,7 +1352,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3641779666624132088}
   - component: {fileID: 2524474229893233100}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: cinturon lateral frontal derecha
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1414,7 +1448,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6027346692315931730}
   - component: {fileID: 277017505938290785}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: cinturon trasero
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1510,7 +1544,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6756532272648503856}
   - component: {fileID: 1236587006762335821}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: paleta ventilacion 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1605,8 +1639,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 844056143590217339}
-  m_Layer: 0
-  m_Name: holder_module_1
+  - component: {fileID: 4168184463508748644}
+  m_Layer: 11
+  m_Name: moduleholder_basic_light_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1628,6 +1663,22 @@ Transform:
   - {fileID: 2347557670288499876}
   m_Father: {fileID: 8471028392684874212}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4168184463508748644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5355462324419234315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6aed3c945dc1494592cb79979c9a985, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slot: 0
+  isOccupied: 0
+  modulePositionType: 0
+  moduleWeightType: 0
 --- !u!1 &5365681639265328875
 GameObject:
   m_ObjectHideFlags: 0
@@ -1638,7 +1689,7 @@ GameObject:
   m_Component:
   - component: {fileID: 646663417886413526}
   - component: {fileID: 3426453491747680215}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cadera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1733,7 +1784,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 513244804636206168}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: holder_head_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1765,7 +1816,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1170936930999654524}
   - component: {fileID: 3574761977532928181}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: paleta ventilacion 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1861,7 +1912,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8405912894944342143}
   - component: {fileID: 2262172111256550672}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: tubo nucleo vertical
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1957,7 +2008,7 @@ GameObject:
   m_Component:
   - component: {fileID: 488173447803216035}
   - component: {fileID: 7769736428666249051}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Coraza torso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2052,8 +2103,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 316956660028963878}
-  m_Layer: 0
-  m_Name: holder_module_4
+  - component: {fileID: 2901252785622981886}
+  m_Layer: 11
+  m_Name: moduleholder_basic_light_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2075,6 +2127,22 @@ Transform:
   - {fileID: 7004503197851350976}
   m_Father: {fileID: 8471028392684874212}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2901252785622981886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5844401607953513507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6aed3c945dc1494592cb79979c9a985, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slot: 3
+  isOccupied: 0
+  modulePositionType: 0
+  moduleWeightType: 0
 --- !u!1 &6824726345801907312
 GameObject:
   m_ObjectHideFlags: 0
@@ -2084,7 +2152,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7532640799413135967}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: holder_module_3_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2115,7 +2183,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 961333443530170532}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: skeleton_chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2148,7 +2216,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6830917110131987460}
   - component: {fileID: 8940530935471123048}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: tubo nucleo diagonal derecho
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2244,7 +2312,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6183869146668862114}
   - component: {fileID: 1405695187510219269}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Nucleo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2339,7 +2407,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2347557670288499876}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: holder_module_1_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2371,7 +2439,7 @@ GameObject:
   m_Component:
   - component: {fileID: 466413661354886285}
   - component: {fileID: 486763658801119244}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: tubo nucleo diagonal izquierdo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2467,7 +2535,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6665457770155101848}
   - component: {fileID: 1273051009040123940}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: cinturon lateral trasero derecho
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2562,7 +2630,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8471028392684874212}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: torso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2600,7 +2668,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5260635707840421082}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: holder_rightArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2636,7 +2704,8 @@ GameObject:
   - component: {fileID: 8961884011625195469}
   - component: {fileID: -5348470831795927738}
   - component: {fileID: 475345463285771677}
-  m_Layer: 0
+  - component: {fileID: 410715282751502047}
+  m_Layer: 11
   m_Name: mech01_chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2695,12 +2764,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partType: 1
   partId: 
+  moduleSlots: []
   animator: {fileID: 0}
-  moduleHolders:
-  - {fileID: 844056143590217339}
-  - {fileID: 6568400408605808026}
-  - {fileID: 1672147474861640178}
-  - {fileID: 316956660028963878}
 --- !u!114 &8961884011625195469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2747,3 +2812,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 486bd1ea6c4466b45b752ce398e3d23c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &410715282751502047
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8656391092955187432}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 6.009856, y: 8.514785, z: 4.9363146}
+  m_Center: {x: -0.03253126, y: 2.3260045, z: 0.24398708}

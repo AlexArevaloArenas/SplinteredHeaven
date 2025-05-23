@@ -13,11 +13,13 @@ public static class BattleRules
     {
         //Check hit
         float checkHit = Random.Range(1, 100);
+        /*
         if(checkHit > attacker.armorClass)
         {
             //Miss
             return;
         }
+        */
         int totalSizeSum = 0;
         UnitPart hitPart = null;
         foreach (var part in target.Parts)

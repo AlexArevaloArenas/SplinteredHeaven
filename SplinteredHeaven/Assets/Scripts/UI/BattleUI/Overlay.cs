@@ -35,7 +35,7 @@ public class Overlay : MonoBehaviour
     {
 
         unitPicture.sprite = unitToShow.unitData.Image;
-        unitName.text = unitToShow.unitData.UnitName;
+        unitName.text = unitToShow.unitData.id;
     }
 
     public void HideOverlay()

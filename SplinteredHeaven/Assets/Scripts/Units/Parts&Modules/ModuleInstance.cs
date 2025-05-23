@@ -5,7 +5,7 @@ public class ModuleInstance
     public virtual ModuleData Data { get; protected set; }
     public Unit Owner { get; protected set; }
     public UnitPart AttachedPart { get; protected set; }
-    public int slot;
+    public int slotInt;
     public Transform origin;
     protected float cooldownRemaining =0;
     public bool disabled = false;
@@ -13,13 +13,24 @@ public class ModuleInstance
     public ModuleInstance(ModuleData data, Unit owner, UnitPart part)
     {
         Initialize(data, owner, part);
+        slotInt = -1;
+    }
+
+    public ModuleInstance(ModuleData data, Unit owner, UnitPart part, RuntimeModuleData moduleRuntime)
+    {
+        Initialize(data, owner, part);
+        slotInt = moduleRuntime.slotIndex;
     }
     public virtual void Initialize(ModuleData data, Unit owner, UnitPart part)
     {
         Data = data;
         Owner = owner;
         AttachedPart = part;
-        origin = part.transform;
+        if (part.transform != null)
+        {
+            origin = part.transform;
+        }
+        
     }
 
     public virtual void Tick(float deltaTime)

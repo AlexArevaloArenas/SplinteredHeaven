@@ -9,41 +9,45 @@ public class CameraController : MonoBehaviour
     //float rotationSpeed = 1f;
 
     [SerializeField] float maxHeight = 25f;
-    [SerializeField] float minHeight = 2f;
+    [SerializeField] float minHeight = 4f;
 
+    float scrollSpeed = 0f;
 
+    private void Start()
+    {
+        EventManager.Instance.MouseWheel += ScrollWheel;
+    }
 
     // Update is called once per frame
     void Update()
     {
         float hsp = transform.position.y * speed * Input.GetAxis("Horizontal"); //horizontalSpeed
         float vsp = transform.position.y *  speed * Input.GetAxis("Vertical"); //verticalSpeed
-        float scrollSpeed = Mathf.Log(transform.position.y) *  -zoomSpeed * Input.GetAxis("Mouse ScrollWheel");
-
+        float sSpeed = Mathf.Log(transform.position.y) *  -zoomSpeed * scrollSpeed;
 
         //Movement Locks
-        if (transform.position.y + scrollSpeed >= maxHeight && scrollSpeed > 0)
+        if (transform.position.y + sSpeed >= maxHeight && sSpeed > 0)
         {
-            scrollSpeed = 0;
+            sSpeed = 0;
         }
-        else if (transform.position.y - scrollSpeed <= minHeight && scrollSpeed < 0)
+        else if (transform.position.y - sSpeed <= minHeight && sSpeed < 0)
         {
-            scrollSpeed = 0;
+            sSpeed = 0;
         }
 
-        if (transform.position.y + scrollSpeed > maxHeight)
+        if (transform.position.y + sSpeed > maxHeight)
         {
-            //scrollSpeed = maxHeight - scrollSpeed;
-            scrollSpeed = 0;
+            //sSpeed = maxHeight - sSpeed;
+            sSpeed = 0;
         }
-        else if (transform.position.y + scrollSpeed < minHeight)
+        else if (transform.position.y + sSpeed < minHeight)
         {
-            //scrollSpeed = minHeight - scrollSpeed;
-            scrollSpeed = 0;
+            //sSpeed = minHeight - sSpeed;
+            sSpeed = 0;
         }
 
         //Movement
-        Vector3 verticalMove = new Vector3(0,scrollSpeed,0);
+        Vector3 verticalMove = new Vector3(0, sSpeed, 0);
         Vector3 lateralMove = hsp * transform.right;
         Vector3 forwardMove = transform.forward;
         forwardMove.y = 0;
@@ -56,5 +60,11 @@ public class CameraController : MonoBehaviour
 
 
 
+    }
+
+    public void ScrollWheel(float sSpeed)
+    {
+        scrollSpeed = sSpeed;
+        Debug.Log(scrollSpeed);
     }
 }

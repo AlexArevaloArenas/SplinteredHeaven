@@ -9,20 +9,20 @@ public class Unit
 {
     public List<UnitPart> Parts;
     public float Health => Parts.Sum(p => p.currentHealth);
-
+    public UnitData unitData;
     public GameObject obj;
     public string name;
     public string description;
     public float currentHealth;
     public float maxHealth;
-    public int armorClass;
-    public ModuleData[] modules;
 
     //Private variables
     protected Image _hpBar;
 
     public Unit(UnitData unitData, GameObject _obj)
     {
+        this.unitData = unitData;
+        name = unitData.id;
         obj = _obj;
         List<UnitPart> partsList = new List<UnitPart>();
 
@@ -40,6 +40,31 @@ public class Unit
         currentHealth = maxHealth;
         //currentHealth => Parts.Sum(p => p.currentHealth);
 
+    }
+
+    public Unit(UnitRuntimeData runtimeData, UnitData staticData, RuntimeAssetRegistry registry)
+    {
+        this.name = string.IsNullOrEmpty(runtimeData.unitNameOverride) ? unitData.name : runtimeData.unitNameOverride;
+
+        List<UnitPart> newParts = new List<UnitPart>();
+
+        foreach (var runtimePart in runtimeData.parts)
+        {
+            UnitPartData partData = registry.GetPart(runtimePart.partID);
+            if (partData == null)
+            {
+                Debug.LogWarning($"Missing part data: {runtimePart.partID}");
+                continue;
+            }
+
+            var unitPart = new UnitPart(runtimePart, partData, this, registry);
+            
+            unitPart.owner = this;
+            newParts.Add(unitPart);
+        }
+        Parts = newParts;
+        currentHealth = Parts.Sum(p => p.currentHealth);
+        maxHealth = Parts.Sum(p => p.maxHealth);
     }
 
     public virtual void RefreshPartDamage()

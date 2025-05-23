@@ -26,7 +26,7 @@ public class ModuleVisualHandler : MonoBehaviour
             {
                 if (child.name == "AttackPoint")
                 {
-                    Debug.Log($"[ModuleVisualHandler] Found AttackPoint for {linkedModule.Data.moduleName}.");
+                    Debug.Log($"[ModuleVisualHandler] Found AttackPoint for {linkedModule.Data.id}.");
                     linkedModule.origin = child;
                     break;
                 }

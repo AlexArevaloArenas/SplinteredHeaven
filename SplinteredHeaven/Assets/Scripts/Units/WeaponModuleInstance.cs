@@ -14,9 +14,19 @@ public class WeaponModuleInstance : ModuleInstance
         weaponData = data;
         Owner = owner;
         AttachedPart = part;
+        slotInt = -1;
         //Initialize(data, owner, part);
     }
-    /*
+
+    public WeaponModuleInstance(WeaponData data, Unit owner, UnitPart part, RuntimeModuleData runtime) : base(data, owner, part, runtime)
+    {
+        weaponData = data;
+        Owner = owner;
+        AttachedPart = part;
+        slotInt = runtime.slotIndex;
+        //Initialize(data, owner, part);
+    }
+
     public override void Initialize(ModuleData baseData, Unit _owner, UnitPart _part)
     {
         weaponData = (WeaponData)baseData;
@@ -24,7 +34,7 @@ public class WeaponModuleInstance : ModuleInstance
         AttachedPart = _part;
         //Debug.Log(Data.range);
     }
-    */
+    
     public override void Activate(UnitManager owner, UnitManager target, UnitPart targetPart = null)
     {
         Debug.Log("Attacking with weapon module");

@@ -10,7 +10,7 @@ public class EventManager : MonoBehaviour
     //List of events
     //Game Events
     public event Action ContinueGameEvent;
-    public event Action<string> ChangeSceneEvent;
+    public event Action<SceneEnum> ChangeSceneEvent;
 
     //Input Events
     public event Action<Vector2> MoveEvent;
@@ -24,6 +24,8 @@ public class EventManager : MonoBehaviour
     public event Action RightMouseHeldEvent;
     public event Action RightMouseDownEvent;
     public event Action RightMouseUpEvent;
+
+    public event Action<float> MouseWheel;
 
     //public event Action<float> mouseWheel;
 
@@ -51,12 +53,16 @@ public class EventManager : MonoBehaviour
         ContinueGameEvent?.Invoke();
     }
 
-    public void StartChangeSceneEvent(string scene)
+    public void StartChangeSceneEvent(SceneEnum scene)
     {
         ChangeSceneEvent?.Invoke(scene);
     }
 
     //Input Events
+    public void StartMouseWheelEvent(float _input)
+    {
+        MouseWheel?.Invoke(_input);
+    }
     public void StartMoveEvent(Vector2 _input)
     {
         MoveEvent?.Invoke(_input);

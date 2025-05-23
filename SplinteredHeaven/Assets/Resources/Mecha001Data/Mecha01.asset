@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6d5840e892901245839a4aa82637687, type: 3}
   m_Name: Mecha01
   m_EditorClassIdentifier: 
-  code: Mecha01
-  UnitName: Mecha01
+  id: mecha01
   description: 
   Image: {fileID: 0}
   _partData:

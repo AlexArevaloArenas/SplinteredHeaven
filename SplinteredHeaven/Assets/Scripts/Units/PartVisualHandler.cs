@@ -8,9 +8,9 @@ public class PartVisualHandler : MonoBehaviour
     public string partId; // e.g., "LeftArm"
 
     private Dictionary<PartType, Transform> partHolders;
-    private Dictionary<int, Transform> moduleSlots;
+    //private Dictionary<int, Transform> moduleSlots;
 
-    public List<Transform> moduleHolders; // Optional fallback or preview list
+    public List<ModuleSlot> moduleSlots; // Optional fallback or preview list
     public UnitPart linkedPart;
     public Animator animator;
     void Awake()
@@ -40,7 +40,8 @@ public class PartVisualHandler : MonoBehaviour
         foreach (Transform child in transform.GetComponentsInChildren<Transform>(true))
         {
             string name = child.name.ToLower();
-
+            
+            
             // Part holders (other body parts to be attached)
             if (name.EndsWith("holder_head"))
                 partHolders[PartType.Head] = child;
@@ -74,6 +75,7 @@ public class PartVisualHandler : MonoBehaviour
     private class ModuleHolderInfo
     {
         public Transform holder;
+        public ModuleSlot slot;
         public ModulePositionType positionType;
         public ModuleWeightType weightType;
     }
@@ -96,12 +98,19 @@ public class PartVisualHandler : MonoBehaviour
             if (!System.Enum.TryParse(parts[1], true, out ModulePositionType posType)) continue;
             if (!System.Enum.TryParse(parts[2], true, out ModuleWeightType weightType)) continue;
 
-            parsedModuleHolders.Add(new ModuleHolderInfo
+            ModuleSlot slot = child.GetComponent<ModuleSlot>();
+            slot.SetUp(linkedPart);
+
+            linkedPart.slots.Add(slot);
+
+            ModuleHolderInfo holderInfo = new ModuleHolderInfo
             {
                 holder = child,
+                slot = slot,
                 positionType = posType,
                 weightType = weightType
-            });
+            };
+            parsedModuleHolders.Add(holderInfo);
         }
     }
 
@@ -112,10 +121,18 @@ public class PartVisualHandler : MonoBehaviour
             ModuleInstance module = linkedPart.Modules[i];
             if (module == null || module.Data == null) continue;
 
-            // Find a compatible holder
-            var match = parsedModuleHolders.FirstOrDefault(h =>
-                h.positionType == module.Data.positionType &&
-                (h.weightType == module.Data.weightType || h.weightType == ModuleWeightType.Heavy && module.Data.weightType == ModuleWeightType.Light));
+            ModuleHolderInfo match;
+            if (module.slotInt == -1)
+            {
+                match = parsedModuleHolders.FirstOrDefault(h =>
+                    h.positionType == module.Data.positionType &&
+                    (h.weightType == module.Data.weightType || h.weightType == ModuleWeightType.Heavy && module.Data.weightType == ModuleWeightType.Light));
+            }
+            else
+            {
+                 match = parsedModuleHolders.FirstOrDefault(h => h.slot.slot == module.slotInt);
+            }
+
 
             if (match == null)
             {
@@ -125,6 +142,7 @@ public class PartVisualHandler : MonoBehaviour
 
             if (module.Data.visualPrefab != null)
             {
+                module.slotInt = match.slot.slot;
                 GameObject vis = Instantiate(module.Data.visualPrefab);
                 //vis.transform.localRotation = Quaternion.identity;
                 vis.transform.SetParent(match.holder, true); // Set parent and keep local position/rotation
@@ -132,6 +150,7 @@ public class PartVisualHandler : MonoBehaviour
 
                 if (vis.TryGetComponent(out ModuleVisualHandler visualHandler))
                     visualHandler.Initialize(module);
+
             }
         }
     }

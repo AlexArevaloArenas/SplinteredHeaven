@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using UnityEditor;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 [ExecuteAlways]
@@ -20,6 +22,11 @@ public class UnitVisualManager : MonoBehaviour
     public Transform root; // Parent holder for visuals
     private List<GameObject> spawnedParts = new();
     private UnitManager unit;
+
+    public void Init(Unit unit)
+    {
+        LoadPartsFromData(unit);
+    }
 
     private void Start()
     {
@@ -119,4 +126,52 @@ public class UnitVisualManager : MonoBehaviour
         spawnedParts.Add(go);
         return go;
     }
+
+    public void UpdateVisual()
+    {
+        if (unit.unit == null) return;
+        ClearParts();
+        LoadPartsFromData(unit.unit);
+    }
+
+    public void ChangePart(string unitName,UnitPartData unitPart, RuntimeAssetRegistry registry)
+    {
+        UnitRuntimeData data = MechaBuilder.LoadFromJson(unitName);
+        foreach (var part in data.parts)
+        {
+            if(registry.GetPart(part.partID).partType == unitPart.partType)
+            {
+                part.partID = unitPart.id;
+                part.currentHealth = unitPart.maxHealth;
+                //part.moduleIDs = unitPart.modules.Select(m => m.id).ToList();
+                part.modules = unitPart.modules.Select(m => new RuntimeModuleData { moduleID = m.id }).ToList();
+            }
+        }
+        MechaBuilder.SaveToJson(data,unitName);
+
+        Unit newUnit = MechaBuilder.CreateUnitFromRuntimeData(data,registry,gameObject);
+
+        unit.SetUnit(newUnit);
+    }
+
+    public void AddModule(string unitName,ModuleData module, ModuleSlot slot, RuntimeAssetRegistry registry)
+    {
+        UnitRuntimeData data = MechaBuilder.LoadFromJson(unitName);
+        foreach (var part in data.parts)
+        {
+            if (registry.GetPart(part.partID).partType == slot.part.data.partType)
+            {
+                foreach(var mod in part.modules)
+                {
+                    mod.moduleID = module.id;
+                    mod.slotIndex = slot.slot;
+                }
+            }
+        }
+        MechaBuilder.SaveToJson(data, unitName);
+        Unit newUnit = MechaBuilder.CreateUnitFromRuntimeData(data, registry, gameObject);
+        unit.SetUnit(newUnit);
+
+    }
+
 }
