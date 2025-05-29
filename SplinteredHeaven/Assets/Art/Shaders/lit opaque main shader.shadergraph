@@ -1487,7 +1487,7 @@
     "m_ZTestMode": 4,
     "m_ZWriteControl": 0,
     "m_AlphaMode": 0,
-    "m_RenderFace": 2,
+    "m_RenderFace": 0,
     "m_AlphaClip": true,
     "m_CastShadows": true,
     "m_ReceiveShadows": true,
@@ -1822,8 +1822,8 @@
     "m_ObjectId": "4bc676244ee143829f48be9a677cfd52",
     "m_Title": "Mapas básicos",
     "m_Position": {
-        "x": 2287.0,
-        "y": 822.0000610351563
+        "x": 2286.666748046875,
+        "y": 822.666748046875
     }
 }
 
