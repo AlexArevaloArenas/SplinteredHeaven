@@ -1,0 +1,37 @@
+{
+    "version": 1,
+    "unitDataID": "mecha01",
+    "unitNameOverride": "mecha01",
+    "parts": [
+        {
+            "partID": "arm_left01",
+            "currentHealth": 10.0,
+            "modules": [
+                {
+                    "moduleID": "Pistol",
+                    "slotIndex": 0
+                }
+            ]
+        },
+        {
+            "partID": "arm_right01",
+            "currentHealth": 10.0,
+            "modules": []
+        },
+        {
+            "partID": "chest_01",
+            "currentHealth": 10.0,
+            "modules": []
+        },
+        {
+            "partID": "head_01",
+            "currentHealth": 10.0,
+            "modules": []
+        },
+        {
+            "partID": "legs_01",
+            "currentHealth": 10.0,
+            "modules": []
+        }
+    ]
+}

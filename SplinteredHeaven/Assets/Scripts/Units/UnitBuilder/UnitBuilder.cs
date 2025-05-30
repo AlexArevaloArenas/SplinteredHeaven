@@ -30,6 +30,7 @@ public class RuntimeModuleData
 
 public static class MechaBuilder
 {
+    public static string defaultDirectory = "Assets/Resources/UnitJSON/";
     public static UnitRuntimeData CreateRuntimeDataFromUnit(Unit unit)
     {
         var runtime = new UnitRuntimeData
@@ -98,7 +99,8 @@ public static class MechaBuilder
 
     public static UnitRuntimeData LoadFromJson(string fileName)
     {
-        string path = Path.Combine(Application.persistentDataPath, fileName + ".json");
+        //string path = Path.Combine(Application.persistentDataPath, fileName + ".json");
+        string path = Path.Combine(defaultDirectory, fileName + ".json");
         if (!File.Exists(path))
         {
             Debug.LogWarning($"Save file not found: {path}");
@@ -111,7 +113,8 @@ public static class MechaBuilder
 
     public static string[] ListSavedMechas()
     {
-        string dir = Application.persistentDataPath;
+        //string dir = Application.persistentDataPath;
+        string dir = defaultDirectory;
         if (!Directory.Exists(dir)) return Array.Empty<string>();
 
         return Directory.GetFiles(dir, "*.json")

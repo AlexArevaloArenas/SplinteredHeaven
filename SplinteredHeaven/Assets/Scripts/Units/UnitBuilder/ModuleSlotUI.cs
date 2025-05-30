@@ -24,6 +24,10 @@ public class ModuleSlotUI : MonoBehaviour, IPointerClickHandler
 
     private void Update()
     {
+        if (slot == null)
+        {
+            Destroy(gameObject); // Destroy this UI if the slot is not set
+        }
         Vector3 newPos = Camera.main.WorldToScreenPoint(slot.transform.position);
         rectTransform.position = new Vector3(newPos.x, newPos.y, 0f);
     }
@@ -34,8 +38,9 @@ public class ModuleSlotUI : MonoBehaviour, IPointerClickHandler
         //Use this to tell when the user left-clicks on the Button
         if (eventData.button == PointerEventData.InputButton.Left)
         {
+            UnitBuilderUI.instance.HideSlotbackgrounds();
             background.SetActive(true);
-            UnitBuilderUI.instance.ShowAvailableModules(currentModule, positionType, weightType, slot); // Show available modules for this slot
+            UnitBuilderUI.instance.ShowAvailableModules(currentModule, slot.modulePositionType, slot.moduleWeightType, slot); // Show available modules for this slot
         }
     }
 

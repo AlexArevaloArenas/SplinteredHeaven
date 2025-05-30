@@ -4040,7 +4040,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2022561477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4158,6 +4158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitData: {fileID: 11400000, guid: 7cd9cf04aceada84fbbc9d668567607e, type: 2}
+  unitJsonData: {fileID: 0}
   selected: 0
   selector: {fileID: 1541075578}
   hpBarPrefab: {fileID: 8882039076867317522, guid: 910114e52b2414846880fe0eb7cce18f, type: 3}
@@ -4703,6 +4704,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7718630670781808464, guid: e03ef509b4d5d834b9ad907347167dbb, type: 3}
+      propertyPath: unitJsonData
+      value: 
+      objectReference: {fileID: 4900000, guid: c9a52cb1d5e27b449ac688f315315730, type: 3}
     - target: {fileID: 8644749706993284674, guid: e03ef509b4d5d834b9ad907347167dbb, type: 3}
       propertyPath: m_Name
       value: Character

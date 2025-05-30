@@ -27,6 +27,8 @@ public class UnitBuilderUI : MonoBehaviour
     public GameObject moduleSlotInstance;
 
     private List<GameObject> moduleSlots = new List<GameObject>();  
+    private List<GameObject> availablePartsUI = new List<GameObject>();
+    private List<GameObject> availableModulesUI = new List<GameObject>();
 
     [Header("Data")]
     public RuntimeAssetRegistry registry;
@@ -141,12 +143,14 @@ public class UnitBuilderUI : MonoBehaviour
 
     public void OnMechaSelected(int index)
     {
+        DeleteUI();
         string[] savedUnits = MechaBuilder.ListSavedMechas();
         string selectedMecha = savedUnits[index];
         UnitRuntimeData data = MechaBuilder.LoadFromJson(selectedMecha);
         Unit unit = MechaBuilder.CreateUnitFromRuntimeData(data, registry, UnitManager.gameObject);
         UnitManager.SetUnit(unit);
         currentIndex = index;
+        SetUpModuleSlots();
     }
 
     public void ShowPartOptions()
@@ -164,30 +168,33 @@ public class UnitBuilderUI : MonoBehaviour
             {
                 GameObject unitButton = Instantiate(buttonInstance,availablePartsPanel.transform);
                 unitButton.GetComponent<UnitButtonUI>().SetUp(part,this);
+                availablePartsUI.Add(unitButton);
             }
         }
     }
 
     public void ShowAvailableModules(ModuleData currentAssignModule, ModulePositionType posT, ModuleWeightType weightT, ModuleSlot slot)
     {
-        foreach(var button in moduleSlots)
-        {
-            Destroy(button.gameObject);
-        }
+
         foreach(Transform child in availableModulesPanel.transform)
         {
             Destroy(child.gameObject);
         }
         List<ModuleData> modules = registry.allModules;
+
+        //Empty button slot
+        GameObject emptyButton = Instantiate(moduleButtonInstance, availableModulesPanel.transform);
+        emptyButton.GetComponent<ModuleButtonUI>().SetUp(null, this, slot);
+
         foreach (ModuleData module in modules)
         {
             if (module.positionType == posT && module.weightType == weightT && module != currentAssignModule)
             {
                 GameObject unitButton = Instantiate(moduleButtonInstance, availableModulesPanel.transform);
                 unitButton.GetComponent<ModuleButtonUI>().SetUp(module, this, slot);
+                availableModulesUI.Add(unitButton);
             }
         }
-
     }
 
     public void SetUpModuleSlots()
@@ -205,20 +212,45 @@ public class UnitBuilderUI : MonoBehaviour
         
     }
 
-    public IEnumerator SetModuleSlots()
+    public void HideSlotbackgrounds()
     {
-        yield return new WaitForSeconds(0.5f);
-        SetUpModuleSlots();
+        foreach (GameObject slot in moduleSlots)
+        {
+            slot.GetComponent<ModuleSlotUI>().background.SetActive(false);
+        }
     }
 
     public void ChangeMechaPart(UnitPartData partData)
     {
+        DeleteUI();
         UnitManager.transform.GetComponent<UnitVisualManager>().ChangePart(MechaBuilder.ListSavedMechas()[currentIndex], partData,registry);
+        SetUpModuleSlots();
     }
 
     public void ChangeModulePart(ModuleData moduleData, ModuleSlot slot)
     {
+        DeleteUI();
         UnitManager.transform.GetComponent<UnitVisualManager>().AddModule(MechaBuilder.ListSavedMechas()[currentIndex], moduleData, slot, registry);
+        SetUpModuleSlots();
+    }
+
+    public void DeleteUI()
+    {
+        foreach (GameObject part in availablePartsUI)
+        {
+            Destroy(part);
+        }
+        availablePartsUI.Clear();
+        foreach (GameObject module in availableModulesUI)
+        {
+            Destroy(module);
+        }
+        availableModulesUI.Clear();
+        foreach (GameObject slot in moduleSlots)
+        {
+            Destroy(slot);
+        }
+        moduleSlots.Clear();
     }
 
     public void ExitHangar()

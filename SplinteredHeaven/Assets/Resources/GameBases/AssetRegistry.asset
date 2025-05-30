@@ -27,4 +27,3 @@ MonoBehaviour:
   allModules:
   - {fileID: 11400000, guid: 95aba23001b08be4ba019321085d6773, type: 2}
   - {fileID: 11400000, guid: 8aad91e5b2f38cd4db3b4f033c335c8c, type: 2}
-  - {fileID: 11400000, guid: 6a10f48d3a7e05d439aec1fca956eb85, type: 2}

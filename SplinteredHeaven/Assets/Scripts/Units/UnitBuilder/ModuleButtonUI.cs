@@ -24,24 +24,35 @@ public class ModuleButtonUI : MonoBehaviour, IPointerClickHandler
         {
             background.SetActive(true);
             UnitBuilderUI.ChangeModulePart(module, slot);
+
         }
     }
     
     public void SetUp(ModuleData associatedModule, UnitBuilderUI uiController, ModuleSlot newSlot)
     {
         this.UnitBuilderUI = uiController;
-        if (associatedModule != null)
+        if (associatedModule == null)
         {
-            //unitImage.sprite = part.Image;
-            module = associatedModule;
-            partText.text = associatedModule.id;
+            module = null;
+            partText.text = "Empty Slot";
             slot = newSlot;
-            // Add more setup code here if needed
         }
         else
         {
-            Debug.LogError($"Unit data for {associatedModule.name} not found.");
+            if (associatedModule != null)
+            {
+                //unitImage.sprite = part.Image;
+                module = associatedModule;
+                partText.text = associatedModule.id;
+                slot = newSlot;
+                // Add more setup code here if needed
+            }
+            else
+            {
+                Debug.LogError($"Unit data for {associatedModule.name} not found.");
+            }
         }
+            
     }
 
 }

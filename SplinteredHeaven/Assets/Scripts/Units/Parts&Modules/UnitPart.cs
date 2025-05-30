@@ -54,6 +54,7 @@ public class UnitPart
         List<ModuleInstance> modules = new List<ModuleInstance>();
         foreach(var module in runtimeData.modules)
         {
+            if(module.moduleID == null) { continue; }
             ModuleData moduleData = registry.GetModule(module.moduleID);
             if (moduleData == null)
             {

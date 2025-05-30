@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "unitDataID": "mecha02",
+    "unitNameOverride": "mecha02",
+    "parts": [
+        {
+            "partID": "chest_02",
+            "currentHealth": 10.0,
+            "modules": []
+        },
+        {
+            "partID": "head_02",
+            "currentHealth": 10.0,
+            "modules": []
+        },
+        {
+            "partID": "Legs02",
+            "currentHealth": 0.0,
+            "modules": []
+        }
+    ]
+}

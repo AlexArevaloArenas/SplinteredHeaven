@@ -19,6 +19,16 @@ public class UnitVisualManager : MonoBehaviour
             LoadPartsFromData(u);
         }
     }
+    public TextAsset JsonUnitData
+    {
+        get => JsonUnitData;
+        set
+        {
+            JsonUnitData = value;
+            Unit u = GetComponent<UnitManager>().unit = new Unit(unitData, gameObject);
+            LoadPartsFromData(u);
+        }
+    }
     public Transform root; // Parent holder for visuals
     private List<GameObject> spawnedParts = new();
     private UnitManager unit;
@@ -157,17 +167,39 @@ public class UnitVisualManager : MonoBehaviour
     public void AddModule(string unitName,ModuleData module, ModuleSlot slot, RuntimeAssetRegistry registry)
     {
         UnitRuntimeData data = MechaBuilder.LoadFromJson(unitName);
-        foreach (var part in data.parts)
+
+        if(module == null)
         {
-            if (registry.GetPart(part.partID).partType == slot.part.data.partType)
+            foreach (var part in data.parts)
             {
-                foreach(var mod in part.modules)
+                if (registry.GetPart(part.partID).partType == slot.part.data.partType)
                 {
-                    mod.moduleID = module.id;
-                    mod.slotIndex = slot.slot;
+                    if(part.modules.Count > 0) {
+                        part.modules.Clear();
+                    }
                 }
             }
         }
+        else
+        {
+            foreach (var part in data.parts)
+            {
+                if (registry.GetPart(part.partID).partType == slot.part.data.partType)
+                {
+                    if (part.modules.Count > 0)
+                    {
+                        part.modules.Clear();
+                    }
+                    part.modules.Add(new RuntimeModuleData
+                    {
+                        moduleID = module.id,
+                        slotIndex = slot.slot
+                    });
+                }
+            }
+        }
+
+            
         MechaBuilder.SaveToJson(data, unitName);
         Unit newUnit = MechaBuilder.CreateUnitFromRuntimeData(data, registry, gameObject);
         unit.SetUnit(newUnit);

@@ -65,6 +65,5 @@ public class CameraController : MonoBehaviour
     public void ScrollWheel(float sSpeed)
     {
         scrollSpeed = sSpeed;
-        Debug.Log(scrollSpeed);
     }
 }

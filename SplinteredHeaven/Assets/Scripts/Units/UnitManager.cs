@@ -11,9 +11,11 @@ using Unity.AppUI.UI;
 [RequireComponent(typeof(UnitVisualManager))]
 public class UnitManager : MonoBehaviour //Unit Stores the Actions of the Unit
 {
+    public UnitData unitData;
+    /*
     [SerializeField]
     [OnChangedCall("UpdateVisual")]
-    public UnitData unitData;
+    */
 
     [SerializeField]
     [OnChangedCall("UpdateAll")]
@@ -33,17 +35,15 @@ public class UnitManager : MonoBehaviour //Unit Stores the Actions of the Unit
     {
         if (unitJsonData != null)
         {
-            unit = JsonUtility.FromJson<Unit>(unitJsonData.text);
-            unit.obj = gameObject;
-            unit.InitHealthBar(hpBar);
-            GetComponent<UnitVisualManager>().Init(unit);
+            UpdateAll();
         }
         else if (unit == null)
         {
-            //unit = new Unit(unitData, gameObject);
+            unit = new Unit(unitData, gameObject);
+            UpdateVisual();
             /*
             Debug.Log("Unit is null, creating new instance.");
-            UpdateVisual();
+            
             */
         }
         //if (unitData == null) unitData = GetComponent<UnitVisualManager>().UnitData;
@@ -87,7 +87,6 @@ public class UnitManager : MonoBehaviour //Unit Stores the Actions of the Unit
         }
     }
 
-
     public virtual void SelectedActions()
     {
         selector.SetActive(true);
@@ -125,12 +124,25 @@ public class UnitManager : MonoBehaviour //Unit Stores the Actions of the Unit
 
     public void UpdateVisual()
     {
-        GetComponent<UnitVisualManager>().UnitData = unitData;
+        if (unitData == null) return;
+        if (GetComponent<UnitVisualManager>() == null)
+        {
+            gameObject.AddComponent<UnitVisualManager>();
+        }
+        if (unitJsonData ==null)
+        {
+            GetComponent<UnitVisualManager>().UnitData = unitData;
+
+        }
     }
 
     public void UpdateAll()
     {
-
+        unit = JsonUtility.FromJson<Unit>(unitJsonData.text);
+        GetComponent<UnitVisualManager>().JsonUnitData = unitJsonData;
+        unit.obj = gameObject;
+        unit.InitHealthBar(hpBar);
+        GetComponent<UnitVisualManager>().Init(unit);
     }
 
     private void OnDrawGizmos()

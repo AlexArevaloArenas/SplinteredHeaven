@@ -15,10 +15,10 @@ MonoBehaviour:
   id: Sword
   visualPrefab: {fileID: 2834823154419130967, guid: 2b746d248aecbee41850e01649bf89f7, type: 3}
   cooldown: 0
-  positionType: 0
+  positionType: 1
   weightType: 0
   damage: 15
-  range: 0
+  range: 2
   damageType: 0
   weaponType: 0
   hitMask:
