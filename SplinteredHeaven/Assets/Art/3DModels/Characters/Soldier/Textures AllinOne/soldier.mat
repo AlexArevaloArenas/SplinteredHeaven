@@ -156,7 +156,7 @@ Material:
     - _SrcBlendAlpha: 1
     - _Surface: 0
     - _Vertex_Wobble_intensity: 110.28
-    - _Vertex_wobble: 1
+    - _Vertex_wobble: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
     - _alpha_value: 1

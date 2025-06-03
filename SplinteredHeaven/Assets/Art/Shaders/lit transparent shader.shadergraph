@@ -50,6 +50,9 @@
         },
         {
             "m_Id": "0107fef5afe64a4398130120e5d2027a"
+        },
+        {
+            "m_Id": "e33aa9788e40454199ea2ca88bd42939"
         }
     ],
     "m_Keywords": [],
@@ -1909,7 +1912,7 @@
     "m_Title": "Mapas básicos",
     "m_Position": {
         "x": 2271.333251953125,
-        "y": 958.666748046875
+        "y": 958.6666870117188
     }
 }
 
@@ -3434,16 +3437,10 @@
             "m_Id": "ed3ea53b134342d79547544373e7cdd3"
         },
         {
-            "m_Id": "943190b18de849e886b559ff5b631fb1"
-        },
-        {
             "m_Id": "61e340a429564b288b4b1b02f470e4cf"
         },
         {
             "m_Id": "3d689fa85c484de3bf122d5beb10ae4d"
-        },
-        {
-            "m_Id": "9aaadd1297894308a08d521f29ae3c5f"
         },
         {
             "m_Id": "c49c2936d68c4a37b8fbd8f96742d2d0"
@@ -3464,13 +3461,22 @@
     "m_Name": "",
     "m_ChildObjectList": [
         {
+            "m_Id": "ae00cbebc06f42caad6b6184ee275114"
+        },
+        {
             "m_Id": "6a33a39a3bb0439aa37edb0d5a8d1e16"
         },
         {
             "m_Id": "da4e9527158346c28124b6a2c87e1097"
         },
         {
-            "m_Id": "ae00cbebc06f42caad6b6184ee275114"
+            "m_Id": "9aaadd1297894308a08d521f29ae3c5f"
+        },
+        {
+            "m_Id": "e33aa9788e40454199ea2ca88bd42939"
+        },
+        {
+            "m_Id": "943190b18de849e886b559ff5b631fb1"
         }
     ]
 }
@@ -4652,6 +4658,34 @@
         "m_Guid": ""
     },
     "m_DefaultType": 0
+}
+
+{
+    "m_SGVersion": 1,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
+    "m_ObjectId": "e33aa9788e40454199ea2ca88bd42939",
+    "m_Guid": {
+        "m_GuidSerialized": "765f360d-10bb-40f6-803a-0c27a024349a"
+    },
+    "m_Name": "metallic strenght",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "metallic strenght",
+    "m_DefaultReferenceName": "_metallic_strenght",
+    "m_OverrideReferenceName": "",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Value": 1.0,
+    "m_FloatType": 1,
+    "m_RangeValues": {
+        "x": 0.0,
+        "y": 1.0
+    }
 }
 
 {
