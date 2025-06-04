@@ -58,7 +58,7 @@ public class Unit
             }
 
             var unitPart = new UnitPart(runtimePart, partData, this, registry);
-            
+            unitPart.OnHealthChanged += HandlePartHealthChanged;
             unitPart.owner = this;
             newParts.Add(unitPart);
         }

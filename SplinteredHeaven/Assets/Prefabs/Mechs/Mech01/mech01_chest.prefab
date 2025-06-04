@@ -2705,6 +2705,7 @@ GameObject:
   - component: {fileID: -5348470831795927738}
   - component: {fileID: 475345463285771677}
   - component: {fileID: 410715282751502047}
+  - component: {fileID: 8817954009665840495}
   m_Layer: 11
   m_Name: mech01_chest
   m_TagString: Untagged
@@ -2833,3 +2834,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 6.009856, y: 8.514785, z: 4.9363146}
   m_Center: {x: -0.03253126, y: 2.3260045, z: 0.24398708}
+--- !u!114 &8817954009665840495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8656391092955187432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d78744d9a73141f46a5b4e3efa6cd01d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aimTarget: {fileID: 0}
+  rotationSpeed: 5
+  constrainToY: 1
+  constrainRotation: 0
+  minRotation: {x: -45, y: -90, z: -10}
+  maxRotation: {x: 45, y: 90, z: 10}

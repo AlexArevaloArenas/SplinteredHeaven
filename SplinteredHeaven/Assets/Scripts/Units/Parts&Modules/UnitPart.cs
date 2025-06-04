@@ -14,6 +14,7 @@ public class UnitPart
     public Transform transform;
     public GameObject partObject;
     public List<ModuleInstance> Modules;
+    public List<WeaponModuleInstance> Weapons;
     public List<ModuleSlot> slots;
     public Unit owner;
     public event Action<UnitPart> OnHealthChanged;
@@ -39,6 +40,7 @@ public class UnitPart
             //ModuleInstance module = new ModuleInstance(moduleData,owner,this);
             //Modules.Add(module);
         }
+        Weapons = Modules.Where(m => m is WeaponModuleInstance).Cast<WeaponModuleInstance>().ToList();
     }
 
     public UnitPart(PartRuntimeData runtimeData, UnitPartData staticData, Unit owner, RuntimeAssetRegistry registry)
@@ -65,6 +67,18 @@ public class UnitPart
             modules.Add(moduleInstance);
         }
         Modules = modules;
+        Weapons = new List<WeaponModuleInstance>();
+
+        foreach (var module in Modules)
+        {
+            if (module is WeaponModuleInstance weapon)
+            {
+                Weapons.Add(weapon);
+            }
+        }
+
+        // Por esta, que incluye subclases de WeaponModuleInstance:
+
         /*
         Modules = runtimeData.moduleIDs
             .Select(id => registry.GetModule(id))
@@ -91,10 +105,15 @@ public class UnitPart
         if (currentHealth == 0)
         {
             Modules.ForEach(m => m.Disable());
-
+            OnDestroy();
         }
         
         OnHealthChanged?.Invoke(this);
+    }
+
+    public bool IsDestroyed()
+    {
+        return currentHealth <= 0;
     }
 
     public void OnDestroy()

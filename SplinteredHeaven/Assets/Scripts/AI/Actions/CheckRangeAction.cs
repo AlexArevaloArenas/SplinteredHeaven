@@ -18,8 +18,18 @@ public partial class CheckRangeAction : Action
     protected override Status OnUpdate()
     {
         // Check if the target is in range
-
-        return Status.Success;
+        foreach (var part in SelfCharacter.Value.unit.Parts)
+        {
+            foreach(var weapon in part.Weapons)
+            {
+                if (weapon.IsInRange(SelfCharacter.Value.transform.position, TargetCharacter.Value.transform.position))
+                {
+                    //Debug.Log($"Target {TargetCharacter.Value.name} is in range for weapon {weapon.name}");
+                    return Status.Success;
+                }
+            }
+        }
+        return Status.Failure;
     }
 
     protected override void OnEnd()

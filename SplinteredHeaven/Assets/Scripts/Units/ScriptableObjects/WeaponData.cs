@@ -4,6 +4,7 @@ using UnityEngine;
 public class WeaponData : ModuleData
 {
     public override ModuleInstance CreateInstance(Unit owner, UnitPart part) => new WeaponModuleInstance(this, owner, part);
+    public override ModuleInstance CreateInstanceFromRuntime(Unit owner, UnitPart part, RuntimeModuleData runtimeModule) => new WeaponModuleInstance(this, owner, part, runtimeModule);
     public float damage;
     public float range;
     public DamageType damageType;

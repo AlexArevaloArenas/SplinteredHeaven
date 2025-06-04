@@ -19,6 +19,12 @@ public class UnitMovement : MonoBehaviour
         destinationSetter.target.position = position;
     }
 
+    public void SetTarget(GameObject target)
+    {
+        if (destinationSetter.target == null) destinationSetter.target = target.transform;
+        else destinationSetter.target.position = target.transform.position;
+    }
+
     public void Stop()
     {
         destinationSetter.target = null;

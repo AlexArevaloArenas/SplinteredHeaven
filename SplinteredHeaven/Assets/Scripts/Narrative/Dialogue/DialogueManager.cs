@@ -70,7 +70,7 @@ public class DialogueManager :  UIManager<IDialogueUI>
             Destroy(gameObject); // Prevent duplicates
         }
 
-        //dialogueVariables = new DialogueVariables(loadGlobalsJSON);
+        dialogueVariables = new DialogueVariables(loadGlobalsJSON);
         //inkExternalFunctions = new InkExternalFunctions();
 
         //audioSource = this.gameObject.AddComponent<AudioSource>();

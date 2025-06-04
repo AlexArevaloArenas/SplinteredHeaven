@@ -12,16 +12,18 @@ using Unity.AppUI.UI;
 public class UnitManager : MonoBehaviour //Unit Stores the Actions of the Unit
 {
     public UnitData unitData;
+    [SerializeField]
+    [OnChangedCall("UpdateVisual")] public MechaClass mechaClass;
+
     /*
     [SerializeField]
     [OnChangedCall("UpdateVisual")]
     */
 
-    [SerializeField]
-    [OnChangedCall("UpdateAll")]
-    public TextAsset unitJsonData;
+    //public TextAsset unitJsonData; // JSON data for the unit, used for loading and saving
 
     [SerializeField] public Unit unit;
+    [SerializeField] RuntimeAssetRegistry registry; // Registry to access part and module data
 
     [Header("Selection Info")]
     public bool selected = false;
@@ -33,24 +35,25 @@ public class UnitManager : MonoBehaviour //Unit Stores the Actions of the Unit
 
     private void Awake()
     {
-        if (unitJsonData != null)
+        if (mechaClass != MechaClass.empty)
         {
             UpdateAll();
         }
+        /*
         else if (unit == null)
         {
             unit = new Unit(unitData, gameObject);
             UpdateVisual();
             /*
             Debug.Log("Unit is null, creating new instance.");
-            
-            */
+             
         }
+        */
         //if (unitData == null) unitData = GetComponent<UnitVisualManager>().UnitData;
     }
     protected void Start()
     {
-        if(hpBar != null)
+        if(hpBar == null)
         {
             hpBar = Instantiate(hpBarPrefab, GameObject.FindWithTag("Canvas").transform).GetComponent<Image>();
             hpBar.GetComponent<HealthBarVisual>().unidad = this;
@@ -101,6 +104,7 @@ public class UnitManager : MonoBehaviour //Unit Stores the Actions of the Unit
     void OnDestroy()
     {
         if (selected) Selected(false);
+        if(UnitSelections.Instance == null) return;
         UnitSelections.Instance.unitList.Remove(this.gameObject);
         //Destroy(hpBar.gameObject);
     }
@@ -124,12 +128,15 @@ public class UnitManager : MonoBehaviour //Unit Stores the Actions of the Unit
 
     public void UpdateVisual()
     {
+        UnitRuntimeData runtimeData = MechaBuilder.LoadFromJson(mechaClass.ToString());
+        unit = MechaBuilder.CreateUnitFromRuntimeData(runtimeData, registry, gameObject);
+        unit.obj = gameObject;
         if (unitData == null) return;
         if (GetComponent<UnitVisualManager>() == null)
         {
             gameObject.AddComponent<UnitVisualManager>();
         }
-        if (unitJsonData ==null)
+        if (mechaClass == MechaClass.empty)
         {
             GetComponent<UnitVisualManager>().UnitData = unitData;
 
@@ -138,24 +145,11 @@ public class UnitManager : MonoBehaviour //Unit Stores the Actions of the Unit
 
     public void UpdateAll()
     {
-        unit = JsonUtility.FromJson<Unit>(unitJsonData.text);
-        GetComponent<UnitVisualManager>().JsonUnitData = unitJsonData;
+        UnitRuntimeData runtimeData = MechaBuilder.LoadFromJson(mechaClass.ToString());
+        unit = MechaBuilder.CreateUnitFromRuntimeData(runtimeData, registry, gameObject);
         unit.obj = gameObject;
-        unit.InitHealthBar(hpBar);
+        //unit.InitHealthBar(hpBar);
         GetComponent<UnitVisualManager>().Init(unit);
-    }
-
-    private void OnDrawGizmos()
-    {
-        // Set the color with custom alpha.
-        Gizmos.color = new Color(1f, 0f, 0f, 1); // Red with custom alpha
-
-        // Draw the sphere.
-        Gizmos.DrawSphere(transform.position, 1f);
-
-        // Draw wire sphere outline.
-        Gizmos.color = Color.white;
-        Gizmos.DrawWireSphere(transform.position, 1f);
     }
 
 }
@@ -165,4 +159,11 @@ public enum Faction
     Player,
     Enemy,
     Neutral
+}
+public enum MechaClass
+{
+    empty,
+    mecha01,
+    mecha02,
+    mecha03
 }

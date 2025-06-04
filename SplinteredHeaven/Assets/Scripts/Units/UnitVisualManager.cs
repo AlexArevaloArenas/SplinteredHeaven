@@ -19,6 +19,7 @@ public class UnitVisualManager : MonoBehaviour
             LoadPartsFromData(u);
         }
     }
+    /*
     public TextAsset JsonUnitData
     {
         get => JsonUnitData;
@@ -29,6 +30,7 @@ public class UnitVisualManager : MonoBehaviour
             LoadPartsFromData(u);
         }
     }
+    */
     public Transform root; // Parent holder for visuals
     private List<GameObject> spawnedParts = new();
     private UnitManager unit;

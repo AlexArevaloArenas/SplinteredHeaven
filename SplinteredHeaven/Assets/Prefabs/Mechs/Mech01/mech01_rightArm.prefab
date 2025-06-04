@@ -363,6 +363,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 073c9cabe756db34585ff6666420464d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6809760983969701952}
+    - targetCorrespondingSourceObject: {fileID: -6311849625919257868, guid: 073c9cabe756db34585ff6666420464d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2774993946565208366}
     - targetCorrespondingSourceObject: {fileID: -3028589859235356164, guid: 073c9cabe756db34585ff6666420464d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4120096408542537138}
@@ -391,6 +394,31 @@ MonoBehaviour:
   isOccupied: 0
   modulePositionType: 0
   moduleWeightType: 0
+--- !u!1 &2010299657738383723 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -6311849625919257868, guid: 073c9cabe756db34585ff6666420464d, type: 3}
+  m_PrefabInstance: {fileID: 3711470596135285663}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2774993946565208366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010299657738383723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d78744d9a73141f46a5b4e3efa6cd01d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aimTarget: {fileID: 0}
+  rotationSpeed: 5
+  constrainToY: 0
+  constrainToX: 0
+  constrainToZ: 0
+  constrainRotation: 1
+  minRotation: {x: -45, y: -90, z: -10}
+  maxRotation: {x: 45, y: 90, z: 10}
 --- !u!1 &4557822069751828174 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 073c9cabe756db34585ff6666420464d, type: 3}
