@@ -30,6 +30,8 @@ public class UnitAI : MonoBehaviour
         agent.Graph = pilotData.Pilot.AttackBehaviour;
         agent.BlackboardReference.SetVariableValue("TargetCharacter", target.GetComponent<UnitManager>());
         agent.BlackboardReference.SetVariableValue("TargetTracker", GetComponent<TargetTracker>());
+        agent.BlackboardReference.SetVariableValue("UnitMovement", GetComponent<UnitMovement>());
+        agent.BlackboardReference.SetVariableValue("Target", target);
     }
 
     public void Stop()

@@ -1,5 +1,6 @@
-using UnityEngine;
 using System;
+using System.Reflection;
+using UnityEngine;
 using UnityEngine.Windows;
 
 public class EventManager : MonoBehaviour
@@ -120,6 +121,25 @@ public class EventManager : MonoBehaviour
         FPChangeInteractionSymbolEvent?.Invoke(show, text);
     }
 
-    
+    public void StartEventByString(string id)
+    {
+        var fields = this.GetType().GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+        foreach (var field in fields)
+        {
+            Debug.Log($"Checking field: {field.Name} against id: {id}");
+            if (string.Equals(field.Name, id, StringComparison.Ordinal))
+            {
+                if (field.GetValue(this) is Action action)
+                {
+                    action.Invoke();
+                    return;
+                }
+                else
+                {
+                    throw new InvalidOperationException($"Field '{id}' is not of type Action.");
+                }
+            }
+        }
+    }
 
 }

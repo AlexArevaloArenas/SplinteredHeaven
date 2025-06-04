@@ -1381,7 +1381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partType: 4
   partId: 
-  moduleHolders: []
+  moduleSlots: []
   animator: {fileID: 6706362243408049901}
 --- !u!114 &1424744013969435004
 MonoBehaviour:

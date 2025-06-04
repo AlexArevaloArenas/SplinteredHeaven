@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class MenuManager : MonoBehaviour
@@ -18,37 +19,38 @@ public class MenuManager : MonoBehaviour
 
     void Start()
     {
-        SetUp();
+        fadeControl = Fader.GetInstance();
     }
 
 
+    public void ContinueGame()
+    {
+        fadeControl.StartFade("ContinueGameEvent");
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.acceptSFX, Camera.main.transform.position);
+
+    }
+    /*
     public void StartGame()
     {
         //gameManager.StartGame();
-        fadeControl.UseFade();
+        fadeControl.StartFade();
     }
     public void ExitGame()
     {
         //gameManager.currentState = State.Menu;
-        fadeControl.UseFade();
+        fadeControl.StartFade();
         //ShowCurrentMenu();
     }
-    public void ContinueGame()
-    {
-        AudioManager.instance.PlayOneShot(FMODEvents.instance.acceptSFX,Camera.main.transform.position);
-        EventManager.Instance.StartContinueGameEvent();
-        fadeControl.UseFade();
-    }
-
     public void PauseGame()
     {
         //gameManager.currentState = State.Pause;
-        fadeControl.UseFade();
+        fadeControl.StartFade();
     }
+    
     public void OptionsGame()
     {
         //gameManager.currentState = State.Options;
-        fadeControl.UseFade();
+        fadeControl.StartFade();
     }
     
     public void ShowCurrentMenu()
@@ -77,11 +79,8 @@ public class MenuManager : MonoBehaviour
     public void SetUp()
     {
         mainMenu.SetActive(true);
-        /*
-        pauseMenu.SetActive(false);
-        gameHUD.SetActive(false);
-        optionsMenu.SetActive(false);
-        */
+        
+        
     }
 
     public void HideAllMenus()
@@ -91,4 +90,6 @@ public class MenuManager : MonoBehaviour
         //gameHUD.SetActive(false);
         //optionsMenu.SetActive(false);
     }
+*/
 }
+

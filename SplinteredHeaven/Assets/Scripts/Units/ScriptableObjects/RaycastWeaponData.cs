@@ -9,19 +9,20 @@ public class RaycastWeaponData : WeaponData
     public override void ApplyEffects(UnitManager user, UnitManager target, UnitPart fallbackPart, Transform attackPoint)
     {
         Transform origin = attackPoint != null ? attackPoint : user.transform;
-        Vector3 direction = GetInaccurateDirection(origin.forward, inaccuracyAngle);
+        Vector3 direction = GetInaccurateDirection(fallbackPart.transform.position-origin.position, inaccuracyAngle);
 
         // ?? Draw the ray in the scene view for debugging
         Debug.DrawRay(origin.position, direction * range, Color.red, 1.5f);
 
         if (Physics.Raycast(origin.position, direction, out RaycastHit hit, range, hitMask))
         {
-            UnitPart hitPart = hit.collider.GetComponentInParent<UnitPart>();
+            //UnitPart hitPart = hit.collider.GetComponentInParent<UnitPart>();
+            DamageReceiver hitPart = hit.collider.GetComponent<DamageReceiver>();
 
-            if (hitPart != null && hitPart.currentHealth > 0)
+            if (hitPart != null)
             {
                 Debug.Log($"[Raycast Weapon] {user.name} hits {hitPart.name} for {damage} damage.");
-                hitPart.TakeDamage(damage);
+                hitPart.ApplyDamage(damage, user.unit);
 
                 // Optional: draw impact point
                 Debug.DrawLine(hit.point, hit.point + hit.normal * 0.5f, Color.yellow, 1.5f);

@@ -23,14 +23,25 @@ public class HealthBarVisual : MonoBehaviour
     }
     void Update()
     {
+        /*
         if (!unidad.selected){
             transform.LookAt(myCam);
             nuevaPos = new Vector3(unidad.transform.position.x + margen.x, unidad.transform.position.y + 1000f, unidad.transform.position.z + margen.z);
             transform.position = nuevaPos;
             return;
         }
-        transform.LookAt(myCam);
-        nuevaPos = new Vector3(unidad.transform.position.x + margen.x, heigh.position.y + margen.y, unidad.transform.position.z + margen.z);
-        transform.position = nuevaPos;
+        */
+        if (unidad == null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            transform.LookAt(myCam);
+            nuevaPos = new Vector3(unidad.transform.position.x + margen.x, heigh.position.y + margen.y, unidad.transform.position.z + margen.z);
+            transform.position = nuevaPos;
+        }
+
+            
     }
 }

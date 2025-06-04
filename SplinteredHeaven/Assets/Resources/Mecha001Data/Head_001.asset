@@ -17,4 +17,5 @@ MonoBehaviour:
   maxHealth: 10
   partType: 0
   visualPrefab: {fileID: 8523028546092255322, guid: 1ea0818e810aff64dbf8edacd2bbf560, type: 3}
+  destructionPrefab: {fileID: 100008, guid: 1dbc518224e49f34095aab42fe05751a, type: 3}
   modules: []

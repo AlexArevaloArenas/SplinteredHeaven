@@ -50,4 +50,9 @@ public class WeaponModuleInstance : ModuleInstance
         Debug.Log($"Checking range: {Vector3.Distance(origin, target)} <= {weaponData.range}");
         return Vector3.Distance(origin, target) <= weaponData.range;
     }
+
+    public float GetRange()
+    {
+        return weaponData.range;
+    }
 }

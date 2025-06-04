@@ -4,20 +4,27 @@ public class PartAnimationManager : MonoBehaviour
 {
     private Animator animator;
     private PartVisualHandler partVisualHandler;
+    private CharacterController characterController;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        partVisualHandler = GetComponent<PartVisualHandler>();
+        partVisualHandler = GetComponent<PartVisualHandler>();    
+    }
+
+    private void Start()
+    {
+        characterController = partVisualHandler.linkedPart.owner.obj.GetComponent<CharacterController>();
     }
 
     private void Update()
     {
-        if(GetComponent<CharacterController>() != null)
+        if(characterController != null)
         {
-            SetAnimationFloat("Speed", partVisualHandler.linkedPart.owner.obj.GetComponent<CharacterController>().velocity.magnitude);
+            SetAnimationFloat("Speed", characterController.velocity.magnitude);
 
         }
+
     }
 
     public void SetAnimationFloat(string variable, float f)

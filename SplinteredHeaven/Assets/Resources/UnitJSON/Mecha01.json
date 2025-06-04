@@ -6,12 +6,7 @@
         {
             "partID": "arm_left01",
             "currentHealth": 10.0,
-            "modules": [
-                {
-                    "moduleID": "Pistol",
-                    "slotIndex": 0
-                }
-            ]
+            "modules": []
         },
         {
             "partID": "arm_right01",

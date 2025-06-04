@@ -8,6 +8,7 @@ public class UnitPartData : ScriptableObject
     public int maxHealth;
     [SerializeField] public PartType partType;
     public GameObject visualPrefab;
+    public GameObject destructionPrefab; // Optional prefab for destruction effects
     public ModuleData[] modules;
 }
 

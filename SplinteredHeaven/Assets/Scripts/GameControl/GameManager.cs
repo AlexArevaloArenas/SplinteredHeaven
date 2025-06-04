@@ -1,4 +1,5 @@
 using Ink.Parsed;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -36,12 +37,21 @@ public class GameManager : MonoBehaviour
 
     private void ContinueGame()
     {
-        SceneManager.LoadScene("HubScene",LoadSceneMode.Additive);
+        Debug.Log("Continue Game Event Triggered");
+        //SceneManager.LoadScene("HubScene",LoadSceneMode.Additive);
+        ChangeScene(SceneEnum.HubScene);
     }
 
     public void ChangeScene(SceneEnum scene)
     {
-        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().name);
+       //SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().name);
+       for (int i = 0; i < SceneManager.sceneCount; i++)
+       {
+            if (SceneManager.GetSceneAt(i).name != "ControlScene")
+            {
+                SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(i));
+            }
+       }
         SceneManager.LoadScene(scene.ToString(), LoadSceneMode.Additive);
     }
 
@@ -65,11 +75,11 @@ public enum State
 
 public enum SceneEnum
 {
-    MainMenu,
+    StartMenu,
     HubScene,
     EditorHub,
     ResearchHub,
-    Battle,
+    BattleScene,
     Pause,
     Options,
 }

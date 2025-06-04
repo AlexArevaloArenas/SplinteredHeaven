@@ -8,6 +8,10 @@ public class PartVisualHandler : MonoBehaviour
     public string partId; // e.g., "LeftArm"
 
     private Dictionary<PartType, Transform> partHolders;
+
+    //Current Attack Info
+    public AttackInfo currentAttackInfo; // Optional, can be set by UnitCombat or other systems
+
     //private Dictionary<int, Transform> moduleSlots;
 
     public List<ModuleSlot> moduleSlots; // Optional fallback or preview list
@@ -23,6 +27,7 @@ public class PartVisualHandler : MonoBehaviour
     public void Initialize(UnitPart part)
     {
         linkedPart = part;
+        GetComponent<DamageReceiver>().Initialize(part); // Initialize damage receiver with the part
         linkedPart.OnDamageTaken += ShowDamageFeedback;
         linkedPart.OnDestroyed += HandleDestruction;
         linkedPart.transform = transform;
@@ -206,6 +211,49 @@ public class PartVisualHandler : MonoBehaviour
 
     void HandleDestruction()
     {
-        // play explosion, detach part, etc
+        switch (linkedPart.data.partType)
+        {
+            case PartType.Legs:
+                // Handle leg destruction logic
+                break;
+            case PartType.Body:
+                // Handle torso destruction logic
+                break;
+            case PartType.ArmLeft:
+                // Handle arm destruction logic
+                // play explosion, detach part, etc
+                gameObject.SetActive(false);
+                Instantiate(linkedPart.data.destructionPrefab, transform.position, transform.rotation); // Optionally instantiate a destroyed visual prefab
+                break;
+            case PartType.ArmRight:
+                // Handle arm destruction logic
+                // play explosion, detach part, etc
+                gameObject.SetActive(false);
+                Instantiate(linkedPart.data.destructionPrefab, transform.position, transform.rotation); // Optionally instantiate a destroyed visual prefab
+                break;
+            case PartType.Head:
+                // Handle head destruction logic
+                // play explosion, detach part, etc
+                gameObject.SetActive(false);
+                Instantiate(linkedPart.data.destructionPrefab, transform.position, transform.rotation); // Optionally instantiate a destroyed visual prefab
+                break;
+            default:
+                break;
+        }
+        
     }
+
+    public void SetCurrentAttackInfo(AttackInfo attackInfo)
+    {
+        currentAttackInfo = attackInfo;
+    }
+
+    public void StartModuleAttack()
+    {
+        linkedPart.Weapons.Where(n => n == currentAttackInfo.Weapon).ToList().ForEach(w => w.Activate(currentAttackInfo.Attacker, currentAttackInfo.Target, currentAttackInfo.TargetPart));
+
+        // Reset current attack info after use
+        currentAttackInfo = null;
+    }
+
 }

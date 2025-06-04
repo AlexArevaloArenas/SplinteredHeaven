@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class UnitCombat : MonoBehaviour
@@ -8,28 +9,33 @@ public class UnitCombat : MonoBehaviour
     private List<WeaponModuleInstance> weapons = new List<WeaponModuleInstance>();
 
     [SerializeField] private float attackInterval = 1.0f;
-    private float attackCooldown = 0f;
+    private float attackCooldown = 1f;
+    private List<AimingController> aimingControllers;
 
     void Start()
     {
         unitM = GetComponent<UnitManager>();
         targetTracker = GetComponent<TargetTracker>();
+        aimingControllers = new List<AimingController>(GetComponentsInChildren<AimingController>());
 
         // Gather all WeaponModules from UnitParts
         foreach (UnitPart part in unitM.unit.Parts)
         {
-            //Debug.Log($"Part: {part.name}");
-            foreach (ModuleInstance module in part.Modules)
+            if (part == null) continue; // Skip null parts
+            if (part.Weapons == null || part.Weapons.Count == 0) continue; // Skip parts without weapons
+            weapons.AddRange(part.Weapons);
+        }
+
+        WeaponModuleInstance weaponWithMoreRange = null;
+        float maxRange = 0;
+        foreach (var weapon in weapons)
+        {
+            if (weapon.GetRange() > maxRange)
             {
-                //Debug.Log($"Module: {module.Data.name}");
-                if (module is WeaponModuleInstance weapon)
-                {
-                    //Debug.Log($"Module: {weapon.Data.name}");
-                    weapons.Add(weapon);
-                }
-                    
+                weaponWithMoreRange = weapon;
             }
         }
+        targetTracker.weaponWithMoreRange = weaponWithMoreRange;
     }
 
     void Update()
@@ -40,37 +46,92 @@ public class UnitCombat : MonoBehaviour
             return;
         }
 
-        TryAttack();
+        if (targetTracker.CurrentTargetUnit == null)
+        {
+            //Debug.Log("No valid target found, skipping attack.");
+            foreach (var aimer in aimingControllers)
+            {
+                aimer.SetTarget(null);
+            }
+                
+            return;
+        }
+        else
+        {
+            foreach (var aimer in aimingControllers)
+            {
+                aimer.SetTarget(targetTracker.CurrentTargetUnit.transform);
+                TryAim(GetAvaliableWeapons());
+            }
+        }
+
+        TryAttack(GetAvaliableWeapons());
         attackCooldown = attackInterval;
     }
 
-    private void TryAttack()
+    private WeaponModuleInstance[] GetAvaliableWeapons()
     {
+
+        List<WeaponModuleInstance> avaliableWeapons = new List<WeaponModuleInstance>();
+        foreach (var weapon in weapons)
+        {
+            if (weapon.IsAvailable())
+            {
+                avaliableWeapons.Add(weapon);
+            }
+        }
+
+        return avaliableWeapons.ToArray();
+    }
+
+    private void TryAttack(WeaponModuleInstance[] avaliableWeapons)
+    {
+
         if (!targetTracker.HasValidTarget()) return;
-        Debug.Log("Trying to attack...");
 
         var targetUnit = targetTracker.CurrentTargetUnit;
         var targetPart = targetTracker.CurrentTargetPart;
 
-        foreach (var weapon in weapons)
+        if (targetUnit == null || targetPart == null)
         {
-            Debug.Log($"Checking weapon: {weapon.Data.name}");
-            if (weapon.IsInRange(transform.position, targetPart.transform.position))
-            {
-                //Debug.Log("Attacking...");
-                weapon.Activate(unitM, targetUnit, targetPart);
-                weapon.AttachedPart.transform.GetComponent<PartAnimationManager>().SetAnimationBool("Aim",true);
-                weapon.AttachedPart.transform.GetComponent<PartAnimationManager>().SetAnimationTrigger("Shoot");
-                Debug.Log(weapon.AttachedPart.transform);
-                /*
-                if (weapon.AttachedPart.transform.TryGetComponent<PartAnimationManager>(out PartAnimationManager animationManager))
-                {
-                    animationManager.SetAnimationTrigger("Shoot");
-                    //Debug.Log("Triggering shoot animation");
-                }
-                */
-
-            }
+            Debug.LogWarning("Target unit or part is null, skipping attack.");
+            return;
         }
+
+        foreach (var weapon in avaliableWeapons)
+        {
+
+            Debug.Log($"Checking weapon: {weapon.Data.name}");
+
+            weapon.AttachedPart.transform.GetComponent<PartVisualHandler>().SetCurrentAttackInfo(new AttackInfo(unitM, targetUnit, weapon, targetPart));
+            //weapon.Activate(unitM, targetUnit, targetPart);
+            
+            weapon.AttachedPart.transform.GetComponent<PartAnimationManager>().SetAnimationTrigger("Shoot");
+        }
+
+    }
+
+    public void TryAim(WeaponModuleInstance[] avaliableWeapons)
+    {
+        foreach (var weapon in avaliableWeapons)
+        {
+            weapon.AttachedPart.transform.GetComponent<PartAnimationManager>().SetAnimationBool("Aim", true);
+        }
+    }
+
+}
+
+public class AttackInfo
+{
+    public UnitManager Attacker { get; private set; }
+    public UnitManager Target { get; private set; }
+    public WeaponModuleInstance Weapon { get; private set; }
+    public UnitPart TargetPart { get; private set; }
+    public AttackInfo(UnitManager attacker, UnitManager target, WeaponModuleInstance weapon, UnitPart targetPart)
+    {
+        Attacker = attacker;
+        Target = target;
+        Weapon = weapon;
+        TargetPart = targetPart;
     }
 }

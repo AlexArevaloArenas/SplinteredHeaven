@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: pistol_01
   visualPrefab: {fileID: 172453167873639503, guid: a9cf7bc14464cc54f8e8f949fba6ed60, type: 3}
-  cooldown: 0
+  cooldown: 1
   positionType: 1
   weightType: 0
-  damage: 2
-  range: 30
+  damage: 20
+  range: 70
   damageType: 0
   weaponType: 0
   hitMask:
     serializedVersion: 2
-    m_Bits: 1024
-  inaccuracyAngle: 10
+    m_Bits: 3072
+  inaccuracyAngle: 2
