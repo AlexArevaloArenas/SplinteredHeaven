@@ -165,7 +165,7 @@ Material:
     - _SrcBlendAlpha: 1
     - _Surface: 0
     - _Tiling: 44
-    - _Transparency: 0.6
+    - _Transparency: 0.2
     - _Vertex_Wobble_intensity: 110.28
     - _Vertex_wobble: 0
     - _Wavespeed: 5.18
