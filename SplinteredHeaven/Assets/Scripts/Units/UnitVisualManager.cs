@@ -174,12 +174,22 @@ public class UnitVisualManager : MonoBehaviour
         {
             foreach (var part in data.parts)
             {
+                foreach (var mod in part.modules)
+                {
+                    if (mod.slotIndex == slot.slot)
+                    {
+                        part.modules.Remove(mod);
+                        break;
+                    }
+                }
+                /*
                 if (registry.GetPart(part.partID).partType == slot.part.data.partType)
                 {
                     if(part.modules.Count > 0) {
                         part.modules.Clear();
                     }
                 }
+                */
             }
         }
         else
@@ -190,7 +200,7 @@ public class UnitVisualManager : MonoBehaviour
                 {
                     if (part.modules.Count > 0)
                     {
-                        part.modules.Clear();
+                        part.modules.Where(m => m.slotIndex == slot.slot).ToList().ForEach(m => part.modules.Remove(m));
                     }
                     part.modules.Add(new RuntimeModuleData
                     {

@@ -390,7 +390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6aed3c945dc1494592cb79979c9a985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slot: 0
+  slot: 1
   isOccupied: 0
   modulePositionType: 0
   moduleWeightType: 0
