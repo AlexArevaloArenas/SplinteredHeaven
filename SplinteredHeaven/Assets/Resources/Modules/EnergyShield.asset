@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dcdde06ef3996d43a1b84e6a271e58e, type: 3}
+  m_Name: EnergyShield
+  m_EditorClassIdentifier: 
+  id: EnergyShield
+  visualPrefab: {fileID: 5868794271795159366, guid: 5270a0cae29351e44b98ca23585e880f, type: 3}
+  cooldown: 5
+  positionType: 0
+  weightType: 0
+  shieldStrength: 100
+  duration: 5
+  shieldMaterial: {fileID: -876546973899608171, guid: 9eaa6beb81a7c5b4586ea85d9ddea5d8, type: 3}
+  damageModifier: {fileID: 0}

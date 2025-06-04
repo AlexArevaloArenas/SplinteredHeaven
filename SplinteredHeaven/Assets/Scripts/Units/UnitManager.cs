@@ -5,6 +5,7 @@ using UnityEngine.AI;
 using UnityEngine.UI;
 using UnityEditor;
 using Unity.AppUI.UI;
+using System.Linq;
 
 //[RequireComponent(typeof(SelectableUnit))]
 //[RequireComponent(typeof(Agent))]
@@ -53,7 +54,8 @@ public class UnitManager : MonoBehaviour //Unit Stores the Actions of the Unit
     }
     protected void Start()
     {
-        if(hpBar == null)
+        EventManager.Instance.JumpEvent += ShieldTest;
+        if (hpBar == null)
         {
             hpBar = Instantiate(hpBarPrefab, GameObject.FindWithTag("Canvas").transform).GetComponent<Image>();
             hpBar.GetComponent<HealthBarVisual>().unidad = this;
@@ -88,6 +90,7 @@ public class UnitManager : MonoBehaviour //Unit Stores the Actions of the Unit
         {
             part.TickModules(dt);
         }
+
     }
 
     public virtual void SelectedActions()
@@ -150,6 +153,21 @@ public class UnitManager : MonoBehaviour //Unit Stores the Actions of the Unit
         unit.obj = gameObject;
         //unit.InitHealthBar(hpBar);
         GetComponent<UnitVisualManager>().Init(unit);
+    }
+
+    public void ShieldTest()
+    {
+        if (selected)
+        {
+            Debug.Log("Escape pressed");
+            foreach (ModuleInstance module in unit.Parts.SelectMany(p => p.Modules))
+            {
+                if (module.Data is EnergyShieldModuleData shieldModule)
+                {
+                    shieldModule.ApplyEffects(this, null, null, null);
+                }
+            }
+        }
     }
 
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "RaycastWeaponData", menuName = "Scriptable Objects/RaycastWeaponData")]
+[CreateAssetMenu(fileName = "RaycastWeaponData", menuName = "Modules/RaycastWeaponData")]
 public class RaycastWeaponData : WeaponData
 {
     public LayerMask hitMask;

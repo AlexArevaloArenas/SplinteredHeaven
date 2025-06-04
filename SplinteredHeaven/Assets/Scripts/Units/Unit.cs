@@ -15,6 +15,7 @@ public class Unit
     public string description;
     public float currentHealth;
     public float maxHealth;
+    public List<DamageModifier> damgMods;
 
     //Private variables
     protected Image _hpBar;
