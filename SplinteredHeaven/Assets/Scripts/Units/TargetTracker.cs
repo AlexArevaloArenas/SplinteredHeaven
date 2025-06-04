@@ -12,6 +12,23 @@ public class TargetTracker : MonoBehaviour
     [SerializeField] private float detectionInterval = 2.0f;
     private float detectionTimer = 0f;
 
+    /*
+    private void Start()
+    {
+        foreach (UnitPart part in GetComponent<UnitManager>().unit.Parts)
+        {
+            if (part == null) continue; // Skip null parts
+            if (part.Weapons == null || part.Weapons.Count == 0) continue; // Skip parts without weapons
+            foreach (var weapon in part.Weapons)
+            {
+                if (weapon.GetRange() > weaponWithMoreRange.GetRange())
+                {
+                    weaponWithMoreRange = weapon;
+                }
+            }
+        }
+    }
+    */
     private void Update()
     {
         if (detectionTimer > 0f)
@@ -59,6 +76,11 @@ public class TargetTracker : MonoBehaviour
     
     public UnitManager FindClosestTargetInRange()
     {
+        if(weaponWithMoreRange == null)
+        {
+            Debug.LogWarning("No weapon with range set, cannot find targets.");
+            return null;
+        }
         //List<UnitManager> candidates = new List<UnitManager>();
         float closestDistance = float.MaxValue;
         UnitManager closestTarget = null;

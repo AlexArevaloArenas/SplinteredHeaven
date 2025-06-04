@@ -19,5 +19,5 @@ MonoBehaviour:
   weightType: 0
   shieldStrength: 100
   duration: 5
-  shieldMaterial: {fileID: -876546973899608171, guid: 9eaa6beb81a7c5b4586ea85d9ddea5d8, type: 3}
+  shieldMaterial: {fileID: 2100000, guid: 9cb256b760b49ce4da0678bb91584af2, type: 2}
   damageModifier: {fileID: 0}
