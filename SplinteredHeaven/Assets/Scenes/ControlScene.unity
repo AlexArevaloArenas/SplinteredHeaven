@@ -255,7 +255,7 @@ RectTransform:
   m_GameObject: {fileID: 676084961}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5092448, y: 0.5092448, z: 0.5092448}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1178660137}
@@ -263,7 +263,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 942.25, y: 478.23224}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &676084966
 MonoBehaviour:
@@ -279,6 +279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backgroundGroup: {fileID: 676084962}
   menu: {fileID: 0}
+  fadeSpeed: 0.02
 --- !u!1 &992742061
 GameObject:
   m_ObjectHideFlags: 0
@@ -540,6 +541,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backgroundGroup: {fileID: 676084962}
   menu: {fileID: 0}
+  fadeSpeed: 0.02
 --- !u!4 &1569741692
 Transform:
   m_ObjectHideFlags: 0
@@ -620,6 +622,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5972792867546253668, guid: 7358a9fd4eed7354bafc30697b9784bc, type: 3}
+      propertyPath: loadGlobalsJSON
+      value: 
+      objectReference: {fileID: 4900000, guid: 5f323f37d9d56e44da36c4ffed592741, type: 3}
     - target: {fileID: 6506569697227115309, guid: 7358a9fd4eed7354bafc30697b9784bc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.2921557
@@ -668,6 +674,14 @@ PrefabInstance:
       propertyPath: triggers.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8906467699181467702, guid: 7358a9fd4eed7354bafc30697b9784bc, type: 3}
+      propertyPath: allEvents.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8906467699181467702, guid: 7358a9fd4eed7354bafc30697b9784bc, type: 3}
+      propertyPath: 'allEvents.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 093e7f2a3ae65d3418583a82af096089, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -13,6 +13,8 @@ public class TimeManager : MonoBehaviour
     public float maxDayTime = 86400f;
 
     public WeekDays currentDay = WeekDays.Monday; // Default day
+    public int currentDayNumber = 1;
+
     public WeekDays[] week;
     public int currentWeekDay = 0; // Default week day
     public int currentWeek = 0; // Default week
@@ -36,7 +38,9 @@ public class TimeManager : MonoBehaviour
 
     //Day time Events
     public event Action<DayMoments> OnDayTimeChanged;
+    public event Action<int> OnDayChange;
 
+    public bool StopTime = false;
 
     private void Awake()
     {
@@ -73,6 +77,8 @@ public class TimeManager : MonoBehaviour
 
     public void UpdateClock()
     {
+        if(StopTime) return; // If time is stopped, do not update
+
         totalTime += Time.deltaTime;
         dayTime += Time.deltaTime;
         currentTime =  totalTime % dayDuration;
@@ -80,7 +86,9 @@ public class TimeManager : MonoBehaviour
         {
             dayTime = 0f;
             currentWeekDay++;
-            if(currentWeekDay >= week.Length)
+            currentDayNumber++;
+            OnDayChange?.Invoke(currentDayNumber);
+            if (currentWeekDay >= week.Length)
             {
                 currentWeekDay = 0; // Reset to the first week
                 currentWeek++;

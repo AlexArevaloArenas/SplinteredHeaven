@@ -4,7 +4,6 @@ using UnityEngine;
 public class UnitPartData : ScriptableObject
 {
     public string id;
-    public int size;
     public int maxHealth;
     [SerializeField] public PartType partType;
     public GameObject visualPrefab;

@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06aa21ace9f1a0e40b119535503db271, type: 3}
   m_Name: EventSetCharactersMorning
   m_EditorClassIdentifier: 
-  eventName: 
+  eventID: 1
+  triggerCondition: {fileID: 11400000, guid: cc436eac2750e574cb063195514ccc6f, type: 2}
   actions:
   - {fileID: 11400000, guid: b0fca7531d834f84f9849393be243807, type: 2}
+  chainedEvents: []

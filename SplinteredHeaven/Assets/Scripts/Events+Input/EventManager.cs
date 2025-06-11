@@ -31,7 +31,7 @@ public class EventManager : MonoBehaviour
     //public event Action<float> mouseWheel;
 
     //First person events
-    public event Action<TextAsset> FPDialogueEvent;
+    public event Action<TextAsset,Vector3> FPDialogueEvent;
     public event Action EndFPDialogueEvent;
     public event Action<bool,string> FPChangeInteractionSymbolEvent;
 
@@ -106,9 +106,9 @@ public class EventManager : MonoBehaviour
     }
 
         //Dialogue Events
-    public void StartFirstPersonDialogue(TextAsset json)
+    public void StartFirstPersonDialogue(TextAsset json, Vector3 pos)
     {
-        FPDialogueEvent?.Invoke(json);
+        FPDialogueEvent?.Invoke(json, pos);
     }
 
     public void ExitFirstPersonDialogue()

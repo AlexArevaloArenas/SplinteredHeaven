@@ -18,7 +18,10 @@ public class NarrativeManager : MonoBehaviour
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
         //DontDestroyOnLoad(gameObject);
+    }
 
+    private void Start()
+    {
         context = new NarrativeContext
         {
             dialogueManager = (DialogueManager)DialogueManager.Instance,
@@ -35,11 +38,26 @@ public class NarrativeManager : MonoBehaviour
         }
     }
 
+    public void LoadNewEvents(List<NarrativeEventData> newEvents)
+    {
+        /*
+        activeInstances.Clear();
+        allEvents.Clear();
+        */
+        allEvents.AddRange(newEvents);
+        foreach (var evt in newEvents)
+        {
+            var instance = new NarrativeEventInstance(evt, context);
+            activeInstances[evt.eventID] = instance;
+        }
+    }
+
     public void TriggerEvent(NarrativeEventData def)
     {
         if (activeInstances.TryGetValue(def.eventID, out var instance))
         {
             instance.MarkTriggered();
+            activeInstances.Remove(def.eventID);
         }
     }
 
@@ -53,8 +71,9 @@ public class NarrativeContext
     public PlayableDirector timelineDirector; // Reference to the PlayableDirector for Timeline events
     // Add more as needed (flags, cutscene system, etc.)
 
-    public void MoveCharacter(string id, string destination)
+    public void MoveCharacter(string id, Vector3 destination)
     {
         // Your logic to move a character
+        Debug.Log($"Moving character {id} to {destination}");   
     }
 }

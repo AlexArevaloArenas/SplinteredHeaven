@@ -53,6 +53,7 @@ public class AudioManager : MonoBehaviour
         InitializeMusic(FMODEvents.instance.music);
     }
 
+    /*
     private void Update()
     {
         masterBus.setVolume(masterVolume);
@@ -60,6 +61,7 @@ public class AudioManager : MonoBehaviour
         ambienceBus.setVolume(ambienceVolume);
         sfxBus.setVolume(SFXVolume);
     }
+    */
 
     private void InitializeAmbience(EventReference ambienceEventReference)
     {
@@ -103,6 +105,28 @@ public class AudioManager : MonoBehaviour
         return emitter;
     }
 
+    public void SetVolume(float newVolume,VolumeType volumeType)
+    {
+        switch(volumeType)
+        {
+            case VolumeType.Master:
+                masterVolume = newVolume;
+                break;
+            case VolumeType.Music:
+                musicVolume = newVolume;
+                break;
+            case VolumeType.Ambience:
+                ambienceVolume = newVolume;
+                break;
+            case VolumeType.SFX:
+                SFXVolume = newVolume;
+                break;
+            default:
+                Debug.LogError("Invalid volume type specified.");
+                break;
+        }
+    }
+
     private void CleanUp()
     {
         // stop and release any created instances
@@ -122,4 +146,12 @@ public class AudioManager : MonoBehaviour
     {
         CleanUp();
     }
+}
+
+public enum  VolumeType
+{
+    Master,
+    Music,
+    Ambience,
+    SFX
 }

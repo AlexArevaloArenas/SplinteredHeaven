@@ -88,6 +88,8 @@ public class UnitClick : MonoBehaviour
                 UnitSelections.Instance.ClickSelect(hit.collider.gameObject);
             }
 
+            GetComponent<BattleUI>()?.ReloadUI();
+
         }
         else
         {

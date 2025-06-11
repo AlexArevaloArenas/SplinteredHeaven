@@ -27,7 +27,7 @@ public class UnitPart
         this.owner = owner;
         data = partData;
         name = partData.name;
-        size = partData.size;
+        //size = partData.size;
         maxHealth = partData.maxHealth;
         currentHealth = maxHealth;
         //transform = owner.obj.transform;
@@ -48,7 +48,7 @@ public class UnitPart
         this.owner = owner;
         data = staticData;
         name = staticData.name;
-        size = staticData.size;
+        //size = staticData.size;
         maxHealth = staticData.maxHealth;
         currentHealth = maxHealth;
         slots = new List<ModuleSlot>();

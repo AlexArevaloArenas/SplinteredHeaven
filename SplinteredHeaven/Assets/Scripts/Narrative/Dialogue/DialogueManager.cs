@@ -19,22 +19,13 @@ public class DialogueManager :  UIManager<IDialogueUI>
 
     [Header("Choices UI")]
     private TextMeshProUGUI[] choicesText;
+    private int currentChoiceNumber = 0;
 
     private new IDialogueUI currentUI;
 
     // Replace the declaration of the "OnDialogueStarted" and "OnDialogueEnded" fields with the following:
     public Action OnDialogueStarted;
     public Action OnDialogueEnded;
-
-    /*
-        [Header("Audio")]
-        [SerializeField] private DialogueAudioInfoSO defaultAudioInfo;
-        [SerializeField] private DialogueAudioInfoSO[] audioInfos;
-        [SerializeField] private bool makePredictable;
-        private DialogueAudioInfoSO currentAudioInfo;
-        private Dictionary<string, DialogueAudioInfoSO> audioInfoDictionary;
-        private AudioSource audioSource;
-    */
 
     private Story currentStory;
     public bool dialogueIsPlaying { get; private set; }
@@ -55,6 +46,11 @@ public class DialogueManager :  UIManager<IDialogueUI>
     //BUTTON INPUT
     private bool resumeButton = false;
     private bool makingChoice = false;
+    private int currentChoice = 0; // This will be used to track the current choice index when making a choice
+    public List<GameObject> selectorList = new List<GameObject>();
+
+    //SCROLL
+    float scrollSpeed = 0f;
 
     //Handle Singleton
     public static DialogueManager Instance { get; private set; }
@@ -91,6 +87,7 @@ public class DialogueManager :  UIManager<IDialogueUI>
 
     private void Start()
     {
+        EventManager.Instance.MouseWheel += ScrollWheel;
 
         // handle continuing to the next line in the dialogue when submit is pressed
         EventManager.Instance.LeftMouseDownEvent += PressResumeButton;
@@ -104,6 +101,8 @@ public class DialogueManager :  UIManager<IDialogueUI>
             int index = 0;
             foreach (GameObject choice in currentUI.GetChoices())
             {
+                selectorList.Add(choice.transform.GetChild(1).gameObject);
+                choice.transform.GetChild(1).gameObject.SetActive(false);
                 choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>();
                 index++;
             }
@@ -126,7 +125,7 @@ public class DialogueManager :  UIManager<IDialogueUI>
             return;
         }
 
-        if (resumeButton == true && canContinueToNextLine)
+        if (resumeButton == true && canContinueToNextLine && makingChoice == false)
         {
             resumeButton = false;
             ContinueStory();
@@ -137,7 +136,7 @@ public class DialogueManager :  UIManager<IDialogueUI>
     //---------------------------------------------------------------BASIC DIALOGUE FEATURES---------------------------------------------------------------------------
 
     //public void EnterDialogueMode(TextAsset inkJSON, Animator emoteAnimator)
-    public void EnterDialogueMode(TextAsset inkJSON)
+    public void EnterDialogueMode(TextAsset inkJSON, Vector3 pos)
     {
         OnDialogueStarted?.Invoke();
 
@@ -153,7 +152,9 @@ public class DialogueManager :  UIManager<IDialogueUI>
         //inkExternalFunctions.Bind(currentStory, emoteAnimator);
 
         // reset portrait, layout, and speaker
-        currentUI.ChangeName("???");
+        
+            //currentUI.ChangeName("???");
+
         //portraitAnimator.Play("default");
         //layoutAnimator.Play("right");
 
@@ -223,7 +224,7 @@ public class DialogueManager :  UIManager<IDialogueUI>
         currentUI.ShowDialogue(line);
         currentUI.GetDialogueText().maxVisibleCharacters = 0;
         // hide items while text is typing
-        currentUI.SetActiveContinueIcon(false);
+            //currentUI.SetActiveContinueIcon(false);
         //HideChoices();
 
         canContinueToNextLine = false;
@@ -260,7 +261,7 @@ public class DialogueManager :  UIManager<IDialogueUI>
         }
 
         // actions to take after the entire line has finished displaying
-        currentUI.SetActiveContinueIcon(true);
+        //currentUI.SetActiveContinueIcon(true);
         DisplayChoices();
 
         canContinueToNextLine = true;
@@ -297,6 +298,11 @@ public class DialogueManager :  UIManager<IDialogueUI>
         foreach (Choice choice in currentChoices)
         {
             currentUI.GetChoices()[index].gameObject.SetActive(true);
+            if(index == 0)
+            {
+                currentUI.GetChoices()[0].transform.GetChild(1).gameObject.SetActive(true); // Show the first choice cursor
+
+            }
             choicesText[index].text = choice.text;
             // set the button to call the correct function when pressed
             int choiceIndex = index; // capture the current index for the lambda function
@@ -304,6 +310,7 @@ public class DialogueManager :  UIManager<IDialogueUI>
             currentUI.GetChoices()[index].GetComponent<Button>().onClick.AddListener(() => SelectChoice(choiceIndex));
             index++;
         }
+        currentChoiceNumber = index; // Store the number of choices available
         // go through the remaining choices the UI supports and make sure they're hidden
         for (int i = index; i < currentUI.GetChoices().Length; i++)
         {
@@ -491,6 +498,12 @@ public class DialogueManager :  UIManager<IDialogueUI>
         {
             resumeButton = true;
         }
+        else if(canContinueToNextLine)
+        {
+            resumeButton = false;
+            makingChoice = false;
+            MakeChoice(currentChoice);
+        }
     }
 
     public void SelectChoice(int choiceIndex)
@@ -525,6 +538,39 @@ public class DialogueManager :  UIManager<IDialogueUI>
             default:
                 break;
         }
+    }
+
+    public void ScrollWheel(float sSpeed)
+    {
+        if(sSpeed > 0)
+        {
+            ChoiceCursorUp();
+        }
+        else if(sSpeed < 0)
+        {
+            ChoiceCursorDown();
+        }
+        scrollSpeed = sSpeed;
+    }
+
+    public void ChoiceCursorDown()
+    {
+        selectorList[currentChoice].SetActive(false);
+        if (currentChoice < (currentChoiceNumber-1))
+        {
+            currentChoice++;
+        }
+        selectorList[currentChoice].SetActive(true);
+    }
+
+    public void ChoiceCursorUp()
+    {
+        selectorList[currentChoice].SetActive(false);
+        if (currentChoice > 0)
+        {
+            currentChoice--;
+        }
+        selectorList[currentChoice].SetActive(true);
     }
 
 }

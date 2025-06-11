@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NarrativeTriggerDaytimeChanges", menuName = "Scriptable Objects/NarrativeTriggerDaytimeChanges")]
+[CreateAssetMenu(fileName = "NarrativeTriggerDaytimeChanges", menuName = "Narrative/Trigger/NarrativeTriggerDaytimeChanges")]
 public class NarrativeTriggerDaytimeChanges : NarrativeCondition
 {
     public DayMoments targetMoment; // The moment of the day that triggers the event
@@ -9,7 +9,7 @@ public class NarrativeTriggerDaytimeChanges : NarrativeCondition
     public override void Initialize(NarrativeEventInstance instance, NarrativeContext context)
     {
         this.instance = instance;
-        context.timeManager.OnDayTimeChanged += OnDayTimeChanged;
+        TimeManager.Instance.OnDayTimeChanged += OnDayTimeChanged;
 
         // Optional: If already at target time, trigger instantly
         if (TimeManager.Instance.currentMoment == targetMoment)

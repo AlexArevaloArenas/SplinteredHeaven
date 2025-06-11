@@ -6,7 +6,7 @@ using System;
 public class MoveCharacterAction : NarrativeAction
 {
     public string characterID;
-    public string destination;
+    public Vector3 destination;
 
     public override void Execute(NarrativeContext context)
     {

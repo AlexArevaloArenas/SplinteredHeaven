@@ -28,7 +28,8 @@ using UnityEngine;
 
             void IDialogueUI.ChangeName(string name)
             {
-                displayNameText.text = name;
+                //displayNameText.text = name;
+                dialogueText.text += "<color=\"red\">" + name + "</color>";
             }
 
             GameObject[] IDialogueUI.GetChoices()
