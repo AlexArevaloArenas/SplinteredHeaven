@@ -77,6 +77,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Mask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -123,7 +127,7 @@ Material:
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Alpha_clip_threshold: 0
-    - _Ambient_oclussion_value: 0.3
+    - _Ambient_oclussion_value: 1
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
@@ -161,6 +165,7 @@ Material:
     - _ZWrite: 1
     - _alpha_value: 1
     - _height_strength: 0
+    - _metallic_strength: 1
     - _normal_strength: 1
     - _smoothness_threshold: 0.73
     m_Colors:

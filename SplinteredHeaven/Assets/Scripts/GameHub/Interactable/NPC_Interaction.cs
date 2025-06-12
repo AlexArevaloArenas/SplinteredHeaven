@@ -26,6 +26,7 @@ public class NPC_Interaction : MonoBehaviour, IInteractable
 
     public string GetInteractionText()
     {
+        if (DialogueManager.Instance.dialogueIsPlaying) return ""; // If dialogue is already playing, return empty string to avoid interaction text showing up again
         return interactionText;
     }
 }

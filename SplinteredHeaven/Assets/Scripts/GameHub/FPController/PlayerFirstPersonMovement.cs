@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using UnityEngine;
 using static UnityEditor.PlayerSettings;
 
@@ -54,7 +55,10 @@ public class PlayerFirstPersonMovement : MonoBehaviour
         EventManager.Instance.LookEvent += LookInputEvent;
         EventManager.Instance.FPDialogueEvent += EnterDialogueMode;
         EventManager.Instance.EndFPDialogueEvent += ExitDialogueMode;
-        
+        EventManager.Instance.FixPlayerMovementEvent += () => fixedCamera = true; canMove = false;
+        EventManager.Instance.RestrictPlayerMovementEvent += () => restrictedCamera = true; canMove = false;
+        EventManager.Instance.FreePlayerMovementEvent += () => fixedCamera = false; restrictedCamera = false; canMove = true;
+
     }
 
     // Update is called once per frame
@@ -162,13 +166,14 @@ public class PlayerFirstPersonMovement : MonoBehaviour
     
     public IEnumerator LookAtCorrutine(Vector3 pos)
     {
-        Quaternion loo = Quaternion.LookRotation(pos);
-        while (transform.rotation != Quaternion.Euler(0, loo.eulerAngles.y, 0) && playerCamera.transform.rotation != Quaternion.Euler(loo.eulerAngles.x, 0, 0))
+        Vector3 direction = pos - playerCamera.transform.position;
+        Quaternion loo = Quaternion.LookRotation(direction);
+        while (transform.rotation != Quaternion.Euler(0, loo.eulerAngles.y, 0) && playerCamera.transform.localRotation != Quaternion.Euler(loo.eulerAngles.x, 0, 0))
         {
             // Set the rotation of the player model to look at the position
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, loo.eulerAngles.y, 0), Time.deltaTime * lookSpeed * 6);
             // Set the rotation of the camera to look at the position
-            playerCamera.transform.localRotation = Quaternion.Slerp(playerCamera.transform.rotation, Quaternion.Euler(loo.eulerAngles.x, 0, 0), Time.deltaTime * lookSpeed * 6);
+            playerCamera.transform.localRotation = Quaternion.Slerp(playerCamera.transform.localRotation, Quaternion.Euler(loo.eulerAngles.x, 0, 0), Time.deltaTime * lookSpeed * 6);
             yield return new WaitForSeconds(0.01f);
 
         }

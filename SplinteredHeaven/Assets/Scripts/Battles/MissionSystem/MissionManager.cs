@@ -3,22 +3,48 @@ using UnityEngine;
 
 public class MissionManager : MonoBehaviour
 {
-    public List<ObjectiveData> missionObjectives;
+    public bool isMissionActive = false;
+    //HUB
+    public List<MissionData> availableMissions;
+
+    public MissionData selectedMissionData;
+    
+
+
+    //BATTLE
     private MissionInstance currentMission;
 
-    private void Start()
+    //SINGLETON PATTERN
+    public static MissionManager Instance { get; private set; }
+    private void Awake()
     {
-        StartMission();
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Update()
     {
-        currentMission?.Update(Time.deltaTime);
+        if (isMissionActive)
+        {
+            currentMission?.Update(Time.deltaTime);
+        }
     }
 
-    public void StartMission()
+    public void StartMission(MissionData mission)
     {
-        currentMission = new MissionInstance(missionObjectives);
+        currentMission = new MissionInstance(mission);
+    }
+
+    public void StartSelectedMission()
+    {
+        StartMission(selectedMissionData);
     }
 
     public void CompleteMission()

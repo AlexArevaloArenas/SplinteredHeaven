@@ -1,11 +1,11 @@
 using UnityEditor;
 using UnityEngine;
 
-public class StartBattle : MonoBehaviour, IInteractable
+public class OpenMissionSelector : MonoBehaviour, IInteractable
 {
-
+    public MissionUI missionUI;
     [SerializeField] string interactionText;
-    [SerializeField] SceneEnum newScene;
+    
 
     public string GetInteractionText()
     {
@@ -14,7 +14,7 @@ public class StartBattle : MonoBehaviour, IInteractable
 
     public void Interact(GameObject interactor)
     {
-        EventManager.Instance.StartChangeSceneEvent(newScene);
+        missionUI.OpenMenu();
     }
 
 }

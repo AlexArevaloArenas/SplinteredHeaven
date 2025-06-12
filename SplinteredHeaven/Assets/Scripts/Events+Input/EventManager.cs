@@ -34,6 +34,9 @@ public class EventManager : MonoBehaviour
     public event Action<TextAsset,Vector3> FPDialogueEvent;
     public event Action EndFPDialogueEvent;
     public event Action<bool,string> FPChangeInteractionSymbolEvent;
+    public event Action FixPlayerMovementEvent;
+    public event Action RestrictPlayerMovementEvent;
+    public event Action FreePlayerMovementEvent;
 
     private void Awake()
     {
@@ -57,6 +60,21 @@ public class EventManager : MonoBehaviour
     public void StartChangeSceneEvent(SceneEnum scene)
     {
         ChangeSceneEvent?.Invoke(scene);
+    }
+
+    //HUB EVENTS PLAYER
+    public void FixPlayerMovement()
+    {
+        FixPlayerMovementEvent?.Invoke(); // If Fix Player Movement Event is not null, start it
+    }
+    public void RectrictPlayerMovement()
+    {
+        RestrictPlayerMovementEvent?.Invoke();
+    }
+
+    public void FreePlayerMovement()
+    {
+        FreePlayerMovementEvent?.Invoke();
     }
 
     //Input Events
