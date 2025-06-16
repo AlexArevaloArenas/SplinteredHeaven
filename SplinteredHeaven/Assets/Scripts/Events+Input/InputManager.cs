@@ -96,6 +96,11 @@ public class InputManager : MonoBehaviour
 
     }
 
+    public void OnOpenMenu(InputValue _value)
+    {
+        EventManager.Instance.StartEscapeKeyEvent();
+    }
+
 
     /*
     public void OnRightMouseDown(InputValue _value)

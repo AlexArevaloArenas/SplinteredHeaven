@@ -54,7 +54,6 @@ public class UnitManager : MonoBehaviour //Unit Stores the Actions of the Unit
     }
     protected void Start()
     {
-        EventManager.Instance.JumpEvent += ShieldTest;
         if (hpBar == null)
         {
             hpBar = Instantiate(hpBarPrefab, GameObject.FindWithTag("Canvas").transform).GetComponent<Image>();
@@ -67,6 +66,8 @@ public class UnitManager : MonoBehaviour //Unit Stores the Actions of the Unit
             selector.SetActive(false);
             UnitSelections.Instance.unitList.Add(this.gameObject);
         }
+
+
     }
 
     public void SetUnit(Unit unit)
@@ -155,18 +156,11 @@ public class UnitManager : MonoBehaviour //Unit Stores the Actions of the Unit
         GetComponent<UnitVisualManager>().Init(unit);
     }
 
-    public void ShieldTest()
+    public void SetHealthbarVisibility(bool visible)
     {
-        if (selected)
+        if (hpBar != null)
         {
-            Debug.Log("Escape pressed");
-            foreach (ModuleInstance module in unit.Parts.SelectMany(p => p.Modules))
-            {
-                if (module.Data is EnergyShieldModuleData shieldModule)
-                {
-                    shieldModule.ApplyEffects(this, null, null, null);
-                }
-            }
+            hpBar.gameObject.SetActive(visible);
         }
     }
 

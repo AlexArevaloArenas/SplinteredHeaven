@@ -11,7 +11,9 @@ public class EventManager : MonoBehaviour
     //List of events
     //Game Events
     public event Action ContinueGameEvent;
+    public event Action BackToMainMenuEvent;
     public event Action<SceneEnum> ChangeSceneEvent;
+    public event Action LoadCurrentMissionSceneEvent;
 
     //Input Events
     public event Action<Vector2> MoveEvent;
@@ -28,6 +30,8 @@ public class EventManager : MonoBehaviour
 
     public event Action<float> MouseWheel;
 
+    public event Action EscapeKeyEvent;
+
     //public event Action<float> mouseWheel;
 
     //First person events
@@ -37,6 +41,7 @@ public class EventManager : MonoBehaviour
     public event Action FixPlayerMovementEvent;
     public event Action RestrictPlayerMovementEvent;
     public event Action FreePlayerMovementEvent;
+
 
     private void Awake()
     {
@@ -121,6 +126,11 @@ public class EventManager : MonoBehaviour
     public void StartLookEvent(Vector2 _input)
     {
         LookEvent?.Invoke(_input); // If Jump Event is not null, start it
+    }
+
+    public void StartEscapeKeyEvent()
+    {
+        EscapeKeyEvent?.Invoke(); // If Escape Key Event is not null, start it
     }
 
         //Dialogue Events

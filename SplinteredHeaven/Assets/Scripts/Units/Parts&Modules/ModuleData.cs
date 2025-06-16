@@ -7,11 +7,13 @@ public abstract class ModuleData : ScriptableObject
     public virtual ModuleInstance CreateInstanceFromRuntime(Unit owner, UnitPart part, RuntimeModuleData runtimeModule) => new ModuleInstance(this, owner, part, runtimeModule);
 
     public string id;
+    public Sprite icon;
     public GameObject visualPrefab;
     public float cooldown;
 
     public ModulePositionType positionType;
     public ModuleWeightType weightType;
+    public ModuleEffectType effectType;
 
     // Generalized effect interface — override in subclass
     public virtual void ApplyEffects(UnitManager user, UnitManager target, UnitPart targetPart, Transform origin)
@@ -23,3 +25,5 @@ public abstract class ModuleData : ScriptableObject
 
 public enum ModulePositionType { Basic, Hand }
 public enum ModuleWeightType { Light, Heavy }
+
+public enum ModuleEffectType { Self, Target }

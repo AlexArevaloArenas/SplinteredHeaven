@@ -197,6 +197,7 @@ public class PartVisualHandler : MonoBehaviour
     }
     void ShowDamageFeedback(float damage)
     {
+        /*
         // Detach or destroy child parts
         foreach (Transform child in transform)
         {
@@ -205,7 +206,7 @@ public class PartVisualHandler : MonoBehaviour
                 Destroy(child.gameObject);
             }
         }
-
+        */
         // play explosion, detach part, etc
     }
 
@@ -215,9 +216,23 @@ public class PartVisualHandler : MonoBehaviour
         {
             case PartType.Legs:
                 // Handle leg destruction logic
+                foreach(Transform t in GetComponentInChildren<Transform>(true))
+                {
+                    if (t.TryGetComponent(out BoxCollider collider))
+                    {
+                        collider.enabled = false; // Disable colliders to prevent further interactions
+                    }
+                }
                 break;
             case PartType.Body:
                 // Handle torso destruction logic
+                foreach (Transform t in GetComponentInChildren<Transform>(true))
+                {
+                    if (t.TryGetComponent(out BoxCollider collider))
+                    {
+                        collider.enabled = false; // Disable colliders to prevent further interactions
+                    }
+                }
                 break;
             case PartType.ArmLeft:
                 // Handle arm destruction logic

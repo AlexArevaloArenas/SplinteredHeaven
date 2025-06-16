@@ -12,6 +12,8 @@ public class TargetTracker : MonoBehaviour
     [SerializeField] private float detectionInterval = 2.0f;
     private float detectionTimer = 0f;
 
+    public UnitManager PlayerTarget;
+
     /*
     private void Start()
     {
@@ -38,35 +40,35 @@ public class TargetTracker : MonoBehaviour
         }
         detectionTimer = detectionInterval;
 
-        CurrentTargetUnit = FindClosestTargetInRange();
-        if (CurrentTargetUnit == null)
+        if (PlayerTarget == null)
         {
-            ClearTarget();
-            return;
+            CurrentTargetUnit = FindClosestTargetInRange();
+            if (CurrentTargetUnit == null)
+            {
+                //ClearTarget();
+                CurrentTargetPart = null;
+                return;
+            }
+            CurrentTargetPart = PartToAttack(CurrentTargetUnit);
         }
-        CurrentTargetPart = PartToAttack(CurrentTargetUnit);
-        
-
+        else
+        {
+            CurrentTargetUnit = PlayerTarget;
+            CurrentTargetPart = PartToAttack(CurrentTargetUnit);
+        }
     }
 
     public void SetTarget(UnitManager unit, UnitPart part = null)
     {
-        CurrentTargetUnit = unit;
-        if(part == null)
-        {
-            CurrentTargetPart = unit.unit.Parts[0];
-        }
-        else
-        {
-            CurrentTargetPart = part;
-        }
-        
+        PlayerTarget = unit;
+        CurrentTargetPart = PartToAttack(unit);
     }
 
     public void ClearTarget()
     {
-        CurrentTargetUnit = null;
-        CurrentTargetPart = null;
+        //CurrentTargetUnit = null;
+        //CurrentTargetPart = null;
+        PlayerTarget = null;
     }
 
     public bool HasValidTarget()

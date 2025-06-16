@@ -1,16 +1,21 @@
 //using System.Collections;
 //using System.Collections.Generic;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class UnitClick : MonoBehaviour
 {
     private Camera myCam;
-
+    
     public LayerMask selectable;
     public LayerMask terrain;
     public LayerMask UI;
     public GameObject terrainMark;
+
+    public BattleManager battleManager;
 
     void Start()
     {
@@ -88,16 +93,20 @@ public class UnitClick : MonoBehaviour
                 UnitSelections.Instance.ClickSelect(hit.collider.gameObject);
             }
 
-            GetComponent<BattleUI>()?.ReloadUI();
+            battleManager.ReloadUI();
 
         }
         else
         {
+            var eventData = new PointerEventData(EventSystem.current);
+            eventData.position = Input.mousePosition;
+            var results = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(eventData, results);
             //We don't and we are not shift clicking
-            if (!Input.GetKey(KeyCode.LeftShift))
+            if (!Input.GetKey(KeyCode.LeftShift) && !(results.Where(r => r.gameObject.layer == 5).Count() > 0))
             {
                 UnitSelections.Instance.DeselectAll();
-
+                battleManager.ClearUI();
             }
         }
     }

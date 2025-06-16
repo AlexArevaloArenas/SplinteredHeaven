@@ -12,7 +12,7 @@ public class MissionManager : MonoBehaviour
 
 
     //BATTLE
-    private MissionInstance currentMission;
+    public MissionInstance currentMission;
 
     //SINGLETON PATTERN
     public static MissionManager Instance { get; private set; }
@@ -40,6 +40,7 @@ public class MissionManager : MonoBehaviour
     public void StartMission(MissionData mission)
     {
         currentMission = new MissionInstance(mission);
+        Fader.Instance.StartFade("LoadCurrentMissionSceneEvent");
     }
 
     public void StartSelectedMission()

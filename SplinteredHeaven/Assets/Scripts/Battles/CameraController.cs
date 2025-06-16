@@ -11,16 +11,26 @@ public class CameraController : MonoBehaviour
     [SerializeField] float maxHeight = 25f;
     [SerializeField] float minHeight = 4f;
 
+    private bool fixPlayerMovement = false;
+
     float scrollSpeed = 0f;
 
     private void Start()
     {
         EventManager.Instance.MouseWheel += ScrollWheel;
+        EventManager.Instance.FixPlayerMovementEvent += () => fixPlayerMovement = true;
+        EventManager.Instance.FreePlayerMovementEvent += () => fixPlayerMovement = false;
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(fixPlayerMovement)
+        {
+            return; // Prevent camera movement if player movement is fixed
+        }
+
         float hsp = transform.position.y * speed * Input.GetAxis("Horizontal"); //horizontalSpeed
         float vsp = transform.position.y *  speed * Input.GetAxis("Vertical"); //verticalSpeed
         float sSpeed = Mathf.Log(transform.position.y) *  -zoomSpeed * scrollSpeed;

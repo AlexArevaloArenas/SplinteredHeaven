@@ -18,7 +18,7 @@ public class UnitAI : MonoBehaviour
         agent.Graph = pilotData.Pilot.MoveBehaviour;
         agent.BlackboardReference.SetVariableValue("Position", position);
         agent.BlackboardReference.SetVariableValue("UnitMovement", GetComponent<UnitMovement>());
-
+        agent.BlackboardReference.SetVariableValue("TargetTracker", GetComponent<TargetTracker>());
         /*
         behaviorGraphAgent.BlackboardReference.SetVariableValue("DestinationSetter", aiDestinationSetter);
         behaviorGraphAgent.BlackboardReference.SetVariableValue("Position", position);

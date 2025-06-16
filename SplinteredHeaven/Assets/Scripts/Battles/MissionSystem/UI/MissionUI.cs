@@ -61,11 +61,13 @@ public class MissionUI : MonoBehaviour
         if (!isOpen) return;
         isOpen = false;
         EventManager.Instance.FreePlayerMovement();
-        missionPanel.SetActive(false);
+        
         foreach (Transform child in missionHolder.transform)
         {
             Destroy(child.gameObject);
         }
+
+        missionPanel.SetActive(false);
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -99,6 +101,19 @@ public class MissionUI : MonoBehaviour
             yield return null;
         }
         map.GetComponent<RectTransform>().localPosition = endPosition;
+    }
+
+    public void StartMission()
+    {
+        foreach (MissionButton button in missionButtons)
+        {
+            if (button.isSelected)
+            {
+                MissionManager.Instance.StartMission(button.missionData);
+                CloseMenu();
+                return;
+            }
+        }
     }
 
 }

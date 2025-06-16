@@ -112,7 +112,7 @@ public class MenuManager : MonoBehaviour
         while (obj.GetComponent<CanvasGroup>().alpha > 0)
         {
             obj.GetComponent<CanvasGroup>().alpha -= 0.02f;
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSeconds(0.001f);
         }
     }
 

@@ -555,6 +555,10 @@ public class DialogueManager :  UIManager<IDialogueUI>
 
     public void ChoiceCursorDown()
     {
+        if(dialogueIsPlaying == false || makingChoice == false)
+        {
+            return;
+        }
         selectorList[currentChoice].SetActive(false);
         if (currentChoice < (currentChoiceNumber-1))
         {
@@ -565,6 +569,10 @@ public class DialogueManager :  UIManager<IDialogueUI>
 
     public void ChoiceCursorUp()
     {
+        if (dialogueIsPlaying == false || makingChoice == false)
+        {
+            return;
+        }
         selectorList[currentChoice].SetActive(false);
         if (currentChoice > 0)
         {

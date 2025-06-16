@@ -101,8 +101,8 @@ public class UnitPart
     public void TakeDamage(float dmg)
     {
         OnDamageTaken?.Invoke(dmg);
-        currentHealth = Mathf.Max(0, currentHealth - dmg);
-        if (currentHealth == 0)
+        currentHealth = currentHealth - dmg;
+        if (currentHealth <= 0)
         {
             Modules.ForEach(m => m.Disable());
             OnDestroy();

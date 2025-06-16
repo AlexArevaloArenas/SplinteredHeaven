@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
     {
         //EVENT SUB
         EventManager.Instance.ContinueGameEvent += ContinueGame;
+        EventManager.Instance.BackToMainMenuEvent += () => ChangeScene(SceneEnum.StartScene);
+        EventManager.Instance.LoadCurrentMissionSceneEvent += LoadCurrentMissionScene;
 
         EventManager.Instance.ChangeSceneEvent += ChangeScene;
     }
@@ -40,6 +42,11 @@ public class GameManager : MonoBehaviour
         Debug.Log("Continue Game Event Triggered");
         //SceneManager.LoadScene("HubScene",LoadSceneMode.Additive);
         ChangeScene(SceneEnum.HubScene);
+    }
+
+    private void LoadCurrentMissionScene()
+    {
+        ChangeScene(MissionManager.Instance.currentMission.scene);
     }
 
     public void ChangeScene(SceneEnum scene)
@@ -75,7 +82,7 @@ public enum State
 
 public enum SceneEnum
 {
-    StartMenu,
+    StartScene,
     HubScene,
     EditorHub,
     ResearchHub,

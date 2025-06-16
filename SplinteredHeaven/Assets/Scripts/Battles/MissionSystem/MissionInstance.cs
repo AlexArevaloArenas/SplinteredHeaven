@@ -5,11 +5,13 @@ public class MissionInstance
 {
     public List<ObjectiveInstance> objectives;
     private ObjectiveContext context;
+    public SceneEnum scene;
 
     public MissionInstance(MissionData data)
     {
         context = new ObjectiveContext();
         objectives = data.objectives.Select(def => new ObjectiveInstance(def, context)).ToList();
+        scene = data.scene;
     }
 
     public void Update(float deltaTime)

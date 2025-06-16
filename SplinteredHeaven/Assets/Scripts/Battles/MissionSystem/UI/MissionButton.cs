@@ -64,6 +64,16 @@ public class MissionButton : MonoBehaviour, IPointerClickHandler
         Deselect();
     }
 
+    private void OnDestroy()
+    {
+        Deselect();
+    }
+
+    private void OnDisable()
+    {
+        Deselect();
+    }
+
     public void OnPointerClick(PointerEventData eventData)
     {
         Select();
