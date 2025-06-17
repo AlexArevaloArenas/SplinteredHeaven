@@ -7,7 +7,7 @@ public class UnitMovement : MonoBehaviour
 {
     private AIDestinationSetter destinationSetter;
     public GameObject target;
-
+    public bool isMoving = false;
     void Awake()
     {
         destinationSetter = GetComponent<AIDestinationSetter>();
@@ -17,17 +17,24 @@ public class UnitMovement : MonoBehaviour
     {
         if (destinationSetter.target == null) destinationSetter.target = target.transform;
         destinationSetter.target.position = position;
+
+        //isMoving = true;
     }
 
     public void SetTarget(GameObject target)
     {
-        if (destinationSetter.target == null) destinationSetter.target = target.transform;
+        if (destinationSetter.target == null) destinationSetter.target = target.transform; 
+
         else destinationSetter.target.position = target.transform.position;
+        
+        isMoving = true;
     }
 
     public void Stop()
     {
         destinationSetter.target = null;
+        isMoving = false;
+
     }
 
 

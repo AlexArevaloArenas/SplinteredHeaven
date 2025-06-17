@@ -5,16 +5,19 @@ public class PartAnimationManager : MonoBehaviour
     private Animator animator;
     private PartVisualHandler partVisualHandler;
     private CharacterController characterController;
+    private UnitMovement unitMovement;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        partVisualHandler = GetComponent<PartVisualHandler>();    
+        partVisualHandler = GetComponent<PartVisualHandler>();  
+        
     }
 
     private void Start()
     {
         characterController = partVisualHandler.linkedPart.owner.obj.GetComponent<CharacterController>();
+        unitMovement = partVisualHandler.linkedPart.owner.obj.GetComponent<UnitMovement>();
     }
 
     private void Update()
@@ -22,8 +25,11 @@ public class PartAnimationManager : MonoBehaviour
         if(characterController != null)
         {
             SetAnimationFloat("Speed", characterController.velocity.magnitude);
+            SetAnimationBool("Moving", unitMovement.isMoving);
+       
 
         }
+        SetAnimationBool("Moving", unitMovement.isMoving);
 
     }
 
