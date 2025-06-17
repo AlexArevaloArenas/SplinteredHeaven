@@ -1,38 +1,25 @@
 using System.Collections.Generic;
 using Unity.AppUI.UI;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UtilityAI;
 
-public class TargetTracker : MonoBehaviour
+public class TargetTracker : AISensor // Inherits from Sensor to use its detection capabilities
 {
-    //public float DetectionRange = 100f; // Range within which targets can be detected
     public UnitManager CurrentTargetUnit { get; private set; }
     public UnitPart CurrentTargetPart { get; private set; }
+
+    public UnitManager PlayerTarget;
+
     public WeaponModuleInstance weaponWithMoreRange;
 
     [SerializeField] private float detectionInterval = 2.0f;
     private float detectionTimer = 0f;
 
-    public UnitManager PlayerTarget;
 
-    /*
-    private void Start()
-    {
-        foreach (UnitPart part in GetComponent<UnitManager>().unit.Parts)
-        {
-            if (part == null) continue; // Skip null parts
-            if (part.Weapons == null || part.Weapons.Count == 0) continue; // Skip parts without weapons
-            foreach (var weapon in part.Weapons)
-            {
-                if (weapon.GetRange() > weaponWithMoreRange.GetRange())
-                {
-                    weaponWithMoreRange = weapon;
-                }
-            }
-        }
-    }
-    */
     private void Update()
     {
+
         if (detectionTimer > 0f)
         {
             detectionTimer -= Time.deltaTime;
@@ -42,7 +29,16 @@ public class TargetTracker : MonoBehaviour
 
         if (PlayerTarget == null)
         {
-            CurrentTargetUnit = FindClosestTargetInRange();
+            List<UnitManager> detectedTargets = new List<UnitManager>();
+            foreach (var obj in detectedObjects)
+            {
+                if (obj.TryGetComponent(out UnitManager unit) && unit != null && unit.gameObject != gameObject)
+                {
+                    detectedTargets.Add(unit);
+                }
+            }
+
+            CurrentTargetUnit = FindClosestTargetInRange(detectedTargets.ToArray());
             if (CurrentTargetUnit == null)
             {
                 //ClearTarget();
@@ -75,64 +71,43 @@ public class TargetTracker : MonoBehaviour
     {
         return CurrentTargetUnit != null;
     }
-    
-    public UnitManager FindClosestTargetInRange()
+
+    public UnitManager FindClosestTargetInRange(UnitManager[] candidates)
     {
-        if(weaponWithMoreRange == null)
+        if (weaponWithMoreRange == null)
         {
             Debug.LogWarning("No weapon with range set, cannot find targets.");
             return null;
         }
-        //List<UnitManager> candidates = new List<UnitManager>();
+
+        //weaponWithMoreRange.GetRange()
         float closestDistance = float.MaxValue;
         UnitManager closestTarget = null;
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, weaponWithMoreRange.GetRange(), LayerMask.GetMask("Selectable"));
-        foreach (var hitCollider in hitColliders)
+
+        foreach (UnitManager candidate in candidates)
         {
-            if (hitCollider == null || hitCollider.GetComponent<UnitManager>() == null || hitCollider.gameObject == gameObject) continue;
-            UnitManager unitManager = hitCollider.GetComponent<UnitManager>();
-            if(Vector3.Distance(transform.position, unitManager.transform.position) < closestDistance)
+            if (candidate.GetComponent<UnitManager>() == null || candidate.gameObject == gameObject || Vector3.Distance(transform.position, candidate.transform.position) > weaponWithMoreRange.GetRange()) continue;
+
+            if (Vector3.Distance(transform.position, candidate.transform.position) < closestDistance)
             {
-                closestDistance = Vector3.Distance(transform.position, unitManager.transform.position);
-                closestTarget = unitManager;
+                closestDistance = Vector3.Distance(transform.position, candidate.transform.position);
+                closestTarget = candidate;
             }
-            //candidates.Add(hitCollider.GetComponent<UnitManager>());
+
         }
 
-        if(IsTargetBehind(CurrentTargetUnit)){
+        if (IsTargetBehind(CurrentTargetUnit))
+        {
             Debug.Log("Target is behind, clearing target.");
             return null;
         }
 
-        if(IsTargetBehind(closestTarget))
+        if (IsTargetBehind(closestTarget))
         {
             return null;
         }
 
         return closestTarget;
-
-        /*
-        UnitManager best = null;
-        float bestDistance = float.MaxValue;
-
-        foreach (var candidate in candidates)
-        {
-            foreach (var part in candidate.unit.Parts)
-            {
-                if (!part.IsFunctional()) continue;
-                if (!weapon.IsInRange(GetComponent<UnitManager>().unit, candidate.unit, part)) continue;
-
-                float distance = Vector3.Distance(transform.position, part.GetHitPosition());
-                if (distance < bestDistance)
-                {
-                    best = candidate;
-                    bestDistance = distance;
-                }
-            }
-        }
-
-        return best;
-        */
     }
 
     public UnitPart PartToAttack(UnitManager targetUnit)
@@ -163,14 +138,4 @@ public class TargetTracker : MonoBehaviour
         float dot = Vector3.Dot(forward.normalized, toTarget.normalized);
         return dot < 0.25f; // Adjust threshold as needed (0 = directly behind, 1 = in front)
     }
-
-    public void OnDrawGizmosSelected()
-    {
-        if (weaponWithMoreRange != null)
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, weaponWithMoreRange.GetRange());
-        }
-    }
-
 }
