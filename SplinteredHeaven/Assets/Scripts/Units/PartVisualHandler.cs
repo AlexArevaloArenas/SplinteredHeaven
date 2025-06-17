@@ -1,3 +1,4 @@
+using FOVMapping;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -34,6 +35,17 @@ public class PartVisualHandler : MonoBehaviour
         linkedPart.partObject = gameObject;
         LocateModuleHolders();
         CreateModules();
+
+        if(linkedPart.data.partType == PartType.Head)
+        {
+            if(TryGetComponent(out FOVAgent fov)){
+                fov.Init();
+            }
+            else
+            {
+                Debug.LogWarning($"[PartVisualHandler] FOVAgent component not found on head part");
+            }
+        }
     }
 
     public void SetUpHolders()

@@ -15,8 +15,16 @@ public partial class MoveToAction : Action
     {
         if (Position != null)
         {
-            UnitMovements.Value.MoveTo(Position.Value);
-            return Status.Success;
+            bool reach = UnitMovements.Value.MoveTo(Position.Value);
+
+            if (reach)
+            {
+                return Status.Success;
+            }
+            else
+            {
+                return Status.Failure;
+            }
         }
         else
         {

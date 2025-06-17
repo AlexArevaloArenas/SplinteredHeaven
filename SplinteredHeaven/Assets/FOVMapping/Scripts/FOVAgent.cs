@@ -2,6 +2,7 @@
 using FOVMapping;
 using System.Collections.Generic;
 using System.Linq;
+using System.Collections;
 
 namespace FOVMapping
 {
@@ -40,22 +41,75 @@ namespace FOVMapping
 		private List<MeshRenderer> meshRenderers;
 		private List<SkinnedMeshRenderer> skinnedMeshRenderers;
 
+		private bool init=false;
+
+        /*
 		private void Start()
 		{
+			//Init();
+            
 			skinnedMeshRenderers = GetComponentsInChildren<SkinnedMeshRenderer>().ToList();
 			meshRenderers = GetComponentsInChildren<MeshRenderer>().ToList();
-		}
 
-			[HideInInspector]
+			if (GetComponent<PartVisualHandler>().linkedPart.owner.obj.tag=="Enemy")
+			{
+                _disappearInFOW = false; // Enemy units should not disappear in FOW
+
+            }
+			else
+			{
+				_disappearInFOW = true; // Friendly units should disappear in FOW
+            }
+			
+        }
+		*/
+
+        public void Init()
+		{
+            if(init) return; // Prevent re-initialization
+            
+			
+            if (GetComponent<PartVisualHandler>().linkedPart.owner.obj.tag == "Enemy")
+            {
+                _disappearInFOW = true; // Enemy units should not disappear in FOW
+
+            }
+            else
+            {
+                _disappearInFOW = false; // Friendly units should disappear in FOW
+            }
+            init = true;
+            StartCoroutine(Wait());
+        }
+
+		public IEnumerator Wait()
+		{
+			yield return new WaitForSeconds(0.01f); // Ensure all components are initialized
+            skinnedMeshRenderers = GetComponent<PartVisualHandler>().linkedPart.owner.obj.GetComponentsInChildren<SkinnedMeshRenderer>().ToList();
+            meshRenderers = GetComponent<PartVisualHandler>().linkedPart.owner.obj.GetComponentsInChildren<MeshRenderer>().ToList();
+        }
+
+		[HideInInspector]
 		public void SetUnderFOW(bool isUnder)
 		{
+			if (!init)
+			{
+				return;
+			}
+			
 			isUnderFOW = isUnder;
 			if (disappearInFOW)
 			{
-				if (GetComponent<PartVisualHandler>().linkedPart.owner.obj.TryGetComponent(out UnitManager unit))
+
+				if (TryGetComponent(out PartVisualHandler partVisual))
 				{
-                    unit.SetHealthbarVisibility(isUnder);
+                    if (partVisual.linkedPart.owner.obj.TryGetComponent(out UnitManager unit))
+                    {
+                        unit.SetHealthbarVisibility(isUnder);
+                    }
+
 				}
+				
 
 
 				if (meshRenderers == null) return;

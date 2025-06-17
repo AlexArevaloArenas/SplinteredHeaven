@@ -5712,6 +5712,10 @@ PrefabInstance:
       value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 954760141499304882, guid: e03ef509b4d5d834b9ad907347167dbb, type: 3}
+      propertyPath: maxAcceleration
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 954760141499304882, guid: e03ef509b4d5d834b9ad907347167dbb, type: 3}
       propertyPath: autoRepath.visualizeSensitivity
       value: 1
       objectReference: {fileID: 0}

@@ -8,17 +8,35 @@ public class UnitMovement : MonoBehaviour
     private AIDestinationSetter destinationSetter;
     public GameObject target;
     public bool isMoving = false;
+    public float stopDistance = 5f; // Distance at which the unit stops moving
+
+    public bool IsMoving
+    {
+        get { return isMoving; }
+        set { isMoving = value; }
+    }
+
     void Awake()
     {
         destinationSetter = GetComponent<AIDestinationSetter>();
     }
 
-    public void MoveTo(Vector3 position)
+    public bool MoveTo(Vector3 position)
     {
         if (destinationSetter.target == null) destinationSetter.target = target.transform;
-        destinationSetter.target.position = position;
 
-        //isMoving = true;
+        if (Vector3.Distance(transform.position, position)< stopDistance)
+        {
+            Stop();
+            return true; // Stop moving if within stop distance
+        }
+        else
+        {
+            isMoving = true;
+            destinationSetter.target.position = position;
+            return false; // Continue moving towards the position
+        }
+        
     }
 
     public void SetTarget(GameObject target)

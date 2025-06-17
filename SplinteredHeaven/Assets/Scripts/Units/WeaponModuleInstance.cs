@@ -37,6 +37,11 @@ public class WeaponModuleInstance : ModuleInstance
     
     public override void Activate(UnitManager owner, UnitManager target, UnitPart targetPart = null)
     {
+        if (target == null)
+        {
+            return;
+        }
+
         Debug.Log("Attacking with weapon module");
         if (!IsAvailable()) return;
 
