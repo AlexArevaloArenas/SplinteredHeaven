@@ -53,7 +53,8 @@ public class UnitCombat : MonoBehaviour
             {
                 aimer.SetTarget(null);
             }
-                
+            StopAim(GetAvaliableWeapons());
+
             return;
         }
         else
@@ -107,6 +108,7 @@ public class UnitCombat : MonoBehaviour
             //weapon.Activate(unitM, targetUnit, targetPart);
             
             weapon.AttachedPart.transform.GetComponent<PartAnimationManager>().SetAnimationTrigger("Shoot");
+
         }
 
     }
@@ -115,8 +117,21 @@ public class UnitCombat : MonoBehaviour
     {
         foreach (var weapon in avaliableWeapons)
         {
-            weapon.AttachedPart.transform.GetComponent<PartAnimationManager>().SetAnimationBool("Aim", true);
+            weapon.AttachedPart.transform.GetComponent<PartAnimationManager>().SetAnimationBool("Aiming", true);
+
+
         }
+
+    }
+    public void StopAim(WeaponModuleInstance[] avaliableWeapons)
+    {
+        foreach (var weapon in avaliableWeapons)
+        {
+            weapon.AttachedPart.transform.GetComponent<PartAnimationManager>().SetAnimationBool("Aiming", false);
+
+
+        }
+
     }
 
 }
