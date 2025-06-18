@@ -5715,7 +5715,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 954760141499304882, guid: e03ef509b4d5d834b9ad907347167dbb, type: 3}
       propertyPath: maxAcceleration
-      value: 20
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 954760141499304882, guid: e03ef509b4d5d834b9ad907347167dbb, type: 3}
       propertyPath: endReachedDistance
