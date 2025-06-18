@@ -1,12 +1,12 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &2044657515596589180
+--- !u!1001 &1283073089833571840
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4027923292153224500}
+    m_TransformParent: {fileID: 7259900618313379148}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 1f47ba3e282752546a68c52a682d3fb6, type: 3}
       propertyPath: m_LocalScale.x
@@ -70,19 +70,19 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: ba749a2bfcab6d14691875faa660ffc5, type: 2}
     - target: {fileID: 919132149155446097, guid: 1f47ba3e282752546a68c52a682d3fb6, type: 3}
       propertyPath: m_Name
-      value: Support unit tank_Head
+      value: Support unit tank_Head (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f47ba3e282752546a68c52a682d3fb6, type: 3}
---- !u!4 &2011609643554099095 stripped
+--- !u!4 &1604650703502569963 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1f47ba3e282752546a68c52a682d3fb6, type: 3}
-  m_PrefabInstance: {fileID: 2044657515596589180}
+  m_PrefabInstance: {fileID: 1283073089833571840}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &5373590192711114128
+--- !u!1001 &1852250543183113704
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -159,11 +159,11 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 9040093533058433188, guid: c43084e0be1646048b62143e808333b4, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2011609643554099095}
+      addedObject: {fileID: 1604650703502569963}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c43084e0be1646048b62143e808333b4, type: 3}
---- !u!4 &4027923292153224500 stripped
+--- !u!4 &7259900618313379148 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9040093533058433188, guid: c43084e0be1646048b62143e808333b4, type: 3}
-  m_PrefabInstance: {fileID: 5373590192711114128}
+  m_PrefabInstance: {fileID: 1852250543183113704}
   m_PrefabAsset: {fileID: 0}
