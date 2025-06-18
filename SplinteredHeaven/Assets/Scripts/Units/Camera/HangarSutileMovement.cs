@@ -8,8 +8,6 @@ public class HangarSutileMovement : MonoBehaviour
 
     float rotationX = 0;
     float rotationY = 0;
-    float rotationZ = 0;
-
     private float mouseX = 0;
     private float mouseY = 0;
 

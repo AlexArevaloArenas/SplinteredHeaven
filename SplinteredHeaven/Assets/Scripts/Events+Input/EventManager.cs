@@ -43,6 +43,9 @@ public class EventManager : MonoBehaviour
     public event Action FreePlayerMovementEvent;
 
 
+    //BATTLE EVENTS
+    public event Action UnitMovesEvent;
+
     private void Awake()
     {
         if (Instance == null)
@@ -148,6 +151,17 @@ public class EventManager : MonoBehaviour
     {
         FPChangeInteractionSymbolEvent?.Invoke(show, text);
     }
+
+
+    //Battle Events
+    public void StartUnitMoves()
+    {
+        UnitMovesEvent?.Invoke(); // If Unit Moves Event is not null, start it
+    }
+
+
+
+    //GENERAL EVENTS
 
     public void StartEventByString(string id)
     {

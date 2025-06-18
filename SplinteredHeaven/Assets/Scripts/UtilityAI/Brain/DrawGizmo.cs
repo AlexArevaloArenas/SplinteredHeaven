@@ -6,7 +6,7 @@ namespace UtilityAI {
         public Color color = Color.yellow;
         public float radius = 1f;
         
-        [SerializeField] SphereCollider collider;
+        [SerializeField] new SphereCollider collider;
         
         void Start() {
             if (collider == null) collider = GetComponent<SphereCollider>();

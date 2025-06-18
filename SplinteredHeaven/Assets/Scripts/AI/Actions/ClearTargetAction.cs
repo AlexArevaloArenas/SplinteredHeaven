@@ -5,7 +5,7 @@ using Action = Unity.Behavior.Action;
 using Unity.Properties;
 
 [Serializable, GeneratePropertyBag]
-[NodeDescription(name: "ClearTargetAction", story: "Clear [TargetTracker] target", category: "Action", id: "d7befe025dfe96396baa38cd80088387")]
+[NodeDescription(name: "ClearTargetAction", story: "Clear [TargetTracker]", category: "Action", id: "0d67606915b9cf803811c384297a6815")]
 public partial class ClearTargetAction : Action
 {
     [SerializeReference] public BlackboardVariable<TargetTracker> TargetTracker;

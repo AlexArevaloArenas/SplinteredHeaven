@@ -8,11 +8,11 @@ namespace UtilityAI {
         public List<AIAction> actions;
         public Context context;
 
-        public Health health;
+        public UnitManager unitManager;
 
         void Awake() {
             context = new Context(this);
-            health = GetComponent<Health>();
+            unitManager = GetComponent<UnitManager>();
 
             foreach (var action in actions) {
                 action.Initialize(context);
@@ -39,7 +39,7 @@ namespace UtilityAI {
         }
 
         void UpdateContext() {
-            context.SetData("health", health.normalizedHealth);
+            //context.SetData("health", health.normalizedHealth);
         }
     }
 }

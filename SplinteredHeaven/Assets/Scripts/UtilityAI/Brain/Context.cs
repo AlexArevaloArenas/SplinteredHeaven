@@ -1,15 +1,17 @@
 using System.Collections.Generic;
+using Unity.Behavior;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityUtils;
+using UnityUtils; // Assuming this namespace contains the UnitAI extension method
 
 namespace UtilityAI {
     public class Context {
         public Brain brain;
-        public NavMeshAgent agent;
+        public UnitAI ai;
         public Transform target;
         public AISensor sensor;
-        
+        public UnitManager unitManager;
+
         readonly Dictionary<string, object> data = new();
 
         public Context(Brain brain) {
@@ -19,8 +21,10 @@ namespace UtilityAI {
             }
 
             this.brain = brain;
-            this.agent = brain.gameObject.GetOrAdd<NavMeshAgent>();
-            this.sensor = brain.gameObject.GetOrAdd<Sensor>();
+            this.ai = brain.gameObject.GetOrAddComponent<UnitAI>();
+            this.sensor = brain.gameObject.GetOrAddComponent<TargetTracker>();
+            this.unitManager = brain.GetComponent<UnitManager>();
+
         }
         
         public T GetData<T>(string key) => data.TryGetValue(key, out var value) ? (T)value : default;

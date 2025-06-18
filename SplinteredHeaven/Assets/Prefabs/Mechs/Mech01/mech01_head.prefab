@@ -320,7 +320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _contributeToFOV: 1
-  _sightRange: 50
-  _sightAngle: 240
+  _sightRange: 500
+  _sightAngle: 360
   _disappearInFOW: 0
   _disappearAlphaThreshold: 0.1

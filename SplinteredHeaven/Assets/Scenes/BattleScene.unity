@@ -4928,8 +4928,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef405e286f9389d4b8f1d403136054f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionInterval: 1
+  detectionRadius: 10
+  targetTags: []
   PlayerTarget: {fileID: 0}
+  detectionInterval: 1
 --- !u!114 &2022561479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4981,6 +4983,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  isMoving: 0
+  stopDistance: 5
 --- !u!114 &2022561483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5302,7 +5306,7 @@ PrefabInstance:
     - target: {fileID: 4258206952046894369, guid: 73f1b09641b64be45bdb9da2491b4719, type: 3}
       propertyPath: FOVMapArray
       value: 
-      objectReference: {fileID: 18700000, guid: 8778b6750545c704aae9eab2ead808a8, type: 2}
+      objectReference: {fileID: 18700000, guid: 4900af0dcc1028f4da97556969f71e36, type: 2}
     - target: {fileID: 4258206952046894369, guid: 73f1b09641b64be45bdb9da2491b4719, type: 3}
       propertyPath: FOWTextureSize
       value: 1024

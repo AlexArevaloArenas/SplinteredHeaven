@@ -1,6 +1,8 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 
 public class CameraController : MonoBehaviour
 {
@@ -14,13 +16,16 @@ public class CameraController : MonoBehaviour
     private bool fixPlayerMovement = false;
 
     float scrollSpeed = 0f;
+    public GameObject cameraObj;
 
     private void Start()
     {
         EventManager.Instance.MouseWheel += ScrollWheel;
         EventManager.Instance.FixPlayerMovementEvent += () => fixPlayerMovement = true;
         EventManager.Instance.FreePlayerMovementEvent += () => fixPlayerMovement = false;
+        EventManager.Instance.UnitMovesEvent += CameraShake;
 
+        cameraObj = transform.GetChild(0).gameObject; // Assuming the camera is the first child of this GameObject
     }
 
     // Update is called once per frame
@@ -75,5 +80,11 @@ public class CameraController : MonoBehaviour
     public void ScrollWheel(float sSpeed)
     {
         scrollSpeed = sSpeed;
+    }
+
+    private void CameraShake()
+    {
+        //transform.position += Random.insideUnitSphere * 0.1f; // Simple shake effect
+        cameraObj.transform.DOShakePosition(0.1f,0.1f,5,90);
     }
 }

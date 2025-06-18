@@ -1,3 +1,4 @@
+using FMODUnity;
 using Pathfinding;
 using UnityEngine;
 
@@ -33,6 +34,7 @@ public class UnitMovement : MonoBehaviour
         else
         {
             isMoving = true;
+            EventManager.Instance.StartUnitMoves();
             destinationSetter.target.position = position;
             return false; // Continue moving towards the position
         }
@@ -44,7 +46,8 @@ public class UnitMovement : MonoBehaviour
         if (destinationSetter.target == null) destinationSetter.target = target.transform; 
 
         else destinationSetter.target.position = target.transform.position;
-        
+
+        EventManager.Instance.StartUnitMoves();
         isMoving = true;
     }
 
