@@ -4981,6 +4981,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  isMoving: 0
+  stopDistance: 5
 --- !u!114 &2022561483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5710,6 +5712,14 @@ PrefabInstance:
     - target: {fileID: 954760141499304882, guid: e03ef509b4d5d834b9ad907347167dbb, type: 3}
       propertyPath: maxSpeed
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 954760141499304882, guid: e03ef509b4d5d834b9ad907347167dbb, type: 3}
+      propertyPath: maxAcceleration
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 954760141499304882, guid: e03ef509b4d5d834b9ad907347167dbb, type: 3}
+      propertyPath: endReachedDistance
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 954760141499304882, guid: e03ef509b4d5d834b9ad907347167dbb, type: 3}
       propertyPath: autoRepath.visualizeSensitivity

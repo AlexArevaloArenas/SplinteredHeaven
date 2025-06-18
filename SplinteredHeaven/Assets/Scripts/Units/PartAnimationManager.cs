@@ -1,3 +1,4 @@
+using Pathfinding;
 using UnityEngine;
 
 public class PartAnimationManager : MonoBehaviour
@@ -6,11 +7,14 @@ public class PartAnimationManager : MonoBehaviour
     private PartVisualHandler partVisualHandler;
     private CharacterController characterController;
     private UnitMovement unitMovement;
+    //private AIPath aiPath;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        partVisualHandler = GetComponent<PartVisualHandler>();  
+        partVisualHandler = GetComponent<PartVisualHandler>();
+        Debug.Log(gameObject.transform.root.gameObject.name);
+        //aiPath = gameObject.transform.root.gameObject.GetComponent<AIPath>();
         
     }
 
@@ -25,7 +29,10 @@ public class PartAnimationManager : MonoBehaviour
         if(characterController != null)
         {
             SetAnimationFloat("Speed", characterController.velocity.magnitude);
+            //Cambiar la velocidad de las animaciones según el characterController.velocity.magnitude (1 = velocidad max, 0 es velocidad min)
+            //SetAnimationFloat("AnimationSpeed", (characterController.velocity.magnitude-0) /(aiPath.maxSpeed));
             SetAnimationBool("Moving", unitMovement.isMoving);
+
        
 
         }

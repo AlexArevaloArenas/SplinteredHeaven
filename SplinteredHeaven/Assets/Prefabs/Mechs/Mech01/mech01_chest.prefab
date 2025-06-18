@@ -2789,7 +2789,7 @@ Animator:
   m_GameObject: {fileID: 8656391092955187432}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2ac7361bc914e1542937bb10bc3315ca, type: 2}
+  m_Controller: {fileID: 9100000, guid: d5643905b784ca346a5768f944933c99, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2849,6 +2849,8 @@ MonoBehaviour:
   aimTarget: {fileID: 0}
   rotationSpeed: 5
   constrainToY: 1
+  constrainToX: 0
+  constrainToZ: 0
   constrainRotation: 0
   minRotation: {x: -45, y: -90, z: -10}
   maxRotation: {x: 45, y: 90, z: 10}
