@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Chest_02
   m_EditorClassIdentifier: 
   id: chest_02
-  size: 0
   maxHealth: 10
   partType: 1
-  visualPrefab: {fileID: 8656391092955187432, guid: 6135d19d002913843bbb464cd20c8576, type: 3}
+  visualPrefab: {fileID: 6738899810962588585, guid: b48a24a80e77d0e44b8e30ab69a605b5, type: 3}
+  destructionPrefab: {fileID: 0}
   modules: []

@@ -1,4 +1,5 @@
 using Ink.Parsed;
+using System.Collections.Generic;
 using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,6 +9,8 @@ public class GameManager : MonoBehaviour
 
     public State currentState;
     public string playerFaction;
+
+    public List<Unit> playerCurrentArmy;
 
     //Singleton pattern
     public static GameManager instance { get; private set; }

@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: EnergyShield
   m_EditorClassIdentifier: 
   id: EnergyShield
+  icon: {fileID: 0}
   visualPrefab: {fileID: 5868794271795159366, guid: 5270a0cae29351e44b98ca23585e880f, type: 3}
   cooldown: 5
   positionType: 0
   weightType: 0
+  effectType: 0
   shieldStrength: 100
   duration: 5
   shieldMaterial: {fileID: 2100000, guid: 9cb256b760b49ce4da0678bb91584af2, type: 2}

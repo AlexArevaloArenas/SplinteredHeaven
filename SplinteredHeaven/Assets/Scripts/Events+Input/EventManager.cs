@@ -45,6 +45,7 @@ public class EventManager : MonoBehaviour
 
     //BATTLE EVENTS
     public event Action UnitMovesEvent;
+    public event Action<MissionInstance> MissionStartsEvent;
 
     private void Awake()
     {
@@ -157,6 +158,10 @@ public class EventManager : MonoBehaviour
     public void StartUnitMoves()
     {
         UnitMovesEvent?.Invoke(); // If Unit Moves Event is not null, start it
+    }
+    public void StartMission(MissionInstance mission)
+    {
+        MissionStartsEvent?.Invoke(mission); // If Unit Moves Event is not null, start it
     }
 
 

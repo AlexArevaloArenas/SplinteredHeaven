@@ -31,6 +31,7 @@ Transform:
   m_LocalScale: {x: 1.0000004, y: 1, z: 1.0000004}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 732430318865846289}
   - {fileID: 3567390867954657362}
   - {fileID: 8833033583099150145}
   - {fileID: 2125657459317486318}
@@ -90,6 +91,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &3153770606397394306
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 732430318865846289}
+  m_Layer: 0
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &732430318865846289
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3153770606397394306}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: -0.02522, z: 0.0508}
+  m_LocalScale: {x: 0.28314272, y: 1.288517, z: 1.3623657}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 572156641501793919}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &3686132388635110489
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,6 +219,7 @@ GameObject:
   - component: {fileID: 4647019964525773022}
   - component: {fileID: 5402636693722829715}
   - component: {fileID: 9207314907533715702}
+  - component: {fileID: -2069135568130838133}
   m_Layer: 0
   m_Name: Rocket launcher module
   m_TagString: Untagged
@@ -263,6 +296,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-2069135568130838133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6579500113514206085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04b0f725049cd3346999b5b9a4f94c5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  effectOnActivate: {fileID: 0}
 --- !u!1 &6708913627101859571
 GameObject:
   m_ObjectHideFlags: 0

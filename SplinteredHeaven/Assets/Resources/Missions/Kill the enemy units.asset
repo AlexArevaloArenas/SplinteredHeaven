@@ -9,12 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8b703ba294e6f14197aec74cc57fc0f, type: 3}
-  m_Name: Legs02
+  m_Script: {fileID: 11500000, guid: 1a9fc3193547f5b47824ebd5ab750e7c, type: 3}
+  m_Name: Kill the enemy units
   m_EditorClassIdentifier: 
-  id: Legs02
-  size: 0
-  maxHealth: 0
-  partType: 4
-  visualPrefab: {fileID: 6679965446713029333, guid: 66a67fd9bc499ac40b0a16b447ed5447, type: 3}
-  modules: []
+  objectiveID: Kill all enemy units
+  description: Kill all enemy units
+  condition: {fileID: 11400000, guid: bfe7a487f37e956449e6d5f731bef95f, type: 2}

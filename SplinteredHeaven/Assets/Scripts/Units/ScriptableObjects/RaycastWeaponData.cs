@@ -14,7 +14,7 @@ public class RaycastWeaponData : WeaponData
         // ?? Draw the ray in the scene view for debugging
         Debug.DrawRay(origin.position, direction * range, Color.red, 1.5f);
 
-        if (Physics.Raycast(origin.position, direction, out RaycastHit hit, range, hitMask))
+        if (Physics.Raycast(origin.position, direction, out RaycastHit hit, range, hitMask, QueryTriggerInteraction.Ignore))
         {
             //UnitPart hitPart = hit.collider.GetComponentInParent<UnitPart>();
             DamageReceiver hitPart = hit.collider.GetComponent<DamageReceiver>();

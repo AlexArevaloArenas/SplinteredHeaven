@@ -100,8 +100,8 @@ public class UnitVisualManager : MonoBehaviour
         // Step 2: Body
         if (!partsByType.TryGetValue(PartType.Body, out UnitPart body))
         {
-            Debug.LogError("Body is required to continue building.");
-            return;
+            Debug.LogError("Body not founded.");
+            //return;
         }
 
         legsHandler.SetUpHolders();

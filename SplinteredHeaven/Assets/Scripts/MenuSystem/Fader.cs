@@ -10,7 +10,7 @@ public class Fader : MonoBehaviour
     [SerializeField] private CanvasGroup backgroundGroup;
     [SerializeField] private MenuManager menu;
     public float fadeSpeed = 0.02f;
-
+    public bool sceneLoaded = false;
 
     public static Fader Instance { get; private set; }
     private void Awake()
@@ -43,6 +43,7 @@ public class Fader : MonoBehaviour
 
     public void StartFade(String eventString)
     {
+        sceneLoaded = false;
         Debug.Log("Start Fade!");
         StartCoroutine(FadeIn(eventString));
     }
@@ -62,9 +63,10 @@ public class Fader : MonoBehaviour
                 //Destroy(Camera.main);
                 EventManager.Instance.StartEventByString(nextAction);
                 StartCoroutine("FadeOut");
+                sceneLoaded = true;
                 break;
             }
-            yield return new WaitForSeconds(.02f);
+            yield return new WaitForSeconds(.01f);
         }
 
     }
@@ -79,7 +81,22 @@ public class Fader : MonoBehaviour
             {
                 break;
             }
-            yield return new WaitForSeconds(.02f);
+            yield return new WaitForSeconds(.01f);
         }
+    }
+
+    public void DoWhenLoaded(Action action)
+    {
+        StartCoroutine(DoWhenSceneLoaded(action));
+    }
+
+    IEnumerator DoWhenSceneLoaded(Action action)
+    {
+        while (!sceneLoaded)
+        {
+            yield return null; // Wait for the next frame
+        }
+        action?.Invoke(); // Execute the action when the scene is loaded
+        sceneLoaded = false; // Reset the flag
     }
 }

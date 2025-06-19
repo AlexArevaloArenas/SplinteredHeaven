@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9eaacd40f074ce4a9d8b8fa30e1e60d, type: 3}
+  m_Name: TankCanon
+  m_EditorClassIdentifier: 
+  id: tank_canon
+  icon: {fileID: 0}
+  visualPrefab: {fileID: 4877113155738899875, guid: 0916efba122cff04f87e62b8c1691542, type: 3}
+  cooldown: 1
+  positionType: 0
+  weightType: 1
+  effectType: 1
+  damage: 20
+  range: 40
+  damageType: 2
+  weaponType: 1
+  hitMask:
+    serializedVersion: 2
+    m_Bits: 3072
+  inaccuracyAngle: 4

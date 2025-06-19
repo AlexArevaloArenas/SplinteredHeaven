@@ -20,6 +20,8 @@ public class UnitDrag : MonoBehaviour
     //Input
     bool held=true;
 
+    bool starter = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +33,7 @@ public class UnitDrag : MonoBehaviour
         myCam = Camera.main;
         startPosition = Vector2.zero;
         endPosition = Vector2.zero;
-        DrawVisual();
+        //DrawVisual();
     }
 
     private void OnDestroy()
@@ -43,7 +45,7 @@ public class UnitDrag : MonoBehaviour
 
     private void Update()
     {
-        if (held)
+        if (held && starter)
         {
             MouseHeld();
         }
@@ -57,6 +59,7 @@ public class UnitDrag : MonoBehaviour
 
     private void StartMouseHeld()
     {
+        starter = true;
         held = true;
     }
 

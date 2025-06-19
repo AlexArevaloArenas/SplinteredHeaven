@@ -14,7 +14,7 @@ public class UnitClick : MonoBehaviour
     public LayerMask terrain;
     public LayerMask UI;
     public GameObject terrainMark;
-
+    public LayerMask allLayers; // This should include all layers you want to check against, including terrain and selectable layers
     public BattleManager battleManager;
 
     void Start()
@@ -29,7 +29,7 @@ public class UnitClick : MonoBehaviour
     {
         RaycastHit hit;
         Ray ray = myCam.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, allLayers, QueryTriggerInteraction.Ignore))
         {
             if(hit.collider.gameObject.layer == LayerMask.NameToLayer("Terrain"))
             {
@@ -79,7 +79,7 @@ public class UnitClick : MonoBehaviour
         RaycastHit hit;
         Ray ray = myCam.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity, selectable))
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, selectable, QueryTriggerInteraction.Ignore))
         {
             //If we hit a clickable object
             

@@ -36,7 +36,11 @@ public class PartAnimationManager : MonoBehaviour
        
 
         }
-        SetAnimationBool("Moving", unitMovement.isMoving);
+        if (unitMovement != null)
+        {
+            SetAnimationBool("Moving", unitMovement.isMoving);
+        }
+        
 
     }
 

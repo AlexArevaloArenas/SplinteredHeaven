@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8b703ba294e6f14197aec74cc57fc0f, type: 3}
+  m_Name: TankBody
+  m_EditorClassIdentifier: 
+  id: tankBody
+  maxHealth: 10
+  partType: 1
+  visualPrefab: {fileID: 8376350851078902954, guid: 29755bf07bb885b4197619fd99d2a394, type: 3}
+  destructionPrefab: {fileID: 0}
+  modules:
+  - {fileID: 11400000, guid: 7ebe2b1405720874e831acf6f1c284a9, type: 2}
+  SupportUnit: 1

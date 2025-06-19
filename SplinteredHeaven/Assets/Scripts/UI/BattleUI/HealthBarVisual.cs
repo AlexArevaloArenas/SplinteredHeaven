@@ -20,6 +20,10 @@ public class HealthBarVisual : MonoBehaviour
                 break;
             }
         }
+        if(heigh == null)
+        {
+            heigh = unidad.transform;
+        }
     }
     void Update()
     {

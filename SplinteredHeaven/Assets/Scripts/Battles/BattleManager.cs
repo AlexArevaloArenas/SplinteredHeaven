@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityUtils;
 
 public class BattleManager : MonoBehaviour
 {
@@ -17,9 +18,27 @@ public class BattleManager : MonoBehaviour
 
     private List<GameObject> moduleButtons = new List<GameObject>();
 
+    //
+    public TMPro.TextMeshProUGUI textName;
+    public TMPro.TextMeshProUGUI textDescription;
+    public TMPro.TextMeshProUGUI objectivesText;
+
+    public Transform[] playerSpawnPoints;
+    public GameObject unitPrefab; // Reference to the general unit manager for the player
+
+    public GameObject victoryPanel;
+    public GameObject defeatPanel;
+
     void Start()
     {
         EventManager.Instance.EscapeKeyEvent += () => OpenBattleMenu();
+        EventManager.Instance.MissionStartsEvent += LoadMission;
+
+        MissionEvents.OnObjectiveCompleted += OnObjectiveCompleted;
+        MissionEvents.OnObjectiveFailed += OnObjectiveFailed;
+
+        //MissionEvents.OnObjectiveCompleted +=
+        //MissionEvents.OnObjectiveFailed += () => EndBattle(false);
 
         menuPanel.SetActive(false); // Ensure the menu panel is initially hidden
         menuPanel.GetComponent<CanvasGroup>().alpha = 0; // Set initial alpha to 0 for fade-in effect
@@ -123,6 +142,9 @@ public class BattleManager : MonoBehaviour
             moduleButtons.Add(button);
         }
 
+        textName.text = unitSelected.unit.unitData.name;
+        textDescription.text = unitSelected.unit.unitData.description;
+
     }
     public void ClearUI()
     {
@@ -131,7 +153,40 @@ public class BattleManager : MonoBehaviour
             Destroy(button);
         }
         moduleButtons.Clear();
+        textName.text = string.Empty;
+        textDescription.text = string.Empty;
+    }
 
+    private void LoadMission(MissionInstance mission)
+    {
+        objectivesText.text = "Objectives:\n";
+        //Load UI
+        foreach (ObjectiveInstance objData in mission.objectives)
+        {
+            objectivesText.text += $"- {objData.definition.description}\n";
+        }
+
+        //Load Units
+        foreach (Unit unit in GameManager.instance.playerCurrentArmy)
+        {
+            Transform point = playerSpawnPoints.Random();
+            GameObject unitObj = Instantiate(unitPrefab, point.position, point.rotation);
+            unitObj.GetComponent<UnitManager>().SetUnit(unit);
+        }
+
+    }
+
+    public void OnObjectiveCompleted(ObjectiveInstance instance)
+    {
+        Debug.Log($"Objective Completed: {instance.definition.description}");
+        //objectivesText.text += $"Objective Completed: {instance.definition.description}\n";
+        objectivesText.text = objectivesText.text.Replace($"- {instance.definition.description}\n", $"{instance.definition.description} ?\n");
+    }
+
+    public void OnObjectiveFailed(ObjectiveInstance instance)
+    {
+        objectivesText.text += $"Objective Failed: {instance.definition.description}\n";
+        Invoke(nameof(EndBattle), 2f); // Delay to show failure message
     }
 
 }

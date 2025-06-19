@@ -46,7 +46,7 @@ public class Unit
     public Unit(UnitRuntimeData runtimeData, UnitData staticData, RuntimeAssetRegistry registry)
     {
         this.name = string.IsNullOrEmpty(runtimeData.unitNameOverride) ? unitData.name : runtimeData.unitNameOverride;
-
+        unitData = staticData;
         List<UnitPart> newParts = new List<UnitPart>();
 
         foreach (var runtimePart in runtimeData.parts)

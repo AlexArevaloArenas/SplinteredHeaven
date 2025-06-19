@@ -9,6 +9,7 @@ public class UnitPartData : ScriptableObject
     public GameObject visualPrefab;
     public GameObject destructionPrefab; // Optional prefab for destruction effects
     public ModuleData[] modules;
+    public bool SupportUnit;
 }
 
 public enum PartType

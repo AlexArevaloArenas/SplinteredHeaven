@@ -20,8 +20,16 @@ public partial class FollowTargetAction : Action
 
     protected override Status OnUpdate()
     {
-        UnitMovement.Value.SetTarget(Target);
-        return Status.Success;
+        if (Target.Value == null)
+        {
+            return Status.Failure;
+        }
+        else
+        {
+            UnitMovement.Value.SetTarget(Target);
+            return Status.Success;
+        }
+
     }
 
     protected override void OnEnd()

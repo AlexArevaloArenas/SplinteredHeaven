@@ -9,8 +9,6 @@ public class MissionManager : MonoBehaviour
 
     public MissionData selectedMissionData;
     
-
-
     //BATTLE
     public MissionInstance currentMission;
 
@@ -21,7 +19,7 @@ public class MissionManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -41,6 +39,7 @@ public class MissionManager : MonoBehaviour
     {
         currentMission = new MissionInstance(mission);
         Fader.Instance.StartFade("LoadCurrentMissionSceneEvent");
+        Fader.Instance.DoWhenLoaded( () =>EventManager.Instance.StartMission(currentMission));
     }
 
     public void StartSelectedMission()

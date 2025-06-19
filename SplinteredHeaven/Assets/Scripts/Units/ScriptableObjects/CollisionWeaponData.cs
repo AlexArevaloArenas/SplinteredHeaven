@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "RaycastWeaponData", menuName = "Scriptable Objects/RaycastWeaponData")]
+[CreateAssetMenu(fileName = "ColliderWeaponData", menuName = "Modules/ColliderWeaponData")]
 public class CollisionWeaponData : WeaponData
 {
     public LayerMask hitMask;
@@ -12,7 +12,8 @@ public class CollisionWeaponData : WeaponData
         Transform origin = attackPoint != null ? attackPoint : user.transform;
         Vector3 direction = GetInaccurateDirection(fallbackPart.transform.position-origin.position, inaccuracyAngle);
 
-        Instantiate(projectile, origin.position, Quaternion.LookRotation(direction));
+        GameObject objProjectile = Instantiate(projectile, origin.position, Quaternion.LookRotation(direction));
+        objProjectile.GetComponent<MissileComponent>().Init(user, damage);
     }
 
     private Vector3 GetInaccurateDirection(Vector3 forward, float angleDegrees)

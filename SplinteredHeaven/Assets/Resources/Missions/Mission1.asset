@@ -15,5 +15,8 @@ MonoBehaviour:
   missionID: 
   title: Attack to the kaiju
   description: asffffffffffffffffffffffffffffffffffffsdsfasfasfa
-  objectives: []
+  objectives:
+  - {fileID: 11400000, guid: 9e3f02e2ddb9e79438504a8c450fb29e, type: 2}
+  - {fileID: 11400000, guid: 0405a89c60b347647a2ed2925801adf8, type: 2}
   scene: 4
+  location: 0

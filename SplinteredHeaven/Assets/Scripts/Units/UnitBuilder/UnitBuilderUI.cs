@@ -108,17 +108,26 @@ public class UnitBuilderUI : MonoBehaviour
 
         
         string[] savedUnits = MechaBuilder.ListSavedMechas();
+
+        if(savedUnits.Length == 0 || savedUnits == null)
+        {
+            Debug.Log("No saved units found. Creating them");
+            MechaBuilder.CreateMechasFromUnitData(registry.allUnits.ToArray(), registry);
+            savedUnits = MechaBuilder.ListSavedMechas();
+        }
+
         List<string> unitsIdsList = new List<string>();
         foreach (string unitId in savedUnits)
         {
             unitsIdsList.Add(unitId.ToLower());
         }
-
+        /*
         foreach (UnitData unitInRegistry in registry.allUnits)
         {
             if (unitsIdsList.Contains(unitInRegistry.id)) continue;
             MechaBuilder.SaveMechaFromUnitData(unitInRegistry, registry);
         }
+        */
         Unit unit = MechaBuilder.CreateUnitFromRuntimeData(MechaBuilder.LoadFromJson(savedUnits[0]), registry, UnitManager.gameObject);
         UnitManager.SetUnit(unit);
         SetUpModuleSlots();

@@ -103,11 +103,20 @@ public class UnitCombat : MonoBehaviour
         {
 
             Debug.Log($"Checking weapon: {weapon.Data.name}");
+            WeaponData weaponData = weapon.Data as WeaponData;
+            if (weaponData.animatedAttack)
+            {
+                weapon.AttachedPart.transform.GetComponent<PartVisualHandler>().SetCurrentAttackInfo(new AttackInfo(unitM, targetUnit, weapon, targetPart));
+                //weapon.Activate(unitM, targetUnit, targetPart);
 
-            weapon.AttachedPart.transform.GetComponent<PartVisualHandler>().SetCurrentAttackInfo(new AttackInfo(unitM, targetUnit, weapon, targetPart));
-            //weapon.Activate(unitM, targetUnit, targetPart);
+                weapon.AttachedPart.transform.GetComponent<PartAnimationManager>().SetAnimationTrigger("Shoot");
+            }
+            else
+            {
+                weapon.Activate(unitM, targetUnit, targetPart);
+            }
+
             
-            weapon.AttachedPart.transform.GetComponent<PartAnimationManager>().SetAnimationTrigger("Shoot");
 
         }
 

@@ -36,16 +36,19 @@ public class PartVisualHandler : MonoBehaviour
         LocateModuleHolders();
         CreateModules();
 
-        if(linkedPart.data.partType == PartType.Head)
+        if (TryGetComponent(out FOVAgent fov))
         {
-            if(TryGetComponent(out FOVAgent fov)){
-                fov.Init();
-            }
-            else
+            fov.Init();
+        }
+        else
+        {
+            if (linkedPart.data.partType == PartType.Head)
             {
                 Debug.LogWarning($"[PartVisualHandler] FOVAgent component not found on head part");
             }
+            
         }
+        
     }
 
     public void SetUpHolders()
@@ -106,16 +109,23 @@ public class PartVisualHandler : MonoBehaviour
         foreach (Transform child in transform.GetComponentsInChildren<Transform>(true))
         {
             string name = child.name.ToLower();
+            ModuleSlot slot;
+            if (child.TryGetComponent(out ModuleSlot moduleSlot))
+            {
+                slot = moduleSlot;
+            }
+            else
+            {
+                if (!name.StartsWith("moduleholder_") || name.EndsWith("end")) continue;
 
-            if (!name.StartsWith("moduleholder_") || name.EndsWith("end")) continue;
+                string[] parts = name.Split('_');
+                if (parts.Length < 3) continue;
 
-            string[] parts = name.Split('_');
-            if (parts.Length < 3) continue;
+                if (!System.Enum.TryParse(parts[1], true, out ModulePositionType posType)) continue;
+                if (!System.Enum.TryParse(parts[2], true, out ModuleWeightType weightType)) continue;
+                slot = child.GetComponent<ModuleSlot>();
+            }
 
-            if (!System.Enum.TryParse(parts[1], true, out ModulePositionType posType)) continue;
-            if (!System.Enum.TryParse(parts[2], true, out ModuleWeightType weightType)) continue;
-
-            ModuleSlot slot = child.GetComponent<ModuleSlot>();
             slot.SetUp(linkedPart);
 
             linkedPart.slots.Add(slot);
@@ -124,8 +134,8 @@ public class PartVisualHandler : MonoBehaviour
             {
                 holder = child,
                 slot = slot,
-                positionType = posType,
-                weightType = weightType
+                positionType = slot.modulePositionType,
+                weightType = slot.moduleWeightType
             };
             parsedModuleHolders.Add(holderInfo);
         }

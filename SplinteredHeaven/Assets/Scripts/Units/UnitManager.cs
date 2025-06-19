@@ -40,6 +40,11 @@ public class UnitManager : MonoBehaviour //Unit Stores the Actions of the Unit
         {
             UpdateAll();
         }
+        else
+        {
+            unit = new Unit(unitData, gameObject);
+            UpdateVisual();
+        }
         /*
         else if (unit == null)
         {
@@ -132,6 +137,8 @@ public class UnitManager : MonoBehaviour //Unit Stores the Actions of the Unit
 
     public void UpdateVisual()
     {
+        GetComponent<UnitVisualManager>().Init(unit);
+        /*
         UnitRuntimeData runtimeData = MechaBuilder.LoadFromJson(mechaClass.ToString());
         unit = MechaBuilder.CreateUnitFromRuntimeData(runtimeData, registry, gameObject);
         unit.obj = gameObject;
@@ -145,6 +152,7 @@ public class UnitManager : MonoBehaviour //Unit Stores the Actions of the Unit
             GetComponent<UnitVisualManager>().UnitData = unitData;
 
         }
+        */
     }
 
     public void UpdateAll()
@@ -177,5 +185,6 @@ public enum MechaClass
     empty,
     mecha01,
     mecha02,
-    mecha03
+    mecha03,
+    tank01,
 }

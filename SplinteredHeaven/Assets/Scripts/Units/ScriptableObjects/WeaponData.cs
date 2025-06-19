@@ -9,6 +9,7 @@ public class WeaponData : ModuleData
     public float range;
     public DamageType damageType;
     public WeaponType weaponType;
+    public bool animatedAttack = false; // If true, the weapon will use an animation for the attack
 
     public override void ApplyEffects(UnitManager user, UnitManager target, UnitPart part, Transform attackPoint)
     {
