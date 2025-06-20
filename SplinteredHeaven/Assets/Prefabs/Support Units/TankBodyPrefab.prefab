@@ -260,6 +260,6 @@ MonoBehaviour:
   constrainToY: 1
   constrainToX: 0
   constrainToZ: 0
-  constrainRotation: 1
+  constrainRotation: 0
   minRotation: {x: -45, y: -90, z: -10}
   maxRotation: {x: 45, y: 90, z: 10}

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: Rocket Launcher
   icon: {fileID: 0}
-  visualPrefab: {fileID: 6579500113514206085, guid: 35f1b472aca9e634497c6d49f5732e9e, type: 3}
-  cooldown: 0.4
+  visualPrefab: {fileID: 6579500113514206085, guid: afeda560ebaeb3041b78eea5d753a2f7, type: 3}
+  cooldown: 4
   positionType: 0
   weightType: 0
   effectType: 1
@@ -27,5 +27,5 @@ MonoBehaviour:
   hitMask:
     serializedVersion: 2
     m_Bits: 2048
-  projectile: {fileID: 102234669629160586, guid: b139c9a7e6501634980dce65fbc2573f, type: 3}
-  inaccuracyAngle: 8
+  projectile: {fileID: 2076885417517419340, guid: 6c08c24c8fd30ed4884047646f8acc47, type: 3}
+  inaccuracyAngle: 4

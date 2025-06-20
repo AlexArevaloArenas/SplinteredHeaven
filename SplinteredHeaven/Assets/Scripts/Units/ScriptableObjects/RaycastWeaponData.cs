@@ -5,6 +5,7 @@ public class RaycastWeaponData : WeaponData
 {
     public LayerMask hitMask;
     public float inaccuracyAngle = 0f; // Optional spread
+    public GameObject attackparticles; // Optional prefab for visual representation
 
     public override void ApplyEffects(UnitManager user, UnitManager target, UnitPart fallbackPart, Transform attackPoint)
     {
@@ -13,6 +14,8 @@ public class RaycastWeaponData : WeaponData
 
         // ?? Draw the ray in the scene view for debugging
         Debug.DrawRay(origin.position, direction * range, Color.red, 1.5f);
+
+        Instantiate(attackparticles, attackPoint.position, Quaternion.LookRotation(direction), attackPoint);
 
         if (Physics.Raycast(origin.position, direction, out RaycastHit hit, range, hitMask, QueryTriggerInteraction.Ignore))
         {

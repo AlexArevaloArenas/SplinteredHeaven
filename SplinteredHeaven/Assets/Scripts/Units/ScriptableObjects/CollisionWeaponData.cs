@@ -13,7 +13,7 @@ public class CollisionWeaponData : WeaponData
         Vector3 direction = GetInaccurateDirection(fallbackPart.transform.position-origin.position, inaccuracyAngle);
 
         GameObject objProjectile = Instantiate(projectile, origin.position, Quaternion.LookRotation(direction));
-        objProjectile.GetComponent<MissileComponent>().Init(user, damage);
+        objProjectile.GetComponent<MissileComponent>().Init(user, damage, fallbackPart.partObject.transform);
     }
 
     private Vector3 GetInaccurateDirection(Vector3 forward, float angleDegrees)

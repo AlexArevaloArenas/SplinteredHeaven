@@ -6,17 +6,23 @@ public class MissileComponent : MonoBehaviour
     public float launchForce = 20f;
     public GameObject destroyParticles; // Optional particle effect on destroy
     public float damage = 20f; // Damage value to apply on impact
+
+    public Transform target; // Optional target for the missile to home in on
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    public Rigidbody rb; // Reference to the Rigidbody component
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
         // Apply force to the rocket upon launch
-        GetComponent<Rigidbody>().AddForce(transform.forward * launchForce, ForceMode.Impulse);
+        rb.AddForce(transform.forward * launchForce, ForceMode.Impulse);
     }
 
-    public void Init(UnitManager _unit, float _damage)
+    public void Init(UnitManager _unit, float _damage, Transform _target)
     {
         unit = _unit;
         damage = _damage;
+        target = _target;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -45,5 +51,20 @@ public class MissileComponent : MonoBehaviour
     private void OnDestroy()
     {
         Instantiate(destroyParticles, transform.position, Quaternion.identity);
+    }
+
+    private void Update()
+    {
+        if (target != null)
+        {
+            // If a target is set, move towards it
+            Vector3 direction = (target.position - transform.position).normalized;
+            GetComponent<Rigidbody>().linearVelocity = direction * launchForce;
+        }
+        else
+        {
+            // If no target, maintain current velocity
+            GetComponent<Rigidbody>().linearVelocity = transform.forward * launchForce;
+        }
     }
 }

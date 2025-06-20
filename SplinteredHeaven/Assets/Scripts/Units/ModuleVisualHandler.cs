@@ -5,7 +5,7 @@ public class ModuleVisualHandler : MonoBehaviour
 {
     public ModuleInstance linkedModule;
     public Animator animator;
-    public ParticleSystem effectOnActivate;
+    //public ParticleSystem effectOnActivate;
 
     private void Awake()
     {
@@ -42,12 +42,14 @@ public class ModuleVisualHandler : MonoBehaviour
     /*
     private void HandleFired()
     {
+        
         Debug.Log($"[ModuleVisualHandler] {linkedModule.Data.moduleName} fired!");
 
         effectOnActivate?.Play();
         animator?.SetTrigger("Fire");
+    
     }
-    */
+*/
     private void SetDisabledVisuals()
     {
         if (animator) animator.SetBool("Disabled", true);

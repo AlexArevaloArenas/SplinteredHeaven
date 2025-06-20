@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
-  effectOnActivate: {fileID: 0}
+  effectOnActivate: {fileID: 19800004, guid: 7e9c50938e32351438a7df9ccad2f2a5, type: 3}
 --- !u!1 &8173440316159180367
 GameObject:
   m_ObjectHideFlags: 0
