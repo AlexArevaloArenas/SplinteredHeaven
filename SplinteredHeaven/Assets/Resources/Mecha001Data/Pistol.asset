@@ -28,3 +28,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 3072
   inaccuracyAngle: 2
+  attackparticles: {fileID: 9121718365243581710, guid: c129b3237dcc3cb4d8f24125892e0b5b, type: 3}
