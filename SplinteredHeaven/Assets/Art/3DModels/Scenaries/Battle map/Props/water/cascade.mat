@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: river
-  m_Shader: {fileID: -6465566751694194690, guid: 46a9ae3db9d15f84a9f96897b788e87a, type: 3}
+  m_Name: cascade
+  m_Shader: {fileID: -6465566751694194690, guid: ff5e16c1f1b97a841b3c9ee8fe07ba25, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -64,8 +64,28 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_0eab8ff829c54a5c81035751a878282e_Texture_1_Texture2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _textura_base:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _textura_cascada:
+        m_Texture: {fileID: 2800000, guid: 470a1c1454b852d4398f4883fe596e03, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _textura_distorsion_cascada:
+        m_Texture: {fileID: 2800000, guid: 3744cf99d577a7047a59d6de7982849d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _textura_ruido_base:
+        m_Texture: {fileID: 2800000, guid: 248e45086abae124381324f744990246, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -88,8 +108,10 @@ Material:
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
+    - _Cascada: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
+    - _Color_Gradient_bool: 0
     - _Cull: 2
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
@@ -103,6 +125,7 @@ Material:
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
+    - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Smoothness: 0.5
@@ -113,11 +136,25 @@ Material:
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
+    - _alpha_threshold: 0
+    - _cascadaOffsetSpeed: 2
+    - _cascadawobbleoffsetspeed: 1.52
+    - _distorsion: 0.02
+    - _mainoffsetSpeed: 3.95
+    - _primordialSoupSpeed: 0.1
+    - _seamlessSpeed: 1.65
+    - _transparenciaSopaPrimordial: 1
+    - _transparencia_cascada: 0.7
+    - _wiggle_noise_speed: 10
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.43529412, g: 0.4745098, b: 0.8117647, a: 1}
+    - _Color_2: {r: 1, g: 1, b: 1, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Offset: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _Tiling: {r: 56.79, g: 10, b: 0, a: 0}
+    - _TilingCascada: {r: 3, g: 5, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &267348136273284724
