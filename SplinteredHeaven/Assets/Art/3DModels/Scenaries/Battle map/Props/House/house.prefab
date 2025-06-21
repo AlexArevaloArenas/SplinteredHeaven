@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9164967133213949518}
   - component: {fileID: 7865061041971083701}
   - component: {fileID: 2556509058965333998}
+  - component: {fileID: 9097439789260926648}
   m_Layer: 0
   m_Name: house
   m_TagString: Untagged
@@ -144,6 +145,27 @@ LODGroup:
     fadeTransitionWidth: 0
     renderers: []
   m_Enabled: 1
+--- !u!65 &9097439789260926648
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74153335217805026}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.9999999, y: 2, z: 2}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &438644734070961319
 GameObject:
   m_ObjectHideFlags: 0
