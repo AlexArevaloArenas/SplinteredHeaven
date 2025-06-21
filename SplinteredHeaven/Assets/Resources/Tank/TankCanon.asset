@@ -15,7 +15,7 @@ MonoBehaviour:
   id: tank_canon
   icon: {fileID: 0}
   visualPrefab: {fileID: 4877113155738899875, guid: 0916efba122cff04f87e62b8c1691542, type: 3}
-  cooldown: 1
+  cooldown: 2
   positionType: 0
   weightType: 1
   effectType: 1
@@ -23,7 +23,9 @@ MonoBehaviour:
   range: 40
   damageType: 2
   weaponType: 1
+  animatedAttack: 0
   hitMask:
     serializedVersion: 2
     m_Bits: 3072
   inaccuracyAngle: 4
+  attackparticles: {fileID: 9121718365243581710, guid: c129b3237dcc3cb4d8f24125892e0b5b, type: 3}
