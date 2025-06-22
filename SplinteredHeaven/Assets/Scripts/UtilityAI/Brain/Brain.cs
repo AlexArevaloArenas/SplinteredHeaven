@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 namespace UtilityAI {
-    [RequireComponent(typeof(NavMeshAgent), typeof(Sensor))]
+    //[RequireComponent(typeof(NavMeshAgent), typeof(Sensor))]
     public class Brain : MonoBehaviour {
         public List<AIAction> actions;
         public Context context;

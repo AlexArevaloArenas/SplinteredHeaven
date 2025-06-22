@@ -4,12 +4,19 @@ using UnityEngine;
 public class UnitPartData : ScriptableObject
 {
     public string id;
-    public int maxHealth;
     [SerializeField] public PartType partType;
     public GameObject visualPrefab;
     public GameObject destructionPrefab; // Optional prefab for destruction effects
     public ModuleData[] modules;
     public bool SupportUnit;
+
+    [Header("Stats")]
+    public int maxHealth;
+    public int visionRange;
+    public int detectionRange;
+    public float detectionInterval;
+    public float movementSpeed;
+
 }
 
 public enum PartType

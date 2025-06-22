@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3246450152092029255}
   - component: {fileID: 5753314361703371352}
   - component: {fileID: 1545472460009009924}
+  - component: {fileID: -1878289097691052057}
   m_Layer: 9
   m_Name: Rock two
   m_TagString: Untagged
@@ -136,3 +137,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.4715595, y: 4.0874124, z: 2.8104436}
   m_Center: {x: 0.01824218, y: 2.0346591, z: 0.16010778}
+--- !u!114 &-1878289097691052057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550064926841971194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff6d6872de59ea4ca381538da8729a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

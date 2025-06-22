@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4460604476058147181}
   - component: {fileID: 7017880723136538436}
   - component: {fileID: 6837196224765851433}
+  - component: {fileID: 648734998223908585}
   m_Layer: 9
   m_Name: Rock one
   m_TagString: Untagged
@@ -136,3 +137,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.482852, y: 4.444042, z: 2.6628737}
   m_Center: {x: 0.012596071, y: 2.222021, z: 0}
+--- !u!114 &648734998223908585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3190475724925069741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff6d6872de59ea4ca381538da8729a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

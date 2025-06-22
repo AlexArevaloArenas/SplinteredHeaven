@@ -9,11 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6d5840e892901245839a4aa82637687, type: 3}
-  m_Name: Kaiju
+  m_Script: {fileID: 11500000, guid: 6a66a41743ab4960bc79910d90925921, type: 3}
+  m_Name: IdleAction
   m_EditorClassIdentifier: 
-  id: Kaiju
-  description: 
-  Image: {fileID: 0}
-  _partData:
-  - {fileID: 11400000, guid: 32f0b5afce1ab454a836d247fff16a41, type: 2}
+  targetTag: 
+  consideration: {fileID: 11400000, guid: 05aeac9861f837f4b9838087f6c6d4dc, type: 2}

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityUtils;
 
 namespace UtilityAI
 {
@@ -12,8 +13,16 @@ namespace UtilityAI
 
         public override void Execute(Context context)
         {
-            var target = context.sensor.GetClosestTarget(targetTag);
-            if (target == null) return;
+            if (context.characterController.velocity != Vector3.zero) return;
+            Transform target;
+            if (context.sensor.detectedObjects.Count > 0)
+            {
+                target = context.sensor.detectedObjects?.Random<Transform>();
+            }
+            else
+            {
+                return;
+            }
 
             //context.target = target;
 

@@ -10,7 +10,8 @@ namespace UtilityAI
         public float detectionRadius = 10f;
         public List<string> targetTags = new();
 
-        public readonly List<Transform> detectedObjects = new(10);
+        [SerializeField]
+        public readonly List<Transform> detectedObjects = new(30);
         SphereCollider sphereCollider;
 
         void Start()
@@ -71,6 +72,19 @@ namespace UtilityAI
                 }
             }
             return closestTarget;
+        }
+
+        public void RefreshColliderData()
+        {
+            if (sphereCollider == null) return;
+            sphereCollider.radius = detectionRadius;
+            //Debug.Log($"Sensor radius updated to {detectionRadius}");
+            detectedObjects.Clear();
+            Collider[] colliders = Physics.OverlapSphere(transform.position, detectionRadius);
+            foreach (var c in colliders)
+            {
+                ProcessTrigger(c, transform => detectedObjects.Add(transform));
+            }
         }
     }
 }

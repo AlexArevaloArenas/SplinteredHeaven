@@ -12,10 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8b703ba294e6f14197aec74cc57fc0f, type: 3}
   m_Name: KaijuLegs
   m_EditorClassIdentifier: 
-  id: 
-  maxHealth: 0
+  id: KaijuLegs
   partType: 4
   visualPrefab: {fileID: 6898688303700551231, guid: 3ac0dc68c9d2b4e41ad464d3839bec46, type: 3}
   destructionPrefab: {fileID: 0}
-  modules: []
+  modules:
+  - {fileID: 11400000, guid: f70f60519baaca443bc1879f7a87e635, type: 2}
   SupportUnit: 0
+  maxHealth: 100
+  visionRange: 100
+  detectionRange: 500
+  detectionInterval: 2
+  movementSpeed: 0

@@ -9,23 +9,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a736e467a57704549b42647edbcb4d34, type: 3}
+  m_Script: {fileID: 11500000, guid: 502fc5b266a72df47995db1ea58aac3d, type: 3}
   m_Name: KaijuEye
   m_EditorClassIdentifier: 
-  id: 
+  id: KaijuLaser
   icon: {fileID: 0}
-  visualPrefab: {fileID: 0}
-  cooldown: 0
+  visualPrefab: {fileID: 1436542493357948837, guid: 6161e94617d1c2d4388f95a4c99d3465, type: 3}
+  cooldown: 3
   positionType: 0
-  weightType: 0
-  effectType: 0
-  damage: 0
-  range: 0
-  damageType: 0
-  weaponType: 0
+  weightType: 1
+  effectType: 1
+  damage: 3
+  range: 60
+  damageType: 1
+  weaponType: 1
   animatedAttack: 0
   hitMask:
     serializedVersion: 2
-    m_Bits: 0
-  projectile: {fileID: 0}
-  inaccuracyAngle: 0
+    m_Bits: 2048
+  inaccuracyAngle: 3
+  attackLaser: {fileID: 6013523164276605735, guid: 82110aa893e0fc14395a43bae7dc709f, type: 3}

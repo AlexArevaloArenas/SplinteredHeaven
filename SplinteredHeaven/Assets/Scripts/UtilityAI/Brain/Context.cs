@@ -11,6 +11,7 @@ namespace UtilityAI {
         public Transform target;
         public AISensor sensor;
         public UnitManager unitManager;
+        public CharacterController characterController;
 
         readonly Dictionary<string, object> data = new();
 
@@ -24,6 +25,7 @@ namespace UtilityAI {
             this.ai = brain.gameObject.GetOrAddComponent<UnitAI>();
             this.sensor = brain.gameObject.GetOrAddComponent<TargetTracker>();
             this.unitManager = brain.GetComponent<UnitManager>();
+            this.characterController = brain.GetComponent<CharacterController>();
 
         }
         

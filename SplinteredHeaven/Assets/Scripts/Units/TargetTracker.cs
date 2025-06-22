@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Unity.AppUI.UI;
 using UnityEngine;
@@ -13,9 +14,20 @@ public class TargetTracker : AISensor // Inherits from Sensor to use its detecti
 
     public WeaponModuleInstance weaponWithMoreRange;
 
-    [SerializeField] private float detectionInterval = 2.0f;
+    [SerializeField] public float detectionInterval = 2.0f;
     private float detectionTimer = 0f;
 
+    private void Awake()
+    {
+        if (tag == "Player")
+        {
+            targetTags.Add("Enemy"); // Add the tag for units to be detected
+        }
+        else if (tag == "Enemy")
+        {
+            targetTags.Add("Player"); // Add the tag for units to be detected
+        }
+    }
 
     private void Update()
     {
@@ -32,7 +44,7 @@ public class TargetTracker : AISensor // Inherits from Sensor to use its detecti
             List<UnitManager> detectedTargets = new List<UnitManager>();
             foreach (var obj in detectedObjects)
             {
-                if (obj.TryGetComponent(out UnitManager unit) && unit != null && unit.gameObject != gameObject)
+                if (obj.TryGetComponent(out UnitManager unit) && unit.gameObject != gameObject)
                 {
                     detectedTargets.Add(unit);
                 }
@@ -138,4 +150,5 @@ public class TargetTracker : AISensor // Inherits from Sensor to use its detecti
         float dot = Vector3.Dot(forward.normalized, toTarget.normalized);
         return dot < 0.25f; // Adjust threshold as needed (0 = directly behind, 1 = in front)
     }
+
 }

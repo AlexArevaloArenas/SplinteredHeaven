@@ -12,16 +12,9 @@ using System.Linq;
 [RequireComponent(typeof(UnitVisualManager))]
 public class UnitManager : MonoBehaviour //Unit Stores the Actions of the Unit
 {
-    public UnitData unitData;
+    [OnChangedCall("EditorVisual")] public UnitData unitData;
     [SerializeField]
-    [OnChangedCall("UpdateVisual")] public MechaClass mechaClass;
-
-    /*
-    [SerializeField]
-    [OnChangedCall("UpdateVisual")]
-    */
-
-    //public TextAsset unitJsonData; // JSON data for the unit, used for loading and saving
+    [OnChangedCall("EditorVisual")] public MechaClass mechaClass;
 
     [SerializeField] public Unit unit;
     [SerializeField] RuntimeAssetRegistry registry; // Registry to access part and module data
@@ -72,6 +65,9 @@ public class UnitManager : MonoBehaviour //Unit Stores the Actions of the Unit
             UnitSelections.Instance.unitList.Add(this.gameObject);
         }
 
+        GetComponent<TargetTracker>().detectionInterval = unit.detectionInterval; // Set detection interval from unit
+        GetComponent<TargetTracker>().detectionRadius = unit.detectionRange;
+        GetComponent<TargetTracker>().RefreshColliderData();
 
     }
 
@@ -138,21 +134,7 @@ public class UnitManager : MonoBehaviour //Unit Stores the Actions of the Unit
     public void UpdateVisual()
     {
         GetComponent<UnitVisualManager>().Init(unit);
-        /*
-        UnitRuntimeData runtimeData = MechaBuilder.LoadFromJson(mechaClass.ToString());
-        unit = MechaBuilder.CreateUnitFromRuntimeData(runtimeData, registry, gameObject);
-        unit.obj = gameObject;
-        if (unitData == null) return;
-        if (GetComponent<UnitVisualManager>() == null)
-        {
-            gameObject.AddComponent<UnitVisualManager>();
-        }
-        if (mechaClass == MechaClass.empty)
-        {
-            GetComponent<UnitVisualManager>().UnitData = unitData;
 
-        }
-        */
     }
 
     public void UpdateAll()
@@ -162,6 +144,22 @@ public class UnitManager : MonoBehaviour //Unit Stores the Actions of the Unit
         unit.obj = gameObject;
         //unit.InitHealthBar(hpBar);
         GetComponent<UnitVisualManager>().Init(unit);
+    }
+
+    public void EditorVisual()
+    {
+        if (mechaClass != MechaClass.empty)
+        {
+            UnitRuntimeData runtimeData = MechaBuilder.LoadFromJson(mechaClass.ToString());
+            unit = MechaBuilder.CreateUnitFromRuntimeData(runtimeData, registry, gameObject);
+            unit.obj = gameObject;
+            GetComponent<UnitVisualManager>().Init(unit);
+        }
+        else
+        {
+            unit = new Unit(unitData, gameObject);
+            GetComponent<UnitVisualManager>().Init(unit);
+        }
     }
 
     public void SetHealthbarVisibility(bool visible)

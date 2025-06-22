@@ -4,6 +4,7 @@ public class MissileComponent : MonoBehaviour
 {
     public UnitManager unit; // Reference to the owner of the missile
     public float launchForce = 20f;
+    public float speed = 20f;
     public GameObject destroyParticles; // Optional particle effect on destroy
     public float damage = 20f; // Damage value to apply on impact
 
@@ -57,14 +58,24 @@ public class MissileComponent : MonoBehaviour
     {
         if (target != null)
         {
+            Vector3 direction = (target.position - transform.position).normalized;
+            Vector3 deltaPosition = speed * direction * Time.deltaTime;
+            rb.MovePosition(transform.position + deltaPosition);
+
+            Quaternion deltaRotation = Quaternion.LookRotation(direction, transform.up);
+            rb.MoveRotation(deltaRotation);
+            /*
             // If a target is set, move towards it
             Vector3 direction = (target.position - transform.position).normalized;
             GetComponent<Rigidbody>().linearVelocity = direction * launchForce;
+            */
         }
         else
         {
+            /*
             // If no target, maintain current velocity
             GetComponent<Rigidbody>().linearVelocity = transform.forward * launchForce;
+            */
         }
     }
 }

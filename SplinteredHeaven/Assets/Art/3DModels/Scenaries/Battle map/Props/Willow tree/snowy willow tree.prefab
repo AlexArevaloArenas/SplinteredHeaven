@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 3858863925519315298}
   - component: {fileID: 5623385323772566963}
   - component: {fileID: 3140165919085837816}
+  - component: {fileID: -111124613475968798}
   m_Layer: 9
   m_Name: snowy willow tree
   m_TagString: Untagged
@@ -226,3 +227,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 9.205122, y: 14.708854, z: 8.405645}
   m_Center: {x: 0.7862491, y: 7.354427, z: -0.70149976}
+--- !u!114 &-111124613475968798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3359860935380281888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff6d6872de59ea4ca381538da8729a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

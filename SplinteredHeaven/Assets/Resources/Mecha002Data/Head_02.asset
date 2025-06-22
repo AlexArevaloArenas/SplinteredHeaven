@@ -13,8 +13,13 @@ MonoBehaviour:
   m_Name: Head_02
   m_EditorClassIdentifier: 
   id: head_02
-  maxHealth: 10
   partType: 0
   visualPrefab: {fileID: 385380949275591521, guid: 2a7a6b9cf3fd3044c9e7d6b3a4dd18a8, type: 3}
   destructionPrefab: {fileID: 100008, guid: 1dbc518224e49f34095aab42fe05751a, type: 3}
   modules: []
+  SupportUnit: 0
+  maxHealth: 10
+  visionRange: 0
+  detectionRange: 100
+  detectionInterval: 0.3
+  movementSpeed: 0

@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: AssetRegistry
   m_EditorClassIdentifier: 
   allUnits:
+  - {fileID: 11400000, guid: b94681e048de02a489bf2360ad73b62f, type: 2}
   - {fileID: 11400000, guid: 7cd9cf04aceada84fbbc9d668567607e, type: 2}
   - {fileID: 11400000, guid: ace6fb98b1652a94ba2225abe887f424, type: 2}
   - {fileID: 11400000, guid: 4212a49b994240c449b5a024de8f24fb, type: 2}
   allParts:
+  - {fileID: 11400000, guid: 32f0b5afce1ab454a836d247fff16a41, type: 2}
   - {fileID: 11400000, guid: 3da516c2aa245fe4b8495414470cc4be, type: 2}
   - {fileID: 11400000, guid: 63e4e9261a7bdc7489556e9a063d3e35, type: 2}
   - {fileID: 11400000, guid: 58ed892ed713f5c4dbd6d14122d8ae94, type: 2}
@@ -30,6 +32,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b623db6e5d64c3f45a2b1d37c9eef91a, type: 2}
   - {fileID: 11400000, guid: 48115b95614183648afa6760647bdb9c, type: 2}
   allModules:
+  - {fileID: 11400000, guid: f70f60519baaca443bc1879f7a87e635, type: 2}
   - {fileID: 11400000, guid: 95aba23001b08be4ba019321085d6773, type: 2}
   - {fileID: 11400000, guid: 8aad91e5b2f38cd4db3b4f033c335c8c, type: 2}
   - {fileID: 11400000, guid: e99a2ad214a2c9548a5005a869a5df18, type: 2}

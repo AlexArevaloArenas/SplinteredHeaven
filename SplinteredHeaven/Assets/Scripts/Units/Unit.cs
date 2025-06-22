@@ -20,6 +20,13 @@ public class Unit
     //Private variables
     protected Image _hpBar;
 
+    //Stats
+    public float speed;
+    public float maxAcceleration;
+    public int visionRange;
+    public int detectionRange;
+    public float detectionInterval;
+
     public Unit(UnitData unitData, GameObject _obj)
     {
         this.unitData = unitData;
@@ -37,7 +44,7 @@ public class Unit
             partsList.Add(unitPart);
         }
         Parts = partsList;
-
+        InitStats();
         currentHealth = maxHealth;
         //currentHealth => Parts.Sum(p => p.currentHealth);
 
@@ -64,8 +71,21 @@ public class Unit
             newParts.Add(unitPart);
         }
         Parts = newParts;
+        InitStats();
+        
+    }
+
+    public void InitStats()
+    {
         currentHealth = Parts.Sum(p => p.currentHealth);
         maxHealth = Parts.Sum(p => p.maxHealth);
+        //speed = unitData.speed;
+        //maxAcceleration = Parts.Sum(p => p.data.max)
+        visionRange = Parts.Sum(p => p.data.visionRange);
+        detectionRange = Parts.Sum(p => p.data.detectionRange);
+        detectionInterval = Parts.Sum(p => p.data.detectionInterval);
+
+
     }
 
     public virtual void RefreshPartDamage()

@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 7865061041971083701}
   - component: {fileID: 2556509058965333998}
   - component: {fileID: 9097439789260926648}
-  m_Layer: 0
+  - component: {fileID: 5721568620853009175}
+  m_Layer: 9
   m_Name: house
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,11 +162,23 @@ BoxCollider:
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
-  m_ProvidesContacts: 0
+  m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1.9999999, y: 2, z: 2}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &5721568620853009175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74153335217805026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff6d6872de59ea4ca381538da8729a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &438644734070961319
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,7 +190,7 @@ GameObject:
   - component: {fileID: 6137924880308826094}
   - component: {fileID: 2449389072453509878}
   - component: {fileID: 7712658858396804430}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: window.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,7 +276,7 @@ GameObject:
   - component: {fileID: 7114474047505469951}
   - component: {fileID: 3098399681010475428}
   - component: {fileID: 4167854018909805705}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: window.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -349,7 +362,7 @@ GameObject:
   - component: {fileID: 3207066858480934318}
   - component: {fileID: 6759963881523284158}
   - component: {fileID: 4529216262412642857}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: window.010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -435,7 +448,7 @@ GameObject:
   - component: {fileID: 2680934970104738444}
   - component: {fileID: 493849529930591862}
   - component: {fileID: 7887472525285975752}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: window.009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -521,7 +534,7 @@ GameObject:
   - component: {fileID: 3472660692544566747}
   - component: {fileID: 2708895377906330874}
   - component: {fileID: 6283219248329336781}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: window.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -607,7 +620,7 @@ GameObject:
   - component: {fileID: 1544454821976681715}
   - component: {fileID: 8088914067774664399}
   - component: {fileID: 3555522565769104002}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -693,7 +706,7 @@ GameObject:
   - component: {fileID: 6120570223576431518}
   - component: {fileID: 6320908628692641377}
   - component: {fileID: 3449170926328673024}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: window.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -779,7 +792,7 @@ GameObject:
   - component: {fileID: 7622488829241922167}
   - component: {fileID: 2255769819518702032}
   - component: {fileID: 3366816409729380517}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: top house
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -866,7 +879,7 @@ GameObject:
   - component: {fileID: 1893367164745585628}
   - component: {fileID: 5945350638825265707}
   - component: {fileID: 5945058723160648854}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: window.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -952,7 +965,7 @@ GameObject:
   - component: {fileID: 7320771558071500168}
   - component: {fileID: 1356858117808522398}
   - component: {fileID: 5439015946600464117}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: window.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1038,7 +1051,7 @@ GameObject:
   - component: {fileID: 1331158252927437741}
   - component: {fileID: 2267499570896159989}
   - component: {fileID: 5220901082869476319}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: window.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1124,7 +1137,7 @@ GameObject:
   - component: {fileID: 5925054420016769942}
   - component: {fileID: 4173042283008280605}
   - component: {fileID: 4427070037672278301}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: window.011
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1210,7 +1223,7 @@ GameObject:
   - component: {fileID: 435246924335185620}
   - component: {fileID: 8323793129281861535}
   - component: {fileID: 4217252618332609459}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: window
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1296,7 +1309,7 @@ GameObject:
   - component: {fileID: 6857772328120347492}
   - component: {fileID: 6056568852014526536}
   - component: {fileID: 2607786951728243011}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: porche
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1431,10 +1444,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2447217770422880807, guid: 72d468650189f96479eb79a961485599, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: -1340896327536084125, guid: 72d468650189f96479eb79a961485599, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 860fdf28c1f65ca47b8f6fa7a9f21985, type: 2}
+    - target: {fileID: 161198906021467527, guid: 72d468650189f96479eb79a961485599, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 336971610332694638, guid: 72d468650189f96479eb79a961485599, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -1442,6 +1463,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 72d468650189f96479eb79a961485599, type: 3}
       propertyPath: m_Name
       value: house top windows
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 72d468650189f96479eb79a961485599, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4464850347782993004, guid: 72d468650189f96479eb79a961485599, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7244388043052180746, guid: 72d468650189f96479eb79a961485599, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8901864562765257704, guid: 72d468650189f96479eb79a961485599, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'

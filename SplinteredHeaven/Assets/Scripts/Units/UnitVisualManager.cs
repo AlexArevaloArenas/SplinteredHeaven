@@ -98,16 +98,20 @@ public class UnitVisualManager : MonoBehaviour
         PartVisualHandler legsHandler = legsGO.GetComponent<PartVisualHandler>();
 
         // Step 2: Body
+        Transform bodyHolder;
+        GameObject bodyGO;
+        PartVisualHandler bodyHandler;
+
         if (!partsByType.TryGetValue(PartType.Body, out UnitPart body))
         {
-            Debug.LogError("Body not founded.");
-            //return;
+            Debug.Log("Body not founded.");
+            return;
         }
 
         legsHandler.SetUpHolders();
-        Transform bodyHolder = legsHandler.GetHolderForPart(PartType.Body);
-        GameObject bodyGO = SpawnPart(body, bodyHolder);
-        PartVisualHandler bodyHandler = bodyGO.GetComponent<PartVisualHandler>();
+        bodyHolder = legsHandler.GetHolderForPart(PartType.Body);
+        bodyGO = SpawnPart(body, bodyHolder);
+        bodyHandler = bodyGO.GetComponent<PartVisualHandler>();
 
         // Step 3: Arms and Head
         foreach (PartType type in new[] { PartType.Head, PartType.ArmLeft, PartType.ArmRight })
@@ -125,6 +129,7 @@ public class UnitVisualManager : MonoBehaviour
 
             SpawnPart(part, holder);
         }
+
     }
 
     private GameObject SpawnPart(UnitPart part, Transform parent)

@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 1097171923510123359}
   - component: {fileID: 8790285400313302211}
   m_Layer: 0
-  m_Name: moduleholder
+  m_Name: moduleholder_eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -133,7 +133,7 @@ MonoBehaviour:
   slot: 0
   isOccupied: 0
   modulePositionType: 0
-  moduleWeightType: 0
+  moduleWeightType: 1
 --- !u!1 &2910151891441591255
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,7 +161,7 @@ Transform:
   m_GameObject: {fileID: 2910151891441591255}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 35, z: 0}
+  m_LocalPosition: {x: 0, y: 25, z: 0}
   m_LocalScale: {x: 178.67645, y: 178.67644, z: 178.67644}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -231,7 +231,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6064107911086043793}
-  m_Layer: 0
+  - component: {fileID: 6450115315087058386}
+  - component: {fileID: 7071256452897636997}
+  - component: {fileID: -3952638577353532658}
+  - component: {fileID: 7876116257968427651}
+  - component: {fileID: 1947729587674874625}
+  m_Layer: 11
   m_Name: KaijuLegs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -254,3 +259,85 @@ Transform:
   - {fileID: 1667160347680269839}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &6450115315087058386
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6898688303700551231}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 25
+  m_Center: {x: 0, y: 35, z: 0}
+--- !u!114 &7071256452897636997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6898688303700551231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 486bd1ea6c4466b45b752ce398e3d23c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-3952638577353532658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6898688303700551231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e27a97c790ea43841967038dd1c01d68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  partType: 4
+  partId: KaijuLegs
+  moduleSlots:
+  - {fileID: 8790285400313302211}
+  animator: {fileID: 0}
+--- !u!114 &7876116257968427651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6898688303700551231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf132d830ed40824dae6713f45e8f859, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1947729587674874625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6898688303700551231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d78744d9a73141f46a5b4e3efa6cd01d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aimTarget: {fileID: 0}
+  rotationSpeed: 5
+  constrainToY: 1
+  constrainToX: 0
+  constrainToZ: 0
+  constrainRotation: 0
+  minRotation: {x: -45, y: -90, z: -10}
+  maxRotation: {x: 45, y: 90, z: 10}

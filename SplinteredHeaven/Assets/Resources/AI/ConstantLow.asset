@@ -9,11 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6d5840e892901245839a4aa82637687, type: 3}
-  m_Name: Kaiju
+  m_Script: {fileID: 11500000, guid: 42518f58f6b14e9f999cd6139295acf7, type: 3}
+  m_Name: ConstantLow
   m_EditorClassIdentifier: 
-  id: Kaiju
-  description: 
-  Image: {fileID: 0}
-  _partData:
-  - {fileID: 11400000, guid: 32f0b5afce1ab454a836d247fff16a41, type: 2}
+  value: 5
