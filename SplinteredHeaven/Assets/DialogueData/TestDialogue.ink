@@ -1,3 +1,5 @@
+EXTERNAL dialogueTrigger(keyword)
+
 TEXTO! DIALOGO
 MAS texto de prueba!
 HOLAAAA
@@ -9,6 +11,7 @@ parrafor grande aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 
 === op1 ===
 Has elegido la opción 1? épico
+~ dialogueTrigger("soldier")
 -> END
 
 === op2 ===

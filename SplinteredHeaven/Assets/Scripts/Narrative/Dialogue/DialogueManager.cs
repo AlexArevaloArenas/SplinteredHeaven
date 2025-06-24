@@ -1,10 +1,10 @@
+using Ink.Runtime;
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
-using Ink.Runtime;
+using UnityEngine;
 using UnityEngine.EventSystems;
-using System;
 using UnityEngine.UI;
 
 
@@ -23,7 +23,6 @@ public class DialogueManager :  UIManager<IDialogueUI>
 
     private new IDialogueUI currentUI;
 
-    // Replace the declaration of the "OnDialogueStarted" and "OnDialogueEnded" fields with the following:
     public Action OnDialogueStarted;
     public Action OnDialogueEnded;
 
@@ -149,7 +148,11 @@ public class DialogueManager :  UIManager<IDialogueUI>
         currentUI.SetActive(true);
 
         dialogueVariables.StartListening(currentStory);
-        //inkExternalFunctions.Bind(currentStory, emoteAnimator);
+
+        currentStory.BindExternalFunction("dialogueTrigger", (string keyword) =>
+        {
+            EventManager.Instance.StartDialogueTriggerEvent(keyword);
+        });
 
         // reset portrait, layout, and speaker
         
@@ -167,7 +170,7 @@ public class DialogueManager :  UIManager<IDialogueUI>
         yield return new WaitForSeconds(0.2f);
 
         dialogueVariables.StopListening(currentStory);
-        //inkExternalFunctions.Unbind(currentStory);
+        currentStory.UnbindExternalFunction("dialogueTrigger");
         OnDialogueEnded?.Invoke();
         dialogueIsPlaying = false;
         currentUI.SetActive(false);

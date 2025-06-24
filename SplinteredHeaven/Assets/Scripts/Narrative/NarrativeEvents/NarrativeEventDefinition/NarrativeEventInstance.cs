@@ -23,7 +23,13 @@ public class NarrativeEventInstance
             action.Execute(context);
 
         // Chain next events
-        foreach (var next in definition.chainedEvents)
-            context.narrativeEventManager.TriggerEvent(next);
+        context.narrativeEventManager.LoadNewEvents(definition.chainedEvents);
+
+
+        if (definition.removeAfterExecution)
+        {
+            context.narrativeEventManager.activeInstances.Remove(definition.eventID);
+            context.narrativeEventManager.allEvents.Remove(definition);
+        }
     }
 }

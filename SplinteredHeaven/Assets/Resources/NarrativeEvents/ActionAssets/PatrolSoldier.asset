@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52be303086e18c4bbb97d15382b6e90, type: 3}
-  m_Name: MidnightTrigger
+  m_Script: {fileID: 11500000, guid: 4bf770df5f461d34fa4bed7e8e8e36f9, type: 3}
+  m_Name: PatrolSoldier
   m_EditorClassIdentifier: 
-  targetMoment: 4
-  waitOneCycle: 0
+  characterID: soldier

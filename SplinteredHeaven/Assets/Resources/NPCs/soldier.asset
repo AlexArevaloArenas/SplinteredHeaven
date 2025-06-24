@@ -9,7 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36f45639b7bb02a41941e8d616e659b4, type: 3}
-  m_Name: PrepareNewEvents
+  m_Script: {fileID: 11500000, guid: eee0b19a645cd264c8922a0ade293a75, type: 3}
+  m_Name: soldier
   m_EditorClassIdentifier: 
-  newEvents: []
+  characterID: soldier
+  displayName: soldier
+  portrait: {fileID: 0}
+  description: 
+  npcEnum: 5
+  baseTrust: 0
+  baseHealth: 0
+  defaultSchedule: []

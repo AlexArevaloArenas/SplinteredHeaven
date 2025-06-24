@@ -66,7 +66,7 @@ public class Fader : MonoBehaviour
                 sceneLoaded = true;
                 break;
             }
-            yield return new WaitForSeconds(.01f);
+            yield return new WaitForSeconds(.03f);
         }
 
     }
@@ -81,7 +81,7 @@ public class Fader : MonoBehaviour
             {
                 break;
             }
-            yield return new WaitForSeconds(.01f);
+            yield return new WaitForSeconds(.03f);
         }
     }
 
@@ -98,5 +98,33 @@ public class Fader : MonoBehaviour
         }
         action?.Invoke(); // Execute the action when the scene is loaded
         sceneLoaded = false; // Reset the flag
+    }
+
+    public void FadeAndDo(Action action)
+    {
+        StartCoroutine(FadeAndExecute(action));
+    }
+
+    IEnumerator FadeAndExecute(Action nextAction)
+    {
+        while (backgroundGroup.alpha < 1)
+        {
+            //Debug.Log("Start Fading In");
+            backgroundGroup = GetComponent<CanvasGroup>();
+            backgroundGroup.alpha += fadeSpeed;
+            if (backgroundGroup.alpha >= 1)
+            {
+                //Debug.Log("Start Fading Out");
+                //menu.ShowCurrentMenu();
+                //menu.HideAllMenus();
+                //Destroy(Camera.main);
+                nextAction?.Invoke();
+                StartCoroutine("FadeOut");
+                sceneLoaded = true;
+                break;
+            }
+            yield return new WaitForSeconds(.03f);
+        }
+
     }
 }

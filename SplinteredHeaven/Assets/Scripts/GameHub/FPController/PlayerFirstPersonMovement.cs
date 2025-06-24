@@ -21,7 +21,7 @@ public class PlayerFirstPersonMovement : MonoBehaviour
 
 
     //Character controller
-    CharacterController characterController;
+    public CharacterController characterController;
     Vector3 moveDirection = Vector3.zero;
     float rotationX = 0;
 
@@ -30,7 +30,8 @@ public class PlayerFirstPersonMovement : MonoBehaviour
     private Quaternion lastModelRotation = Quaternion.identity;
 
     //Input Variables
-    private bool jump = false;
+    public bool jump = false;
+    public bool isRunning = false;
     private float moveVerticalAxis=0;
     private float moveHorizontalAxis = 0;
 
@@ -39,6 +40,8 @@ public class PlayerFirstPersonMovement : MonoBehaviour
 
     [HideInInspector]
     public bool canMove = true;
+
+    private bool dialogueMode = false; // To check if the player is in dialogue mode
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -55,6 +58,7 @@ public class PlayerFirstPersonMovement : MonoBehaviour
         EventManager.Instance.LookEvent += LookInputEvent;
         EventManager.Instance.FPDialogueEvent += EnterDialogueMode;
         EventManager.Instance.EndFPDialogueEvent += ExitDialogueMode;
+        EventManager.Instance.TeleportPlayerEvent += TeleportPlayer;
         EventManager.Instance.FixPlayerMovementEvent += () => fixedCamera = true; canMove = false;
         EventManager.Instance.RestrictPlayerMovementEvent += () => restrictedCamera = true; canMove = false;
         EventManager.Instance.FreePlayerMovementEvent += () => fixedCamera = false; restrictedCamera = false; canMove = true;
@@ -68,7 +72,7 @@ public class PlayerFirstPersonMovement : MonoBehaviour
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
         // Press Left Shift to run
-        bool isRunning = Input.GetKey(KeyCode.LeftShift);
+        isRunning = Input.GetKey(KeyCode.LeftShift);
         float curSpeedX = canMove ? (isRunning ? runningSpeed : walkingSpeed) * moveVerticalAxis : 0;
         float curSpeedY = canMove ? (isRunning ? runningSpeed : walkingSpeed) * moveHorizontalAxis : 0;
         float movementDirectionY = moveDirection.y;
@@ -168,7 +172,7 @@ public class PlayerFirstPersonMovement : MonoBehaviour
     {
         Vector3 direction = pos - playerCamera.transform.position;
         Quaternion loo = Quaternion.LookRotation(direction);
-        while (transform.rotation != Quaternion.Euler(0, loo.eulerAngles.y, 0) && playerCamera.transform.localRotation != Quaternion.Euler(loo.eulerAngles.x, 0, 0))
+        while (transform.rotation != Quaternion.Euler(0, loo.eulerAngles.y, 0) && playerCamera.transform.localRotation != Quaternion.Euler(loo.eulerAngles.x, 0, 0) && dialogueMode)
         {
             // Set the rotation of the player model to look at the position
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, loo.eulerAngles.y, 0), Time.deltaTime * lookSpeed * 6);
@@ -204,6 +208,7 @@ public class PlayerFirstPersonMovement : MonoBehaviour
         // Lock cursor
         //Cursor.lockState = CursorLockMode.None;
         //Cursor.visible = true;
+        dialogueMode = true; // Enter dialogue mode
         LookAt(pos); // Look at the dialogue position
         canMove = false;
         fixedCamera = true; // Lock camera rotation
@@ -218,9 +223,22 @@ public class PlayerFirstPersonMovement : MonoBehaviour
         // Lock cursor
         //Cursor.lockState = CursorLockMode.Locked;
         //Cursor.visible = false;
+        dialogueMode = false; // Exit dialogue mode
         canMove = true;
         fixedCamera = false; // Reset fixed camera to allow further rotation changes
         restrictedCamera = false; // Unlock camera rotation
+    }
+
+    public void TeleportPlayer(Vector3 pos)
+    {
+        canMove = false;
+        fixedCamera = true; // Lock camera rotation
+        Fader.Instance.FadeAndDo(() => 
+        {
+            canMove = true;
+            fixedCamera = false; // Lock camera rotation
+            transform.position = pos; // Teleport the player to the specified position
+        });
     }
 
     private void OnDestroy()
@@ -230,6 +248,7 @@ public class PlayerFirstPersonMovement : MonoBehaviour
         EventManager.Instance.LookEvent -= LookInputEvent;
         EventManager.Instance.FPDialogueEvent -= EnterDialogueMode;
         EventManager.Instance.EndFPDialogueEvent -= ExitDialogueMode;
+        EventManager.Instance.TeleportPlayerEvent -= TeleportPlayer;
 
         // Lock cursor
         Cursor.lockState = CursorLockMode.None;

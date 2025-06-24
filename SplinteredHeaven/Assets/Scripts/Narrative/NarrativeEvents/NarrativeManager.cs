@@ -8,7 +8,7 @@ public class NarrativeManager : MonoBehaviour
     public static NarrativeManager Instance { get; private set; }
 
     public List<NarrativeEventData> allEvents;
-    private Dictionary<string, NarrativeEventInstance> activeInstances = new();
+    public Dictionary<string, NarrativeEventInstance> activeInstances = new();
     private NarrativeContext context;
 
     public List<NPCInstance> npcInstances;
@@ -18,6 +18,7 @@ public class NarrativeManager : MonoBehaviour
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
         //DontDestroyOnLoad(gameObject);
+        npcInstances = new List<NPCInstance>();
     }
 
     private void Start()
@@ -29,7 +30,7 @@ public class NarrativeManager : MonoBehaviour
             timeManager = TimeManager.Instance
         };
 
-        npcInstances = new List<NPCInstance>();
+        
 
         foreach (var evt in allEvents)
         {
@@ -57,13 +58,23 @@ public class NarrativeManager : MonoBehaviour
         if (activeInstances.TryGetValue(def.eventID, out var instance))
         {
             instance.MarkTriggered();
-            activeInstances.Remove(def.eventID);
+            if (def.removeAfterExecution)
+            {
+                activeInstances.Remove(def.eventID);
+                allEvents.Remove(def);
+            }
+            
         }
     }
 
     public void Spawn(GameObject unit, Vector3 pos)
     {
         Instantiate(unit, pos, Quaternion.identity);
+    }
+
+    public void RegisterNPC(NPCInstance npcInstance)
+    {
+        npcInstances.Add(npcInstance);
     }
 
 }
@@ -78,7 +89,25 @@ public class NarrativeContext
 
     public void MoveCharacter(string id, Vector3 destination)
     {
-        // Your logic to move a character
-        Debug.Log($"Moving character {id} to {destination}");   
+        foreach (var npc in narrativeEventManager.npcInstances)
+        {
+            if (npc.NPCData.characterID == id)
+            {
+                npc.npcManager.MoveTo(null);
+                return;
+            }
+        }
+    }
+
+    public void PatrolCharacter(string id)
+    {
+        foreach (var npc in narrativeEventManager.npcInstances)
+        {
+            if (npc.NPCData.characterID == id)
+            {
+                npc.npcManager.StartPatrol();
+                return;
+            }
+        }
     }
 }

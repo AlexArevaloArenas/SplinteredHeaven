@@ -42,6 +42,9 @@ public class EventManager : MonoBehaviour
     public event Action RestrictPlayerMovementEvent;
     public event Action FreePlayerMovementEvent;
 
+    //NARRATIVE EVENTS
+    public event Action<string> DialogueTriggerEvent;
+    public event Action<Vector3> TeleportPlayerEvent;
 
     //BATTLE EVENTS
     public event Action UnitMovesEvent;
@@ -153,6 +156,17 @@ public class EventManager : MonoBehaviour
     public void StartChangeInteractionSymbol(bool show,string text)
     {
         FPChangeInteractionSymbolEvent?.Invoke(show, text);
+    }
+
+    //Narrative Events
+    public void StartDialogueTriggerEvent(string id)
+    {
+        DialogueTriggerEvent?.Invoke(id); // If Dialogue Trigger Event is not null, start it
+    }
+
+    public void StartTeleportPlayerEvent(Vector3 target)
+    {
+        TeleportPlayerEvent?.Invoke(target); // If Teleport Player Event is not null, start it
     }
 
 

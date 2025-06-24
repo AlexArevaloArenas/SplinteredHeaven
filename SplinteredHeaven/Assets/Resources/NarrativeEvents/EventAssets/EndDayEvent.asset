@@ -10,13 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06aa21ace9f1a0e40b119535503db271, type: 3}
-  m_Name: EventChangeDay
+  m_Name: EndDayEvent
   m_EditorClassIdentifier: 
   eventID: 2
-  triggerCondition: {fileID: 11400000, guid: 6d59dd44a4283014ab70b6650cedf5ee, type: 2}
+  triggerCondition: {fileID: 11400000, guid: 15178ab3f64548c4bb99ab9ba6d1e37b, type: 2}
   actions:
-  - {fileID: 11400000, guid: c00f68da72b4b9348991ba4e7c4d8bcf, type: 2}
-  chainedEvents:
-  - {fileID: 11400000, guid: f48662071eba1eb47ae4610099a1d0a5, type: 2}
-  - {fileID: 11400000, guid: 916e996edaeac0242b3971694b3720c3, type: 2}
+  - {fileID: 11400000, guid: 48815fe46729aaa4ebf447b1099d71a2, type: 2}
+  chainedEvents: []
   removeAfterExecution: 1

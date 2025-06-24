@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f52be303086e18c4bbb97d15382b6e90, type: 3}
-  m_Name: MidnightTrigger
+  m_Name: NewDayTrigger
   m_EditorClassIdentifier: 
   targetMoment: 4
-  waitOneCycle: 0
+  waitOneCycle: 1
