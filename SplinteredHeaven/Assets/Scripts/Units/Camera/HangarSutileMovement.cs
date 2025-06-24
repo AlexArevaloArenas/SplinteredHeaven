@@ -11,7 +11,7 @@ public class HangarSutileMovement : MonoBehaviour
     private float mouseX = 0;
     private float mouseY = 0;
 
-    public float lookLimit = 35.0f;
+    public float lookLimit = 35.0f+180;
 
     private void Start()
     {
@@ -41,28 +41,6 @@ public class HangarSutileMovement : MonoBehaviour
         //transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 0f);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * lookSpeed);
         
-
-
-
-        /*
-        RaycastHit hit;
-        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity))
-        {
-            Vector3 cameraDirection = hit.point-Camera.main.transform.position;
-            //cameraDirection.z = 0; // Keep the movement on the horizontal plane
-            cameraDirection.Normalize(); // Normalize the direction vector to ensure consistent speed
-
-            Quaternion newRotation = Quaternion.LookRotation(cameraDirection);
-            transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * speed);
-            Vector3 euler = transform.eulerAngles;
-            euler.x = Mathf.Clamp(euler.x, -10, 10);
-            euler.y = Mathf.Clamp(euler.x, -10, 10);
-            //euler.z = Mathf.Clamp(euler.x, -10, 10);
-            transform.rotation = Quaternion.Euler(euler);
-        
-        }
-        */
     }
 
     private void LookInputEvent(Vector2 input)

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using Unity.AppUI.UI;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -35,7 +36,9 @@ public class UnitBuilderUI : MonoBehaviour
 
     public PartType selectedPart;
 
- 
+    public TMPro.TextMeshProUGUI unitInfo;
+
+
     private void Start()
     {
         
@@ -131,7 +134,7 @@ public class UnitBuilderUI : MonoBehaviour
         Unit unit = MechaBuilder.CreateUnitFromRuntimeData(MechaBuilder.LoadFromJson(savedUnits[0]), registry, UnitManager.gameObject);
         UnitManager.SetUnit(unit);
         SetUpModuleSlots();
-
+        RefreshInfoText(unit);
 
         /*
         foreach (string unitName in savedUnits)
@@ -142,7 +145,7 @@ public class UnitBuilderUI : MonoBehaviour
         */
     }
 
-    
+
     private void RefreshMechaList()
     {
         mechaDropdown.ClearOptions();
@@ -160,6 +163,7 @@ public class UnitBuilderUI : MonoBehaviour
         UnitManager.SetUnit(unit);
         currentIndex = index;
         SetUpModuleSlots();
+        RefreshInfoText(unit);
     }
 
     public void ShowPartOptions()
@@ -173,6 +177,14 @@ public class UnitBuilderUI : MonoBehaviour
         List<UnitPartData> parts = registry.allParts;
         foreach (UnitPartData part in parts)
         {
+//------------------------------------------------------------------------------------------------------------------------------------------
+            //FIND A BETTER FIX IN THE FUTURE
+            if (part.id.Contains("Tank") || part.id.Contains("Kaiju"))
+            {
+                continue;
+            }
+//------------------------------------------------------------------------------------------------------------------------------------------
+
             if ((int)part.partType == (int)selectedPart)
             {
                 GameObject unitButton = Instantiate(buttonInstance,availablePartsPanel.transform);
@@ -184,8 +196,7 @@ public class UnitBuilderUI : MonoBehaviour
 
     public void ShowAvailableModules(ModuleData currentAssignModule, ModulePositionType posT, ModuleWeightType weightT, ModuleSlot slot)
     {
-
-        foreach(Transform child in availableModulesPanel.transform)
+        foreach (Transform child in availableModulesPanel.transform)
         {
             Destroy(child.gameObject);
         }
@@ -197,6 +208,13 @@ public class UnitBuilderUI : MonoBehaviour
 
         foreach (ModuleData module in modules)
         {
+            //--------------------------------------------------------------------------------------------------
+            //FIND A BETTER FIX IN THE FUTURE
+            if (module.id.Contains("Tank") || module.id.Contains("Kaiju"))
+            {
+                continue;
+            }
+            //--------------------------------------------------------------------------------------------------
             if (module.positionType == posT && module.weightType == weightT && module != currentAssignModule)
             {
                 GameObject unitButton = Instantiate(moduleButtonInstance, availableModulesPanel.transform);
@@ -214,7 +232,7 @@ public class UnitBuilderUI : MonoBehaviour
             {
                 GameObject moduleSlotButton = Instantiate(moduleSlotInstance, GameObject.FindGameObjectWithTag("Canvas").transform);
                 moduleSlotButton.GetComponent<ModuleSlotUI>().SetUp(slot);
-
+                moduleSlotButton.GetComponent<ModuleSlotUI>().moduleSlotText.text = part.name;
                 moduleSlots.Add(moduleSlotButton);
             }
         }
@@ -265,6 +283,21 @@ public class UnitBuilderUI : MonoBehaviour
     public void ExitHangar()
     {
         GameManager.instance.ChangeScene(SceneEnum.HubScene);
+    }
+
+    public void RefreshInfoText(Unit unit)
+    {
+        unitInfo.text = $"<b>Unit</b>: {unit.name}\n\n" +
+                        $"<b>Health</b>: {unit.currentHealth}/{unit.maxHealth}\n\n" +
+                        $"<b>Speed</b>: {unit.speed}\n\n" +
+                        $"<b>Vision Range</b>: {unit.visionRange}\n\n" +
+                        $"<b>Detection Range</b>: {unit.detectionRange}";
+    }
+
+    public IEnumerator DoAfterWait(float waitTime, Action action)
+    {
+        yield return new WaitForSeconds(waitTime);
+        action?.Invoke();
     }
 
 }

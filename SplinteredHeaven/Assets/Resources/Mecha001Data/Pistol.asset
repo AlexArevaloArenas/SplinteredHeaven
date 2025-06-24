@@ -19,8 +19,8 @@ MonoBehaviour:
   positionType: 1
   weightType: 0
   effectType: 1
-  damage: 20
-  range: 40
+  damage: 3
+  range: 70
   damageType: 0
   weaponType: 0
   animatedAttack: 1

@@ -64,9 +64,11 @@ public class UnitCombat : MonoBehaviour
                 aimer.SetTarget(targetTracker.CurrentTargetUnit.transform);
                 TryAim(GetAvaliableWeapons());
             }
+
+            TryAttack(GetAvaliableWeapons());
         }
 
-        TryAttack(GetAvaliableWeapons());
+        
         attackCooldown = attackInterval;
     }
 

@@ -19,7 +19,7 @@ MonoBehaviour:
   positionType: 0
   weightType: 0
   effectType: 1
-  damage: 50
+  damage: 1
   range: 60
   damageType: 0
   weaponType: 1

@@ -12,10 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8b703ba294e6f14197aec74cc57fc0f, type: 3}
   m_Name: TankLegs
   m_EditorClassIdentifier: 
-  id: tankLegs
-  maxHealth: 10
+  id: TankLegs
   partType: 4
   visualPrefab: {fileID: 7585929443387089572, guid: a769ee8f023d19245acb42cd3d539b0e, type: 3}
   destructionPrefab: {fileID: 0}
   modules: []
   SupportUnit: 1
+  maxHealth: 10
+  visionRange: 0
+  detectionRange: 0
+  detectionInterval: 0
+  movementSpeed: 0

@@ -27,13 +27,15 @@ public class UnitManager : MonoBehaviour //Unit Stores the Actions of the Unit
     [SerializeField] private GameObject hpBarPrefab;
     [SerializeField] public Image hpBar;
 
+    public bool visible = true; // For Editor
+
     private void Awake()
     {
         if (mechaClass != MechaClass.empty)
         {
             UpdateAll();
         }
-        else
+        else if (unitData != null)
         {
             unit = new Unit(unitData, gameObject);
             UpdateVisual();

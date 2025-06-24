@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9eaacd40f074ce4a9d8b8fa30e1e60d, type: 3}
   m_Name: TankCanon
   m_EditorClassIdentifier: 
-  id: tank_canon
+  id: Tank_canon
   icon: {fileID: 0}
   visualPrefab: {fileID: 4877113155738899875, guid: 0916efba122cff04f87e62b8c1691542, type: 3}
   cooldown: 2
