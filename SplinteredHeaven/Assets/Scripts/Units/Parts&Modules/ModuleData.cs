@@ -11,6 +11,17 @@ public abstract class ModuleData : ScriptableObject
     public GameObject visualPrefab;
     public float cooldown;
 
+    [HideInInspector] private float currentCooldown = 10000f;
+    public float CurrentCooldown
+    {
+        get => currentCooldown;
+        set
+        {
+            currentCooldown = value;        
+        }
+    }
+
+
     public ModulePositionType positionType;
     public ModuleWeightType weightType;
     public ModuleEffectType effectType;
@@ -20,6 +31,11 @@ public abstract class ModuleData : ScriptableObject
     {
         // Default: no-op (or log for debug)
         Debug.Log($"Module {id} activated but has no effect.");
+    }
+
+    private void OnEnable()
+    {
+        currentCooldown = cooldown+1; // Reset cooldown when the module is enabled
     }
 }
 

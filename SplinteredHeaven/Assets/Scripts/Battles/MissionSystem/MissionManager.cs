@@ -33,10 +33,15 @@ public class MissionManager : MonoBehaviour
         {
             currentMission?.Update(Time.deltaTime);
         }
+        if(currentMission != null && currentMission.IsComplete)
+        {
+            CompleteMission();
+        }
     }
 
     public void StartMission(MissionData mission)
     {
+        TimeManager.Instance.Stop();
         currentMission = new MissionInstance(mission);
         Fader.Instance.StartFade("LoadCurrentMissionSceneEvent");
         Fader.Instance.DoWhenLoaded( () =>EventManager.Instance.StartMission(currentMission));
@@ -49,6 +54,7 @@ public class MissionManager : MonoBehaviour
 
     public void CompleteMission()
     {
-        Debug.Log("Mission complete!");
+        TimeManager.Instance.Play();
+        EventManager.Instance.EndMission(currentMission);
     }
 }

@@ -42,6 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7620396370908800528}
   - component: {fileID: -9209612062729306464}
+  - component: {fileID: 2482202758831241554}
   m_Layer: 0
   m_Name: KaijuLaser
   m_TagString: Untagged
@@ -83,6 +84,29 @@ MonoBehaviour:
   damage: 20
   damageRatio: 0.2
   target: {fileID: 0}
+--- !u!136 &2482202758831241554
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6013523164276605735}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6583511236436458777
 GameObject:
   m_ObjectHideFlags: 0

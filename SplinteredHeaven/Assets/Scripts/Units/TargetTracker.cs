@@ -19,6 +19,7 @@ public class TargetTracker : AISensor // Inherits from Sensor to use its detecti
 
     private void Awake()
     {
+        targetTags.Clear(); // Clear any existing tags
         if (tag == "Player")
         {
             targetTags.Add("Enemy"); // Add the tag for units to be detected
@@ -41,10 +42,11 @@ public class TargetTracker : AISensor // Inherits from Sensor to use its detecti
 
         if (PlayerTarget == null)
         {
+            ClearNullItems();
             List<UnitManager> detectedTargets = new List<UnitManager>();
             foreach (var obj in detectedObjects)
             {
-                if (obj.TryGetComponent(out UnitManager unit) && unit.gameObject != gameObject)
+                if (obj.TryGetComponent(out UnitManager unit) && obj.gameObject != gameObject && obj !=null)
                 {
                     detectedTargets.Add(unit);
                 }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.AppUI.UI;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -41,5 +42,15 @@ namespace UtilityAI {
         void UpdateContext() {
             //context.SetData("health", health.normalizedHealth);
         }
+
+        public Vector3 PickRandomPoint(float radius)
+        {
+            var point = Random.insideUnitSphere * radius;
+
+            point.y = 0;
+            point += transform.position;
+            return point;
+        }
+
     }
 }

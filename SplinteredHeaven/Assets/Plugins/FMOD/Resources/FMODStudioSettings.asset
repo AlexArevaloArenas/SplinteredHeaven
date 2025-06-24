@@ -529,7 +529,7 @@ MonoBehaviour:
   sourceProjectPath: ../../../FMOD/audio-system-splintered-heaven/audio-system-splintered-heaven.fspro
   sourceBankPath: ../../../FMOD/audio-system-splintered-heaven/Build
   sourceBankPathUnformatted: 
-  BankRefreshCooldown: 5
+  BankRefreshCooldown: 1
   ShowBankRefreshWindow: 1
   AutomaticEventLoading: 1
   BankLoadType: 0
@@ -551,6 +551,7 @@ MonoBehaviour:
   MasterBanks:
   - Master
   Banks:
+  - DIALOGUE
   - SFX
   BanksToLoad: []
   LiveUpdatePort: 9264

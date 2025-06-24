@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21ca5e8fa2e437b4c98d572b1e67ac3d, type: 3}
   m_Name: KillEnemy
   m_EditorClassIdentifier: 
-  targetID: Enemy
+  targetID:
+  - Kaiju

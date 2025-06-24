@@ -28,7 +28,7 @@ public class MissileComponent : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.transform.root == unit.transform.root)
+        if(collision.transform.root == unit.transform.root && unit !=null)
         {
             // Ignore collisions with the same root object (self-collision)
             return;

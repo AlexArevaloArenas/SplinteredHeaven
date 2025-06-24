@@ -178,6 +178,15 @@ public class TimeManager : MonoBehaviour
         
     }
 
+    public void Stop()
+    {
+        StopTime = true;
+    }
+    public void Play()
+    {
+        StopTime = false;
+    }
+
 }
 
 public enum WeekDays

@@ -1,3 +1,4 @@
+using Pathfinding;
 using System.Collections.Generic;
 using Unity.Behavior;
 using UnityEngine;
@@ -12,6 +13,7 @@ namespace UtilityAI {
         public AISensor sensor;
         public UnitManager unitManager;
         public CharacterController characterController;
+        public AIPath AIPath;
 
         readonly Dictionary<string, object> data = new();
 
@@ -26,7 +28,7 @@ namespace UtilityAI {
             this.sensor = brain.gameObject.GetOrAddComponent<TargetTracker>();
             this.unitManager = brain.GetComponent<UnitManager>();
             this.characterController = brain.GetComponent<CharacterController>();
-
+            this.AIPath = brain.GetComponent<AIPath>();
         }
         
         public T GetData<T>(string key) => data.TryGetValue(key, out var value) ? (T)value : default;

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: pistol_01
   icon: {fileID: 0}
-  visualPrefab: {fileID: 172453167873639503, guid: a9cf7bc14464cc54f8e8f949fba6ed60, type: 3}
+  visualPrefab: {fileID: 962144059534634649, guid: dea529ad65733ae4ab0ace23c18e83dc, type: 3}
   cooldown: 1
   positionType: 1
   weightType: 0

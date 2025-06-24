@@ -20,6 +20,12 @@ public class FP_UIManager : MonoBehaviour
 
     }
 
+    private void OnDisable()
+    {
+        EventManager.Instance.FPChangeInteractionSymbolEvent -= ShowSymbolStatus;
+        EventManager.Instance.EscapeKeyEvent -= () => OpenInGameMenu();
+    }
+
     private void Update()
     {
         if (interactionAvailable)

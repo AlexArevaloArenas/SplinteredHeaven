@@ -17,6 +17,6 @@ MonoBehaviour:
   description: asffffffffffffffffffffffffffffffffffffsdsfasfasfa
   objectives:
   - {fileID: 11400000, guid: 9e3f02e2ddb9e79438504a8c450fb29e, type: 2}
-  - {fileID: 11400000, guid: 0405a89c60b347647a2ed2925801adf8, type: 2}
+  - {fileID: 11400000, guid: abfc3ad4779632d4dbafab3f81b2c2db, type: 2}
   scene: 4
   location: 0

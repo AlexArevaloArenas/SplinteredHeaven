@@ -15,6 +15,7 @@ MonoBehaviour:
   missionID: 
   title: Other mission
   description: sdfkjbassajfhhhhhhhhhhhasjkafsjfasasfkfsasfajk
-  objectives: []
+  objectives:
+  - {fileID: 11400000, guid: abfc3ad4779632d4dbafab3f81b2c2db, type: 2}
   scene: 4
   location: 1

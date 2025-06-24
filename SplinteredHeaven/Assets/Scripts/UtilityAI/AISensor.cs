@@ -40,7 +40,7 @@ namespace UtilityAI
         public virtual void ProcessTrigger(Collider other, Action<Transform> action)
         {
             if (other.CompareTag("Untagged")) return;
-
+            ClearNullItems();
             foreach (string t in targetTags)
             {
                 if (other.CompareTag(t))
@@ -60,6 +60,7 @@ namespace UtilityAI
 
             foreach (Transform potentialTarget in detectedObjects)
             {
+                if (potentialTarget == null) continue; // Skip null transforms
                 if (potentialTarget.CompareTag(tag))
                 {
                     Vector3 directionToTarget = potentialTarget.position - currentPosition;
@@ -85,6 +86,10 @@ namespace UtilityAI
             {
                 ProcessTrigger(c, transform => detectedObjects.Add(transform));
             }
+        }
+        public void ClearNullItems()
+        {
+            detectedObjects.RemoveAll(item => item == null);
         }
     }
 }

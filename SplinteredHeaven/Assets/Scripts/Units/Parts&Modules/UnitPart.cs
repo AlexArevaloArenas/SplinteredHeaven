@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public class UnitPart
 {
@@ -20,6 +21,9 @@ public class UnitPart
     public event Action<UnitPart> OnHealthChanged;
     public event Action<float> OnDamageTaken;
     public event Action OnDestroyed;
+
+    //Shield
+    public bool shield;
 
     //Unit Part Constructor
     public UnitPart(UnitPartData partData, Unit owner)
@@ -101,6 +105,13 @@ public class UnitPart
     public void TakeDamage(float dmg)
     {
         OnDamageTaken?.Invoke(dmg);
+        if (shield)
+        {
+            // If the part has a shield, absorb damage
+            Debug.Log($"Shield active, absorbing {dmg} damage.");
+            return;
+        }
+
         currentHealth = currentHealth - dmg;
         if (currentHealth <= 0)
         {

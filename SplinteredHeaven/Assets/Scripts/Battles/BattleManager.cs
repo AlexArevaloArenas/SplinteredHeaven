@@ -29,10 +29,15 @@ public class BattleManager : MonoBehaviour
     public GameObject victoryPanel;
     public GameObject defeatPanel;
 
+    [Header("Messages")]
+    public GameObject messagePrefab;
+    public Transform messagePanel;
+
     void Start()
     {
         EventManager.Instance.EscapeKeyEvent += () => OpenBattleMenu();
         EventManager.Instance.MissionStartsEvent += LoadMission;
+        EventManager.Instance.MissionEndsEvent += EndMission;
 
         MissionEvents.OnObjectiveCompleted += OnObjectiveCompleted;
         MissionEvents.OnObjectiveFailed += OnObjectiveFailed;
@@ -165,7 +170,7 @@ public class BattleManager : MonoBehaviour
         {
             objectivesText.text += $"- {objData.definition.description}\n";
         }
-
+        /*
         //Load Units
         foreach (Unit unit in GameManager.instance.playerCurrentArmy)
         {
@@ -173,6 +178,9 @@ public class BattleManager : MonoBehaviour
             GameObject unitObj = Instantiate(unitPrefab, point.position, point.rotation);
             unitObj.GetComponent<UnitManager>().SetUnit(unit);
         }
+        */
+
+        ShowMessage("NAME: Mission Started! The kaiju must be here");
 
     }
 
@@ -180,7 +188,7 @@ public class BattleManager : MonoBehaviour
     {
         Debug.Log($"Objective Completed: {instance.definition.description}");
         //objectivesText.text += $"Objective Completed: {instance.definition.description}\n";
-        objectivesText.text = objectivesText.text.Replace($"- {instance.definition.description}\n", $"{instance.definition.description} ?\n");
+        objectivesText.text = objectivesText.text.Replace($"- {instance.definition.description}\n", $"COMPLETED: {instance.definition.description} \n");
     }
 
     public void OnObjectiveFailed(ObjectiveInstance instance)
@@ -189,4 +197,17 @@ public class BattleManager : MonoBehaviour
         Invoke(nameof(EndBattle), 2f); // Delay to show failure message
     }
 
+    public void ShowMessage(string message)
+    {
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.notifySFX, Camera.main.transform.position); // Play the message sound effect
+        GameObject messageObj = Instantiate(messagePrefab, messagePanel);
+        Message msg = messageObj.GetComponent<Message>();
+        msg.SetMessage(message);
+    }
+
+    public void EndMission(MissionInstance mission)
+    {
+        victoryPanel.SetActive(true);
+        fadeInObj(victoryPanel);
+    }
 }

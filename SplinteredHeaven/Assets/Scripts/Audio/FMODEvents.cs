@@ -18,6 +18,10 @@ public class FMODEvents : MonoBehaviour
     [field: SerializeField] public EventReference acceptSFX { get; private set; }
     [field: SerializeField] public EventReference denySFX { get; private set; }
 
+    [field: Header("Battle SFX")]
+    [field: SerializeField] public EventReference messageSFX { get; private set; }
+    [field: SerializeField] public EventReference notifySFX { get; private set; }
+
     public static FMODEvents instance { get; private set; }
 
     private void Awake()

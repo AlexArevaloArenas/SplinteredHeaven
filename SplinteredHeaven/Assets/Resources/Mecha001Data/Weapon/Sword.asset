@@ -13,15 +13,19 @@ MonoBehaviour:
   m_Name: Sword
   m_EditorClassIdentifier: 
   id: Sword
-  visualPrefab: {fileID: 2834823154419130967, guid: 2b746d248aecbee41850e01649bf89f7, type: 3}
+  icon: {fileID: 0}
+  visualPrefab: {fileID: 9092217074862343366, guid: 2b746d248aecbee41850e01649bf89f7, type: 3}
   cooldown: 0
   positionType: 1
   weightType: 0
+  effectType: 0
   damage: 15
   range: 2
   damageType: 0
   weaponType: 0
+  animatedAttack: 0
   hitMask:
     serializedVersion: 2
     m_Bits: 0
   inaccuracyAngle: 0
+  attackparticles: {fileID: 0}

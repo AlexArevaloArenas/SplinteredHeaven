@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: Rocket Launcher
   icon: {fileID: 0}
-  visualPrefab: {fileID: 6579500113514206085, guid: afeda560ebaeb3041b78eea5d753a2f7, type: 3}
+  visualPrefab: {fileID: 4151750693444005315, guid: e1a64f4063cdc13469bffdc8a73089c7, type: 3}
   cooldown: 4
   positionType: 0
   weightType: 0

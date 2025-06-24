@@ -61,6 +61,11 @@ public class NarrativeManager : MonoBehaviour
         }
     }
 
+    public void Spawn(GameObject unit, Vector3 pos)
+    {
+        Instantiate(unit, pos, Quaternion.identity);
+    }
+
 }
 
 public class NarrativeContext

@@ -96,3 +96,17 @@ MonoBehaviour:
       Data3: -740805464
       Data4: -1884652795
     Path: event:/UIDeny
+  <messageSFX>k__BackingField:
+    Guid:
+      Data1: -1402158127
+      Data2: 1250402638
+      Data3: -1074233431
+      Data4: 1142623653
+    Path: event:/Message
+  <notifySFX>k__BackingField:
+    Guid:
+      Data1: -813039701
+      Data2: 1263040758
+      Data3: -548672327
+      Data4: 1266115308
+    Path: event:/Notification

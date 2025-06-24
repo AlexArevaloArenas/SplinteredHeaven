@@ -275,11 +275,11 @@ SphereCollider:
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
-  m_ProvidesContacts: 0
+  m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 25
-  m_Center: {x: 0, y: 35, z: 0}
+  m_Center: {x: 0, y: 20, z: 0}
 --- !u!114 &7071256452897636997
 MonoBehaviour:
   m_ObjectHideFlags: 0

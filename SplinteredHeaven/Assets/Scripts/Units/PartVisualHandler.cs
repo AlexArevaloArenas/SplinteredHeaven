@@ -171,9 +171,14 @@ public class PartVisualHandler : MonoBehaviour
             {
                 module.slotInt = match.slot.slot;
                 GameObject vis = Instantiate(module.Data.visualPrefab);
-                //vis.transform.localRotation = Quaternion.identity;
+                
                 vis.transform.SetParent(match.holder, true); // Set parent and keep local position/rotation
                 vis.transform.localPosition = Vector3.zero;
+
+                if(module.Data.positionType == ModulePositionType.Basic)
+                    vis.transform.localRotation = Quaternion.Euler(0, 0, 0);
+                else
+                    vis.transform.localRotation = Quaternion.identity;
 
                 if (vis.TryGetComponent(out ModuleVisualHandler visualHandler))
                     visualHandler.Initialize(module);

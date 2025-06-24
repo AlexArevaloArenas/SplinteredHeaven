@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a9fc3193547f5b47824ebd5ab750e7c, type: 3}
-  m_Name: Kill the enemy units
+  m_Script: {fileID: 11500000, guid: a79d7bee7114f8f40b7bac7124934729, type: 3}
+  m_Name: SpawnKaiju
   m_EditorClassIdentifier: 
-  objectiveID: Kill all enemy units
-  description: Kill all enemy units
-  condition: {fileID: 11400000, guid: bfe7a487f37e956449e6d5f731bef95f, type: 2}
+  units:
+  - {fileID: 365215724707448996, guid: d843f61a5762f6b4d9296def38986472, type: 3}
+  positions:
+  - {x: -437, y: 0, z: 76}

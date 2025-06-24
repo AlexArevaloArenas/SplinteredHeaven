@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87602d81992a5b24c8e1687ccb41bd01, type: 3}
+  m_Name: HuntAction
+  m_EditorClassIdentifier: 
+  targetTag: Player
+  consideration: {fileID: 11400000, guid: d3c630fa2e96bf84c9a4da265264c12a, type: 2}

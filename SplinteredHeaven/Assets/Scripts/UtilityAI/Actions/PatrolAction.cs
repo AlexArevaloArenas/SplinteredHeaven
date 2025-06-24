@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityUtils;
 
@@ -14,17 +16,16 @@ namespace UtilityAI
         public override void Execute(Context context)
         {
             if (context.characterController.velocity != Vector3.zero) return;
+            List<Transform> gameObjects = (List<Transform>)context.sensor.detectedObjects.Where(obj => obj.CompareTag(targetTag));
             Transform target;
-            if (context.sensor.detectedObjects.Count > 0)
+            if (gameObjects.Count > 0)
             {
-                target = context.sensor.detectedObjects?.Random<Transform>();
+                target = gameObjects?.Random<Transform>();
             }
             else
             {
                 return;
             }
-
-            //context.target = target;
 
             context.ai.StartMoveBehaviour(target.position);
         }
