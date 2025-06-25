@@ -13,8 +13,13 @@ MonoBehaviour:
   m_Name: ArmLeft_02
   m_EditorClassIdentifier: 
   id: arm_left02
-  maxHealth: 10
   partType: 3
-  visualPrefab: {fileID: 4656379087230274962, guid: 63a0fc046cb85734c8c26b2f0cd3876f, type: 3}
+  visualPrefab: {fileID: 8363045081439744149, guid: 1578a38917bedf6449638765676f3db1, type: 3}
   destructionPrefab: {fileID: 100008, guid: 1dbc518224e49f34095aab42fe05751a, type: 3}
   modules: []
+  SupportUnit: 0
+  maxHealth: 10
+  visionRange: 0
+  detectionRange: 0
+  detectionInterval: 0
+  movementSpeed: 0

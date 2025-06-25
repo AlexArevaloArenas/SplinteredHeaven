@@ -879,6 +879,7 @@ MonoBehaviour:
   selector: {fileID: 0}
   hpBarPrefab: {fileID: 0}
   hpBar: {fileID: 0}
+  visible: 1
 --- !u!114 &448232606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1681,8 +1682,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 573542730}
   m_HandleRect: {fileID: 573542729}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.27666667
+  m_Value: 0.9999999
+  m_Size: 0.2766667
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2430,7 +2431,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1548390273}
   m_Direction: 0
   m_Value: 1
-  m_Size: 0.9999999
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3577,8 +3578,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 175062335}
   m_HandleRect: {fileID: 175062334}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.27666667
+  m_Value: 0.9999999
+  m_Size: 0.2766667
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4032,6 +4033,63 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1001 &7606472927675505010
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4818359847525933856, guid: 97f8a94a5396108498b480e08060452f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4818359847525933856, guid: 97f8a94a5396108498b480e08060452f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4818359847525933856, guid: 97f8a94a5396108498b480e08060452f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4818359847525933856, guid: 97f8a94a5396108498b480e08060452f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4818359847525933856, guid: 97f8a94a5396108498b480e08060452f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4818359847525933856, guid: 97f8a94a5396108498b480e08060452f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4818359847525933856, guid: 97f8a94a5396108498b480e08060452f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4818359847525933856, guid: 97f8a94a5396108498b480e08060452f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4818359847525933856, guid: 97f8a94a5396108498b480e08060452f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4818359847525933856, guid: 97f8a94a5396108498b480e08060452f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8761300691901887987, guid: 97f8a94a5396108498b480e08060452f, type: 3}
+      propertyPath: m_Name
+      value: bbrazo derecho en ti confio
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 97f8a94a5396108498b480e08060452f, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -4043,3 +4101,4 @@ SceneRoots:
   - {fileID: 1905354503}
   - {fileID: 448232604}
   - {fileID: 2026772550}
+  - {fileID: 7606472927675505010}
