@@ -131,7 +131,7 @@ Material:
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Alpha_clip_threshold: 0.01
-    - _Ambient_oclussion_value: 1
+    - _Ambient_oclussion_value: 0.892
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
@@ -166,9 +166,9 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     - _height_strength: 0
-    - _metallic_strength: 0.423
+    - _metallic_strength: 0.622
     - _normal_strength: 1
-    - _smoothness_threshold: 0.31
+    - _smoothness_threshold: 0.67
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}

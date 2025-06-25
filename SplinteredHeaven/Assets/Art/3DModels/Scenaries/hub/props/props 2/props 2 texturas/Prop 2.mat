@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: props barandilla
+  m_Name: Prop 2
   m_Shader: {fileID: -6465566751694194690, guid: e0f9f6c3f2c74ea45afd42714729362e, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -38,11 +38,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Albedo_map:
-        m_Texture: {fileID: 2800000, guid: 478b0a36829df634eab32a7fc8550f8d, type: 3}
+        m_Texture: {fileID: 2800000, guid: aac1c6019b26b1844bc4ab7dd661e8d6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AmbientOclussionMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 15c525ac55611be4e9f218720bf82581, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -74,7 +74,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _HeightMap:
-        m_Texture: {fileID: 2800000, guid: 1396366c03e7614438f64abb03760f15, type: 3}
+        m_Texture: {fileID: 2800000, guid: 55a9b34437958ff41b091e947081a997, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -90,11 +90,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Metallic_Map:
-        m_Texture: {fileID: 2800000, guid: 164474626a93ab248bf39b0f048f899a, type: 3}
+        m_Texture: {fileID: 2800000, guid: 42f0d4b089ee8fd4e8e67928f4a58408, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal_map:
-        m_Texture: {fileID: 2800000, guid: 8349acb5371f8fd47a971c3bacf74a11, type: 3}
+        m_Texture: {fileID: 2800000, guid: eaeddaa5c127db143bf998941007a686, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -106,7 +106,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Smoothness_Map:
-        m_Texture: {fileID: 2800000, guid: bc88e9debeb89404489900716733d29f, type: 3}
+        m_Texture: {fileID: 2800000, guid: 125b28166f69b2843b16e32a89c4abee, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
@@ -131,7 +131,7 @@ Material:
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Alpha_clip_threshold: 0.01
-    - _Ambient_oclussion_value: 1
+    - _Ambient_oclussion_value: 0.875
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
@@ -166,9 +166,9 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     - _height_strength: 0
-    - _metallic_strength: 1
+    - _metallic_strength: 0.884
     - _normal_strength: 1
-    - _smoothness_threshold: 0.68
+    - _smoothness_threshold: 0.56
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
