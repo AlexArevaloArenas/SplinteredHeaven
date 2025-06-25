@@ -11,16 +11,10 @@ public class FirstPersonInteraction : MonoBehaviour
     private void Start()
     {
         EventManager.Instance.LeftMouseDownEvent += LeftMouseInput;
-        EventManager.Instance.FPDialogueEvent += Block;
-        EventManager.Instance.EndFPDialogueEvent += Unblock;
     }
 
     private void Update()
     {
-        if(block)
-        {
-            return;
-        }
 
         RaycastHit hit;
 
@@ -28,7 +22,7 @@ public class FirstPersonInteraction : MonoBehaviour
 
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, interactionDistance))
         {
-            if (interact) {
+            if (interact && !DialogueManager.Instance.dialogueIsPlaying) {
                 hit.collider.GetComponent<IInteractable>().Interact(gameObject);
             }
             if (hit.collider.GetComponent<IInteractable>() != null)
@@ -77,13 +71,4 @@ public class FirstPersonInteraction : MonoBehaviour
     }
 
 
-    public void Block(TextAsset x, Vector3 y)
-    {
-        block = true;
-    }
-
-    public void Unblock()
-    {
-        block = false;
-    }
 }

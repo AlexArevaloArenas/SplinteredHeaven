@@ -53,6 +53,7 @@ public class UnitClick : MonoBehaviour
                 {
                     if (unit.tag == "Player")
                     {
+                        unit.GetComponent<UnitAI>().Stop();
                         unit.GetComponent<UnitAI>()?.StartAttackBehaviour(hit.collider.gameObject);
 
                     }

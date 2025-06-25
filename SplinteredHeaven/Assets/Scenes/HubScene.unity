@@ -786,6 +786,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPCWarroom (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 66227929178689728, guid: 278f1e71de1c9d14eb2c7f3df6a93cb2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1224058176744240058, guid: 278f1e71de1c9d14eb2c7f3df6a93cb2, type: 3}
       propertyPath: npcData
       value: 
@@ -6739,6 +6743,10 @@ PrefabInstance:
     - target: {fileID: 66227929178689728, guid: 278f1e71de1c9d14eb2c7f3df6a93cb2, type: 3}
       propertyPath: m_Name
       value: NPCCantine
+      objectReference: {fileID: 0}
+    - target: {fileID: 66227929178689728, guid: 278f1e71de1c9d14eb2c7f3df6a93cb2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1224058176744240058, guid: 278f1e71de1c9d14eb2c7f3df6a93cb2, type: 3}
       propertyPath: npcData
@@ -17760,6 +17768,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPCPatrol
       objectReference: {fileID: 0}
+    - target: {fileID: 66227929178689728, guid: 278f1e71de1c9d14eb2c7f3df6a93cb2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1224058176744240058, guid: 278f1e71de1c9d14eb2c7f3df6a93cb2, type: 3}
       propertyPath: patrol
       value: 1
@@ -17814,11 +17826,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7885244729018970539, guid: 278f1e71de1c9d14eb2c7f3df6a93cb2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.63
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7885244729018970539, guid: 278f1e71de1c9d14eb2c7f3df6a93cb2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.97
+      value: 21.31
       objectReference: {fileID: 0}
     - target: {fileID: 7885244729018970539, guid: 278f1e71de1c9d14eb2c7f3df6a93cb2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -18094,6 +18106,10 @@ PrefabInstance:
     - target: {fileID: 66227929178689728, guid: 278f1e71de1c9d14eb2c7f3df6a93cb2, type: 3}
       propertyPath: m_Name
       value: NPCWarroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 66227929178689728, guid: 278f1e71de1c9d14eb2c7f3df6a93cb2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1224058176744240058, guid: 278f1e71de1c9d14eb2c7f3df6a93cb2, type: 3}
       propertyPath: npcData
@@ -21558,6 +21574,10 @@ PrefabInstance:
     - target: {fileID: 66227929178689728, guid: 31f146c96a817e14eaa88798e0007c42, type: 3}
       propertyPath: m_Layer
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 66227929178689728, guid: 31f146c96a817e14eaa88798e0007c42, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 104254677046030470, guid: 31f146c96a817e14eaa88798e0007c42, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25357,6 +25377,10 @@ PrefabInstance:
       propertyPath: 'interestPoints.Array.data[11]'
       value: 
       objectReference: {fileID: 1795906873}
+    - target: {fileID: 4153034061002968015, guid: 278f1e71de1c9d14eb2c7f3df6a93cb2, type: 3}
+      propertyPath: inkJSON
+      value: 
+      objectReference: {fileID: 4900000, guid: 60b17827e3d09fb43af2991ce7122f49, type: 3}
     - target: {fileID: 4857171061357457157, guid: 278f1e71de1c9d14eb2c7f3df6a93cb2, type: 3}
       propertyPath: target
       value: 

@@ -76,6 +76,7 @@ public class MissileComponent : MonoBehaviour
             // If no target, maintain current velocity
             GetComponent<Rigidbody>().linearVelocity = transform.forward * launchForce;
             */
+            Destroy(gameObject, 0.3f); // Destroy the missile after 5 seconds if no target is set
         }
     }
 }

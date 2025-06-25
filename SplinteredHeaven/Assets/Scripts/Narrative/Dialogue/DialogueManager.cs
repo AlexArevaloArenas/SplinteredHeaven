@@ -137,12 +137,12 @@ public class DialogueManager :  UIManager<IDialogueUI>
     //public void EnterDialogueMode(TextAsset inkJSON, Animator emoteAnimator)
     public void EnterDialogueMode(TextAsset inkJSON, Vector3 pos)
     {
-        OnDialogueStarted?.Invoke();
-
         if (dialogueIsPlaying)
         {
             return;
         }
+        OnDialogueStarted?.Invoke();
+        
         currentStory = new Story(inkJSON.text);
         dialogueIsPlaying = true;
         currentUI.SetActive(true);
@@ -167,7 +167,7 @@ public class DialogueManager :  UIManager<IDialogueUI>
 
     private IEnumerator ExitDialogueMode()
     {
-        yield return new WaitForSeconds(0.2f);
+        //yield return new WaitForSeconds(0.2f);
 
         dialogueVariables.StopListening(currentStory);
         currentStory.UnbindExternalFunction("dialogueTrigger");
@@ -179,8 +179,9 @@ public class DialogueManager :  UIManager<IDialogueUI>
 
         // go back to default audio
         //SetCurrentAudioInfo(defaultAudioInfo.id);
-
         EventManager.Instance.ExitFirstPersonDialogue();
+
+        yield return new WaitForSeconds(0.2f);
 
     }
 

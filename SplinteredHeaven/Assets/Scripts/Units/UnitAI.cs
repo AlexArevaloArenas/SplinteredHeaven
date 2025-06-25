@@ -36,6 +36,14 @@ public class UnitAI : MonoBehaviour
 
     public void Stop()
     {
+        if (agent.Graph != null)
+        {
+            agent.Restart();
+            agent.Update();
+        }
+        
         agent.Graph = null;
+        
+        
     }
 }
