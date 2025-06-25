@@ -41,6 +41,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 28ad3556347205b499fd2b84dd92366d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _AmbientOclussionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -122,7 +126,7 @@ Material:
     - _AddPrecomputedVelocity: 0
     - _AlphaClip: 0
     - _AlphaToMask: 0
-    - _Alpha_clip_threshold: 0
+    - _Alpha_clip_threshold: 0.12
     - _Ambient_oclussion_value: 1
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
@@ -161,12 +165,15 @@ Material:
     - _ZWrite: 1
     - _alpha_value: 1
     - _height_strength: 0.08
+    - _metallic_strength: 1
     - _normal_strength: 0.43
     - _smoothness_threshold: 0.47
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Offset: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _Tiling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

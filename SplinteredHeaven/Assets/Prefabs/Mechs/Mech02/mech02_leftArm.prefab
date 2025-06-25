@@ -292,6 +292,34 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 8853704834050504534, guid: 2a489368362caf74b86115a21a086266, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8853704834050504534, guid: 2a489368362caf74b86115a21a086266, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8853704834050504534, guid: 2a489368362caf74b86115a21a086266, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8853704834050504534, guid: 2a489368362caf74b86115a21a086266, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8853704834050504534, guid: 2a489368362caf74b86115a21a086266, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8853704834050504534, guid: 2a489368362caf74b86115a21a086266, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8853704834050504534, guid: 2a489368362caf74b86115a21a086266, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90
+      objectReference: {fileID: 0}
     - target: {fileID: 8861782370351723646, guid: 2a489368362caf74b86115a21a086266, type: 3}
       propertyPath: m_Layer
       value: 11
@@ -315,7 +343,34 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2a489368362caf74b86115a21a086266, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1999128950447613705}
+    - targetCorrespondingSourceObject: {fileID: 7442494262258908887, guid: 2a489368362caf74b86115a21a086266, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6169290010930825413}
+    - targetCorrespondingSourceObject: {fileID: 2145928582872555358, guid: 2a489368362caf74b86115a21a086266, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5097381130204805563}
   m_SourcePrefab: {fileID: 100100000, guid: 2a489368362caf74b86115a21a086266, type: 3}
+--- !u!1 &3104859017054588436 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7442494262258908887, guid: 2a489368362caf74b86115a21a086266, type: 3}
+  m_PrefabInstance: {fileID: 5503295159127126211}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6169290010930825413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3104859017054588436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6aed3c945dc1494592cb79979c9a985, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slot: 1
+  isOccupied: 0
+  modulePositionType: 1
+  moduleWeightType: 0
 --- !u!1 &4656379087230274962 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2a489368362caf74b86115a21a086266, type: 3}
@@ -392,7 +447,7 @@ Animator:
   m_GameObject: {fileID: 4656379087230274962}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1739a716fbeda0a4d9945e82f95a9a4a, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8dcd156c99f83ba49ad7bbc8bfb54bd4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -404,3 +459,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &5879589394739883933 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2145928582872555358, guid: 2a489368362caf74b86115a21a086266, type: 3}
+  m_PrefabInstance: {fileID: 5503295159127126211}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5097381130204805563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5879589394739883933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6aed3c945dc1494592cb79979c9a985, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slot: 0
+  isOccupied: 0
+  modulePositionType: 0
+  moduleWeightType: 0
