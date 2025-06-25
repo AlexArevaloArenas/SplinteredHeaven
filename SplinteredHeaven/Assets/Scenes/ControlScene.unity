@@ -618,23 +618,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 411508862101834717, guid: 9ce4f212c0cf73e4ba3d7a48c187a8dc, type: 3}
       propertyPath: <characterTalk>k__BackingField.Path
-      value: event:/CharacterTalk
+      value: event:/TalkBasic
       objectReference: {fileID: 0}
     - target: {fileID: 411508862101834717, guid: 9ce4f212c0cf73e4ba3d7a48c187a8dc, type: 3}
       propertyPath: <characterTalk>k__BackingField.Guid.Data1
-      value: 1468606414
+      value: 637827669
       objectReference: {fileID: 0}
     - target: {fileID: 411508862101834717, guid: 9ce4f212c0cf73e4ba3d7a48c187a8dc, type: 3}
       propertyPath: <characterTalk>k__BackingField.Guid.Data2
-      value: 1319655014
+      value: 1221095084
       objectReference: {fileID: 0}
     - target: {fileID: 411508862101834717, guid: 9ce4f212c0cf73e4ba3d7a48c187a8dc, type: 3}
       propertyPath: <characterTalk>k__BackingField.Guid.Data3
-      value: -122143866
+      value: 99372711
       objectReference: {fileID: 0}
     - target: {fileID: 411508862101834717, guid: 9ce4f212c0cf73e4ba3d7a48c187a8dc, type: 3}
       propertyPath: <characterTalk>k__BackingField.Guid.Data4
-      value: 138276400
+      value: 143734723
       objectReference: {fileID: 0}
     - target: {fileID: 1732445847805161704, guid: 9ce4f212c0cf73e4ba3d7a48c187a8dc, type: 3}
       propertyPath: m_Name

@@ -6,13 +6,22 @@ public class FirstPersonInteraction : MonoBehaviour
     public bool interact = false;
     public bool showing = false;
 
+    public bool block = false;
+
     private void Start()
     {
         EventManager.Instance.LeftMouseDownEvent += LeftMouseInput;
+        EventManager.Instance.FPDialogueEvent += Block;
+        EventManager.Instance.EndFPDialogueEvent += Unblock;
     }
 
     private void Update()
     {
+        if(block)
+        {
+            return;
+        }
+
         RaycastHit hit;
 
         Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * interactionDistance);
@@ -67,4 +76,14 @@ public class FirstPersonInteraction : MonoBehaviour
         EventManager.Instance.StartChangeInteractionSymbol(false,"");
     }
 
+
+    public void Block(TextAsset x, Vector3 y)
+    {
+        block = true;
+    }
+
+    public void Unblock()
+    {
+        block = false;
+    }
 }

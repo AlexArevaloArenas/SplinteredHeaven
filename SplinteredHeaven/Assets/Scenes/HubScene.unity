@@ -3490,6 +3490,7 @@ MonoBehaviour:
   interactionDistance: 1.5
   interact: 0
   showing: 0
+  block: 0
 --- !u!1001 &318418922
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10166,6 +10167,7 @@ MonoBehaviour:
   walkingbobbingAmount: 0.04
   runningbobbingAmount: 0.1
   controller: {fileID: 314404346}
+  isBlocked: 0
 --- !u!1001 &964556080
 PrefabInstance:
   m_ObjectHideFlags: 0
