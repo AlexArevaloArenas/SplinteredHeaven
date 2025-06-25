@@ -29,7 +29,7 @@ public partial class AttackAction : Action
             //Debug.Log($"Target set to {Target.Value.name}");
 
         }
-            return Status.Running;
+        return Status.Success;
     }
 
     protected override Status OnUpdate()

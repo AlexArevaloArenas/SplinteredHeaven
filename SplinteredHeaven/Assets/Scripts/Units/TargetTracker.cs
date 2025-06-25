@@ -153,4 +153,10 @@ public class TargetTracker : AISensor // Inherits from Sensor to use its detecti
         return dot < 0.25f; // Adjust threshold as needed (0 = directly behind, 1 = in front)
     }
 
+    public bool IsInRange(UnitManager target)
+    {
+        if (target == null || weaponWithMoreRange == null) return false;
+        return Vector3.Distance(transform.position, target.transform.position) <= weaponWithMoreRange.GetRange();
+    }
+
 }

@@ -33,7 +33,17 @@ namespace Pathfinding {
 
 		/// <summary>Updates the AI's destination every frame</summary>
 		void Update () {
-			if (target != null && ai != null) ai.destination = target.position;
-		}
-	}
+			if (target != null && ai != null)
+			{
+                ai.isStopped = false; // Ensure the AI is not stopped
+
+                ai.destination = target.position;
+			}
+			// If the target is null, the AI will stop moving.
+			else
+			{
+				ai.isStopped = true;
+			}
+        }
+    }
 }

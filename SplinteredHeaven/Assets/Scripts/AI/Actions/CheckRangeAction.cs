@@ -17,6 +17,18 @@ public partial class CheckRangeAction : Action
 
     protected override Status OnUpdate()
     {
+        
+
+        if (SelfCharacter.Value.unit.obj.transform.GetComponent<TargetTracker>().IsInRange(TargetCharacter.Value))
+        {
+            return Status.Success;
+        }
+        else
+        {
+            return Status.Failure;
+        }
+
+        /*
         // Check if the target is in range
         foreach (var part in SelfCharacter.Value.unit.Parts)
         {
@@ -31,6 +43,7 @@ public partial class CheckRangeAction : Action
             }
         }
         return Status.Failure;
+        */
     }
 
     protected override void OnEnd()
