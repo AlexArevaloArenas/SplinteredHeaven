@@ -257,7 +257,7 @@ public class DialogueManager :  UIManager<IDialogueUI>
             // if not rich text, add the next letter and wait a small time
             else
             {
-                //PlayDialogueSound(dialogueText.maxVisibleCharacters, dialogueText.text[dialogueText.maxVisibleCharacters]);
+                AudioManager.instance.PlayOneShot(FMODEvents.instance.characterTalk, Camera.main.transform.position);
                 currentUI.GetDialogueText().maxVisibleCharacters++;
                 yield return new WaitForSeconds(typingSpeed);
             }

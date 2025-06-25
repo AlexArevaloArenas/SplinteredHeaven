@@ -1,1 +1,1 @@
-﻿{"inkVersion":21,"root":[[["done",{"#f":5,"#n":"g-0"}],null],"done",{"global decl":["ev","str","^","/str",{"VAR=":"player_name"},"/ev","end",null],"#f":1}],"listDefs":{}}
+﻿{"inkVersion":21,"root":[[["done",{"#f":5,"#n":"g-0"}],null],"done",{"global decl":["ev","str","^","/str",{"VAR=":"player_name"},false,{"VAR=":"pilot1Calmed"},false,{"VAR=":"pilot2Calmed"},"/ev","end",null],"#f":1}],"listDefs":{}}
