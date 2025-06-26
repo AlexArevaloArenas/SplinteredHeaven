@@ -1,7 +1,10 @@
 using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Pathfinding.SimpleSmoothModifier;
+using static UnityEngine.GraphicsBuffer;
 
 
 public class CameraController : MonoBehaviour
@@ -17,6 +20,9 @@ public class CameraController : MonoBehaviour
 
     float scrollSpeed = 0f;
     public GameObject cameraObj;
+
+    Vector3 currentVerticalSpeed; // Vertical speed for camera movement
+    public float verticalSmooth = 0.2f;
 
     private void Start()
     {
@@ -38,7 +44,9 @@ public class CameraController : MonoBehaviour
 
         float hsp = transform.position.y * speed * Input.GetAxis("Horizontal"); //horizontalSpeed
         float vsp = transform.position.y *  speed * Input.GetAxis("Vertical"); //verticalSpeed
-        float sSpeed = Mathf.Log(transform.position.y) *  -zoomSpeed * scrollSpeed;
+        //float sSpeed = Mathf.Log(transform.position.y) *  -zoomSpeed * scrollSpeed;
+        //float sSpeed = Mathf.Log(transform.position.y) * zoomSpeed * scrollSpeed;
+        float sSpeed = Mathf.Log(transform.position.y) * zoomSpeed * scrollSpeed;
 
         //Movement Locks
         if (transform.position.y + sSpeed >= maxHeight && sSpeed > 0)
@@ -62,14 +70,18 @@ public class CameraController : MonoBehaviour
         }
 
         //Movement
-        Vector3 verticalMove = new Vector3(0, sSpeed, 0);
+        //Vector3 verticalMove = transform.up * sSpeed;
+        transform.position = Vector3.SmoothDamp(transform.position, new Vector3(transform.position.x, sSpeed+transform.position.y, transform.position.z), ref currentVerticalSpeed, verticalSmooth);
+
         Vector3 lateralMove = hsp * transform.right;
         Vector3 forwardMove = transform.forward;
         forwardMove.y = 0;
         forwardMove.Normalize();
         forwardMove *= vsp;
 
-        Vector3 move = verticalMove + lateralMove + forwardMove;
+        //Vector3 move = verticalMove + lateralMove + forwardMove;
+        Vector3 move = lateralMove + forwardMove;
+
         transform.position += move;
         //transform.position.y = Mathf.Clamp(minHeight, maxHeight);
 
@@ -79,7 +91,7 @@ public class CameraController : MonoBehaviour
 
     public void ScrollWheel(float sSpeed)
     {
-        scrollSpeed = sSpeed;
+        scrollSpeed = -Mathf.Clamp(sSpeed, -1, 1);
     }
 
     private void CameraShake()

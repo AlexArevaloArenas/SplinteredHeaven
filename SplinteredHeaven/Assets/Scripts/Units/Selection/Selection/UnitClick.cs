@@ -1,5 +1,6 @@
 //using System.Collections;
 //using System.Collections.Generic;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,9 +39,9 @@ public class UnitClick : MonoBehaviour
                     if (unit.tag == "Player")
                     {
                         unit.GetComponent<UnitAI>()?.StartMoveBehaviour(hit.point);
-                        StartCoroutine(MoveTerrainMarkCoroutine(0.01f, hit.point));
                     }
                 }
+                StartCoroutine(MoveTerrainMarkCoroutine(0.01f, hit.point));
             }
 
             if(hit.collider.gameObject.layer == LayerMask.NameToLayer("Selectable"))
@@ -110,6 +111,13 @@ public class UnitClick : MonoBehaviour
                 battleManager.ClearUI();
             }
         }
+    }
+
+    public IEnumerator WaitAndDo(float wait, Action action)
+    {
+        yield return new WaitForSeconds(wait);
+        action.Invoke();
+
     }
 
 }

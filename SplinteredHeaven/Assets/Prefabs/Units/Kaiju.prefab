@@ -25,7 +25,6 @@ GameObject:
   - component: {fileID: 6544459273447889619}
   - component: {fileID: 6489373961549174353}
   - component: {fileID: 3380637198248943954}
-  - component: {fileID: 8729013943525806789}
   - component: {fileID: 1342783169084569114}
   - component: {fileID: 7671838536369746672}
   m_Layer: 8
@@ -232,6 +231,7 @@ MonoBehaviour:
   selector: {fileID: 8002936527412546755}
   hpBarPrefab: {fileID: 8882039076867317522, guid: 910114e52b2414846880fe0eb7cce18f, type: 3}
   hpBar: {fileID: 0}
+  visible: 1
 --- !u!114 &7024088830056583490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,10 +325,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef405e286f9389d4b8f1d403136054f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRadius: 50
+  detectionRadius: 200
   targetTags:
-  - Enemy
   - PatrolPoint
+  - Player
   PlayerTarget: {fileID: 0}
   detectionInterval: 2
 --- !u!114 &6489373961549174353
@@ -365,20 +365,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8729013943525806789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 365215724707448996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 050fd9ee263947e99c5079dcae3b7aa3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  detectionRadius: 10
-  targetTags: []
 --- !u!114 &1342783169084569114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,6 +380,7 @@ MonoBehaviour:
   actions:
   - {fileID: 11400000, guid: d0dc26ad25db4b242969e4f43cbf0c16, type: 2}
   - {fileID: 11400000, guid: a8063cc678a7e804697a68fa9a3104de, type: 2}
+  - {fileID: 11400000, guid: 4149ac6c526dc8b4db230ed997cbf962, type: 2}
   unitManager: {fileID: 0}
 --- !u!114 &7671838536369746672
 MonoBehaviour:

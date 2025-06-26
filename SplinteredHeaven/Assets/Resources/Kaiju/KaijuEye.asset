@@ -19,13 +19,13 @@ MonoBehaviour:
   positionType: 0
   weightType: 1
   effectType: 1
-  damage: 3
-  range: 60
+  damage: 10
+  range: 150
   damageType: 1
   weaponType: 1
   animatedAttack: 0
   hitMask:
     serializedVersion: 2
     m_Bits: 2048
-  inaccuracyAngle: 3
+  inaccuracyAngle: 0
   attackLaser: {fileID: 6013523164276605735, guid: 82110aa893e0fc14395a43bae7dc709f, type: 3}

@@ -7,15 +7,20 @@ public class LaserWeaponData : WeaponData
     public float inaccuracyAngle = 0f; // Optional spread
     public GameObject attackLaser; // Optional prefab for visual representation
 
+    private GameObject laserInstance; // Instance of the laser prefab
+
     public override void ApplyEffects(UnitManager user, UnitManager target, UnitPart fallbackPart, Transform attackPoint)
     {
+        if (laserInstance != null)
+        {
+            return; // Prevent multiple instances
+        }
         Transform origin = attackPoint != null ? attackPoint : user.transform;
         Vector3 direction = GetInaccurateDirection(fallbackPart.transform.position-origin.position, inaccuracyAngle);
 
-        // ?? Draw the ray in the scene view for debugging
-        Debug.DrawRay(origin.position, direction * range, Color.red, 1.5f);
 
-        Instantiate(attackLaser, attackPoint.position, Quaternion.LookRotation(direction), attackPoint);
+        laserInstance = Instantiate(attackLaser, attackPoint.position, Quaternion.LookRotation(direction), attackPoint);
+        laserInstance.GetComponent<LaserComponent>().Init(user, damage,target.transform,fallbackPart.transform);
 
         /*
         if (Physics.Raycast(origin.position, direction, out RaycastHit hit, range, hitMask, QueryTriggerInteraction.Ignore))
@@ -51,5 +56,10 @@ public class LaserWeaponData : WeaponData
         Vector2 spread = Random.insideUnitCircle * Mathf.Tan(angleRad);
         Vector3 inaccurate = new Vector3(spread.x, spread.y, 1);
         return (Quaternion.LookRotation(forward) * inaccurate).normalized;
+    }
+
+    private void OnEnable()
+    {
+        laserInstance = null; // Reset the laser instance when the script is enabled    
     }
 }

@@ -19,7 +19,11 @@ namespace UtilityAI
             GameObject target = context.sensor.GetClosestTarget(targetTag).gameObject;
 
             //context.target = target;
-
+            if(target == null)
+            {
+                Debug.LogWarning("No target found for HuntEnemyAction");
+                return;
+            }
             context.ai.StartAttackBehaviour(target);
         }
     }

@@ -22,7 +22,7 @@ public class FirstPersonInteraction : MonoBehaviour
 
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, interactionDistance))
         {
-            if (interact && !DialogueManager.Instance.dialogueIsPlaying) {
+            if (interact) {
                 hit.collider.GetComponent<IInteractable>().Interact(gameObject);
             }
             if (hit.collider.GetComponent<IInteractable>() != null)
@@ -69,6 +69,5 @@ public class FirstPersonInteraction : MonoBehaviour
         //Debug.Log("Can not interact!");
         EventManager.Instance.StartChangeInteractionSymbol(false,"");
     }
-
 
 }

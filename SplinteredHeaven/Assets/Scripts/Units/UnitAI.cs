@@ -1,4 +1,5 @@
 using Unity.Behavior;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(BehaviorGraphAgent))]
@@ -15,7 +16,8 @@ public class UnitAI : MonoBehaviour
 
     public void StartMoveBehaviour(Vector3 position)
     {
-        agent.Graph = pilotData.Pilot.MoveBehaviour;
+
+        agent.Graph = Instantiate(pilotData.Pilot.MoveBehaviour);
         agent.BlackboardReference.SetVariableValue("Position", position);
         agent.BlackboardReference.SetVariableValue("UnitMovement", GetComponent<UnitMovement>());
         agent.BlackboardReference.SetVariableValue("TargetTracker", GetComponent<TargetTracker>());
@@ -27,7 +29,7 @@ public class UnitAI : MonoBehaviour
 
     public void StartAttackBehaviour(GameObject target)
     {
-        agent.Graph = pilotData.Pilot.AttackBehaviour;
+        agent.Graph = Instantiate(pilotData.Pilot.AttackBehaviour);
         agent.BlackboardReference.SetVariableValue("TargetCharacter", target.GetComponent<UnitManager>());
         agent.BlackboardReference.SetVariableValue("TargetTracker", GetComponent<TargetTracker>());
         agent.BlackboardReference.SetVariableValue("UnitMovement", GetComponent<UnitMovement>());
