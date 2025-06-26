@@ -238,7 +238,7 @@ public class PlayerFirstPersonMovement : MonoBehaviour
             canMove = true;
             fixedCamera = false; // Lock camera rotation
             transform.position = pos; // Teleport the player to the specified position
-        });
+        }, 0.2f);
     }
 
     private void OnDestroy()

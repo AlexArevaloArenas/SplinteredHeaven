@@ -134,10 +134,19 @@ public class UnitVisualManager : MonoBehaviour
 
     private GameObject SpawnPart(UnitPart part, Transform parent)
     {
+        
+
         GameObject go = (GameObject)PrefabUtility.InstantiatePrefab(part.data.visualPrefab);
+
         
         go.transform.SetParent(parent, true);
         go.transform.localPosition = Vector3.zero;
+
+        if (part.data.partType == PartType.Legs)
+        {
+            go.transform.rotation = Quaternion.identity; // Legs need to be flipped
+        }
+
         PartVisualHandler handler = go.GetComponent<PartVisualHandler>();
         handler?.Initialize(part);
         spawnedParts.Add(go);

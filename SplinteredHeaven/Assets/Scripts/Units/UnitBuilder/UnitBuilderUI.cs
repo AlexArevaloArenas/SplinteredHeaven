@@ -14,6 +14,7 @@ public class UnitBuilderUI : MonoBehaviour
 {
     public Camera myCam;
     public LayerMask layerMask;
+    public GameObject uiPanel;
 
     public static UnitBuilderUI instance;
     public UnitManager UnitManager;
@@ -38,15 +39,17 @@ public class UnitBuilderUI : MonoBehaviour
 
     public TMPro.TextMeshProUGUI unitInfo;
 
-
+    [SerializeField] GameObject player;
+    [SerializeField] GameObject cameraHangar;
     private void Start()
     {
-        
+        gameObject.SetActive(false); // Disable the UnitBuilderUI at start
         myCam = Camera.main;
-        EventManager.Instance.LeftMouseDownEvent += Click;
+        
     }
     private void Awake()
     {
+
         if (instance == null)
         {
             instance = this;
@@ -55,8 +58,7 @@ public class UnitBuilderUI : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        SetUpAvailableUnits();
-        RefreshMechaList();
+        
     }
     /*
     public void SetUpAvailableUnits()
@@ -68,6 +70,23 @@ public class UnitBuilderUI : MonoBehaviour
             GameObject unitButton = Instantiate(availableUnitsPanel, availableUnitsPanel.transform.position, Quaternion.identity, availableUnitsPanel.transform);
         }
     }*/
+
+    private void OnEnable()
+    {
+        EventManager.Instance.OpenBuildMecha += OpenEdit;
+        EventManager.Instance.LeftMouseDownEvent += Click;
+        EventManager.Instance.EscapeKeyEvent += ExitEdit;
+
+        SetUpAvailableUnits();
+        RefreshMechaList();
+    }
+
+    private void OnDisable()
+    {
+        EventManager.Instance.LeftMouseDownEvent -= Click;
+        EventManager.Instance.OpenBuildMecha -= OpenEdit;
+        EventManager.Instance.EscapeKeyEvent -= ExitEdit;
+    }
 
     public void Click()
     {
@@ -136,6 +155,7 @@ public class UnitBuilderUI : MonoBehaviour
         SetUpModuleSlots();
         RefreshInfoText(unit);
 
+        UnitManager.transform.rotation = Quaternion.Euler(0, -90, 0);
         /*
         foreach (string unitName in savedUnits)
         {
@@ -143,6 +163,8 @@ public class UnitBuilderUI : MonoBehaviour
             unitButton.GetComponent<UnitButtonUI>().SetUp(unitName, this);
         }
         */
+
+
     }
 
 
@@ -164,6 +186,8 @@ public class UnitBuilderUI : MonoBehaviour
         currentIndex = index;
         SetUpModuleSlots();
         RefreshInfoText(unit);
+
+        UnitManager.transform.rotation = Quaternion.Euler(0, 90, 0);
     }
 
     public void ShowPartOptions()
@@ -298,6 +322,34 @@ public class UnitBuilderUI : MonoBehaviour
     {
         yield return new WaitForSeconds(waitTime);
         action?.Invoke();
+    }
+
+    public void OpenEdit()
+    {
+        UnityEngine.Cursor.lockState = CursorLockMode.Confined; // Unlock the cursor
+        UnityEngine.Cursor.visible = true; // Make the cursor visible
+        uiPanel.SetActive(true); // Enable the UI panel
+        Fader.Instance.FadeAndDo(() =>
+        {
+            player.SetActive(false); // Disable player
+            cameraHangar.SetActive(true); // Disable player
+        }, 0.005f);
+    }
+
+    public void ExitEdit()
+    {
+        UnityEngine.Cursor.lockState = CursorLockMode.Locked; // Unlock the cursor
+        UnityEngine.Cursor.visible = false; // Make the cursor visible
+
+        gameObject.SetActive(false); // Disable the UnitBuilderUI
+        uiPanel.SetActive(false); // Disable the UI panel
+        DeleteUI(); // Clear the UI elements
+        EventManager.Instance.StartCloseBuildMecha(); // Close any open build mecha UI
+        Fader.Instance.FadeAndDo(() =>
+        {
+            player.SetActive(true); // Disable player
+            cameraHangar.SetActive(false); // Disable player
+        }, 0.005f);
     }
 
 }

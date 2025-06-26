@@ -58,6 +58,9 @@ public class TimeManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        EventManager.Instance.OpenBuildMecha += Stop; // Stop time when build mecha UI is opened
+        EventManager.Instance.CloseBuildMecha += Play; // Resume time when build mecha UI is closed
+
         timeText = GameObject.Find("TimeText").GetComponent<TMPro.TextMeshProUGUI>();
         week = (WeekDays[])Enum.GetValues(typeof(WeekDays));
         dayText = GameObject.Find("DayText").GetComponent<TMPro.TextMeshProUGUI>();
@@ -181,10 +184,12 @@ public class TimeManager : MonoBehaviour
     public void Stop()
     {
         StopTime = true;
+        timePanel.SetActive(false); // Show the time panel when time is stopped
     }
     public void Play()
     {
         StopTime = false;
+        timePanel.SetActive(true); // Show the time panel when time is stopped
     }
 
 }

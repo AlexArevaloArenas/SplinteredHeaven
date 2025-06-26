@@ -46,6 +46,10 @@ public class EventManager : MonoBehaviour
     public event Action<string> DialogueTriggerEvent;
     public event Action<Vector3> TeleportPlayerEvent;
 
+    public event Action OpenBuildMecha;
+    public event Action CloseBuildMecha;
+
+
     //BATTLE EVENTS
     public event Action UnitMovesEvent;
     public event Action<MissionInstance> MissionStartsEvent;
@@ -167,6 +171,15 @@ public class EventManager : MonoBehaviour
     public void StartTeleportPlayerEvent(Vector3 target)
     {
         TeleportPlayerEvent?.Invoke(target); // If Teleport Player Event is not null, start it
+    }
+
+    public void StartOpenBuildMecha()
+    {
+        OpenBuildMecha?.Invoke(); // If Teleport Player Event is not null, start it
+    }
+    public void StartCloseBuildMecha()
+    {
+        CloseBuildMecha?.Invoke(); // If Teleport Player Event is not null, start it
     }
 
 

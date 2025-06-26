@@ -11,10 +11,12 @@ public class HangarSutileMovement : MonoBehaviour
     private float mouseX = 0;
     private float mouseY = 0;
 
-    public float lookLimit = 35.0f+180;
+    //public float lookLimit = 35.0f+180;
+    public float lookLimit = 35.0f;
 
     private void Start()
     {
+        lookLimit = transform.rotation.y + lookLimit; // Set the look limit based on the camera's position
         mainCamera = Camera.main;
         Cursor.lockState = CursorLockMode.Confined; // Lock cursor to the game window
         //Subscribe Functions To Events

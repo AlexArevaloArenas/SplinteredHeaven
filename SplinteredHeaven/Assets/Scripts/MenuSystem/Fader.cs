@@ -62,7 +62,7 @@ public class Fader : MonoBehaviour
                 //menu.HideAllMenus();
                 //Destroy(Camera.main);
                 EventManager.Instance.StartEventByString(nextAction);
-                StartCoroutine("FadeOut");
+                StartCoroutine(FadeOut(0.3f));
                 sceneLoaded = true;
                 break;
             }
@@ -71,7 +71,7 @@ public class Fader : MonoBehaviour
 
     }
 
-    IEnumerator FadeOut()
+    IEnumerator FadeOut(float time)
     {
         while (backgroundGroup.alpha > 0)
         {
@@ -81,7 +81,7 @@ public class Fader : MonoBehaviour
             {
                 break;
             }
-            yield return new WaitForSeconds(.03f);
+            yield return new WaitForSeconds(time);
         }
     }
 
@@ -100,12 +100,12 @@ public class Fader : MonoBehaviour
         sceneLoaded = false; // Reset the flag
     }
 
-    public void FadeAndDo(Action action)
+    public void FadeAndDo(Action action, float time)
     {
-        StartCoroutine(FadeAndExecute(action));
+        StartCoroutine(FadeAndExecute(action,time));
     }
 
-    IEnumerator FadeAndExecute(Action nextAction)
+    IEnumerator FadeAndExecute(Action nextAction, float time)
     {
         while (backgroundGroup.alpha < 1)
         {
@@ -119,11 +119,11 @@ public class Fader : MonoBehaviour
                 //menu.HideAllMenus();
                 //Destroy(Camera.main);
                 nextAction?.Invoke();
-                StartCoroutine("FadeOut");
+                StartCoroutine(FadeOut(time));
                 sceneLoaded = true;
                 break;
             }
-            yield return new WaitForSeconds(.03f);
+            yield return new WaitForSeconds(time);
         }
 
     }
