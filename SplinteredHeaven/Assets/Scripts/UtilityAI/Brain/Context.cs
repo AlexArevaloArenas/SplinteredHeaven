@@ -14,6 +14,7 @@ namespace UtilityAI {
         public UnitManager unitManager;
         public CharacterController characterController;
         public AIPath AIPath;
+        public GameObject[] playerUnits;
 
         readonly Dictionary<string, object> data = new();
 
@@ -33,5 +34,14 @@ namespace UtilityAI {
         
         public T GetData<T>(string key) => data.TryGetValue(key, out var value) ? (T)value : default;
         public void SetData(string key, object value) => data[key] = value;
+
+        public GameObject[] GetPlayerUnits()
+        {
+            if (playerUnits == null)
+            {
+                playerUnits = GameObject.FindGameObjectsWithTag("Player");
+            }
+            return playerUnits;
+        }
     }
 }

@@ -11,11 +11,24 @@ public class FirstPersonInteraction : MonoBehaviour
     private void Start()
     {
         EventManager.Instance.LeftMouseDownEvent += LeftMouseInput;
+        EventManager.Instance.BlockInteraction += BlockInteraction; // Subscribe to block interaction event
+    }
+
+    private void OnEnable()
+    {
+        EventManager.Instance.LeftMouseDownEvent += LeftMouseInput;
+        EventManager.Instance.BlockInteraction += BlockInteraction; // Subscribe to block interaction event
+    }
+
+    private void OnDisable()
+    {
+        EventManager.Instance.LeftMouseDownEvent -= LeftMouseInput;
+        //EventManager.Instance.BlockInteraction -= BlockInteraction; // Subscribe to block interaction event
     }
 
     private void Update()
     {
-
+        if(block) return; // If interaction is blocked, skip the update
         RaycastHit hit;
 
         Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * interactionDistance);
@@ -55,6 +68,10 @@ public class FirstPersonInteraction : MonoBehaviour
 
     private void LeftMouseInput()
     {
+        if (block)
+        {
+            return;
+        }
         interact = true;
     }
 
@@ -68,6 +85,18 @@ public class FirstPersonInteraction : MonoBehaviour
     {
         //Debug.Log("Can not interact!");
         EventManager.Instance.StartChangeInteractionSymbol(false,"");
+    }
+
+    public void BlockInteraction(bool _block)
+    {
+        block = _block;
+        EventManager.Instance.LeftMouseDownEvent += LeftMouseInput;
+        if (block)
+        {
+            EventManager.Instance.LeftMouseDownEvent -= LeftMouseInput;
+            ShowInteractionSimbol("");
+            showing = false;
+        }
     }
 
 }

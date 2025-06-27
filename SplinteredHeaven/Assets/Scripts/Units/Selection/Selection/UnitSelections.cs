@@ -72,7 +72,11 @@ public class UnitSelections : MonoBehaviour
         foreach (var unit in unitSelected)
         {
             //unit.GetComponent<UnitMovement>().enabled = false;
-            unit.GetComponent<UnitManager>().Selected(false);
+            if (unit !=null)
+            {
+                unit.GetComponent<UnitManager>().Selected(false);
+            }
+            //unit.GetComponent<UnitManager>().Selected(false);
             //unit.transform.GetChild(0).gameObject.SetActive(false);
         }
         unitSelected.Clear();

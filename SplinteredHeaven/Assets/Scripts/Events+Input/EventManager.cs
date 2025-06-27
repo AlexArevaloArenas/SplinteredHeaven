@@ -42,6 +42,8 @@ public class EventManager : MonoBehaviour
     public event Action RestrictPlayerMovementEvent;
     public event Action FreePlayerMovementEvent;
 
+    public event Action<bool> BlockInteraction; // Block or unblock player movement during first person dialogue
+
     //NARRATIVE EVENTS
     public event Action<string> DialogueTriggerEvent;
     public event Action<Vector3> TeleportPlayerEvent;
@@ -55,6 +57,7 @@ public class EventManager : MonoBehaviour
     public event Action<MissionInstance> MissionStartsEvent;
     public event Action<MissionInstance> MissionEndsEvent;
 
+    public event Action StartGameEvent;
 
     private void Awake()
     {
@@ -66,6 +69,11 @@ public class EventManager : MonoBehaviour
             Destroy(Instance);
         }
         //DontDestroyOnLoad(gameObject);
+    }
+
+    public void StartGame()
+    {
+        StartGameEvent?.Invoke(); // If Start Game Event is not null, start it
     }
 
    //List of event callers
@@ -162,6 +170,10 @@ public class EventManager : MonoBehaviour
         FPChangeInteractionSymbolEvent?.Invoke(show, text);
     }
 
+    public void StartBlockInteraction(bool block)
+    {
+        BlockInteraction?.Invoke(block); // If Block Interaction Event is not null, start it
+    }
     //Narrative Events
     public void StartDialogueTriggerEvent(string id)
     {

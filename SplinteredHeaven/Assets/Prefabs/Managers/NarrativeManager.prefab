@@ -46,7 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typingSpeed: 0.04
-  loadGlobalsJSON: {fileID: 0}
+  loadGlobalsJSON: {fileID: 4900000, guid: 5f323f37d9d56e44da36c4ffed592741, type: 3}
+  selectorList: []
 --- !u!114 &8906467699181467702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,5 +60,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68f79599bc80b4741bf6e86b4e2aa0a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggers:
-  - {fileID: 11400000, guid: cc436eac2750e574cb063195514ccc6f, type: 2}
+  allEvents:
+  - {fileID: 11400000, guid: 093e7f2a3ae65d3418583a82af096089, type: 2}
+  - {fileID: 11400000, guid: 6fd2299ddceb59d438f75bd07d9932ef, type: 2}

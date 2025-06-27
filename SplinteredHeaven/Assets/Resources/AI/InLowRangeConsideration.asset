@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32cbbe48415348bfa2603544c5233608, type: 3}
   m_Name: InLowRangeConsideration
   m_EditorClassIdentifier: 
-  maxDistance: 250
+  maxDistance: 300
   maxAngle: 360
   targetTag: Player
   curve:

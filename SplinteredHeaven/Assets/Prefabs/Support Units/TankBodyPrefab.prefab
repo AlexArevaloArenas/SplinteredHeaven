@@ -239,9 +239,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _contributeToFOV: 1
-  _sightRange: 177
+  _sightRange: 80
   _sightAngle: 360
-  _disappearInFOW: 0
+  _disappearInFOW: 1
   _disappearAlphaThreshold: 0.1
 --- !u!114 &-7418742473763941758
 MonoBehaviour:

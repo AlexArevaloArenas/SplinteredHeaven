@@ -28,11 +28,15 @@ public class MissileComponent : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.transform.root == unit.transform.root && unit !=null)
+        if (unit != null)
         {
-            // Ignore collisions with the same root object (self-collision)
-            return;
+            if (collision.transform.root == unit.transform.root && unit != null)
+            {
+                // Ignore collisions with the same root object (self-collision)
+                return;
+            }
         }
+        
         // Check if the missile hits a target
         DamageReceiver damageReceiver = collision.gameObject.GetComponent<DamageReceiver>();
         if (damageReceiver != null)

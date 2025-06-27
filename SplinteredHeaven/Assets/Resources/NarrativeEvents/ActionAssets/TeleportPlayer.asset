@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcd2e46006b483b42b5bd2ec6e1157b9, type: 3}
   m_Name: TeleportPlayer
   m_EditorClassIdentifier: 
-  destination: {x: -37.22, y: 9.723, z: -5.13}
+  destination: {x: -53.32, y: 9.723, z: -23.03}

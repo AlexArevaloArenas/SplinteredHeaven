@@ -48,8 +48,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
-  launchForce: 5
-  speed: 20
+  launchForce: 6
+  speed: 25
   destroyParticles: {fileID: 100012, guid: 3364c97de68d3a147af572d1c71c6455, type: 3}
   damage: 1
   target: {fileID: 0}

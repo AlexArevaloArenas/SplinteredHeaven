@@ -43,7 +43,6 @@ public class UnitBuilderUI : MonoBehaviour
     private void Start()
     {
         gameObject.SetActive(false); // Disable the UnitBuilderUI at start
-        myCam = Camera.main;
         
     }
     private void Awake()
@@ -75,6 +74,7 @@ public class UnitBuilderUI : MonoBehaviour
         EventManager.Instance.OpenBuildMecha += OpenEdit;
         EventManager.Instance.LeftMouseDownEvent += Click;
         EventManager.Instance.EscapeKeyEvent += ExitEdit;
+        EventManager.Instance.StartBlockInteraction(true);
 
         SetUpAvailableUnits();
         RefreshMechaList();
@@ -85,6 +85,8 @@ public class UnitBuilderUI : MonoBehaviour
         EventManager.Instance.LeftMouseDownEvent -= Click;
         EventManager.Instance.OpenBuildMecha -= OpenEdit;
         EventManager.Instance.EscapeKeyEvent -= ExitEdit;
+        EventManager.Instance.StartBlockInteraction(false);
+        EventManager.Instance.FreePlayerMovement();
     }
 
     public void Click()
@@ -325,6 +327,7 @@ public class UnitBuilderUI : MonoBehaviour
 
     public void OpenEdit()
     {
+        TimeManager.Instance.Stop();
         UnityEngine.Cursor.lockState = CursorLockMode.Confined; // Unlock the cursor
         UnityEngine.Cursor.visible = true; // Make the cursor visible
         uiPanel.SetActive(true); // Enable the UI panel
@@ -340,15 +343,17 @@ public class UnitBuilderUI : MonoBehaviour
         UnityEngine.Cursor.lockState = CursorLockMode.Locked; // Unlock the cursor
         UnityEngine.Cursor.visible = false; // Make the cursor visible
 
-        gameObject.SetActive(false); // Disable the UnitBuilderUI
+        TimeManager.Instance.Play();
         uiPanel.SetActive(false); // Disable the UI panel
         DeleteUI(); // Clear the UI elements
-        EventManager.Instance.StartCloseBuildMecha(); // Close any open build mecha UI
+        EventManager.Instance.StartBlockInteraction(false); // Close any open build mecha UI
+        gameObject.SetActive(false); // Disable the UnitBuilderUI
         Fader.Instance.FadeAndDo(() =>
         {
-            player.SetActive(true); // Disable player
             cameraHangar.SetActive(false); // Disable player
-        }, 0.005f);
+            player.SetActive(true); // Disable player
+            gameObject.SetActive(false); // Disable the UnitBuilderUI
+        }, 0.01f);
     }
 
 }

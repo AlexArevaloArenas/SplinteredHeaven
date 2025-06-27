@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
@@ -22,6 +24,11 @@ public class NarrativeManager : MonoBehaviour
 
     private void Start()
     {
+        EventManager.Instance.StartGameEvent+= Init; // Initialize narrative events when the game starts
+    }
+
+    public void Init()
+    {
         context = new NarrativeContext
         {
             dialogueManager = (DialogueManager)DialogueManager.Instance,
@@ -29,7 +36,7 @@ public class NarrativeManager : MonoBehaviour
             timeManager = TimeManager.Instance
         };
 
-        
+
 
         foreach (var evt in allEvents)
         {
@@ -75,6 +82,8 @@ public class NarrativeManager : MonoBehaviour
     {
         npcInstances.Add(npcInstance);
     }
+
+    
 
 }
 

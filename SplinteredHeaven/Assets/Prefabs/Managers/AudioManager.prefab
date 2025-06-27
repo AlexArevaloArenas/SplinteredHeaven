@@ -82,6 +82,13 @@ MonoBehaviour:
       Data3: 255262655
       Data4: -721475793
     Path: event:/UIAccept
+  <characterTalk>k__BackingField:
+    Guid:
+      Data1: 637827669
+      Data2: 1221095084
+      Data3: 99372711
+      Data4: 143734723
+    Path: event:/TalkBasic
   <acceptSFX>k__BackingField:
     Guid:
       Data1: 1014470198

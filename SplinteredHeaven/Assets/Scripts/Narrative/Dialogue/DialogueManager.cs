@@ -141,8 +141,10 @@ public class DialogueManager :  UIManager<IDialogueUI>
         {
             return;
         }
+        TimeManager.Instance.Stop(); // Pause the game time when entering dialogue mode
         OnDialogueStarted?.Invoke();
-        
+        EventManager.Instance.StartBlockInteraction(true); // Block interaction while dialogue is playing
+
         currentStory = new Story(inkJSON.text);
         dialogueIsPlaying = true;
         currentUI.SetActive(true);
@@ -172,7 +174,7 @@ public class DialogueManager :  UIManager<IDialogueUI>
         dialogueVariables.StopListening(currentStory);
         currentStory.UnbindExternalFunction("dialogueTrigger");
         OnDialogueEnded?.Invoke();
-        dialogueIsPlaying = false;
+        
         currentUI.SetActive(false);
         //dialogueText.text = "";
         currentUI.ShowDialogue("");
@@ -181,8 +183,10 @@ public class DialogueManager :  UIManager<IDialogueUI>
         //SetCurrentAudioInfo(defaultAudioInfo.id);
         EventManager.Instance.ExitFirstPersonDialogue();
 
-        yield return new WaitForSeconds(0.2f);
-
+        yield return new WaitForSeconds(0.15f);
+        dialogueIsPlaying = false;
+        EventManager.Instance.StartBlockInteraction(false);
+        TimeManager.Instance.Play();
     }
 
 
@@ -315,6 +319,11 @@ public class DialogueManager :  UIManager<IDialogueUI>
             index++;
         }
         currentChoiceNumber = index; // Store the number of choices available
+        currentChoice =0; // Reset the current choice index
+        foreach (GameObject selector in selectorList)
+        {
+            selector.SetActive(false); // Hide all selectors
+        }
         // go through the remaining choices the UI supports and make sure they're hidden
         for (int i = index; i < currentUI.GetChoices().Length; i++)
         {
@@ -344,6 +353,8 @@ public class DialogueManager :  UIManager<IDialogueUI>
             //InputManager.GetInstance().RegisterSubmitPressed(); // this is specific to my InputManager script
             ContinueStory();
         }
+
+
     }
     
 

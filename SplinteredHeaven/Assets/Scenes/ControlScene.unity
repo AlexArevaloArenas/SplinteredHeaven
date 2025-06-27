@@ -616,26 +616,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 411508862101834717, guid: 9ce4f212c0cf73e4ba3d7a48c187a8dc, type: 3}
-      propertyPath: <characterTalk>k__BackingField.Path
-      value: event:/TalkBasic
-      objectReference: {fileID: 0}
-    - target: {fileID: 411508862101834717, guid: 9ce4f212c0cf73e4ba3d7a48c187a8dc, type: 3}
-      propertyPath: <characterTalk>k__BackingField.Guid.Data1
-      value: 637827669
-      objectReference: {fileID: 0}
-    - target: {fileID: 411508862101834717, guid: 9ce4f212c0cf73e4ba3d7a48c187a8dc, type: 3}
-      propertyPath: <characterTalk>k__BackingField.Guid.Data2
-      value: 1221095084
-      objectReference: {fileID: 0}
-    - target: {fileID: 411508862101834717, guid: 9ce4f212c0cf73e4ba3d7a48c187a8dc, type: 3}
-      propertyPath: <characterTalk>k__BackingField.Guid.Data3
-      value: 99372711
-      objectReference: {fileID: 0}
-    - target: {fileID: 411508862101834717, guid: 9ce4f212c0cf73e4ba3d7a48c187a8dc, type: 3}
-      propertyPath: <characterTalk>k__BackingField.Guid.Data4
-      value: 143734723
-      objectReference: {fileID: 0}
     - target: {fileID: 1732445847805161704, guid: 9ce4f212c0cf73e4ba3d7a48c187a8dc, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -693,10 +673,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5972792867546253668, guid: 7358a9fd4eed7354bafc30697b9784bc, type: 3}
-      propertyPath: loadGlobalsJSON
-      value: 
-      objectReference: {fileID: 4900000, guid: 5f323f37d9d56e44da36c4ffed592741, type: 3}
     - target: {fileID: 6506569697227115309, guid: 7358a9fd4eed7354bafc30697b9784bc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.2921557
@@ -742,21 +718,13 @@ PrefabInstance:
       value: NarrativeManager
       objectReference: {fileID: 0}
     - target: {fileID: 8906467699181467702, guid: 7358a9fd4eed7354bafc30697b9784bc, type: 3}
-      propertyPath: triggers.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8906467699181467702, guid: 7358a9fd4eed7354bafc30697b9784bc, type: 3}
       propertyPath: allEvents.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8906467699181467702, guid: 7358a9fd4eed7354bafc30697b9784bc, type: 3}
-      propertyPath: 'allEvents.Array.data[0]'
+      propertyPath: 'allEvents.Array.data[2]'
       value: 
-      objectReference: {fileID: 11400000, guid: 093e7f2a3ae65d3418583a82af096089, type: 2}
-    - target: {fileID: 8906467699181467702, guid: 7358a9fd4eed7354bafc30697b9784bc, type: 3}
-      propertyPath: 'allEvents.Array.data[1]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 6fd2299ddceb59d438f75bd07d9932ef, type: 2}
+      objectReference: {fileID: 11400000, guid: 916e996edaeac0242b3971694b3720c3, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

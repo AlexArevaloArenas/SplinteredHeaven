@@ -62,6 +62,7 @@ public class PlayerFirstPersonMovement : MonoBehaviour
         EventManager.Instance.RestrictPlayerMovementEvent += () => restrictedCamera = true; canMove = false;
         EventManager.Instance.FreePlayerMovementEvent += () => fixedCamera = false; restrictedCamera = false; canMove = true;
 
+        EventManager.Instance.StartGame();
     }
 
     // Update is called once per frame
@@ -158,6 +159,15 @@ public class PlayerFirstPersonMovement : MonoBehaviour
         mouseY = input.y;
     }
 
+    private void OnEnable()
+    {
+        EventManager.Instance.JumpEvent += JumpInput;
+        EventManager.Instance.MoveEvent += MoveInputEvent;
+        EventManager.Instance.LookEvent += LookInputEvent;
+        EventManager.Instance.FPDialogueEvent += EnterDialogueMode;
+        EventManager.Instance.EndFPDialogueEvent += ExitDialogueMode;
+    }
+
     private void OnDisable()
     {
         EventManager.Instance.JumpEvent -= JumpInput;
@@ -166,6 +176,8 @@ public class PlayerFirstPersonMovement : MonoBehaviour
         EventManager.Instance.FPDialogueEvent -= EnterDialogueMode;
         EventManager.Instance.EndFPDialogueEvent -= ExitDialogueMode;
     }
+
+
     
     public IEnumerator LookAtCorrutine(Vector3 pos)
     {
@@ -237,7 +249,7 @@ public class PlayerFirstPersonMovement : MonoBehaviour
             canMove = true;
             fixedCamera = false; // Lock camera rotation
             transform.position = pos; // Teleport the player to the specified position
-        }, 0.2f);
+        }, 0.02f);
     }
 
     private void OnDestroy()

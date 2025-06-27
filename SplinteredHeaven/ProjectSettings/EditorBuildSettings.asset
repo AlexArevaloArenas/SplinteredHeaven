@@ -9,14 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/StartScene.unity
     guid: cdfdd8baf23e169409ea6852ee29d41b
   - enabled: 1
+    path: Assets/Scenes/BattleScene.unity
+    guid: 844b8f6e768606b4696866a163eab6e5
+  - enabled: 1
     path: Assets/Scenes/ControlScene.unity
     guid: e958001958a3f544f9e01075ba901b23
   - enabled: 1
     path: Assets/Scenes/HubScene.unity
     guid: 508e05c0ea09f7c45a71519d9e393e13
-  - enabled: 1
-    path: Assets/Scenes/BattleScene.unity
-    guid: 844b8f6e768606b4696866a163eab6e5
   - enabled: 0
     path: Assets/Scenes/EmptyScene.unity
     guid: 098dc9e1c08555949a0941c5b959d80b
