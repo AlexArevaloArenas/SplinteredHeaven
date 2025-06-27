@@ -139,10 +139,6 @@ public class PlayerFirstPersonMovement : MonoBehaviour
             
         }
 
-        if(characterController.velocity.magnitude != 0.0f)
-        {
-            AudioManager.instance.PlayOneShot(FMODEvents.instance.playerFootsteps, transform.position);
-        }
 
     }
 
