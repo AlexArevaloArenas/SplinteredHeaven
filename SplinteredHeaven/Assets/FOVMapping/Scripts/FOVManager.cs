@@ -237,7 +237,8 @@ public class FOVManager : MonoBehaviour
 			for (int i = 0; i < FOVAgents.Count; i++)
 			{
 				FOVAgent agent = FOVAgents[i];
-				if (agent.enabled && agent.contributeToFOV)
+					if (agent == null) continue; // Skip if the agent is null
+                    if (agent.enabled && agent.contributeToFOV)
 				{
 					Vector3 relativePos = Vector3.Scale(transform.InverseTransformPoint(agent.transform.position), transform.lossyScale); // Position of the agent relative to the FOW plane
 					Vector3 relativeForward = transform.InverseTransformDirection(agent.transform.forward); // Ditto

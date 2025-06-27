@@ -14,7 +14,7 @@ public class RaycastWeaponData : WeaponData
 
         // ?? Draw the ray in the scene view for debugging
         Debug.DrawRay(origin.position, direction * range, Color.red, 1.5f);
-
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.shoot, Camera.main.transform.position);
         Instantiate(attackparticles, attackPoint.position, Quaternion.LookRotation(direction), attackPoint);
 
         if (Physics.Raycast(origin.position, direction, out RaycastHit hit, range, hitMask, QueryTriggerInteraction.Ignore))

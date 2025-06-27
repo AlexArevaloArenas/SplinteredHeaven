@@ -34,6 +34,7 @@ public class MenuManager : MonoBehaviour
     {
         fadeControl = Fader.GetInstance();
         CloseOptions();
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.music, Camera.main.transform.position);
     }
 
 

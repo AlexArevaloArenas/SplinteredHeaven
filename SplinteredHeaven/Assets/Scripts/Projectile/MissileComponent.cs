@@ -17,6 +17,7 @@ public class MissileComponent : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         // Apply force to the rocket upon launch
         rb.AddForce(transform.forward * launchForce, ForceMode.Impulse);
+        
     }
 
     public void Init(UnitManager _unit, float _damage, Transform _target)
@@ -56,6 +57,7 @@ public class MissileComponent : MonoBehaviour
     private void OnDestroy()
     {
         Instantiate(destroyParticles, transform.position, Quaternion.identity);
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.explosion, transform.position);
     }
 
     private void Update()

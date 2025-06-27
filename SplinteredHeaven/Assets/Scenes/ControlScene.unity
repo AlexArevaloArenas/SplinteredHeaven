@@ -616,6 +616,86 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 411508862101834717, guid: 9ce4f212c0cf73e4ba3d7a48c187a8dc, type: 3}
+      propertyPath: <step>k__BackingField.Path
+      value: event:/Steps
+      objectReference: {fileID: 0}
+    - target: {fileID: 411508862101834717, guid: 9ce4f212c0cf73e4ba3d7a48c187a8dc, type: 3}
+      propertyPath: <music>k__BackingField.Path
+      value: event:/MusicMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 411508862101834717, guid: 9ce4f212c0cf73e4ba3d7a48c187a8dc, type: 3}
+      propertyPath: <shoot>k__BackingField.Path
+      value: event:/Shoot
+      objectReference: {fileID: 0}
+    - target: {fileID: 411508862101834717, guid: 9ce4f212c0cf73e4ba3d7a48c187a8dc, type: 3}
+      propertyPath: <explosion>k__BackingField.Path
+      value: event:/Explosion
+      objectReference: {fileID: 0}
+    - target: {fileID: 411508862101834717, guid: 9ce4f212c0cf73e4ba3d7a48c187a8dc, type: 3}
+      propertyPath: <step>k__BackingField.Guid.Data1
+      value: 1717024554
+      objectReference: {fileID: 0}
+    - target: {fileID: 411508862101834717, guid: 9ce4f212c0cf73e4ba3d7a48c187a8dc, type: 3}
+      propertyPath: <step>k__BackingField.Guid.Data2
+      value: 1197339420
+      objectReference: {fileID: 0}
+    - target: {fileID: 411508862101834717, guid: 9ce4f212c0cf73e4ba3d7a48c187a8dc, type: 3}
+      propertyPath: <step>k__BackingField.Guid.Data3
+      value: -72657245
+      objectReference: {fileID: 0}
+    - target: {fileID: 411508862101834717, guid: 9ce4f212c0cf73e4ba3d7a48c187a8dc, type: 3}
+      propertyPath: <step>k__BackingField.Guid.Data4
+      value: 921886964
+      objectReference: {fileID: 0}
+    - target: {fileID: 411508862101834717, guid: 9ce4f212c0cf73e4ba3d7a48c187a8dc, type: 3}
+      propertyPath: <music>k__BackingField.Guid.Data1
+      value: 774285307
+      objectReference: {fileID: 0}
+    - target: {fileID: 411508862101834717, guid: 9ce4f212c0cf73e4ba3d7a48c187a8dc, type: 3}
+      propertyPath: <music>k__BackingField.Guid.Data2
+      value: 1088529215
+      objectReference: {fileID: 0}
+    - target: {fileID: 411508862101834717, guid: 9ce4f212c0cf73e4ba3d7a48c187a8dc, type: 3}
+      propertyPath: <music>k__BackingField.Guid.Data3
+      value: -999668601
+      objectReference: {fileID: 0}
+    - target: {fileID: 411508862101834717, guid: 9ce4f212c0cf73e4ba3d7a48c187a8dc, type: 3}
+      propertyPath: <music>k__BackingField.Guid.Data4
+      value: -1692206854
+      objectReference: {fileID: 0}
+    - target: {fileID: 411508862101834717, guid: 9ce4f212c0cf73e4ba3d7a48c187a8dc, type: 3}
+      propertyPath: <shoot>k__BackingField.Guid.Data1
+      value: -480745626
+      objectReference: {fileID: 0}
+    - target: {fileID: 411508862101834717, guid: 9ce4f212c0cf73e4ba3d7a48c187a8dc, type: 3}
+      propertyPath: <shoot>k__BackingField.Guid.Data2
+      value: 1133444022
+      objectReference: {fileID: 0}
+    - target: {fileID: 411508862101834717, guid: 9ce4f212c0cf73e4ba3d7a48c187a8dc, type: 3}
+      propertyPath: <shoot>k__BackingField.Guid.Data3
+      value: 260316325
+      objectReference: {fileID: 0}
+    - target: {fileID: 411508862101834717, guid: 9ce4f212c0cf73e4ba3d7a48c187a8dc, type: 3}
+      propertyPath: <shoot>k__BackingField.Guid.Data4
+      value: -580864069
+      objectReference: {fileID: 0}
+    - target: {fileID: 411508862101834717, guid: 9ce4f212c0cf73e4ba3d7a48c187a8dc, type: 3}
+      propertyPath: <explosion>k__BackingField.Guid.Data1
+      value: 268852153
+      objectReference: {fileID: 0}
+    - target: {fileID: 411508862101834717, guid: 9ce4f212c0cf73e4ba3d7a48c187a8dc, type: 3}
+      propertyPath: <explosion>k__BackingField.Guid.Data2
+      value: 1296023468
+      objectReference: {fileID: 0}
+    - target: {fileID: 411508862101834717, guid: 9ce4f212c0cf73e4ba3d7a48c187a8dc, type: 3}
+      propertyPath: <explosion>k__BackingField.Guid.Data3
+      value: 216458907
+      objectReference: {fileID: 0}
+    - target: {fileID: 411508862101834717, guid: 9ce4f212c0cf73e4ba3d7a48c187a8dc, type: 3}
+      propertyPath: <explosion>k__BackingField.Guid.Data4
+      value: 775720623
+      objectReference: {fileID: 0}
     - target: {fileID: 1732445847805161704, guid: 9ce4f212c0cf73e4ba3d7a48c187a8dc, type: 3}
       propertyPath: m_Name
       value: AudioManager

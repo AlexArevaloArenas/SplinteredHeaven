@@ -126,10 +126,10 @@ namespace FOVMapping
 			isUnderFOW = isUnder;
 			if (_disappearInFOW)
 			{
-
+				
 				if (TryGetComponent(out PartVisualHandler partVisual))
 				{
-                    if (partVisual.linkedPart.owner.obj.TryGetComponent(out UnitManager unit))
+                    if (transform.root.TryGetComponent(out UnitManager unit))
                     {
                         unit.SetHealthbarVisibility(isUnder);
                     }
