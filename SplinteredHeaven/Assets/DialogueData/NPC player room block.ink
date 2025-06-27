@@ -11,6 +11,7 @@ If i were you, I would try to calm them down, or else they might do unexpected t
 Well, I don't want to waste more of your precious time, good luck!
 ~ dialogueTrigger("soldier")
 -> END
+
 /*
 * OPCIÓN 1 
     ->op1
