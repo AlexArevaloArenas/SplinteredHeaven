@@ -1,5 +1,6 @@
 
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HealthBarVisual : MonoBehaviour
 {
@@ -8,9 +9,13 @@ public class HealthBarVisual : MonoBehaviour
     Vector3 nuevaPos;
     public Transform myCam;
     private Transform heigh;
+    public UnityEngine.UI.Image img;
+    public Color enemy;
+    public Color ally;
 
     private void Start()
     {
+        img = GetComponent<UnityEngine.UI.Image>();
         myCam = Camera.main.transform;
         foreach(var part in unidad.unit.Parts)
         {
@@ -23,6 +28,14 @@ public class HealthBarVisual : MonoBehaviour
         if(heigh == null)
         {
             heigh = unidad.transform;
+        }
+        if (unidad.gameObject.tag == "Enemy")
+        {
+            img.color = enemy;
+        }
+        else
+        {
+            img.color = ally;
         }
     }
     void Update()

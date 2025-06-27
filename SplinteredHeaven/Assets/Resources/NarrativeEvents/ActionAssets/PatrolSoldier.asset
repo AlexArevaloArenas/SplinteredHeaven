@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bf770df5f461d34fa4bed7e8e8e36f9, type: 3}
   m_Name: PatrolSoldier
   m_EditorClassIdentifier: 
-  characterID: soldier
+  characterID: soldierDoor

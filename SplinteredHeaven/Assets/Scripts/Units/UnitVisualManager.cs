@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using UnityEditor;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 [ExecuteAlways]
@@ -134,9 +133,10 @@ public class UnitVisualManager : MonoBehaviour
 
     private GameObject SpawnPart(UnitPart part, Transform parent)
     {
-        
 
-        GameObject go = (GameObject)PrefabUtility.InstantiatePrefab(part.data.visualPrefab);
+
+        //GameObject go = (GameObject)PrefabUtility.InstantiatePrefab(part.data.visualPrefab);
+        GameObject go = Instantiate(part.data.visualPrefab);
 
         
         go.transform.SetParent(parent, true);

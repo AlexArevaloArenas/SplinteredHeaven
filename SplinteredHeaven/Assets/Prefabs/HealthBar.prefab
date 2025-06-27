@@ -91,3 +91,6 @@ MonoBehaviour:
   unidad: {fileID: 0}
   margen: {x: 0, y: 5, z: 0}
   myCam: {fileID: 0}
+  img: {fileID: 0}
+  enemy: {r: 1, g: 0.3830188, b: 0.3830188, a: 1}
+  ally: {r: 0.39215687, g: 1, b: 0.45490196, a: 1}
