@@ -1,0 +1,39 @@
+INCLUDE globals.ink
+
+Hello Sir *Hic*, I was looking at the mechs *Hic*.
+That one looks *Hic* funny... *Hic*.
+Do you *Hic* need something?
+
+ * I see you are having quite an evening...
+    Yeah! *Hic* I "found" this bottle near the bosses room!
+    Do you *Hic* wan't some? 
+    Oh.
+    It's empty...
+    ...
+    ... *Hic*
+    Ah, I just remembered I *Hic* had another!
+    * * Hey, how about we share it after the mission?
+        I like that idea!
+        Deal! *Hic*
+        ~pilot2Calmed = true
+        ~pilot2Talked = true
+        -> END
+    * * I bet you can't drink it whole right now!
+        Hah, you *Hic* wish!
+        Here, bottoms up!
+        Glup glup glup...
+        Now, thats *Yawn* more like it...
+        ...
+        ...
+        ZZZ...
+        ~pilot2Talked = true
+        -> END
+ * I forbid you to drink.
+    Hah! *Hic* you wish! *Hic*
+    Don't bother me during *Hic* the little *Hic* time I have to forget about the *Hic* missions...  
+    ...
+    ...
+    ZZZ...
+    ~pilot2Talked = true
+    -> END
+

@@ -9,7 +9,7 @@ Between you and me, they don't seem too...
 Mentally stable...
 If i were you, I would try to calm them down, or else they might do unexpected things during the mission.
 Well, I don't want to waste more of your precious time, good luck!
-//~ dialogueTrigger("soldier")
+~ dialogueTrigger("soldier")
 -> END
 /*
 * OPCIÓN 1 

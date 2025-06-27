@@ -68,6 +68,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcData: {fileID: 11400000, guid: 43851e5663e30564db605899aee377ec, type: 2}
   interestPoints: []
+  patrol: 0
 --- !u!114 &296117901030987414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,13 +261,44 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8673311217971976953, guid: c707bddf39346d54e8eba020c26ab6ed, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6610310641029287437, guid: c707bddf39346d54e8eba020c26ab6ed, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4119178216184998527}
   m_SourcePrefab: {fileID: 100100000, guid: c707bddf39346d54e8eba020c26ab6ed, type: 3}
 --- !u!4 &3916780641387397816 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6579785642636126315, guid: c707bddf39346d54e8eba020c26ab6ed, type: 3}
   m_PrefabInstance: {fileID: 7857421337874098899}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3942797650495431902 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6610310641029287437, guid: c707bddf39346d54e8eba020c26ab6ed, type: 3}
+  m_PrefabInstance: {fileID: 7857421337874098899}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &4119178216184998527
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3942797650495431902}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4ef2745f406e5834fbe16e862c115ee3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
