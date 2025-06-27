@@ -42,7 +42,25 @@ namespace FOVMapping
 		private List<SkinnedMeshRenderer> skinnedMeshRenderers;
 
 		private bool init=false;
+        private void Awake()
+        {
+            if (transform.root.tag == "Enemy")
+            {
+                _disappearInFOW = true;
+                disappearInFOW = true; // Enemy units should not disappear in FOW
+                contributeToFOV = false; // Enemy units should not contribute to FOV
+				_contributeToFOV = false; // Enemy units should not contribute to FOV
+                sightRange = 0; // Enemy units should have a larger sight range
 
+            }
+            else
+            {
+                _disappearInFOW = false; 
+				disappearInFOW = false; // Friendly units should disappear in FOW
+				contributeToFOV = true; // Friendly units should contribute to FOV
+                _contributeToFOV = true; // Friendly units should contribute to FOV
+            }
+        }
         /*
 		private void Start()
 		{
@@ -67,11 +85,19 @@ namespace FOVMapping
         public void Init()
 		{
             if(init) return; // Prevent re-initialization
-            
+			if (disappearInFOW)
+			{
+				contributeToFOV = false; // If an agent disappears in FOW, it should not contribute to FOV
+                _contributeToFOV = false;
+            }
 			
-            if (GetComponent<PartVisualHandler>().linkedPart.owner.obj.tag == "Enemy")
+            if (transform.root.tag == "Enemy")
             {
-                _disappearInFOW = true; // Enemy units should not disappear in FOW
+                _disappearInFOW = true;
+                disappearInFOW = true; // Enemy units should not disappear in FOW
+                contributeToFOV = false; // Enemy units should not contribute to FOV
+                _contributeToFOV = false; // Enemy units should not contribute to FOV
+                sightRange = 0; // Enemy units should have a larger sight range
 
             }
             else
@@ -98,7 +124,7 @@ namespace FOVMapping
 			}
 			
 			isUnderFOW = isUnder;
-			if (disappearInFOW)
+			if (_disappearInFOW)
 			{
 
 				if (TryGetComponent(out PartVisualHandler partVisual))
@@ -112,7 +138,7 @@ namespace FOVMapping
 				
 
 
-				if (meshRenderers == null) return;
+				//if (meshRenderers == null) return;
 				if (skinnedMeshRenderers == null) return;
 
 				for (int  i = 0; i < meshRenderers.Count; i++) 
