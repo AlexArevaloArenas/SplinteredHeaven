@@ -42,6 +42,10 @@ public class UnitBuilderUI : MonoBehaviour
     [SerializeField] GameObject cameraHangar;
     private void Start()
     {
+        EventManager.Instance.OpenBuildMecha += OpenEdit;
+        EventManager.Instance.LeftMouseDownEvent += Click;
+        EventManager.Instance.EscapeKeyEvent += ExitEdit;
+        EventManager.Instance.StartBlockInteraction(true);
         gameObject.SetActive(false); // Disable the UnitBuilderUI at start
         
     }
@@ -102,17 +106,22 @@ public class UnitBuilderUI : MonoBehaviour
         RaycastHit hit;
         Ray ray = myCam.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
+        if (Input.GetMouseButton(0))
         {
-            PartVisualHandler part = hit.collider.GetComponent<PartVisualHandler>();
-            if (part != null)
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
             {
-                // Handle part click
-                selectedPart = part.partType;
-                ShowPartOptions();
-            }
+                PartVisualHandler part = hit.collider.GetComponent<PartVisualHandler>();
+                if (part != null)
+                {
+                    // Handle part click
+                    selectedPart = part.partType;
+                    ShowPartOptions();
+                }
 
+            }
         }
+
+        
 
     }
 
