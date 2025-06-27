@@ -29,13 +29,15 @@ public class NPCManager : MonoBehaviour
 
     private void Update()
     {
-        if(characterController.velocity.magnitude==0)
+        if(patrol)
         {
-            Animator.SetBool("watching", true);
+            Animator.SetBool("watching", false);
         }
         else
         {
-            Animator.SetFloat("speed", characterController.velocity.magnitude);
+            Animator.SetBool("watching", true);
+
+
         }
 
 
